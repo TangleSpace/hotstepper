@@ -1,4 +1,4 @@
-<p align="left"><img src="https://github.com/TangleSpace/HotStepper/blob/main/docs/images/HotstepperLogo.png?raw=true" title="Hot Stepper" alt="Hot Stepper"></p>
+<p align="left"><img src="https://github.com/TangleSpace/HotStepper/blob/master/docs/images/HotstepperLogo.png?raw=true" title="Hot Stepper" alt="Hot Stepper"></p>
 
 The Hot Stepper library is for exploring datasets via step function expansions.
 
@@ -27,7 +27,7 @@ Alright, if we just plot y(n) with straight lines connecting the points, we'd ge
     fig,ax = plt.subplots()
     ax.plot(x,y)
 ```
-<p align="left"><img src="https://github.com/TangleSpace/HotStepper/blob/main/docs/images/fibo_line.png?raw=true" title="Fibonacci Plot" alt="Fibonacci Plot"></p>
+<p align="left"><img src="https://github.com/TangleSpace/HotStepper/blob/master/docs/images/fibo_line.png?raw=true" title="Fibonacci Plot" alt="Fibonacci Plot"></p>
 
 Or we could get fancy and use step functions to construct the same plot from the fibonacci sequence.
 
@@ -37,7 +37,7 @@ Or we could get fancy and use step functions to construct the same plot from the
     st = Steps().add([Step(i,None,fn) for i, fn in enumerate(fibo_deltas)])
     ax = st.plot()
 ```
-<p align="left"><img src="https://github.com/TangleSpace/HotStepper/blob/main/docs/images/fibo_steps.png?raw=true" title="Fibonacci Step Plot" alt="Fibonacci Step Plot"></p>
+<p align="left"><img src="https://github.com/TangleSpace/HotStepper/blob/master/docs/images/fibo_steps.png?raw=true" title="Fibonacci Step Plot" alt="Fibonacci Step Plot"></p>
 
 Now what if we only start with the rules of the fibonacci sequence, we can generate a step sequence directly.
 
@@ -59,4 +59,4 @@ Now what if we only start with the rules of the fibonacci sequence, we can gener
         s.plot(ax=ax,linestyle='-.')
 ```
 
-<p align="left"><img src="https://github.com/TangleSpace/HotStepper/blob/main/docs/images/fibo_steps_sequence.png?raw=true" title="Fibonacci Step Plot" alt="Fibonacci Step Plot"></p>
+<p align="left"><img src="https://github.com/TangleSpace/HotStepper/blob/master/docs/images/fibo_steps_sequence.png?raw=true" title="Fibonacci Step Plot" alt="Fibonacci Step Plot"></p>
