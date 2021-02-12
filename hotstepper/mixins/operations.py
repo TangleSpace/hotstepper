@@ -1,6 +1,6 @@
 import numpy as np
 from hotstepper.core.data_model import DataModel
-from hotstepper.utilities.helpers import get_epoch_start
+from hotstepper.utilities.helpers import get_epoch_start, get_value,ts_to_dt
 
 
 def apply_math_function(caller,other,math_function, sample_points=None):
@@ -227,8 +227,18 @@ def filter_values(caller,other, operation_func, normalise_value = 0):
         mask = np.where(operation_func(caller_step_data[:,DataModel.WEIGHT.value],other), True,False)
 
         if np.alltrue(mask):
-            return caller
-        
+            if normalise_value == 0:
+                return caller
+            else:
+                ty = type(caller)
+                return ty(use_datetime=caller.using_datetime(),
+                            basis=caller.basis(),
+                            start=caller.first(),
+                            end=caller.last(),
+                            weight=normalise_value
+                        )
+# start=ts_to_dt(caller_step_data[0,DataModel.START.value],caller.using_datetime()),
+# end=ts_to_dt(caller_step_data[-1,DataModel.START.value],caller.using_datetime()),
         new_steps = _filter_by_mask(caller_step_data,mask,normalise_value)
     else:
         caller_step_data = caller.steps()
@@ -237,7 +247,16 @@ def filter_values(caller,other, operation_func, normalise_value = 0):
         mask = np.where(operation_func(caller_step_data[:,DataModel.WEIGHT.value],other_step_values), True,False)
 
         if np.alltrue(mask):
-            return caller
+            if normalise_value == 0:
+                return caller
+            else:
+                ty = type(caller)
+                return ty(use_datetime=caller.using_datetime(),
+                            basis=caller.basis(),
+                            start=caller.first(),
+                            end=caller.last(),
+                            weight=normalise_value
+                        )
         
         new_steps = _filter_by_mask(caller_step_data,mask,normalise_value)
 

@@ -151,6 +151,7 @@ def span_and_weights(st):
 
     span = max_key - min_key
     span_deltas = np.diff(step_keys)
+    span_deltas = np.append(span_deltas,0)
     weights = np.divide(span_deltas,span)
 
     return min_key,max_key,span, weights
@@ -160,8 +161,8 @@ def mean_integrate(st):
     _, steps_raw = get_clean_step_data(st)
 
     _,_,span, weight = span_and_weights(st)
-    mean = np.dot(steps_raw[0:-1],weight)
-    var = np.dot(np.power(steps_raw[0:-1],2),weight) - mean**2
+    mean = np.dot(steps_raw,weight)
+    var = np.dot(np.power(steps_raw,2),weight) - mean**2
     area = span*mean
 
     if st.using_datetime():
@@ -235,7 +236,7 @@ def describe(st, precision = 2, return_dataframe = True):
     summary = {}
 
     _, step_values = get_clean_step_data(st)
-    summary['Count'] = int(len(step_values))
+    summary['Count'] = len(st.step_keys())
 
     summary['Mean'] = round(st.mean(),precision)
     summary['Median'] = round(st.median(),precision)
