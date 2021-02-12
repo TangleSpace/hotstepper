@@ -81,7 +81,9 @@ def date_to_float(date_value):
             return float(date_value)/10.0**9
         else:
             # convert all times to utc
-            return (pytz.utc.localize(date_value.tz_localize(None))).timestamp()
+            if hasattr(date_value,'tz_localize') and callable(date_value.tz_localize):
+                date_value = date_value.tz_localize(None)
+            return (pytz.utc.localize(date_value)).timestamp()
     elif is_delta_datetime(date_value):
         return timedelta_to_float(date_value)
     else:
