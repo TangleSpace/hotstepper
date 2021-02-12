@@ -215,6 +215,8 @@ def get_plot_range(start,end, delta = None, use_datetime = False):
     """
 
     shift = None
+    end = None if end == start else end
+
     use_datetime = is_date_time(start) or use_datetime
     if use_datetime:
         start = pd.to_datetime(start)
@@ -349,42 +351,51 @@ def steps_plot(steps,method=None,smooth_factor = None,smooth_basis=None,ts_grain
     if kargs.get('color') is None:
         kargs['color']=get_default_plot_color()
 
+    np_keys = steps.step_keys()
+    np_values = steps.step_values()
+
+    if len(np_keys) < 3 :
+        if len(np_keys) == 0:
+            ax.axhline(steps(get_epoch_start(steps.using_datetime()))[0], **kargs)
+            return ax
+        else:
+            np_keys = get_plot_range(steps.first(),steps.last(),ts_grain,use_datetime=steps.using_datetime())
+            np_values = steps.step(np_keys)
+
+
     if method == 'pretty':
-        if steps.step_values().shape[0] == 0:
+        if len(np_keys) == 0:
             ax.axhline(steps(0)[0], **kargs)
         else:
-            _prettyplot(steps.step_values(),plot_start=steps.first(),plot_start_value=0,ax=ax,**kargs)
+            _prettyplot(np_values,plot_start=steps.first(),plot_start_value=0,ax=ax,**kargs)
 
     elif method == 'function':
             tsx = get_plot_range(steps.first(),steps.last(),ts_grain,use_datetime=steps.using_datetime())
             ax.step(tsx,steps.step(tsx), where=where, **kargs)
             
-    elif method == 'smooth':
-        np_keys = steps.step_keys()
-        
+    elif method == 'smooth':      
         # small offset to ensure we plot the initial step transition
         if steps.using_datetime():
             ts_grain = pd.Timedelta(minutes=1)
             np_keys = prepare_datetime(np_keys)
         else:
-            ts_grain = 0.0000001
+            ts_grain = 0.000000000001
             
         if np_keys[0] == get_epoch_start(steps.using_datetime()):
             np_keys[0] = np_keys[1] - ts_grain
         else:
+            np_keys = np.insert(np_keys,0,np_keys[0] - ts_grain)
+            np_values = np.insert(np_values,0,0)
             np_keys[0] = np_keys[0] - ts_grain
 
         ax.plot(np_keys,steps.smooth_step(np_keys,smooth_factor = smooth_factor, smooth_basis=smooth_basis), **kargs)
-
     else:
-        np_keys = steps.step_keys()
-        np_values = steps.step_values()
         # small offset to ensure we plot the initial step transition
         if steps.using_datetime():
             ts_grain = pd.Timedelta(minutes=1)
             np_keys = prepare_datetime(np_keys)
         else:
-            ts_grain = 0.0000001
+            ts_grain = 0.000000000001
         
         if np_keys[0] == get_epoch_start(steps.using_datetime()):
             np_keys[0] = np_keys[1] - ts_grain
@@ -393,80 +404,7 @@ def steps_plot(steps,method=None,smooth_factor = None,smooth_basis=None,ts_grain
             np_values = np.insert(np_values,0,0)
             np_keys[0] = np_keys[0] - ts_grain
 
-        if len(np_keys) == 0: # or ((np.abs(np_keys) == np.inf).all()):
-            ax.axhline(steps(get_epoch_start(steps.using_datetime()))[0], **kargs)
-        else:
-            ax.step(np_keys,np_values, where=where, **kargs)
 
-    return ax
-
-
-def step_plot(step,method=None,smooth_factor = None, ts_grain = None,ax=None,where='post',**kargs):
-    """
-    
-    """
-
-    if ax is None:
-        plot_size = kargs.pop('figsize',None)
-        if plot_size is None:
-            plot_size = get_default_plot_size()
-            
-        _, ax = plt.subplots(figsize=plot_size)
-
-    if kargs.get('color') is None:
-        kargs['color']=get_default_plot_color()
-
-    if step.end() is None:
-        max_ts = float(1.2*step._start_ts)
-    else:
-        max_ts = float(1.2*step._end.start_ts())
-
-    if step._start == get_epoch_start(step.using_datetime()):
-        min_ts = float(0.8*max_ts)
-    else:
-        min_ts = float(0.8*step._start_ts)
-
-    if step.using_datetime():
-        if ts_grain==None:
-            ts_grain = pd.Timedelta(minutes=10)
-            
-        min_value = pd.Timestamp.utcfromtimestamp(min_ts)
-        max_value = pd.Timestamp.utcfromtimestamp(max_ts)
-
-    else:
-        if ts_grain==None:
-            ts_grain = 0.01
-        
-        min_value = min_ts-ts_grain
-        max_value = max_ts+ts_grain
-
-    end_start = step._end._start if step._end is not None else None
-    tsx = get_plot_range(step._start,end_start,ts_grain,use_datetime=step.using_datetime())
-
-    if method == 'pretty':
-        pass
-    #     raw_steps = SortedDict()
-    #     last_marker_index = None
-    #     end_marker = True
-        
-    #     raw_steps[min_value] = 0
-
-    #     raw_steps[step._start] = step._weight
-
-    #     if step._end is not None:
-    #         raw_steps[step._end.start()] = 0
-    #         raw_steps[max_value] = 0
-    #         last_marker_index = len(raw_steps) - 2
-    #     else:
-    #         raw_steps[max_value] = step._weight
-    #         end_marker=False
-
-    #     _prettyplot(raw_steps,plot_start=min_value,plot_start_value=0,ax=ax,end_index=last_marker_index,include_end=end_marker,**kargs)
-    elif method == 'smooth':
-        ax.step(tsx,step.smooth_step(tsx,smooth_factor), where=where, **kargs)
-    elif method == 'function':
-        ax.step(tsx,step.step(tsx), where=where, **kargs)
-    else:
-        ax.step(tsx,step.step(tsx), where=where, **kargs)
+        ax.step(np_keys,np_values, where=where, **kargs)
 
     return ax

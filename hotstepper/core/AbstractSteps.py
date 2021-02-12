@@ -111,19 +111,31 @@ class AbstractSteps(metaclass=abc.ABCMeta):
 
     def smooth_step(self,x,smooth_factor = None,smooth_basis = None):
 
+        smoothing_length = len(x)
+        delta = self.last()-self.first()
+        step_length = self._step_data.shape[0]
+
         if smooth_factor is None:
-            if self._using_dt:
-                dt_factor = (self.last()-self.first()).total_seconds()/60
-                smooth_factor = np.full(self._all_data.shape[0],dt_factor)
+            if self._using_dt and delta !=0:
+                dt_factor = (delta).total_seconds()/60
+                smooth_factor = np.full(smoothing_length,dt_factor)
             else:
-                smooth_factor = np.full(self._all_data.shape[0],10.0)
+                #fiddle for a pretty smooth curve
+                if step_length == 1:
+                    factor=0.25
+                elif step_length <= 4:
+                    factor=(delta/5.0)
+                else:
+                    factor=10.0
+                
+                smooth_factor = np.full(smoothing_length,factor)
 
         if smooth_basis is None:
             self.rebase(new_basis=Basis(Bases.logit))
         else:
             self.rebase(new_basis=smooth_basis)
 
-        if self._step_data.shape[0] > 0:
+        if step_length > 0:
             st = self._step_data
             x = prepare_input(x)
             result = self._base(x*self._ts_scale,st,smooth_factor*self._ts_scale)
