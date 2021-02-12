@@ -217,7 +217,7 @@ def get_plot_range(start,end, delta = None, use_datetime = False):
     """
 
     shift = None
-    start = end if start ==-np.inf else start
+    start = end if start == get_epoch_start(False) else start
     end = None if end == start else end
 
 
@@ -255,7 +255,7 @@ def get_plot_range(start,end, delta = None, use_datetime = False):
 
             return np.arange(start-shift, end + shift, delta)
         else:
-            shift = 0.1*start if (start !=0 and start !=-np.inf) else 0.5
+            shift = 0.1*start if (start !=0 and start !=get_epoch_start(False)) else 0.5
 
             if delta is None:
                 delta = 0.01*shift
@@ -365,7 +365,7 @@ def steps_plot(steps,method=None,smooth_factor = None,smooth_basis=None,ts_grain
             ax.axhline(steps(get_epoch_start(steps.using_datetime()))[0], **kargs)
             return ax
         else:
-            reverse_step = np_keys[0]==-np.inf
+            reverse_step = np_keys[0]==get_epoch_start(False)
             np_keys = get_plot_range(steps.first(),steps.last(),ts_grain,use_datetime=steps.using_datetime())
             np_values = steps.step(np_keys)
 
