@@ -20,13 +20,8 @@ from hotstepper.analysis.statistics import (
 
 class StepsPlottingMixin(metaclass=abc.ABCMeta):
     """
-<<<<<<< HEAD
     A plotting mixin class to generate step, smooth, histogram, ecdf and summary plots from any object implementing the AbstractSteps interface.
 
-=======
-    A plotting methods mixin class. A number of general and specialised plotting functions to be attached to an onject implementing the AbstractStep interface.
-    
->>>>>>> f3e81cf1a36eafdefa0d0fed9259d5a332d9794e
     """
 
     def smooth_plot(self,smooth_factor = None,smooth_basis=None, ts_grain = None,ax=None,where='post',**kargs):
@@ -167,13 +162,8 @@ class StepsPlottingMixin(metaclass=abc.ABCMeta):
         Plot a histogram of the cummulative step values.
 
         Parameters
-<<<<<<< HEAD
         ==============
         bins : int, array of ints, Optional
-=======
-        ------------
-        bins : int,array of ints, Optional
->>>>>>> f3e81cf1a36eafdefa0d0fed9259d5a332d9794e
             How many bins to partition the data into or an array of the specific bin values to partition the data into.
 
         axis : int, Optional
@@ -195,11 +185,7 @@ class StepsPlottingMixin(metaclass=abc.ABCMeta):
             'bins'  -> [8.3, 9.4), number of digits is set by setting the precision paramter.
             'value' -> 8.8, the lower inclusion value of the bin range will be used as the label.
 
-<<<<<<< HEAD
         **kargs : 
-=======
-        kargs
->>>>>>> f3e81cf1a36eafdefa0d0fed9259d5a332d9794e
             Matplotlib key-value paramters to pass to the plot.
 
         Returns
@@ -265,37 +251,21 @@ class StepsPlottingMixin(metaclass=abc.ABCMeta):
         Same as Steps.describe()
 
         Parameters
-<<<<<<< HEAD
         ==============
         plot_params : dictionary_like, Optional
             A dictionary to control the look of the plots.
-=======
-        -------------------------
-        plot_params : dictionary_like, Optional
-            A dictionary to control the look of the plots. The expected format is:
->>>>>>> f3e81cf1a36eafdefa0d0fed9259d5a332d9794e
             {'steps_plot': {parameter_name:value, } -> the same as **kargs,
              'smooth_steps_plot': {parameter_name:value, } -> the same as **kargs,
              'ecdf_plot': {parameter_name:value, } -> the same as **kargs,
              'histogram_plot': {parameter_name:value, } -> the same as **kargs}
 
-<<<<<<< HEAD
             example, plot_params = {'steps_plot': {'color': 'green',},
-=======
-        for example
-        -------------------------
-            plot_params = {'steps_plot': {'color': 'green',},
->>>>>>> f3e81cf1a36eafdefa0d0fed9259d5a332d9794e
                             'smooth_steps_plot': {'linewidth': 5, },
                             'ecdf_plot': {'linestyle': ':', },
                             'histogram_plot': {'width': 4}}
 
         Returns
-<<<<<<< HEAD
         ==============
-=======
-        -------------------------
->>>>>>> f3e81cf1a36eafdefa0d0fed9259d5a332d9794e
             Array of Matplotilib Axes objects 
                 [steps_plot_ax,
                 ecdf_plot_ax, 

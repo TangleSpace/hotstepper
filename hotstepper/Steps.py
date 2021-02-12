@@ -31,18 +31,8 @@ class Steps(
     Class representing a complex step function made of individual step objects. The Steps object can be treated as a 
     mathemtical function in Numpy and as a Python object.
 
-<<<<<<< HEAD
     ***Terminology used within this class and the HotStepper library is
         start : The x value of where the step function changes value.
-=======
-    Terminology used within this class and the HotStepper library is
-    -----------------------------------------------------------------
-        start   : The x value of where the step function changes value.
-        end     : The x value where the step function changes value in the opposite direction to the start location. NOTE: If no start value is specified, the end location still represents the
-        step function change in value that would have been opposite if a start been specified. In this case, the 'start' value is at negative infinity and the end location is where the reverse
-        change occurs.
-        weight  : The y value of the step function at the step keys.
->>>>>>> f3e81cf1a36eafdefa0d0fed9259d5a332d9794e
 
         *end* The x value where the step function changes value in the opposite direction to the start location. 
         .. note:: If no start value is specified, the end location still represents the step function change in value that would have been opposite if a start been specified. In this case, the 'start' value is at negative infinity and the end location is where the reverse change occurs.
@@ -56,30 +46,13 @@ class Steps(
 
     Parameters
     ----------
-<<<<<<< HEAD
     use_datetime : bool, Optional
-=======
-    use_datetime : bool, Optional = False
->>>>>>> f3e81cf1a36eafdefa0d0fed9259d5a332d9794e
         Set this value to indicate that all independant variable values (step keys), are datetime format. If the values passed as step keys
         have a callable timestamp() method or are of the accepted types below, this value will be inferred automatically, else if an error occurs,
         a good practise is to explicitly set this value.
 
-<<<<<<< HEAD
         ..note:: Accepted types: Pandas.Timestamp, datetime.datetime, numpy.datetime64 and any type derived from these three or exposing a callable timestamp() method returning a float or integer value os seconds since POSIX epoch.
 
-=======
-        Accepted types are
-        Pandas.Timestamp
-        datetime.datetime
-        numpy.datetime64
-
-        and any type derived from these three or exposing a callable timestamp() method returning a float or integer value os seconds since
-        POSIX epoch.
-
-    Paramters
-    ----------
->>>>>>> f3e81cf1a36eafdefa0d0fed9259d5a332d9794e
     start : int, float, datetime_like, Optional
         A quick convenience parameter if this Steps object consists of 1 or 2 steps, the start key can be passed directly in the constructor.
         
@@ -90,11 +63,7 @@ class Steps(
     weight : int, float, Optional
         A quick convenience parameter if this Steps object consists of 1 or 2 steps, the weight is the step value.
 
-<<<<<<< HEAD
     basis: Basis, Optional
-=======
-    basis : Basis, Optional
->>>>>>> f3e81cf1a36eafdefa0d0fed9259d5a332d9794e
         The is the basis function that will be used for all steps associated with this step function. The default basis -> Basis() is the Heaviside function
 
         .. math::
@@ -302,29 +271,15 @@ class Steps(
             This function will not preserve the step values at the clamp boundries, if you wish to preserve the values beyond the boundries, please use the clip function.
 
         Paramaters
-<<<<<<< HEAD
         ============
-=======
-        ----------
->>>>>>> f3e81cf1a36eafdefa0d0fed9259d5a332d9794e
         lbound : int, float, datetime_like, Optional
             The lower step key boundry (x axis value) of the returned steps object, the exact start key of the return object will be the key value = lbound. 
 
         ubound : int, float, datetime_like, Optional
             The upper step key boundry (x axis value) of the returned steps object, the exact start key of the return object will be the key value = ubound. 
 
-<<<<<<< HEAD
         See Also
         ==========
-=======
-        Returns
-        ---------
-        Steps
-            A new steps object that has been clamped at the provided boundries.
-        
-        See Also
-        ---------
->>>>>>> f3e81cf1a36eafdefa0d0fed9259d5a332d9794e
         clip
 
         """
@@ -340,29 +295,15 @@ class Steps(
             This function will preserve the step values at the clip boundries, if you wish to zero out values beyond the boundries, please use the clamp function.
 
         Paramaters
-<<<<<<< HEAD
         ============
-=======
-        ---------
->>>>>>> f3e81cf1a36eafdefa0d0fed9259d5a332d9794e
         lbound : int, float, datetime_like, Optional
             The lower step key boundry (x axis value) of the returned steps object, the exact start key of the return object will be the key value >= lbound. 
 
         ubound : int, float, datetime_like, Optional
             The upper step key boundry (x axis value) of the returned steps object, the exact start key of the return object will be the key value <= ubound. 
 
-<<<<<<< HEAD
         See Also
         =========
-=======
-        Returns
-        ---------
-        Steps
-            A new steps object that has been clipped at the provided boundries.
-
-        See Also
-        ---------
->>>>>>> f3e81cf1a36eafdefa0d0fed9259d5a332d9794e
         clamp
 
         """
