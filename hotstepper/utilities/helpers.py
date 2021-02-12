@@ -144,33 +144,33 @@ def get_value(val, is_dt = False):
         return val
 
 
-def simple_plot(xdata,ydata,cdata=None, ax=None,**kargs):
-    """
-    A quick and easy way to plot 2 or 3 dimensional data in any type of plot provided by Pandas plot.
+# def simple_plot(xdata,ydata,cdata=None, ax=None,**kargs):
+#     """
+#     A quick and easy way to plot 2 or 3 dimensional data in any type of plot provided by Pandas plot.
 
-    """
+#     """
 
-    if ax is None:
-        plot_size = kargs.pop('figsize',None)
-        if plot_size is None:
-            plot_size = get_default_plot_size()
+#     if ax is None:
+#         plot_size = kargs.pop('figsize',None)
+#         if plot_size is None:
+#             plot_size = get_default_plot_size()
             
-        _, ax = plt.subplots(figsize=plot_size)
+#         _, ax = plt.subplots(figsize=plot_size)
 
-    dfplot = pd.DataFrame()
-    dfplot['x'] = xdata
-    dfplot['y'] = ydata
+#     dfplot = pd.DataFrame()
+#     dfplot['x'] = xdata
+#     dfplot['y'] = ydata
 
-    if kargs.get('color') is None:
-        kargs['color']=get_default_plot_color()
+#     if kargs.get('color') is None:
+#         kargs['color']=get_default_plot_color()
 
-    if cdata is None:
-        dfplot.plot(x='x',y='y', ax=ax, **kargs)
-    else:
-        dfplot['c'] = cdata
-        dfplot.plot(x='x',y='y', c='c', ax=ax, **kargs)
+#     if cdata is None:
+#         dfplot.plot(x='x',y='y', ax=ax, **kargs)
+#     else:
+#         dfplot['c'] = cdata
+#         dfplot.plot(x='x',y='y', c='c', ax=ax, **kargs)
 
-    return ax
+#     return ax
 
 
 def _prettyplot(step_dict,plot_start=0,plot_start_value=0,ax=None,start_index=1,end_index=None,include_end=True,**kargs):
@@ -217,7 +217,9 @@ def get_plot_range(start,end, delta = None, use_datetime = False):
     """
 
     shift = None
+    start = end if start ==-np.inf else start
     end = None if end == start else end
+
 
     use_datetime = is_date_time(start) or use_datetime
     if use_datetime:
@@ -253,7 +255,7 @@ def get_plot_range(start,end, delta = None, use_datetime = False):
 
             return np.arange(start-shift, end + shift, delta)
         else:
-            shift = 0.1*start if start !=0 else 0.5
+            shift = 0.1*start if (start !=0 and start !=-np.inf) else 0.5
 
             if delta is None:
                 delta = 0.01*shift
@@ -356,11 +358,14 @@ def steps_plot(steps,method=None,smooth_factor = None,smooth_basis=None,ts_grain
     np_keys = steps.step_keys()
     np_values = steps.step_values()
 
+    reverse_step = False
+
     if len(np_keys) < 3 :
         if len(np_keys) == 0:
             ax.axhline(steps(get_epoch_start(steps.using_datetime()))[0], **kargs)
             return ax
         else:
+            reverse_step = np_keys[0]==-np.inf
             np_keys = get_plot_range(steps.first(),steps.last(),ts_grain,use_datetime=steps.using_datetime())
             np_values = steps.step(np_keys)
 
@@ -385,7 +390,7 @@ def steps_plot(steps,method=None,smooth_factor = None,smooth_basis=None,ts_grain
             
         if np_keys[0] == get_epoch_start(steps.using_datetime()):
             np_keys[0] = np_keys[1] - ts_grain
-        else:
+        elif not reverse_step:
             np_keys = np.insert(np_keys,0,np_keys[0] - ts_grain)
             np_values = np.insert(np_values,0,0)
             np_keys[0] = np_keys[0] - ts_grain
@@ -401,7 +406,7 @@ def steps_plot(steps,method=None,smooth_factor = None,smooth_basis=None,ts_grain
         
         if np_keys[0] == get_epoch_start(steps.using_datetime()):
             np_keys[0] = np_keys[1] - ts_grain
-        else:
+        elif not reverse_step:
             np_keys = np.insert(np_keys,0,np_keys[0] - ts_grain)
             np_values = np.insert(np_values,0,0)
             np_keys[0] = np_keys[0] - ts_grain

@@ -38,11 +38,14 @@ class AbstractSteps(metaclass=abc.ABCMeta):
         pass
 
     def compare(self,other):
-        st_this_keys,st_this_values = get_clean_step_data(self)
+        st_this_keys = self.step_keys()
+        st_this_values = self.step_values()
 
         #check if other implements AbstractSteps interface
         if type(self).__base__ == type(other).__base__:
-            st_that_keys,st_that_values = get_clean_step_data(other)
+            #st_that_keys,st_that_values = get_clean_step_data(other)
+            st_that_keys = other.step_keys()
+            st_that_values = other.step_values()
             return np.array_equal(st_this_keys, st_that_keys) and np.array_equal(st_this_values,st_that_values)
         else:
             return (st_this_values==other).all()

@@ -131,7 +131,7 @@ def _apply_aggreduce_function(steps_to_combine,agg_reduce_function,sample_points
 
     """
  
-    #used to check is objects are implementing the AbstractSteps interface
+    #used to check if objects are implementing the AbstractSteps interface
     ty = type(steps_to_combine[0])
     base_parent = ty.__base__
 
@@ -141,7 +141,7 @@ def _apply_aggreduce_function(steps_to_combine,agg_reduce_function,sample_points
         keys = sample_points
 
     #to handle int float as well as AbstractSteps in one go
-    get_stack_value = lambda x: x.step(keys) if isinstance(x,base_parent) else np.full(len(keys),x)
+    get_stack_value = lambda x: x(keys) if isinstance(x,base_parent) else np.full(len(keys),x)
     stack = np.array([get_stack_value(s) for s in steps_to_combine])
 
     if is_agg_function:
