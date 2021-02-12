@@ -141,13 +141,13 @@ class AbstractSteps(metaclass=abc.ABCMeta):
 
     def __iter__(self):
         self._index = 0
-        return iter(self._step_data)
+        return iter([type(self)(self._using_dt).add_steps([s]) for s in self._step_data])
 
 
     def __next__(self):
         if self._index < self._step_data.shape[0]:
             self._index += 1
-            return self._step_data[self._index-1]
+            return type(self)(self._using_dt).add_steps(self._step_data[self._index-1])
         else:
             self._index = 0
             raise StopIteration
