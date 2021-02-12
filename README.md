@@ -45,7 +45,7 @@ Now what if we only start with the rules of the fibonacci sequence, we can gener
 
     ax = st.plot()
     st.smooth_plot(color='g',ax=ax,smooth_factor=0.3)
-    plt.setp(ax, title='Fibo Steps and Components',xlabel='Fibo Number', ylabel='Steps Value')
+    plt.setp(ax, title='Fibo Steps and Components',xlabel='Index', ylabel='Steps Value')
 
     #Our steps object contains individual step functions, we can iterate over these directly, nice!
     for s in st:
