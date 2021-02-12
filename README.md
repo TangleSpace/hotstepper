@@ -27,16 +27,6 @@ Alright, if we just plot y(n) with straight lines connecting the points, we'd ge
     fig,ax = plt.subplots()
     ax.plot(x,y)
 ```
-<p align="left"><img src="https://github.com/TangleSpace/HotStepper/blob/master/docs/images/fibo_line.png?raw=true" title="Fibonacci Plot" alt="Fibonacci Plot"></p>
-
-Or we could get fancy and use step functions to construct the same plot from the fibonacci sequence.
-
-```python
-    fibo_deltas = np.diff(list(fibo_sequence(sequence_length)),prepend=0)
-
-    st = Steps().add([Step(i,None,fn) for i, fn in enumerate(fibo_deltas)])
-    ax = st.plot()
-```
 <p align="left"><img src="https://github.com/TangleSpace/HotStepper/blob/master/docs/images/fibo_steps.png?raw=true" title="Fibonacci Step Plot" alt="Fibonacci Step Plot"></p>
 
 Now what if we only start with the rules of the fibonacci sequence, we can generate a step sequence directly.
@@ -47,16 +37,20 @@ Now what if we only start with the rules of the fibonacci sequence, we can gener
         fn = 1
 
         for i in range(n):
-            yield Step(i,None,fn - f0)
+            yield Step(start=i,weight=(fn - f0))
             f0, fn = fn, f0 + fn
 
     sequence_length = 8
-    st = Steps().add(list(fibo_step_sequence(sequence_length)))
+    st = Steps().add([f for f in fibo_step_sequence(sequence_length)])
+
     ax = st.plot()
+    st.smooth_plot(color='g',ax=ax,smooth_factor=0.3)
+    plt.setp(ax, title='Fibo Steps and Components',xlabel='Fibo Number', ylabel='Steps Value')
 
     #Our steps object contains individual step functions, we can iterate over these directly, nice!
     for s in st:
         s.plot(ax=ax,linestyle='-.')
+        s.smooth_plot(ax=ax,linestyle='-.',color='g')
 ```
 
 <p align="left"><img src="https://github.com/TangleSpace/HotStepper/blob/master/docs/images/fibo_steps_sequence.png?raw=true" title="Fibonacci Step Plot" alt="Fibonacci Step Plot"></p>

@@ -49,6 +49,7 @@ def histogram(st, bins=None,axis=0,ts_grain = None):
     ----------
     number_of_bins : int, Optional
         The number of bins the data will be grouped into for analysis
+        
     axis : int, Optional = 0 (rows -> y values)
         The axis to use to generate the histogram.
         axis = 0: will use row data that represents the equivalent y values of the steps data.

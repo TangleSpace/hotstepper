@@ -251,10 +251,10 @@ def get_plot_range(start,end, delta = None, use_datetime = False):
 
             return np.arange(start-shift, end + shift, delta)
         else:
-            shift = 0.1*start
+            shift = 0.1*start if start !=0 else 0.5
 
             if delta is None:
-                delta = 0.1*shift
+                delta = 0.01*shift
 
             return np.arange(start-shift, start + shift, delta)
 
