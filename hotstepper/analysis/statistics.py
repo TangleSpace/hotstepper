@@ -8,11 +8,33 @@ from statsmodels.tools.tools import add_constant
 from hotstepper.utilities.helpers import get_clean_step_data,prepare_input,rolling_window
 
 
-def pacf(st, maxlags = None):
+def pacf(steps, maxlags = 10):
+    """
+    Calculates the Partial Auto Correction Function for the steps data.
     
+    Parameters
+    ----------
+    steps : `class`::Steps
+        Steps object to perform calculation.
+
+
+    maxlags : int, Optional
+        The maximum number of step key look backs to perform analysis.
+            
+    Returns
+    -------
+    array, array
+        
+    See Also
+    --------
+    Steps.histogram
+    Steps.ecdf
+
+    """
+
     lags = []
 
-    _, steps_raw = get_clean_step_data(st)
+    _, steps_raw = get_clean_step_data(steps)
 
     if (maxlags is None) or (maxlags >= len(steps_raw)):
         maxlags = len(steps_raw) - 1 
@@ -32,28 +54,50 @@ def pacf(st, maxlags = None):
     return lags,pacf
 
 
-def ecdf(st):
-    _, steps_raw = get_clean_step_data(st)
+def ecdf(steps):
+    """
+    Calculates the Empirical Cummulative Distribution Function for the steps data.
+    
+    Parameters
+    ----------
+    steps : `class`::Steps
+        Steps object to perform calculation.
+            
+    Returns
+    -------
+    array, array
+        
+    See Also
+    --------
+    Steps.histogram
+    Steps.pacf
+
+    """
+
+    _, steps_raw = get_clean_step_data(steps)
     x = np.sort(steps_raw)
     y = np.arange(0, len(x),dtype=np.float) / len(x)
 
     return x,y
 
 
-def histogram(st, bins=None,axis=0,ts_grain = None):
+def histogram(steps, bins=None,axis=0,ts_grain = None):
     
     """
     Calculates a histogram for the corresponding step function values
     
     Parameters
     ----------
+    steps : `class`::Steps
+        Steps object to perform calculation.
+
     number_of_bins : int, Optional
         The number of bins the data will be grouped into for analysis
         
-    axis : int, Optional = 0 (rows -> y values)
+    axis : int, Optional (rows -> y values)
         The axis to use to generate the histogram.
-        axis = 0: will use row data that represents the equivalent y values of the steps data.
-        axis = 1: will use column data that represents the equivalent x values of the steps data.
+        axis = 0; will use row data that represents the equivalent y values of the steps data.
+        axis = 1; will use column data that represents the equivalent x values of the steps data.
             
     Returns
     -------
@@ -62,12 +106,13 @@ def histogram(st, bins=None,axis=0,ts_grain = None):
     See Also
     --------
     Steps.ecdf
+    Steps.pacf
 
     """
 
     interval = 0
 
-    step_keys, steps_raw = get_clean_step_data(st)
+    step_keys, steps_raw = get_clean_step_data(steps)
 
     if axis is None or axis == 0:
         data = steps_raw
@@ -78,19 +123,19 @@ def histogram(st, bins=None,axis=0,ts_grain = None):
     max_value = np.amax(data)
 
     if bins is None:
-        if axis != 0 and st.using_datetime():
+        if axis != 0 and steps.using_datetime():
             interval = pd.Timedelta(minutes=1)
         else:
             interval = 1
     else:
-        if axis != 0 and st.using_datetime():
+        if axis != 0 and steps.using_datetime():
             pass
         else:
             interval = (max_value - min_value)/bins
 
     length = len(data)
 
-    if axis is not None and axis > 0 and st.using_datetime():
+    if axis is not None and axis > 0 and steps.using_datetime():
         rang = np.arange(min_value,max_value+interval,interval).astype(pd.Timedelta)
     else:
         rang = np.arange(min_value,max_value+interval,interval)

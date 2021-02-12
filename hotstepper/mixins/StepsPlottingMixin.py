@@ -14,7 +14,8 @@ from hotstepper.utilities.helpers import (
 
 from hotstepper.analysis.statistics import (
     histogram,
-    ecdf
+    ecdf,
+    pacf
 )
 
 
@@ -63,6 +64,7 @@ class StepsPlottingMixin(metaclass=abc.ABCMeta):
         See Also
         ==============
         ecdf_plot
+        pacf_plot
         histogram_plot
         summary
         
@@ -95,6 +97,68 @@ class StepsPlottingMixin(metaclass=abc.ABCMeta):
         x,y = self.rolling_function_step(np_keys,rolling_function=rolling_function,window=window,pre_mid_post=pre_mid_post)
         ax.plot(x,y,**kargs)
 
+        return ax
+
+
+    def pacf_plot(self,lags=10,ax=None,**kargs):
+        """
+        Plot an partial auto-correlation function of the cummulative step values.
+
+        Parameters
+        ==============
+        lags : int, Optional
+            The number of previous steps to perform PACF analysis.
+
+        ax : Matplotlib.Axes
+            The plot axis to create the plot on if being created externally.
+
+        **kargs : 
+            Matplotlib key-value paramters to pass to the plot.
+
+        Returns
+        ========
+        Matplotlib.Axes    
+
+        See Also
+        ==============
+        histogram_plot
+        summary    
+        plot_rolling_step
+
+        References
+        ==========
+        .. [1] https://en.wikipedia.org/wiki/Partial_autocorrelation_function
+
+        """
+
+        x,y = pacf(self,lags)
+
+        if ax is None:
+            plot_size = kargs.pop('figsize',None)
+            if plot_size is None:
+                plot_size = get_default_plot_size()
+
+            _, ax = plt.subplots(figsize=plot_size)
+
+        if kargs.get('kind') is None:
+            kargs['kind']='bar'
+
+        if kargs.get('xlabel') is None:
+            kargs['xlabel']='Lag'
+
+        if kargs.get('title') is None:
+            kargs['title']='Steps Partial Autocorrelation for Lags = {}'.format(lags)
+
+        if kargs.get('color',None) is None:
+            kargs['color']= get_default_plot_color()
+
+        ecdf_series = pd.Series(
+            data=y,
+            index=pd.Index(x)
+        )
+
+        ecdf_series.plot(ax=ax, **kargs)
+        ax.yaxis.set_major_formatter(ticker.PercentFormatter(1.0))
         return ax
 
 
