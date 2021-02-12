@@ -21,7 +21,7 @@ from hotstepper.analysis.statistics import (
 
 class StepsPlottingMixin(metaclass=abc.ABCMeta):
     """
-    A plotting mixin class to generate step, smooth, histogram, ecdf and summary plots from any object implementing the AbstractSteps interface.
+    A plotting mixin class to generate plots for any object implementing the AbstractSteps interface.
 
     """
 

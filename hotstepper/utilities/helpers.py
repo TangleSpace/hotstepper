@@ -113,7 +113,7 @@ def get_default_plot_size():
 
 def get_epoch_start(use_datetime = True):
     if use_datetime:
-        return pd.Timestamp(1999,12,31,23,59)
+        return pd.Timestamp.min
     else:
         return -np.inf
 
