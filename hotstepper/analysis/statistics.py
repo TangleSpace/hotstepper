@@ -8,69 +8,109 @@ from statsmodels.tools.tools import add_constant
 from hotstepper.utilities.helpers import get_clean_step_data,prepare_input,rolling_window
 
 
-def pacf(steps, maxlags = 10):
+def acf(steps, maxlags = 10):
+
     """
-    Calculates the Partial Auto Correction Function for the steps data.
+    Calculates the Auto Correction Function for the steps data.
     
     Parameters
-    ----------
+    ==========
     steps : `class`::Steps
         Steps object to perform calculation.
-
 
     maxlags : int, Optional
         The maximum number of step key look backs to perform analysis.
             
     Returns
-    -------
+    ==========
     array, array
         
     See Also
-    --------
+    ==========
     Steps.histogram
     Steps.ecdf
+    Steps.pacf
+
+    References
+    ==========
+    .. [1] https://en.wikipedia.org/wiki/Partial_autocorrelation_function
 
     """
-
-    lags = []
-
     _, steps_raw = get_clean_step_data(steps)
 
     if (maxlags is None) or (maxlags >= len(steps_raw)):
         maxlags = len(steps_raw) - 1 
-        
-    pacf = np.empty(maxlags + 1)
-    pacf[0] = 1.0
-    
-    lags = list(range(0, maxlags + 1))
 
+    lags = np.arange(0, maxlags+1)
+    acf = np.array([np.corrcoef(steps_raw[:-lag],steps_raw[lag:])[0,1] for lag in lags[1:]])
+    acf = np.insert(acf,0,1.0)
+
+    return lags,acf
+
+def pacf(steps, maxlags = 10):
+
+    """
+    Calculates the Partial Auto Correction Function for the steps data.
+    
+    Parameters
+    ==========
+    steps : `class`::Steps
+        Steps object to perform calculation.
+
+    maxlags : int, Optional
+        The maximum number of step key look backs to perform analysis.
+            
+    Returns
+    ==========
+    array, array
+        
+    See Also
+    ==========
+    Steps.histogram
+    Steps.ecdf
+
+    References
+    ==========
+    .. [1] https://en.wikipedia.org/wiki/Partial_autocorrelation_function
+
+    """
+    _, steps_raw = get_clean_step_data(steps)
+
+    if (maxlags is None) or (maxlags >= len(steps_raw)):
+        maxlags = len(steps_raw) - 1 
+
+    lags = np.arange(0, maxlags+1)
     xlags, x0 = lagmat(steps_raw, maxlags, original="sep")
     xlags = add_constant(xlags)
 
-    for lag in range(1, maxlags + 1):
-        params = np.linalg.lstsq(xlags[lag:, : lag + 1], x0[lag:], rcond=None)[0]
-        pacf[lag] = params[-1]
+    pacf = np.array([(np.linalg.lstsq(xlags[lag:, : lag + 1], x0[lag:], rcond=None)[0])[-1] for lag in lags[1:]])
+    pacf = np.insert(pacf,0,1.0)
         
     return lags,pacf
 
 
 def ecdf(steps):
+
     """
     Calculates the Empirical Cummulative Distribution Function for the steps data.
     
     Parameters
-    ----------
+    ==============
     steps : `class`::Steps
         Steps object to perform calculation.
             
     Returns
-    -------
+    ==============
     array, array
-        
+
     See Also
-    --------
-    Steps.histogram
+    ==============
+    Steps.histogram    
     Steps.pacf
+
+    References
+    ==========
+    .. [1] https://en.wikipedia.org/wiki/Empirical_distribution_function
 
     """
 
@@ -91,7 +131,7 @@ def histogram(steps, bins=None,axis=0,ts_grain = None):
     steps : `class`::Steps
         Steps object to perform calculation.
 
-    number_of_bins : int, Optional
+    bins : int, Optional
         The number of bins the data will be grouped into for analysis
         
     axis : int, Optional (rows -> y values)
@@ -228,6 +268,7 @@ def correlation(st,other):
     return covariance(st,other)/(std(st)*std(other))
 
 def describe(st, precision = 2, return_dataframe = True):
+
     """
     Generate a table containing a number of standard statistical metrics for the steps data.
     
@@ -262,7 +303,8 @@ def describe(st, precision = 2, return_dataframe = True):
     else:
         return summary
 
-def rolling_function_step(steps,x,rolling_function = None, window = 1, pre_mid_post = 'mid'):
+def rolling_function_step(steps,x,rolling_function=None, window = 1, pre_mid_post = 'mid'):
+
     """
     
     """

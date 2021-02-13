@@ -2,9 +2,10 @@ from __future__ import annotations
 import abc
 import copy
 import numpy as np
+import pandas as pd
 import hotstepper.analysis as analysis
 import hotstepper.mixins as mixins
-from hotstepper.utilities.helpers import prepare_input,get_clean_step_data
+from hotstepper.utilities.helpers import prepare_input,get_clean_step_data,prepare_datetime
 from hotstepper.core.data_model import DataModel
 from hotstepper.basis.Basis import Basis
 from hotstepper.basis.Bases import Bases
@@ -189,6 +190,26 @@ class AbstractSteps(metaclass=abc.ABCMeta):
 
     def steps(self):
         return self._all_data
+
+    def Series(self,xdata=None,ydata=None):
+        if ydata is None and xdata is None:
+            xdata, ydata = get_clean_step_data(self)
+
+            if self.using_datetime():
+                xdata = prepare_datetime(xdata)
+
+        elif ydata is None and xdata is not None:
+            if isinstance(xdata,tuple):
+                ydata = xdata[1]
+                xdata = xdata[0]           
+            else:
+                ydata = xdata
+                xdata = list(range(len(ydata)))
+
+        return pd.Series(
+                data=ydata,
+                index=pd.Index(xdata)
+                )
 
     # def rotate(self):
     #     return Steps.read_array(self.step_values(),self.step_keys(),convert_delta=True)

@@ -308,22 +308,24 @@ class Steps(
 
         """
 
-        new_steps = self._clip(lbound,ubound)
-        if new_steps is None:
+        if ((lbound is not None) and (ubound is not None)) and ((lbound <= self.first()) and (ubound >= self.last())):
             return self
-        else:
-            return Steps(self._using_dt).add_steps(new_steps)
+
+        if lbound is None and ubound is None:
+            return self
+        
+        new_steps = self._clip(lbound,ubound)
+        return Steps(self._using_dt).add_steps(new_steps)
 
 
     def _clip(self,lbound=None,ubound=None):
 
         step_data = self.steps()
 
-        if lbound is None and ubound is None:
-            return None
-        elif lbound is None:
+        if lbound is None:
             lower_idx = 0
-            upper_idx = np.searchsorted(step_data[:,DataModel.START.value],get_value(ubound,self._using_dt)*self._ts_scale)
+            idxs = np.searchsorted(self._all_data[:,DataModel.START.value],get_value(ubound,self._using_dt)*self._ts_scale,side='right')
+            upper_idx = idxs if idxs >=0 else -1
 
             step_slice = step_data[:upper_idx]
             new_steps = np.empty((step_slice.shape[0],3))
@@ -332,7 +334,8 @@ class Steps(
             new_steps[:,DataModel.WEIGHT.value] = step_slice[:,DataModel.DIRECTION.value]
 
         elif ubound is None:
-            lower_idx = np.searchsorted(step_data[:,DataModel.START.value],get_value(lbound,self._using_dt)*self._ts_scale)
+            idxs = np.searchsorted(self._all_data[:,DataModel.START.value],get_value(lbound,self._using_dt)*self._ts_scale,side='right')
+            lower_idx = idxs if idxs >=0 else 0
             upper_idx = -1
 
             step_slice = step_data[lower_idx:]
@@ -348,12 +351,10 @@ class Steps(
                 new_steps = np.insert(new_steps,0,[[get_value(lbound,self._using_dt)*self._ts_scale,1,new_start_weight]],axis=0)
 
         else:
-            if lbound <= self._start and ubound >= self._end:
-                return self
-
-            if lbound < self._start:
+            if lbound <= self.first():
                 lower_idx = 0
-                upper_idx = np.searchsorted(step_data[:,DataModel.START.value],get_value(ubound,self._using_dt)*self._ts_scale)
+                idxs = np.searchsorted(self._all_data[:,DataModel.START.value],get_value(ubound,self._using_dt)*self._ts_scale,side='right')
+                upper_idx = idxs if idxs >=0 else -1
 
                 step_slice = step_data[:upper_idx]
                 new_steps = np.empty((step_slice.shape[0],3))
@@ -361,8 +362,9 @@ class Steps(
                 new_steps[:,DataModel.DIRECTION.value] = 1
                 new_steps[:,DataModel.WEIGHT.value] = step_slice[:,DataModel.DIRECTION.value]
 
-            elif ubound > self._end:
-                lower_idx = np.searchsorted(step_data[:,DataModel.START.value],get_value(ubound,self._using_dt)*self._ts_scale)
+            elif ubound >= self.last():
+                idxs = np.searchsorted(self._all_data[:,DataModel.START.value],get_value(lbound,self._using_dt)*self._ts_scale,side='right')
+                lower_idx = idxs if idxs >=0 else 0
                 upper_idx = -1
 
                 step_slice = step_data[lower_idx:]
@@ -377,8 +379,11 @@ class Steps(
                 else:
                     new_steps = np.insert(new_steps,0,[[get_value(lbound,self._using_dt)*self._ts_scale,1,new_start_weight]],axis=0)
             else:
-                lower_idx = np.searchsorted(step_data[:,DataModel.START.value],get_value(lbound,self._using_dt)*self._ts_scale)
-                upper_idx = np.searchsorted(step_data[:,DataModel.START.value],get_value(ubound,self._using_dt)*self._ts_scale)
+                idxs = np.searchsorted(self._all_data[:,DataModel.START.value],get_value(lbound,self._using_dt)*self._ts_scale,side='right')
+                lower_idx = idxs if idxs >=0 else 0
+
+                idxs = np.searchsorted(self._all_data[:,DataModel.START.value],get_value(ubound,self._using_dt)*self._ts_scale,side='right')
+                upper_idx = idxs if idxs >=0 else -1
 
                 step_slice = step_data[lower_idx:upper_idx]
                 new_steps = np.empty((step_slice.shape[0],3))

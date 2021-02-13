@@ -2,6 +2,7 @@ import hotstepper.analysis.statistics as s
 
 to_add = [
     s.pacf,
+    s.acf,
     s.ecdf,
     s.histogram,
     s.span_and_weights,

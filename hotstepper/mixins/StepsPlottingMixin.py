@@ -15,7 +15,8 @@ from hotstepper.utilities.helpers import (
 from hotstepper.analysis.statistics import (
     histogram,
     ecdf,
-    pacf
+    pacf,
+    acf
 )
 
 
@@ -100,7 +101,72 @@ class StepsPlottingMixin(metaclass=abc.ABCMeta):
         return ax
 
 
-    def pacf_plot(self,lags=10,ax=None,**kargs):
+    def acf_plot(self,lags=10, minlags=0,ax=None,**kargs):
+        """
+        Plot an auto-correlation function of the cummulative step values.
+
+        Parameters
+        ==============
+        lags : int, Optional
+            The number of previous steps to perform ACF analysis.
+
+        minlags : int, Optional
+            The minimum lag to include.
+
+        ax : Matplotlib.Axes
+            The plot axis to create the plot on if being created externally.
+
+        **kargs : 
+            Matplotlib key-value paramters to pass to the plot.
+
+        Returns
+        ========
+        Matplotlib.Axes    
+
+        See Also
+        ==============
+        histogram_plot
+        summary    
+        plot_rolling_step
+
+        References
+        ==========
+        .. [1] https://en.wikipedia.org/wiki/autocorrelation_function
+
+        """
+
+        x,y = acf(self,lags)
+
+        if ax is None:
+            plot_size = kargs.pop('figsize',None)
+            if plot_size is None:
+                plot_size = get_default_plot_size()
+
+            _, ax = plt.subplots(figsize=plot_size)
+
+        if kargs.get('kind') is None:
+            kargs['kind']='bar'
+
+        if kargs.get('xlabel') is None:
+            kargs['xlabel']='Lag'
+
+        if kargs.get('title') is None:
+            kargs['title']='Steps Autocorrelation for Lags = {}'.format(lags)
+
+        if kargs.get('color',None) is None:
+            kargs['color']= get_default_plot_color()
+
+        ecdf_series = pd.Series(
+            data=y[minlags:],
+            index=pd.Index(x[minlags:])
+        )
+
+        ecdf_series.plot(ax=ax, **kargs)
+        ax.yaxis.set_major_formatter(ticker.PercentFormatter(1.0))
+        return ax
+
+
+    def pacf_plot(self,lags=10, minlags=0,ax=None,**kargs):
         """
         Plot an partial auto-correlation function of the cummulative step values.
 
@@ -108,6 +174,9 @@ class StepsPlottingMixin(metaclass=abc.ABCMeta):
         ==============
         lags : int, Optional
             The number of previous steps to perform PACF analysis.
+
+        minlags : int, Optional
+            The minimum lag to include.
 
         ax : Matplotlib.Axes
             The plot axis to create the plot on if being created externally.
@@ -153,8 +222,8 @@ class StepsPlottingMixin(metaclass=abc.ABCMeta):
             kargs['color']= get_default_plot_color()
 
         ecdf_series = pd.Series(
-            data=y,
-            index=pd.Index(x)
+            data=y[minlags:],
+            index=pd.Index(x[minlags:])
         )
 
         ecdf_series.plot(ax=ax, **kargs)

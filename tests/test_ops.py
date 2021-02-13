@@ -1,7 +1,6 @@
 import os
 import sys
-sys.path.insert(0, os.path.abspath('..//'))
-sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(0, r"..//")
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -14,6 +13,7 @@ import datetime
 #from hotstepper.Basis import Basis
 from hotstepper.Step import Step
 from hotstepper.Steps import Steps
+import hotstepper.samples as samples
 #from hotstepper.analysis.stats import *
 
 
@@ -111,3 +111,13 @@ def test_reflect():
     assert sd7.reflect().compare(sd7*-1)
     assert sd6.reflect().compare(sd6*-1)
     assert sd6n.reflect().compare(sd6n*-1)
+
+
+    def test_vessel():
+        vessel_steps = samples.vessel_queue_sample()
+
+        assert vessel_steps.reflect().compare(vessel_steps*-1)
+        assert (vessel_steps**2).compare(vessel_steps*vessel_steps)
+        assert (vessel_steps**3).compare(vessel_steps*vessel_steps*vessel_steps)
+        assert (vessel_steps**-1).compare(1/vessel_steps)
+
