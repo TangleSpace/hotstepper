@@ -33,17 +33,10 @@ extensions = [
     'matplotlib.sphinxext.plot_directive',    
     'numpydoc',  # handle NumPy documentation formatted docstrings]
     'nbsphinx',
-<<<<<<< HEAD
 ]
 
 #napoleon_numpy_docstring = True
 
-=======
-    #'guzzle_sphinx_theme',
-]
-
-napoleon_numpy_docstring = True
->>>>>>> f3e81cf1a36eafdefa0d0fed9259d5a332d9794e
 source_suffix = ['.rst', '.ipynb']
 
 # Add any paths that contain templates here, relative to this directory.
@@ -72,16 +65,12 @@ plot_html_show_source_link = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-<<<<<<< HEAD
 # Required theme setup
 html_theme = 'sphinx_material'
 
 # Set link name generated in the top bar.
 html_title = 'HotStepper'
 
-=======
-html_theme = 'sphinx_material'
->>>>>>> f3e81cf1a36eafdefa0d0fed9259d5a332d9794e
 # Material theme options (see theme.conf for more information)
 html_theme_options = {
 
@@ -96,24 +85,15 @@ html_theme_options = {
     'base_url': 'https://github.com/TangleSpace/HotStepper',
 
     # Set the color and the accent color
-<<<<<<< HEAD
     'color_primary': 'indigo',
     'color_accent': 'deep-purple',
-=======
-    'color_primary': 'Indigo',
-    'color_accent': 'light-indigo',
->>>>>>> f3e81cf1a36eafdefa0d0fed9259d5a332d9794e
 
     # Set the repo location to get a badge with stats
     'repo_url': 'https://github.com/TangleSpace/HotStepper',
     'repo_name': 'HotStepper',
 
     # Visible levels of the global TOC; -1 means unlimited
-<<<<<<< HEAD
     'globaltoc_depth': 2,
-=======
-    'globaltoc_depth': 3,
->>>>>>> f3e81cf1a36eafdefa0d0fed9259d5a332d9794e
     # If False, expand all TOC entries
     'globaltoc_collapse': False,
     # If True, show hidden TOC entries

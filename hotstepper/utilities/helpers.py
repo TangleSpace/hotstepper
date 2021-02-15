@@ -59,11 +59,11 @@ def get_clean_step_data(st):
     steps_raw = st.step_values()
     step_keys = st.step_keys()
 
-    if step_keys[0] == -np.inf:
+    if step_keys[0] == get_epoch_start(False):
         steps_raw = steps_raw[1:]
         step_keys = step_keys[1:]
 
-    if step_keys[-1] == np.inf:
+    if step_keys[-1] == get_epoch_end(False):
         steps_raw = steps_raw[:-1]
         step_keys = step_keys[:-1]
 
@@ -115,14 +115,14 @@ def get_epoch_start(use_datetime = True):
     if use_datetime:
         return pd.Timestamp.min
     else:
-        return -np.inf
+        return np.NINF
 
 
 def get_epoch_end(use_datetime = True):
     if use_datetime:
         return pd.Timestamp.max
     else:
-        return np.inf
+        return np.PINF
 
 
 def timedelta_to_float(dt_delta):
@@ -142,35 +142,6 @@ def get_value(val, is_dt = False):
         return date_to_float(val)
     else:
         return val
-
-
-# def simple_plot(xdata,ydata,cdata=None, ax=None,**kargs):
-#     """
-#     A quick and easy way to plot 2 or 3 dimensional data in any type of plot provided by Pandas plot.
-
-#     """
-
-#     if ax is None:
-#         plot_size = kargs.pop('figsize',None)
-#         if plot_size is None:
-#             plot_size = get_default_plot_size()
-            
-#         _, ax = plt.subplots(figsize=plot_size)
-
-#     dfplot = pd.DataFrame()
-#     dfplot['x'] = xdata
-#     dfplot['y'] = ydata
-
-#     if kargs.get('color') is None:
-#         kargs['color']=get_default_plot_color()
-
-#     if cdata is None:
-#         dfplot.plot(x='x',y='y', ax=ax, **kargs)
-#     else:
-#         dfplot['c'] = cdata
-#         dfplot.plot(x='x',y='y', c='c', ax=ax, **kargs)
-
-#     return ax
 
 
 def _prettyplot(step_dict,plot_start=0,plot_start_value=0,ax=None,start_index=1,end_index=None,include_end=True,**kargs):
@@ -283,7 +254,7 @@ def get_dt(ts):
     if is_date_time(ts):
         return ts
     else:
-        if pd.isnull(ts) or ts <= -np.inf:
+        if pd.isnull(ts) or ts <= get_epoch_start(False):
             return get_epoch_start(True)
         else:
             return float_to_date(ts)
@@ -291,8 +262,8 @@ def get_dt(ts):
 
 def process_slice(sl):
     """
-    """
 
+    """
     x = sl
     if type(sl) is slice:
         if is_date_time(sl.start):

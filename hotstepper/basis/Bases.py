@@ -28,56 +28,74 @@ class Bases(metaclass=abc.ABCMeta):
     @njit(parallel=True,nogil=True)
     def heaviside(x,steps,param):
         result = np.zeros(x.shape[0])
+
         for i in nb.prange(steps.shape[0]):
-            result += np.where(steps[i,1]*(x-steps[i,0])>=0, steps[i,2],0)
+            input = (x-steps[i,0])
+            input[np.isnan(input)] = 0
+            result += np.where(steps[i,1]*input>=0, steps[i,2],0)
 
         return result
 
 
     @staticmethod
-    @njit(parallel=True,nogil=True)
+    @njit(parallel=True,nogil=True,fastmath=True)
     def logit(x,steps,param):
         result = np.zeros(x.shape[0])
+
         for i in nb.prange(steps.shape[0]):
-            result += steps[i,2]*0.5*(1.0+np.tanh(steps[i,1]*(x-steps[i,0])/param))
+            input = (x-steps[i,0])
+            input[np.isnan(input)] = 0
+            result += steps[i,2]*0.5*(1.0+np.tanh(steps[i,1]*input/param))
 
         return result
 
 
     @staticmethod
-    @njit(parallel=True,nogil=True)
+    @njit(parallel=True,nogil=True,fastmath=True)
     def arctan(x,steps,param):
         result = np.zeros(len(x))
+
         for i in nb.prange(steps.shape[0]):
-            result += steps[i,2]*(0.5+(1.0/np.pi)*np.arctan(steps[i,1]*(x-steps[i,0])/param))
+            input = (x-steps[i,0])
+            input[np.isnan(input)] = 0
+            result += steps[i,2]*(0.5+(1.0/np.pi)*np.arctan(steps[i,1]*input/param))
 
         return result
 
     @staticmethod
-    @njit(parallel=True,nogil=True)
+    @njit(parallel=True,nogil=True,fastmath=True)
     def sigmoid(x,steps,param):
         result = np.zeros(len(x))
+
         for i in nb.prange(steps.shape[0]):
-            result += steps[i,2]/(1.0+np.exp(-1*steps[i,1]*(x-steps[i,0])/param))
+            input = (x-steps[i,0])
+            input[np.isnan(input)] = 0
+            result += steps[i,2]/(1.0+np.exp(-1*steps[i,1]*input/param))
 
         return result
 
     @staticmethod
-    @njit(parallel=True,nogil=True)
+    @njit(parallel=True,nogil=True,fastmath=True)
     def expon(x,steps,param):
         result = np.zeros(len(x))
+
         for i in nb.prange(steps.shape[0]):
-            result += steps[i,2]*(1.0 - np.exp(-1*steps[i,1]*(x-steps[i,0])/param))
+            input = (x-steps[i,0])
+            input[np.isnan(input)] = 0
+            result += steps[i,2]*(1.0 - np.exp(-1*steps[i,1]*input/param))
 
         return result
 
 
     @staticmethod
-    @njit(parallel=True,nogil=True)
+    @njit(parallel=True,nogil=True,fastmath=True)
     def sinc(x,steps,param):
         result = np.zeros(len(x))
+            
         for i in nb.prange(steps.shape[0]):
-            result += steps[i,2]*np.sinc(-1*steps[i,1]*(x-steps[i,0])/param)
+            input = (x-steps[i,0])
+            input[np.isnan(input)] = 0
+            result += steps[i,2]*np.sinc(-1*steps[i,1]*input/param)
 
         return result
 

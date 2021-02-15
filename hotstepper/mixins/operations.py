@@ -1,6 +1,6 @@
 import numpy as np
 from hotstepper.core.data_model import DataModel
-from hotstepper.utilities.helpers import get_epoch_start, get_value,ts_to_dt
+from hotstepper.utilities.helpers import get_epoch_start
 
 
 def apply_math_function(caller,other,math_function, sample_points=None):
@@ -141,7 +141,7 @@ def _apply_aggreduce_function(steps_to_combine,agg_reduce_function,sample_points
         keys = sample_points
 
     #to handle int float as well as AbstractSteps in one go
-    get_stack_value = lambda x: x(keys) if isinstance(x,base_parent) else np.full(len(keys),x)
+    get_stack_value = lambda x: x.step(keys, False) if isinstance(x,base_parent) else np.full(len(keys),x)
     stack = np.array([get_stack_value(s) for s in steps_to_combine])
 
     if is_agg_function:
@@ -155,10 +155,10 @@ def _apply_aggreduce_function(steps_to_combine,agg_reduce_function,sample_points
     step_data[:,DataModel.WEIGHT.value] = result
 
     #filter out values that create issues
-    step_data = step_data[step_data[:,DataModel.WEIGHT.value]!=np.float('nan')]
+    step_data = step_data[~np.isnan(step_data[:,DataModel.WEIGHT.value])]
     step_data = step_data[step_data[:,DataModel.WEIGHT.value]!=0]
-    step_data = step_data[step_data[:,DataModel.WEIGHT.value]!=np.inf]
-    step_data = step_data[step_data[:,DataModel.WEIGHT.value]!=-np.inf]
+    step_data = step_data[step_data[:,DataModel.WEIGHT.value]!=np.PINF]
+    step_data = step_data[step_data[:,DataModel.WEIGHT.value]!=np.NINF]
     
     #promote the Steps key type if any of the steps to combine are using datetime
     any_using_datetime = (np.array([s.using_datetime() for s in steps_to_combine if isinstance(s,base_parent)])==True).any()
@@ -197,28 +197,6 @@ def filter_values(caller,other, operation_func, normalise_value = 0):
     apply_reduction_function
     apply_math_function
 
-
-    Examples
-    ==========
-    We can calculate a derivative value of a function.
-    .. code::
-        >>> from scipy.misc import central_diff_weights
-        >>> def f(x):
-        ...     return 2 * x**2 + 3
-        >>> x = 3.0 # derivative point
-        >>> h = 0.1 # differential step
-        >>> Np = 3 # point number for central derivative
-        >>> weights = central_diff_weights(Np) # weights for first derivative
-        >>> vals = [f(x + (i - Np/2) * h) for i in range(Np)]
-        >>> sum(w * v for (w, v) in zip(weights, vals))/h
-        11.79999999999998
-        This value is close to the analytical solution:
-        f'(x) = 4x, so f'(3) = 12
-
-    References
-    ==========
-    .. [1] https://en.wikipedia.org/wiki/Finite_difference
-
     """
 
     if type(other) in [float,int]:
@@ -237,8 +215,7 @@ def filter_values(caller,other, operation_func, normalise_value = 0):
                             end=caller.last(),
                             weight=normalise_value
                         )
-# start=ts_to_dt(caller_step_data[0,DataModel.START.value],caller.using_datetime()),
-# end=ts_to_dt(caller_step_data[-1,DataModel.START.value],caller.using_datetime()),
+
         new_steps = _filter_by_mask(caller_step_data,mask,normalise_value)
     else:
         caller_step_data = caller.steps()

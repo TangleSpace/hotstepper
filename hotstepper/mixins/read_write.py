@@ -4,7 +4,7 @@ import numpy as np
 from collections import defaultdict
 import pandas as pd
 
-from hotstepper.utilities.helpers import prepare_datetime
+from hotstepper.utilities.helpers import get_epoch_start, prepare_datetime
 
 def to_dict(steps,cummulative_output = True):
     """
@@ -314,7 +314,7 @@ def read_array(cls, start=None,end=None,weight=None,use_datetime = False, conver
             if weight0 !=0:
                 weight = np.diff(weight)
                 new_steps = cls(use_datetime).add_direct(start,end,weight)
-                new_steps.add_steps([[-np.inf,1,weight0]])
+                new_steps.add_steps([[get_epoch_start(False),1,weight0]])
             else:
                 weight = np.diff(weight,prepend=0)
                 new_steps = cls(use_datetime).add_direct(start,end,weight)

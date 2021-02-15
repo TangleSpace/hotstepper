@@ -31,13 +31,13 @@ class Steps(
     Class representing a complex step function made of individual step objects. The Steps object can be treated as a 
     mathemtical function in Numpy and as a Python object.
 
-    ***Terminology used within this class and the HotStepper library is
-        start : The x value of where the step function changes value.
+    ***Terminology*** used within this class and the HotStepper library is
+        *start* : The x value of where the step function changes value.
 
         *end* The x value where the step function changes value in the opposite direction to the start location. 
         .. note:: If no start value is specified, the end location still represents the step function change in value that would have been opposite if a start been specified. In this case, the 'start' value is at negative infinity and the end location is where the reverse change occurs.
 
-        weight : The y value of the step function at the step keys.
+        *weight* : The y value of the step function at the step keys.
 
     .. note:: The convention used in the HotStepper library for step function intervals is the same as that used in signal processing, whereby the step function assumes the step weight value at and beyond the step key value.
 
@@ -45,7 +45,7 @@ class Steps(
     
 
     Parameters
-    ----------
+    ==============
     use_datetime : bool, Optional
         Set this value to indicate that all independant variable values (step keys), are datetime format. If the values passed as step keys
         have a callable timestamp() method or are of the accepted types below, this value will be inferred automatically, else if an error occurs,
@@ -68,15 +68,15 @@ class Steps(
 
         .. math::
             :nowrap:
-            \\begin{eqnarray}
-                \theta(t) = \\left\\{
-                        \\begin{eqnarray}{ll}
-                            0 & \\quad t < 0 \\
-                            1 & \\quad t \\geq 0
-                        \\end{eqnarray}
-                    \\right.
-                where t \\in \\mathbb{R}
-            \\end{eqnarray}
+            $
+            \theta(t) = \left\{
+                    \begin{array}{ll}
+                        0 & \quad t < 0 \\
+                        1 & \quad t \geq 0
+                    \end{array}
+                \right.
+            $
+            where $t \in \mathbb{R}$
 
     """
     
@@ -110,15 +110,18 @@ class Steps(
         if use_datetime:
             convert_func = date_to_float
         else:
-            convert_func = float   
+            convert_func = float
+
+        epoch_start = get_epoch_start(False)
+        epoch_end = get_epoch_end(False)
 
         for s,e,w in zip(start,end,weight):
             if pd.isnull(s) and not pd.isnull(e):
-                yield (-np.inf,1,w)
+                yield (epoch_start,1,w)
                 yield (convert_func(e),1,-w)
             elif pd.isnull(s) and pd.isnull(e):
-                yield (-np.inf,1,w)
-                yield (np.inf,1,-w)
+                yield (epoch_start,1,w)
+                yield (epoch_end,1,-w)
             elif pd.isnull(e):
                 yield (convert_func(s),1,w)
             else:
@@ -131,12 +134,12 @@ class Steps(
         Add an array of internal step data as per the DataModel used internally by HotStepper.
 
         Parameters
-        ----------
+        ==============
         step_data_np : array_like.
             Array of step arrays to be directly added to the current steps object.
 
         Returns
-        ----------
+        ==============
         Steps
 
         """
@@ -161,7 +164,7 @@ class Steps(
         Add an array of individual step objects to this collection of steps.
 
         Parameters
-        ----------
+        ==============
         pd_data_start : array_like, Optional
             Array of values that represent the step start key locations.
 
@@ -175,7 +178,7 @@ class Steps(
             If more than one array of values are assigned, all arrays must be the same length.
 
         Returns
-        ----------
+        ==============
         Steps
 
         """
@@ -207,12 +210,12 @@ class Steps(
         Add an array of step or steps objects to this collection of steps.
 
         Parameters
-        ----------
+        ==============
         steps : array_like
             An array of step or steps object.
 
         Returns
-        ----------
+        ==============
         Steps
             A new steps object containing all the step data from all provided step objects.
 
@@ -222,45 +225,48 @@ class Steps(
 
 
     def _recalculate(self):
-        self._step_data = self._step_data[np.argsort(self._step_data[:,DataModel.START.value])]
+        try:
+            self._step_data = self._step_data[np.argsort(self._step_data[:,DataModel.START.value])]
 
-        #great numpy group by library!
-        all_keys,all_values = group_by(self._step_data[:,DataModel.START.value]).sum(self._step_data[:,DataModel.DIRECTION.value]*self._step_data[:,DataModel.WEIGHT.value])
+            #great numpy group by library!
+            all_keys,all_values = group_by(self._step_data[:,DataModel.START.value]).sum(self._step_data[:,DataModel.DIRECTION.value]*self._step_data[:,DataModel.WEIGHT.value])
 
-        #this is the raw step definitiondata for the application of basis functions
-        self._step_data = np.empty((len(all_keys),3))
-        self._step_data[:,DataModel.START.value] = all_keys
-        self._step_data[:,DataModel.DIRECTION.value] = 1.0
-        self._step_data[:,DataModel.WEIGHT.value] = all_values
+            #this is the raw step definitiondata for the application of basis functions
+            self._step_data = np.empty((len(all_keys),3))
+            self._step_data[:,DataModel.START.value] = all_keys
+            self._step_data[:,DataModel.DIRECTION.value] = 1.0
+            self._step_data[:,DataModel.WEIGHT.value] = all_values
 
-        start_key = np.amin(all_keys)
-        if start_key == get_epoch_start(False):
-            if len(all_keys) > 2:
-                start_key = all_keys[1]
+            start_key = np.amin(all_keys)
+            if start_key == get_epoch_start(False):
+                if len(all_keys) > 2:
+                    start_key = all_keys[1]
+                else:
+                    start_key = all_keys[0]
             else:
                 start_key = all_keys[0]
-        else:
-            start_key = all_keys[0]
 
-        end_key = np.amax(all_keys)
-        if end_key == get_epoch_end(False) and len(all_keys) > 2:
-            end_key = all_keys[-2]
-        elif end_key == get_epoch_end(False) and len(all_keys) == 1:
-            end_key = all_keys[0]
-        else:
-            end_key = all_keys[-1]
+            end_key = np.amax(all_keys)
+            if end_key == get_epoch_end(False) and len(all_keys) > 2:
+                end_key = all_keys[-2]
+            elif end_key == get_epoch_end(False) and len(all_keys) == 1:
+                end_key = all_keys[0]
+            else:
+                end_key = all_keys[-1]
 
-        #The real value start and end points for the entire series of steps
-        self._start = ts_to_dt(start_key,self._using_dt)
-        self._end = ts_to_dt(end_key,self._using_dt)
+            #The real value start and end points for the entire series of steps
+            self._start = ts_to_dt(start_key,self._using_dt)
+            self._end = ts_to_dt(end_key,self._using_dt)
 
-        #this is the computed summary describing the steps data for fast access
-        all_data = np.empty((all_keys.shape[0],3))
-        all_data[:,DataModel.START.value] = all_keys
-        all_data[:,DataModel.DIRECTION.value] = all_values
-        all_data[:,DataModel.WEIGHT.value] = np.cumsum(np.asarray(all_values),axis=0)
+            #this is the computed summary describing the steps data for fast access
+            all_data = np.empty((all_keys.shape[0],3))
+            all_data[:,DataModel.START.value] = all_keys
+            all_data[:,DataModel.DIRECTION.value] = all_values
+            all_data[:,DataModel.WEIGHT.value] = np.cumsum(np.asarray(all_values),axis=0)
 
-        self._all_data = all_data
+            self._all_data = all_data
+        except ValueError:
+            print('Empty steps objects can not perform operations, please load some data and try again')
 
 
     def clamp(self,lbound=None,ubound=None):
@@ -346,7 +352,7 @@ class Steps(
 
             new_start_weight = self(lbound)[0]
             if new_start_weight !=0:
-                new_steps = np.insert(new_steps,0,[[-np.inf,1,new_start_weight]],axis=0)
+                new_steps = np.insert(new_steps,0,[[get_epoch_start(False),1,new_start_weight]],axis=0)
             else:
                 new_steps = np.insert(new_steps,0,[[get_value(lbound,self._using_dt)*self._ts_scale,1,new_start_weight]],axis=0)
 
@@ -375,7 +381,7 @@ class Steps(
 
                 new_start_weight = self(lbound)[0]
                 if new_start_weight !=0:
-                    new_steps = np.insert(new_steps,0,[[-np.inf,1,new_start_weight]],axis=0)
+                    new_steps = np.insert(new_steps,0,[[get_epoch_start(False),1,new_start_weight]],axis=0)
                 else:
                     new_steps = np.insert(new_steps,0,[[get_value(lbound,self._using_dt)*self._ts_scale,1,new_start_weight]],axis=0)
             else:
@@ -395,7 +401,7 @@ class Steps(
 
                 new_start_weight = self(lbound)[0]
                 if new_start_weight !=0:
-                    new_steps = np.insert(new_steps,0,[[-np.inf,1,new_start_weight]],axis=0)
+                    new_steps = np.insert(new_steps,0,[[get_epoch_start(False),1,new_start_weight]],axis=0)
                 else:
                     new_steps = np.insert(new_steps,0,[[get_value(lbound,self._using_dt)*self._ts_scale,1,new_start_weight]],axis=0)
 
@@ -406,7 +412,17 @@ class Steps(
 
     def __lshift__(self,other):
         """
-        
+        The left shift operator <<. Shifts the steps keys to the left, this operation is equivalent to subtracting a constant value from all step keys. 
+
+        Paramaters
+        ============
+        other : int, float, timedelta_like
+            The amount to subtract from all step keys. The type should align to the step key type, i.e. if the steps are using datetime, then other should be a timedelta type, else an int or float.
+
+        See Also
+        =========
+        rshift (>>)
+
         """
 
         new_instance = Steps(use_datetime=self._using_dt,basis=self._basis)
@@ -417,7 +433,17 @@ class Steps(
 
     def __rshift__(self,other):
         """
-        
+        The right shift operator >>. Shifts the steps keys to the right, this operation is equivalent to adding a constant value to all step keys. 
+
+        Paramaters
+        ============
+        other : int, float, timedelta_like
+            The amount to addfrom all step keys. The type should align to the step key type, i.e. if the steps are using datetime, then other should be a timedelta type, else an int or float.
+
+        See Also
+        =========
+        lshift (<<)
+
         """
         
         new_instance = Steps(use_datetime=self._using_dt,basis=self._basis)

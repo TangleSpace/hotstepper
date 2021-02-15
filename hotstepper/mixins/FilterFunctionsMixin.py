@@ -24,9 +24,37 @@ class FilterFunctionsMixin(metaclass=abc.ABCMeta):
         return filter_values(self,other, operator.ne)
 
     def normalise(self,normalise_value = 1):
+        """
+        Create new steps with a constant weight of 1 everywhere the steps are not equal to zero.
+
+        Parameters
+        ==============
+        normalise_value : int, float, Optional 
+            The value the constant weight will be set to where the steps are not equal to zero.
+
+        Returns
+        ============
+        Steps
+        
+        """
+
         return filter_values(self,0, operator.ne,normalise_value=normalise_value)
 
     def invert(self,normalise_value = 1):
+        """
+        Create new steps with a constant weight of 1 everywhere the steps are equal to zero.
+
+        Parameters
+        ==============
+        normalise_value : int, float, Optional 
+            The value the constant weight will be set to where the steps are equal to zero.
+
+        Returns
+        ============
+        Steps
+        
+        """
+
         return filter_values(self,0, operator.eq,normalise_value=normalise_value)
 
     def __invert__(self):

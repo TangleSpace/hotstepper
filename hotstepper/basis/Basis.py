@@ -12,15 +12,16 @@ class Basis(object):
     
     """
 
-    def __init__(self,bfunc=None, param=1,lbound= -np.Inf,ubound = np.Inf):
-        self.lbound = lbound
-        self.ubound = ubound
+    def __init__(self,bfunc=None, param=1.0,name=None):
         self.param = param
+        self.name = name
         
         if bfunc is None:
             self._base = Bases.heaviside
+            self.name = 'Heaviside'
         else:
             self._base = bfunc
+            self.name = 'Smoothing'
             
     def base(self):
         return self._base

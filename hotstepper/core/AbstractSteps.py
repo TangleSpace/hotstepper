@@ -1,17 +1,18 @@
 from __future__ import annotations
-import abc
+#import abc
+from abc import ABC, abstractmethod 
 import copy
 import numpy as np
 import pandas as pd
 import hotstepper.analysis as analysis
 import hotstepper.mixins as mixins
-from hotstepper.utilities.helpers import prepare_input,get_clean_step_data,prepare_datetime
+from hotstepper.utilities.helpers import get_epoch_start, prepare_input,get_clean_step_data,prepare_datetime
 from hotstepper.core.data_model import DataModel
 from hotstepper.basis.Basis import Basis
 from hotstepper.basis.Bases import Bases
 
 
-class AbstractSteps(metaclass=abc.ABCMeta):
+class AbstractSteps(ABC):
     """
     The base class that defines the step object interface and base properties and methods expected of all derived classes.
 
@@ -34,7 +35,7 @@ class AbstractSteps(metaclass=abc.ABCMeta):
         self._ts_scale = 1
 
     # Expected methods of parent classes
-    @abc.abstractmethod
+    @abstractmethod
     def __repr__(self):
         pass
 
@@ -44,7 +45,6 @@ class AbstractSteps(metaclass=abc.ABCMeta):
 
         #check if other implements AbstractSteps interface
         if type(self).__base__ == type(other).__base__:
-            #st_that_keys,st_that_values = get_clean_step_data(other)
             st_that_keys = other.step_keys()
             st_that_values = other.step_values()
             return np.array_equal(st_this_keys, st_that_keys) and np.array_equal(st_this_values,st_that_values)
@@ -94,7 +94,8 @@ class AbstractSteps(metaclass=abc.ABCMeta):
             x = prepare_input(x)
 
         if self._step_data.shape[0] > 0:
-            result = self._base(x,self._step_data,1.0)
+            smooth_factor = np.full(len(x),self._basis.param)
+            result = self._base(x,self._step_data,smooth_factor)
         else:
             return np.zeros(len(x))
 
@@ -105,48 +106,53 @@ class AbstractSteps(metaclass=abc.ABCMeta):
         if process_input:
             t = prepare_input(t)
 
-        search_data = np.concatenate([self.step(np.array([-np.inf]),False),self._all_data[:,DataModel.WEIGHT.value]])
+        search_data = np.concatenate([self.step(np.array([get_epoch_start(False)]),False),self._all_data[:,DataModel.WEIGHT.value]])
+        #search_data = self._all_data[:,DataModel.WEIGHT.value]
         if self._all_data.shape[0] == 1:
             return self.step(t)
 
         #improves lookup performance, just need an extra check to avoid over/under run
         idxs = np.searchsorted(self._all_data[:,DataModel.START.value],t,side='right')
-        return search_data[np.where(idxs>0,idxs,0)]
+        return search_data[np.where(idxs>=0,idxs,0)]
 
     def smooth_step(self,x,smooth_factor = None,smooth_basis = None):
 
+        using_default = self._basis.name == 'Heaviside'
         smoothing_length = len(x)
-        delta = self.last()-self.first()
-        step_length = self._step_data.shape[0]
+        #check we don't already have a new basis assigned
+        if using_default:
+            delta = self.last()-self.first()
+            step_length = self._step_data.shape[0]
 
-        if smooth_factor is None:
-            if self._using_dt and delta !=0:
-                dt_factor = (delta).total_seconds()/60
-                smooth_factor = np.full(smoothing_length,dt_factor)
-            else:
-                #fiddle for a pretty smooth curve
-                if step_length == 1:
-                    factor=0.25
-                elif step_length <= 4:
-                    factor=(delta/5.0)
+            if smooth_factor is None:
+                if self._using_dt and delta !=0:
+                    dt_factor = (delta).total_seconds()/60
+                    smooth_factor = dt_factor # np.full(smoothing_length,dt_factor)
                 else:
-                    factor=10.0
-                
-                smooth_factor = np.full(smoothing_length,factor)
+                    #fiddle for a pretty smooth curve
+                    if step_length == 1:
+                        factor=0.25
+                    elif step_length <= 4:
+                        factor=(delta/5.0)
+                    else:
+                        factor=10.0
+                    
+                    smooth_factor = factor #np.full(smoothing_length,factor)
 
-        if smooth_basis is None:
-            self.rebase(new_basis=Basis(Bases.logit))
-        else:
-            self.rebase(new_basis=smooth_basis)
+            if smooth_basis is None:
+                self.rebase(new_basis=Basis(Bases.logit,param=smooth_factor))
+            else:
+                self.rebase(new_basis=smooth_basis)
 
-        if step_length > 0:
-            st = self._step_data
+        if self._step_data.shape[0] > 0:
             x = prepare_input(x)
-            result = self._base(x*self._ts_scale,st,smooth_factor*self._ts_scale)
+            smooth_factor = np.full(smoothing_length,self._basis.param)
+            result = self._base(x,self._step_data,smooth_factor)
         else:
             return np.zeros(len(x))
 
-        self.rebase()
+        if using_default:
+            self.rebase()
 
         return result
 
@@ -220,6 +226,17 @@ class AbstractSteps(metaclass=abc.ABCMeta):
 
 
     def rebase(self,new_basis = None):
+        """
+        Change the basis function of the steps data, the default basis is the Heaviside step function.
+
+        Parameters
+        ===========
+        new_basis : Basis
+            The new basis to assign to the steps function. If the provided Basis is None, the basis will be reset to the default of the Heaviside function.
+
+
+        """
+        
         if new_basis is None:
             self._basis = Basis()
             self._base = self._basis.base()
@@ -227,9 +244,11 @@ class AbstractSteps(metaclass=abc.ABCMeta):
             self._basis = new_basis
             self._base = new_basis.base()
 
+
     def clear(self):
         """
         Clear all the step data defined within the steps object, the same as defining a new Steps object with no data, except will retain the assigned datetime flag and base.
+        
         """
 
         self._step_data = None

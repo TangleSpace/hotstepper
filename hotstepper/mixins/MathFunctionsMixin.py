@@ -18,17 +18,61 @@ class MathFunctionsMixin(metaclass=abc.ABCMeta):
         return apply_math_function(self,other,np.floor_divide)
 
     def __truediv__(self,other):
+        """
+        The '/' operation to divide int, float, step and steps objects like they are numbers.
+
+        Parameters
+        ==============
+        other : int, float, Step, Steps. 
+            The thing to divide these steps, a single step or series of steps can be combined with the steps.
+
+        Returns
+        ============
+        Steps
+            A new steps object consisting of this object with additional step objects representing the other operand.
+        
+        """
+
         return apply_math_function(self,other,np.true_divide)
 
     def __mul__(self,other):
+        """
+        The '*' operation to multiply int, float, step and steps objects like they are numbers.
+
+        Parameters
+        ==============
+        other : int, float, Step, Steps. 
+            The thing to multiply these steps, a single step or series of steps can be combined with the steps.
+
+        Returns
+        ============
+        Steps
+            A new steps object consisting of this object with additional step objects representing the other operand.
+        
+        """
+
         return apply_math_function(self,other,np.multiply)
 
     def __pow__(self,power_val):
+        """
+        The '^' operation to raise the steps to the power of.
+
+        Parameters
+        ==============
+        other : int, float, Step, Steps. 
+            The thing to raise to the power of these steps, a single step or series of steps can be combined with the steps.
+
+        Returns
+        ============
+        Steps
+            A new steps object consisting of this object with additional step objects representing the other operand.
+        
+        """
+
         return apply_math_function(self,power_val,np.power)
 
     def __radd__(self,other):
         return apply_math_function(self,other,np.add)
-
 
     def __add__(self,other):
         """
@@ -36,14 +80,16 @@ class MathFunctionsMixin(metaclass=abc.ABCMeta):
 
         Parameters
         ==============
-        other : int, float, Step, Steps. The thing to add to these steps, a single step or series of steps can be combined with the steps, an single int or float can also
-        be added, this will be converted to a single step with a constant basis and added to the steps series.
+        other : int, float, Step, Steps
+            The thing to add to these steps, a single step or series of steps can be combined with the steps.
 
         Returns
         ============
-        Steps : A new steps object consisting of this object with additional step objects representing the other operand.
+        Steps
+            A new steps object consisting of this object with additional step objects representing the other operand.
         
         """
+
         return apply_math_function(self,other,np.add)
 
 
@@ -61,12 +107,14 @@ class MathFunctionsMixin(metaclass=abc.ABCMeta):
 
         Parameters
         ==============
-        other : int, float, Step, Steps. The thing to subtract from these steps, a single step or series of steps can be combined with the steps, a single int or float can also
-        be added, this will be converted to a single step with a constant basis and added to the steps series.
+        other : int, float, Step, Steps. 
+            The thing to subtract from these steps, a single step or series of steps can be combined with the steps.
 
         Returns
         ============
-        Steps : A new steps object consisting of this object with additional step objects representing the other operand.
+        Steps
+            A new steps object consisting of this object with additional step objects representing the other operand.
         
         """
+
         return apply_math_function(self,other,np.subtract)
