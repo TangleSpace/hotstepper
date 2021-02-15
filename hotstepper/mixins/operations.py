@@ -141,7 +141,7 @@ def _apply_aggreduce_function(steps_to_combine,agg_reduce_function,sample_points
         keys = sample_points
 
     #to handle int float as well as AbstractSteps in one go
-    get_stack_value = lambda x: x.step(keys, False) if isinstance(x,base_parent) else np.full(len(keys),x)
+    get_stack_value = lambda x: x.step(keys,False) if isinstance(x,base_parent) else np.full(len(keys),x)
     stack = np.array([get_stack_value(s) for s in steps_to_combine])
 
     if is_agg_function:

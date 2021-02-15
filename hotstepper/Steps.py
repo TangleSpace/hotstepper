@@ -117,7 +117,7 @@ class Steps(
 
         for s,e,w in zip(start,end,weight):
             if pd.isnull(s) and not pd.isnull(e):
-                yield (epoch_start,1,w)
+                yield (epoch_start,-1,w)
                 yield (convert_func(e),1,-w)
             elif pd.isnull(s) and pd.isnull(e):
                 yield (epoch_start,1,w)
@@ -228,8 +228,8 @@ class Steps(
         try:
             self._step_data = self._step_data[np.argsort(self._step_data[:,DataModel.START.value])]
 
-            #great numpy group by library!
-            all_keys,all_values = group_by(self._step_data[:,DataModel.START.value]).sum(self._step_data[:,DataModel.DIRECTION.value]*self._step_data[:,DataModel.WEIGHT.value])
+            #great numpy group by library! self._step_data[:,DataModel.DIRECTION.value]*
+            all_keys,all_values = group_by(self._step_data[:,DataModel.START.value]).sum(self._step_data[:,DataModel.WEIGHT.value])
 
             #this is the raw step definitiondata for the application of basis functions
             self._step_data = np.empty((len(all_keys),3))
@@ -266,6 +266,8 @@ class Steps(
 
             self._all_data = all_data
         except ValueError:
+            print('Empty steps objects can not perform operations, please load some data and try again')
+        except TypeError:
             print('Empty steps objects can not perform operations, please load some data and try again')
 
 

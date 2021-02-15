@@ -14,7 +14,7 @@ from hotstepper.basis.Bases import Bases
 
 class AbstractSteps(ABC):
     """
-    The base class that defines the step object interface and base properties and methods expected of all derived classes.
+    The base class that defines the steps object interface, base properties and methods expected of all derived classes.
 
     
     """
@@ -40,6 +40,21 @@ class AbstractSteps(ABC):
         pass
 
     def compare(self,other):
+        """
+        Compare the steps function with another to determine if the two are equivalent based on their cummulative values and step keys.
+
+        Parameters
+        ===========
+        other : step. steps
+            The other steps object to come this one to
+
+        Returns
+        ========
+        bool
+            Indication if the two steps a equivalent or not.
+
+        """
+        
         st_this_keys = self.step_keys()
         st_this_values = self.step_values()
 
@@ -55,24 +70,69 @@ class AbstractSteps(ABC):
         """"
         The individual step changes at each key value, these are the delta values that add and subtract across the series to realise the entire step function.
 
+        Returns
+        ========
+        array
+            Individual step change values within the steps object.
+
         """
 
         return self._step_data[:,DataModel.DIRECTION.value]
 
 
     def first(self):
+        """
+        The first key or start value of the steps, if the steps extend to negative infinity, the first value will be the first finite key value.
+
+        Returns
+        ========
+        int, float or datetime
+            First finite key value of the steps.
+
+        """
+        
         return self._start
 
 
     def last(self):
+        """
+        The last key or start value of the steps, if the steps extend to positive infinity, the last value will be the last finite key value.
+
+        Returns
+        ========
+        int, float or datetime
+            Last finite key value of the steps.
+            
+        """
+
         return self._end
 
 
     def step_values(self):
+        """"
+        The cummulative step values at each key value.
+
+        Returns
+        ========
+        array
+            Cummulative steps value at each step key within the steps object.
+
+        """
+
         return self._all_data[:,DataModel.WEIGHT.value]
 
 
     def step_keys(self):
+        """"
+        The step key values within this object.
+
+        Returns
+        ========
+        array
+            Step keys.
+
+        """
+
         return self._all_data[:,DataModel.START.value]
 
 
@@ -84,60 +144,122 @@ class AbstractSteps(ABC):
         return self.fast_step(x)
 
 
-    def step(self, x,process_input=True):
+    def step(self, xdata,process_input=True):
         """
         This is a mathematical function definition of the Steps object, this is a dynamically created formula representation that can be passed an array of values to evaluate the steps function at.
         
+        Paramters
+        ==========
+        xdata : array_like(int, float, datetime)
+            The values the steps function is the be evaluated at using the assigned mathematical basis function.
+
+        process_input : bool, Optional
+            Indicate if the input data needs processing, to convert datetimes to floats for calculation. Primarily used internally to avoid converting input data twice.
+
+        Returns
+        ========
+        array
+            The values of the cummulative steps function evaluated at the provided input (x axis) values.
+
+        See Also
+        =========
+        fast_step
+        smooth_step
+
         """
 
         if process_input:
-            x = prepare_input(x)
+            x = prepare_input(xdata)
+        else:
+            x = xdata
 
         if self._step_data.shape[0] > 0:
-            smooth_factor = np.full(len(x),self._basis.param)
-            result = self._base(x,self._step_data,smooth_factor)
+            result = self._base(x,self._step_data,self._basis.param)
+            if (self._basis.name != 'Heaviside') and (x[0] == get_epoch_start(False)):
+                result[0] = result[1] 
         else:
             return np.zeros(len(x))
 
         return result
 
 
-    def fast_step(self,t,process_input=True):
+    def fast_step(self,xdata,process_input=True):
+        """
+        This will evaluate the cummulative steps function at the provided input values. This function ignores the assigned basis and performs some numpy trickery to improve performance.
+        Paramters
+        ==========
+        xdata : array_like(int, float, datetime)
+            The values the steps function is to be evaluated at.
+            .. note::
+                This fnuction will ignore the assigned basis and evaluate the cummulative function directly, to ensure the assigned basis is used, please use the `step` function.
+
+        process_input : bool, Optional
+            Indicate if the input data needs processing, to convert datetimes to floats for calculation. Primarily used internally to avoid converting input data twice.
+
+        Returns
+        ========
+        array
+            The values of the cummulative steps function evaluated at the provided input (x axis) values.
+
+        See Also
+        =========
+        step
+        smooth_step
+
+        """
+
         if process_input:
-            t = prepare_input(t)
+            x = prepare_input(xdata)
+        else:
+            x = xdata
 
         search_data = np.concatenate([self.step(np.array([get_epoch_start(False)]),False),self._all_data[:,DataModel.WEIGHT.value]])
-        #search_data = self._all_data[:,DataModel.WEIGHT.value]
         if self._all_data.shape[0] == 1:
-            return self.step(t)
+            return self.step(x)
 
         #improves lookup performance, just need an extra check to avoid over/under run
-        idxs = np.searchsorted(self._all_data[:,DataModel.START.value],t,side='right')
-        return search_data[np.where(idxs>=0,idxs,0)]
+        limit = search_data.shape[0]
+        idxs = np.searchsorted(self._all_data[:,DataModel.START.value],x,side='right')
+        return search_data[np.clip(idxs,0,limit)]
 
-    def smooth_step(self,x,smooth_factor = None,smooth_basis = None):
+
+    def smooth_step(self,xdata,smooth_factor = None,smooth_basis = None, process_input = False):
+        """
+        This is a mathematical function definition of the Steps object, this is a dynamically created formula representation that can be passed an array of values to evaluate the steps function at.
+        If a basis other than the default (Heaviside) is assigned and no new basis is provided, this function will return the same result as a call to the `step` function. If the default basis is assigned, and no new
+        basis is provided, the Logit basis will be temporarily assigned, the result generated and the basis will be reset to the default.
+
+        Paramters
+        ==========
+        xdata : array_like(int, float, datetime)
+            The values the steps function is the be evaluated at using the assigned mathematical basis function.
+
+        smooth_factor : int, float, Optional
+            A value used to tune the strength of the smoothing for the assigned basis. If no value is provided, a value will be generated internally.
+
+        smooth_basis : Basis, Optional
+            The new basis to assigned to perform the smoothing with. If the provided basis has the default value for the param property, a value will be generated internally.
+
+        process_input : bool, Optional
+            Indicate if the input data needs processing, to convert datetimes to floats for calculation. Primarily used internally to avoid converting input data twice.
+
+        Returns
+        ========
+        array
+            The values of the cummulative steps function evaluated at the provided input (x axis) values using the smooth basis.
+
+        See Also
+        =========
+        step
+        fast_step
+
+        """
 
         using_default = self._basis.name == 'Heaviside'
-        smoothing_length = len(x)
         #check we don't already have a new basis assigned
         if using_default:
-            delta = self.last()-self.first()
-            step_length = self._step_data.shape[0]
-
             if smooth_factor is None:
-                if self._using_dt and delta !=0:
-                    dt_factor = (delta).total_seconds()/60
-                    smooth_factor = dt_factor # np.full(smoothing_length,dt_factor)
-                else:
-                    #fiddle for a pretty smooth curve
-                    if step_length == 1:
-                        factor=0.25
-                    elif step_length <= 4:
-                        factor=(delta/5.0)
-                    else:
-                        factor=10.0
-                    
-                    smooth_factor = factor #np.full(smoothing_length,factor)
+                smooth_factor = self._get_auto_smooth_factor()
 
             if smooth_basis is None:
                 self.rebase(new_basis=Basis(Bases.logit,param=smooth_factor))
@@ -145,17 +267,32 @@ class AbstractSteps(ABC):
                 self.rebase(new_basis=smooth_basis)
 
         if self._step_data.shape[0] > 0:
-            x = prepare_input(x)
-            smooth_factor = np.full(smoothing_length,self._basis.param)
-            result = self._base(x,self._step_data,smooth_factor)
+            if process_input:
+                x = prepare_input(xdata)
+            else:
+                x = xdata
+            result = self._base(x,self._step_data,self._basis.param)
         else:
-            return np.zeros(len(x))
+            return np.zeros(len(xdata))
 
         if using_default:
             self.rebase()
 
         return result
 
+    def _get_auto_smooth_factor(self):
+        delta = self.last()-self.first()
+        step_length = self._step_data.shape[0]
+        if self._using_dt and delta !=0:
+            return (delta).total_seconds()/60
+        else:
+            #fiddle for a pretty smooth curve
+            if step_length == 1:
+                return 0.25
+            elif step_length <= 4:
+                return (delta/5.0)
+            else:
+                return 10.0
 
     def reflect(self,reflect_point = 0):
         return self*-1 + reflect_point
@@ -187,14 +324,53 @@ class AbstractSteps(ABC):
 
 
     def using_datetime(self):
+        """
+        Check if this steps object is using datetime step keys or not.
+
+        Returns
+        =======
+        bool
+
+        """
+        
         return self._using_dt
 
 
     def copy(self):
+        """
+        Return a shallow copy of this steps object
+
+        Returns
+        =======
+        Steps
+
+        """
         return copy.copy(self)
 
 
     def steps(self):
+        """
+        Return all the raw steps data within this steps object.
+        The format follows the internal `DataModel`.
+            array(
+                array(
+                    step_key,
+                    step_delta,
+                    step_cummulative
+                )
+            )
+
+
+        Returns
+        ========
+        array
+
+        See Also
+        ========
+        core.DataModel
+
+        """
+        
         return self._all_data
 
     def Series(self,xdata=None,ydata=None):
@@ -222,18 +398,29 @@ class AbstractSteps(ABC):
 
 
     def basis(self):
+        """
+        Return a reference to the assigned `Basis`.
+
+        Returns
+        =======
+        Basis
+        
+        """
+        
         return self._basis
 
 
     def rebase(self,new_basis = None):
         """
-        Change the basis function of the steps data, the default basis is the Heaviside step function.
+        Change the basis function to apply to the steps data when evaluating as a mathematical function, the default basis is the Heaviside step function.
 
         Parameters
         ===========
         new_basis : Basis
             The new basis to assign to the steps function. If the provided Basis is None, the basis will be reset to the default of the Heaviside function.
 
+            .. note::
+                If the new basis has the default value for the param property, an internally generated value will be assigned.
 
         """
         
@@ -243,6 +430,8 @@ class AbstractSteps(ABC):
         else:
             self._basis = new_basis
             self._base = new_basis.base()
+            if self._basis.name != 'Heaviside' and self._basis.param == 1.0:
+                self._basis.param = self._get_auto_smooth_factor()
 
 
     def clear(self):
@@ -255,6 +444,8 @@ class AbstractSteps(ABC):
         self._all_data = None
         self._start = None
         self._end = None
+        self._basis = Basis()
+        self._base = self._basis.base()
     
 #stitch in external methods
 analysis.apply_mixins(AbstractSteps)

@@ -115,14 +115,14 @@ def get_epoch_start(use_datetime = True):
     if use_datetime:
         return pd.Timestamp.min
     else:
-        return np.NINF
+        return -10.0**30
 
 
 def get_epoch_end(use_datetime = True):
     if use_datetime:
         return pd.Timestamp.max
     else:
-        return np.PINF
+        return 10.0**30
 
 
 def timedelta_to_float(dt_delta):
