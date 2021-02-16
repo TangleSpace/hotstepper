@@ -1,231 +1,160 @@
 
+
 <!DOCTYPE html>
-
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="lang:clipboard.copy" content="Copy to clipboard">
-  <meta name="lang:clipboard.copied" content="Copied to clipboard">
-  <meta name="lang:search.language" content="en">
-  <meta name="lang:search.pipeline.stopwords" content="True">
-  <meta name="lang:search.pipeline.trimmer" content="True">
-  <meta name="lang:search.result.none" content="No matching documents">
-  <meta name="lang:search.result.one" content="1 matching document">
-  <meta name="lang:search.result.other" content="# matching documents">
-  <meta name="lang:search.tokenizer" content="[\s\-]+">
-
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
   
-    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
-
-    <style>
-      body,
-      input {
-        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
-      }
-
-      code,
-      kbd,
-      pre {
-        font-family: "Roboto Mono", "Courier New", Courier, monospace
-      }
-    </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Index &mdash; HotStepper</title>
   
 
-  <link rel="stylesheet" href="_static/stylesheets/application.css"/>
-  <link rel="stylesheet" href="_static/stylesheets/application-palette.css"/>
-  <link rel="stylesheet" href="_static/stylesheets/application-fixes.css"/>
   
-  <link rel="stylesheet" href="_static/fonts/material-icons.css"/>
-  
-  <meta name="theme-color" content="#3f51b5">
-  <script src="_static/javascripts/modernizr.js"></script>
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
   
   
+
   
-    <title>Index &#8212; HotStepper</title>
-    <link rel="stylesheet" href="_static/material.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="#" />
-    <link rel="search" title="Search" href="search.html" />
-  
-   
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
 
-  </head>
-  <body dir=ltr
-        data-md-color-primary=indigo data-md-color-accent=deep-purple>
-  
-  <svg class="md-svg">
-    <defs data-children-count="0">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-      
-    </defs>
-  </svg>
-  
-  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
-  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
-  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#genindex" tabindex="1" class="md-skip"> Skip to content </a>
-  <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="index.html" title="HotStepper"
-           class="md-header-nav__button md-logo">
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
           
-              <img src="_static/HotstepperLogo.png" height="26"
-                   alt="HotStepper logo">
+
           
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">HotStepper</span>
-          <span class="md-header-nav__topic"> Index </span>
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-        
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="GET" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
-             autocapitalize="off" autocomplete="off" spellcheck="false"
-             data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
-            Type to start searching
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+            <a href="index.html" class="icon icon-home"> HotStepper
+          
+
+          
+            
+            <img src="_static/HotstepperLogo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            <a href="https://github.com/TangleSpace/HotStepper" title="Go to repository" class="md-source" data-md-source="github">
-
-    <div class="md-source__icon">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
-    HotStepper
-  </div>
-</a>
-          </div>
+          
         </div>
-      
-      
-  
-  <script src="_static/javascripts/version_dropdown.js"></script>
-  <script>
-    var json_loc = ""versions.json"",
-        target_loc = "../",
-        text = "Versions";
-    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
-  </script>
-  
 
-    </div>
-  </nav>
-</header>
-
-  
-  <div class="md-container">
-    
-    
-    
-  <nav class="md-tabs" data-md-component="tabs">
-    <div class="md-tabs__inner md-grid">
-      <ul class="md-tabs__list">
-          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">HotStepper</a></li>
-      </ul>
-    </div>
-  </nav>
-    <main class="md-main">
-      <div class="md-main__inner md-grid" data-md-component="container">
         
-          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="index.html" title="HotStepper" class="md-nav__button md-logo">
-      
-        <img src="_static/HotstepperLogo.png" alt=" logo" width="48" height="48">
-      
-    </a>
-    <a href="index.html"
-       title="HotStepper">HotStepper</a>
-  </label>
-    <div class="md-nav__source">
-      <a href="https://github.com/TangleSpace/HotStepper" title="Go to repository" class="md-source" data-md-source="github">
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="steps.html">Steps Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utility%20functions.html">Statistical Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/currency.html">Forex Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/uber%20trips.html">Uber Trips</a></li>
+</ul>
 
-    <div class="md-source__icon">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
-    HotStepper
-  </div>
-</a>
-    </div>
-  
-  
+            
+          
+        </div>
+        
+      </div>
+    </nav>
 
-</nav>
-              </div>
-            </div>
-          </div>
-          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                
-<nav class="md-nav md-nav--secondary">
-  <ul class="md-nav__list" data-md-scrollfix="">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">HotStepper</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
     
-
-<li id="searchbox" class="md-nav__item"></li>
-
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Index</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
   </ul>
-</nav>
-              </div>
-            </div>
-          </div>
-        
-        <div class="md-content">
-          <article class="md-content__inner md-typeset" role="main">
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
 
 <h1 id="index">Index</h1>
@@ -251,25 +180,31 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.acf">acf() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.acf">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.acf">acf() (in module hotstepper.analysis.statistics)</a>
 </li>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.acf_plot">acf_plot() (hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin method)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.acf_plot">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.acf_plot">acf_plot() (hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin method)</a>
 </li>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.apply_classmethods">apply_classmethods() (in module hotstepper.mixins)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.apply_classmethods">[1]</a>
+      <li><a href="modules/hotstepper.html#hotstepper.Steps.Steps.add">add() (hotstepper.Steps.Steps method)</a>
 </li>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.operations.apply_math_function">apply_math_function() (in module hotstepper.mixins.operations)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.operations.apply_math_function">[1]</a>
+      <li><a href="modules/hotstepper.html#hotstepper.Steps.Steps.add_direct">add_direct() (hotstepper.Steps.Steps method)</a>
+</li>
+      <li><a href="modules/hotstepper.html#hotstepper.Steps.Steps.add_steps">add_steps() (hotstepper.Steps.Steps method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.apply_mixins">apply_mixins() (in module hotstepper.analysis)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.apply_mixins">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.apply_classmethods">apply_classmethods() (in module hotstepper.mixins)</a>
+</li>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.operations.apply_math_function">apply_math_function() (in module hotstepper.mixins.operations)</a>
+</li>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.apply_mixins">apply_mixins() (in module hotstepper.analysis)</a>
 
       <ul>
-        <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.apply_mixins">(in module hotstepper.mixins)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.apply_mixins">[1]</a>
+        <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.apply_mixins">(in module hotstepper.mixins)</a>
 </li>
       </ul></li>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.operations.apply_reduction_function">apply_reduction_function() (in module hotstepper.mixins.operations)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.operations.apply_reduction_function">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.operations.apply_reduction_function">apply_reduction_function() (in module hotstepper.mixins.operations)</a>
 </li>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.apply_staticmethods">apply_staticmethods() (in module hotstepper.mixins)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.apply_staticmethods">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.apply_staticmethods">apply_staticmethods() (in module hotstepper.mixins)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -277,11 +212,15 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.correlation">correlation() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.correlation">[1]</a>
+      <li><a href="modules/hotstepper.html#hotstepper.Steps.Steps.clamp">clamp() (hotstepper.Steps.Steps method)</a>
+</li>
+      <li><a href="modules/hotstepper.html#hotstepper.Steps.Steps.clip">clip() (hotstepper.Steps.Steps method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.covariance">covariance() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.covariance">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.correlation">correlation() (in module hotstepper.analysis.statistics)</a>
+</li>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.covariance">covariance() (in module hotstepper.analysis.statistics)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -289,11 +228,13 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.date_to_float">date_to_float() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.date_to_float">[1]</a>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.date_to_float">date_to_float() (in module hotstepper.utilities.helpers)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.describe">describe() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.describe">[1]</a>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.date_to_float_bulk">date_to_float_bulk() (in module hotstepper.utilities.helpers)</a>
+</li>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.describe">describe() (in module hotstepper.analysis.statistics)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -301,11 +242,11 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.ecdf">ecdf() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.ecdf">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.ecdf">ecdf() (in module hotstepper.analysis.statistics)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.ecdf_plot">ecdf_plot() (hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin method)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.ecdf_plot">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.ecdf_plot">ecdf_plot() (hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -313,13 +254,13 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.operations.filter_values">filter_values() (in module hotstepper.mixins.operations)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.operations.filter_values">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.operations.filter_values">filter_values() (in module hotstepper.mixins.operations)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin">FilterFunctionsMixin (class in hotstepper.mixins.FilterFunctionsMixin)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin">FilterFunctionsMixin (class in hotstepper.mixins.FilterFunctionsMixin)</a>
 </li>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.float_to_date">float_to_date() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.float_to_date">[1]</a>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.float_to_date">float_to_date() (in module hotstepper.utilities.helpers)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -327,35 +268,31 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_clean_step_data">get_clean_step_data() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_clean_step_data">[1]</a>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_clean_step_data">get_clean_step_data() (in module hotstepper.utilities.helpers)</a>
 </li>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_default_plot_color">get_default_plot_color() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_default_plot_color">[1]</a>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_datetime">get_datetime() (in module hotstepper.utilities.helpers)</a>
 </li>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_default_plot_size">get_default_plot_size() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_default_plot_size">[1]</a>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_default_plot_color">get_default_plot_color() (in module hotstepper.utilities.helpers)</a>
 </li>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_dt">get_dt() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_dt">[1]</a>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_default_plot_size">get_default_plot_size() (in module hotstepper.utilities.helpers)</a>
 </li>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_epoch_end">get_epoch_end() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_epoch_end">[1]</a>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_epoch_end">get_epoch_end() (in module hotstepper.utilities.helpers)</a>
 </li>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_epoch_start">get_epoch_start() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_epoch_start">[1]</a>
-</li>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.Sequency.Sequency.get_inverse_walsh_transform">get_inverse_walsh_transform() (hotstepper.analysis.Sequency.Sequency method)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.Sequency.Sequency.get_inverse_walsh_transform">[1]</a>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_epoch_start">get_epoch_start() (in module hotstepper.utilities.helpers)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_plot_range">get_plot_range() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_plot_range">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.Sequency.Sequency.get_inverse_walsh_transform">get_inverse_walsh_transform() (hotstepper.analysis.Sequency.Sequency method)</a>
 </li>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.Sequency.Sequency.get_sequency">get_sequency() (hotstepper.analysis.Sequency.Sequency method)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.Sequency.Sequency.get_sequency">[1]</a>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_plot_range">get_plot_range() (in module hotstepper.utilities.helpers)</a>
 </li>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.Sequency.Sequency.get_sequency_power_spectrum">get_sequency_power_spectrum() (hotstepper.analysis.Sequency.Sequency method)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.Sequency.Sequency.get_sequency_power_spectrum">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.Sequency.Sequency.get_sequency">get_sequency() (hotstepper.analysis.Sequency.Sequency method)</a>
 </li>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_ts">get_ts() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_ts">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.Sequency.Sequency.get_sequency_power_spectrum">get_sequency_power_spectrum() (hotstepper.analysis.Sequency.Sequency method)</a>
 </li>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_value">get_value() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.get_value">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.Sequency.Sequency.get_walsh_matrix">get_walsh_matrix() (hotstepper.analysis.Sequency.Sequency method)</a>
 </li>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.Sequency.Sequency.get_walsh_matrix">get_walsh_matrix() (hotstepper.analysis.Sequency.Sequency method)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.Sequency.Sequency.get_walsh_matrix">[1]</a>
-</li>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.Sequency.Sequency.get_walsh_transform">get_walsh_transform() (hotstepper.analysis.Sequency.Sequency method)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.Sequency.Sequency.get_walsh_transform">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.Sequency.Sequency.get_walsh_transform">get_walsh_transform() (hotstepper.analysis.Sequency.Sequency method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -363,9 +300,11 @@
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.histogram">histogram() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.histogram">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.histogram">histogram() (in module hotstepper.analysis.statistics)</a>
 </li>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot">histogram_plot() (hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin method)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot">histogram_plot() (hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin method)</a>
+</li>
+      <li><a href="modules/hotstepper.samples.html#hotstepper.samples.hotel_stays_sample">hotel_stays_sample() (in module hotstepper.samples)</a>
 </li>
       <li>
     hotstepper
@@ -378,79 +317,100 @@
     hotstepper.analysis
 
       <ul>
-        <li><a href="_modules/hotstepper.analysis.html#module-hotstepper.analysis">module</a>, <a href="modules/hotstepper.analysis.html#module-hotstepper.analysis">[1]</a>
+        <li><a href="modules/hotstepper.analysis.html#module-hotstepper.analysis">module</a>
 </li>
       </ul></li>
       <li>
     hotstepper.analysis.Sequency
 
       <ul>
-        <li><a href="_modules/hotstepper.analysis.html#module-hotstepper.analysis.Sequency">module</a>, <a href="modules/hotstepper.analysis.html#module-hotstepper.analysis.Sequency">[1]</a>
+        <li><a href="modules/hotstepper.analysis.html#module-hotstepper.analysis.Sequency">module</a>
 </li>
       </ul></li>
       <li>
     hotstepper.analysis.statistics
 
       <ul>
-        <li><a href="_modules/hotstepper.analysis.html#module-hotstepper.analysis.statistics">module</a>, <a href="modules/hotstepper.analysis.html#module-hotstepper.analysis.statistics">[1]</a>
+        <li><a href="modules/hotstepper.analysis.html#module-hotstepper.analysis.statistics">module</a>
 </li>
       </ul></li>
       <li>
     hotstepper.mixins
 
       <ul>
-        <li><a href="_modules/hotstepper.mixins.html#module-hotstepper.mixins">module</a>, <a href="modules/hotstepper.mixins.html#module-hotstepper.mixins">[1]</a>
+        <li><a href="modules/hotstepper.mixins.html#module-hotstepper.mixins">module</a>
 </li>
       </ul></li>
       <li>
     hotstepper.mixins.FilterFunctionsMixin
 
       <ul>
-        <li><a href="_modules/hotstepper.mixins.html#module-hotstepper.mixins.FilterFunctionsMixin">module</a>, <a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.FilterFunctionsMixin">[1]</a>
+        <li><a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.FilterFunctionsMixin">module</a>
+</li>
+      </ul></li>
+      <li>
+    hotstepper.mixins.MathFunctionsMixin
+
+      <ul>
+        <li><a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.MathFunctionsMixin">module</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
-    hotstepper.mixins.MathFunctionsMixin
-
-      <ul>
-        <li><a href="_modules/hotstepper.mixins.html#module-hotstepper.mixins.MathFunctionsMixin">module</a>, <a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.MathFunctionsMixin">[1]</a>
-</li>
-      </ul></li>
-      <li>
     hotstepper.mixins.operations
 
       <ul>
-        <li><a href="_modules/hotstepper.mixins.html#module-hotstepper.mixins.operations">module</a>, <a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.operations">[1]</a>
+        <li><a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.operations">module</a>
 </li>
       </ul></li>
       <li>
     hotstepper.mixins.read_write
 
       <ul>
-        <li><a href="_modules/hotstepper.mixins.html#module-hotstepper.mixins.read_write">module</a>, <a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.read_write">[1]</a>
+        <li><a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.read_write">module</a>
 </li>
       </ul></li>
       <li>
     hotstepper.mixins.StepsPlottingMixin
 
       <ul>
-        <li><a href="_modules/hotstepper.mixins.html#module-hotstepper.mixins.StepsPlottingMixin">module</a>, <a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.StepsPlottingMixin">[1]</a>
+        <li><a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.StepsPlottingMixin">module</a>
+</li>
+      </ul></li>
+      <li>
+    hotstepper.samples
+
+      <ul>
+        <li><a href="modules/hotstepper.samples.html#module-hotstepper.samples">module</a>
+</li>
+      </ul></li>
+      <li>
+    hotstepper.Step
+
+      <ul>
+        <li><a href="modules/hotstepper.html#module-hotstepper.Step">module</a>
+</li>
+      </ul></li>
+      <li>
+    hotstepper.Steps
+
+      <ul>
+        <li><a href="modules/hotstepper.html#module-hotstepper.Steps">module</a>
 </li>
       </ul></li>
       <li>
     hotstepper.utilities
 
       <ul>
-        <li><a href="_modules/hotstepper.utilities.html#module-hotstepper.utilities">module</a>, <a href="modules/hotstepper.utilities.html#module-hotstepper.utilities">[1]</a>
+        <li><a href="modules/hotstepper.utilities.html#module-hotstepper.utilities">module</a>
 </li>
       </ul></li>
       <li>
     hotstepper.utilities.helpers
 
       <ul>
-        <li><a href="_modules/hotstepper.utilities.html#module-hotstepper.utilities.helpers">module</a>, <a href="modules/hotstepper.utilities.html#module-hotstepper.utilities.helpers">[1]</a>
+        <li><a href="modules/hotstepper.utilities.html#module-hotstepper.utilities.helpers">module</a>
 </li>
       </ul></li>
   </ul></td>
@@ -459,17 +419,17 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.input_types">input_types() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.input_types">[1]</a>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.input_types">input_types() (in module hotstepper.utilities.helpers)</a>
 </li>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.integrate">integrate() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.integrate">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.integrate">integrate() (in module hotstepper.analysis.statistics)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin.invert">invert() (hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin method)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin.invert">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin.invert">invert() (hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin method)</a>
 </li>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.is_date_time">is_date_time() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.is_date_time">[1]</a>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.is_date_time">is_date_time() (in module hotstepper.utilities.helpers)</a>
 </li>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.is_delta_datetime">is_delta_datetime() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.is_delta_datetime">[1]</a>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.is_delta_datetime">is_delta_datetime() (in module hotstepper.utilities.helpers)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -477,19 +437,19 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.MathFunctionsMixin.MathFunctionsMixin">MathFunctionsMixin (class in hotstepper.mixins.MathFunctionsMixin)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.MathFunctionsMixin.MathFunctionsMixin">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.MathFunctionsMixin.MathFunctionsMixin">MathFunctionsMixin (class in hotstepper.mixins.MathFunctionsMixin)</a>
 </li>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.max">max() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.max">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.max">max() (in module hotstepper.analysis.statistics)</a>
 </li>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.mean">mean() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.mean">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.mean">mean() (in module hotstepper.analysis.statistics)</a>
 </li>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.mean_integrate">mean_integrate() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.mean_integrate">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.mean_integrate">mean_integrate() (in module hotstepper.analysis.statistics)</a>
 </li>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.median">median() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.median">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.median">median() (in module hotstepper.analysis.statistics)</a>
 </li>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.min">min() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.min">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.min">min() (in module hotstepper.analysis.statistics)</a>
 </li>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.mode">mode() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.mode">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.mode">mode() (in module hotstepper.analysis.statistics)</a>
 </li>
       <li>
     module
@@ -497,27 +457,33 @@
       <ul>
         <li><a href="modules/hotstepper.html#module-hotstepper">hotstepper</a>
 </li>
-        <li><a href="_modules/hotstepper.analysis.html#module-hotstepper.analysis">hotstepper.analysis</a>, <a href="modules/hotstepper.analysis.html#module-hotstepper.analysis">[1]</a>
+        <li><a href="modules/hotstepper.analysis.html#module-hotstepper.analysis">hotstepper.analysis</a>
 </li>
-        <li><a href="_modules/hotstepper.analysis.html#module-hotstepper.analysis.Sequency">hotstepper.analysis.Sequency</a>, <a href="modules/hotstepper.analysis.html#module-hotstepper.analysis.Sequency">[1]</a>
+        <li><a href="modules/hotstepper.analysis.html#module-hotstepper.analysis.Sequency">hotstepper.analysis.Sequency</a>
 </li>
-        <li><a href="_modules/hotstepper.analysis.html#module-hotstepper.analysis.statistics">hotstepper.analysis.statistics</a>, <a href="modules/hotstepper.analysis.html#module-hotstepper.analysis.statistics">[1]</a>
+        <li><a href="modules/hotstepper.analysis.html#module-hotstepper.analysis.statistics">hotstepper.analysis.statistics</a>
 </li>
-        <li><a href="_modules/hotstepper.mixins.html#module-hotstepper.mixins">hotstepper.mixins</a>, <a href="modules/hotstepper.mixins.html#module-hotstepper.mixins">[1]</a>
+        <li><a href="modules/hotstepper.mixins.html#module-hotstepper.mixins">hotstepper.mixins</a>
 </li>
-        <li><a href="_modules/hotstepper.mixins.html#module-hotstepper.mixins.FilterFunctionsMixin">hotstepper.mixins.FilterFunctionsMixin</a>, <a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.FilterFunctionsMixin">[1]</a>
+        <li><a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.FilterFunctionsMixin">hotstepper.mixins.FilterFunctionsMixin</a>
 </li>
-        <li><a href="_modules/hotstepper.mixins.html#module-hotstepper.mixins.MathFunctionsMixin">hotstepper.mixins.MathFunctionsMixin</a>, <a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.MathFunctionsMixin">[1]</a>
+        <li><a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.MathFunctionsMixin">hotstepper.mixins.MathFunctionsMixin</a>
 </li>
-        <li><a href="_modules/hotstepper.mixins.html#module-hotstepper.mixins.operations">hotstepper.mixins.operations</a>, <a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.operations">[1]</a>
+        <li><a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.operations">hotstepper.mixins.operations</a>
 </li>
-        <li><a href="_modules/hotstepper.mixins.html#module-hotstepper.mixins.read_write">hotstepper.mixins.read_write</a>, <a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.read_write">[1]</a>
+        <li><a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.read_write">hotstepper.mixins.read_write</a>
 </li>
-        <li><a href="_modules/hotstepper.mixins.html#module-hotstepper.mixins.StepsPlottingMixin">hotstepper.mixins.StepsPlottingMixin</a>, <a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.StepsPlottingMixin">[1]</a>
+        <li><a href="modules/hotstepper.mixins.html#module-hotstepper.mixins.StepsPlottingMixin">hotstepper.mixins.StepsPlottingMixin</a>
 </li>
-        <li><a href="_modules/hotstepper.utilities.html#module-hotstepper.utilities">hotstepper.utilities</a>, <a href="modules/hotstepper.utilities.html#module-hotstepper.utilities">[1]</a>
+        <li><a href="modules/hotstepper.samples.html#module-hotstepper.samples">hotstepper.samples</a>
 </li>
-        <li><a href="_modules/hotstepper.utilities.html#module-hotstepper.utilities.helpers">hotstepper.utilities.helpers</a>, <a href="modules/hotstepper.utilities.html#module-hotstepper.utilities.helpers">[1]</a>
+        <li><a href="modules/hotstepper.html#module-hotstepper.Step">hotstepper.Step</a>
+</li>
+        <li><a href="modules/hotstepper.html#module-hotstepper.Steps">hotstepper.Steps</a>
+</li>
+        <li><a href="modules/hotstepper.utilities.html#module-hotstepper.utilities">hotstepper.utilities</a>
+</li>
+        <li><a href="modules/hotstepper.utilities.html#module-hotstepper.utilities.helpers">hotstepper.utilities.helpers</a>
 </li>
       </ul></li>
   </ul></td>
@@ -526,7 +492,7 @@
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin.normalise">normalise() (hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin method)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin.normalise">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin.normalise">normalise() (hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -534,23 +500,25 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.pacf">pacf() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.pacf">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.pacf">pacf() (in module hotstepper.analysis.statistics)</a>
 </li>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.pacf_plot">pacf_plot() (hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin method)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.pacf_plot">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.pacf_plot">pacf_plot() (hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin method)</a>
 </li>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.percentile">percentile() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.percentile">[1]</a>
+      <li><a href="modules/hotstepper.samples.html#hotstepper.samples.page_view_sample">page_view_sample() (in module hotstepper.samples)</a>
 </li>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot">plot() (hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin method)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.percentile">percentile() (in module hotstepper.analysis.statistics)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step">plot_rolling_step() (hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin method)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot">plot() (hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin method)</a>
 </li>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.prepare_datetime">prepare_datetime() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.prepare_datetime">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step">plot_rolling_step() (hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin method)</a>
 </li>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.prepare_input">prepare_input() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.prepare_input">[1]</a>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.prepare_datetime">prepare_datetime() (in module hotstepper.utilities.helpers)</a>
 </li>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.process_slice">process_slice() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.process_slice">[1]</a>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.prepare_input">prepare_input() (in module hotstepper.utilities.helpers)</a>
+</li>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.process_slice">process_slice() (in module hotstepper.utilities.helpers)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -558,17 +526,17 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.read_write.read_array">read_array() (in module hotstepper.mixins.read_write)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.read_write.read_array">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.read_write.read_array">read_array() (in module hotstepper.mixins.read_write)</a>
 </li>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.read_write.read_dataframe">read_dataframe() (in module hotstepper.mixins.read_write)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.read_write.read_dataframe">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.read_write.read_dataframe">read_dataframe() (in module hotstepper.mixins.read_write)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.read_write.read_dict">read_dict() (in module hotstepper.mixins.read_write)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.read_write.read_dict">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.read_write.read_dict">read_dict() (in module hotstepper.mixins.read_write)</a>
 </li>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.rolling_function_step">rolling_function_step() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.rolling_function_step">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.rolling_function_step">rolling_function_step() (in module hotstepper.analysis.statistics)</a>
 </li>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.rolling_window">rolling_window() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.rolling_window">[1]</a>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.rolling_window">rolling_window() (in module hotstepper.utilities.helpers)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -576,25 +544,25 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.Sequency.Sequency">Sequency (class in hotstepper.analysis.Sequency)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.Sequency.Sequency">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.Sequency.Sequency">Sequency (class in hotstepper.analysis.Sequency)</a>
 </li>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.smooth_plot">smooth_plot() (hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin method)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.smooth_plot">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.smooth_plot">smooth_plot() (hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin method)</a>
 </li>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.span_and_weights">span_and_weights() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.span_and_weights">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.span_and_weights">span_and_weights() (in module hotstepper.analysis.statistics)</a>
 </li>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.std">std() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.std">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.std">std() (in module hotstepper.analysis.statistics)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.steps_plot">steps_plot() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.steps_plot">[1]</a>
+      <li><a href="modules/hotstepper.html#hotstepper.Step.Step">Step (class in hotstepper.Step)</a>
 </li>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin">StepsPlottingMixin (class in hotstepper.mixins.StepsPlottingMixin)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin">[1]</a>
-
-      <ul>
-        <li><a href="index.html#hotstepper.mixins.StepsPlottingMixin">(in module hotstepper.mixins)</a>
+      <li><a href="modules/hotstepper.html#hotstepper.Steps.Steps">Steps (class in hotstepper.Steps)</a>
 </li>
-      </ul></li>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary">summary() (hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin method)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary">[1]</a>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.steps_plot">steps_plot() (in module hotstepper.utilities.helpers)</a>
+</li>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin">StepsPlottingMixin (class in hotstepper.mixins.StepsPlottingMixin)</a>
+</li>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary">summary() (hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -602,15 +570,13 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.timedelta_to_float">timedelta_to_float() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.timedelta_to_float">[1]</a>
-</li>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.read_write.to_dataframe">to_dataframe() (in module hotstepper.mixins.read_write)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.read_write.to_dataframe">[1]</a>
+      <li><a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.timedelta_to_float">timedelta_to_float() (in module hotstepper.utilities.helpers)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.mixins.html#hotstepper.mixins.read_write.to_dict">to_dict() (in module hotstepper.mixins.read_write)</a>, <a href="modules/hotstepper.mixins.html#hotstepper.mixins.read_write.to_dict">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.read_write.to_dataframe">to_dataframe() (in module hotstepper.mixins.read_write)</a>
 </li>
-      <li><a href="_modules/hotstepper.utilities.html#hotstepper.utilities.helpers.ts_to_dt">ts_to_dt() (in module hotstepper.utilities.helpers)</a>, <a href="modules/hotstepper.utilities.html#hotstepper.utilities.helpers.ts_to_dt">[1]</a>
+      <li><a href="modules/hotstepper.mixins.html#hotstepper.mixins.read_write.to_dict">to_dict() (in module hotstepper.mixins.read_write)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -618,44 +584,58 @@
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_modules/hotstepper.analysis.html#hotstepper.analysis.statistics.var">var() (in module hotstepper.analysis.statistics)</a>, <a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.var">[1]</a>
+      <li><a href="modules/hotstepper.analysis.html#hotstepper.analysis.statistics.var">var() (in module hotstepper.analysis.statistics)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hotstepper.samples.html#hotstepper.samples.vessel_queue_sample">vessel_queue_sample() (in module hotstepper.samples)</a>
 </li>
   </ul></td>
 </tr></table>
 
 
 
-          </article>
-        </div>
-      </div>
-    </main>
-  </div>
-  <footer class="md-footer">
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-          
-          
-        </a>
-        
-      </nav>
-    </div>
-    <div class="md-footer-meta md-typeset">
-      <div class="md-footer-meta__inner md-grid">
-        <div class="md-footer-copyright">
-          <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2020, Jackson Storm.
-              
+           </div>
+           
           </div>
-            Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
-             and
-            <a href="https://github.com/bashtage/sphinx-material/">Material for
-              Sphinx</a>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Jackson Storm.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
         </div>
       </div>
-    </div>
-  </footer>
-  <script src="_static/javascripts/application.js"></script>
-  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
-  </body>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>

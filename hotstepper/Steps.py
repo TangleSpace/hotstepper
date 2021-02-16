@@ -49,7 +49,7 @@ class Steps(
         have a callable timestamp() method or are of the accepted types below, this value will be inferred automatically, else if an error occurs,
         a good practise is to explicitly set this value.
 
-        ..note:: Accepted types: Pandas.Timestamp, datetime.datetime, numpy.datetime64 and any type derived from these three or exposing a callable timestamp() method returning a float or integer value os seconds since POSIX epoch.
+        .. note:: Accepted types: Pandas.Timestamp, datetime.datetime, numpy.datetime64 and any type derived from these three or exposing a callable timestamp() method returning a float or integer value os seconds since POSIX epoch.
 
     start : int, float, datetime_like, Optional
         A quick convenience parameter if this Steps object consists of 1 or 2 steps, the start key can be passed directly in the constructor.
@@ -64,17 +64,14 @@ class Steps(
     basis: Basis, Optional
         The is the basis function that will be used for all steps associated with this step function. The default basis -> Basis() is the Heaviside function
 
-        .. math::
-            :nowrap:
-            $
-            \theta(t) = \left\{
-                    \begin{array}{ll}
-                        0 & \quad t < 0 \\
-                        1 & \quad t \geq 0
-                    \end{array}
-                \right.
-            $
-            where $t \in \mathbb{R}$
+    .. math::
+        \theta(t) = \left\{
+                \begin{array}{ll}
+                    0 & \quad t < 0 \\
+                    1 & \quad t \geq 0
+                \end{array}
+            \right.
+        where t \in \mathbb{R}
 
     """
     
@@ -273,8 +270,7 @@ class Steps(
         """
         Clamp the steps between lower and upper limits, this function is equivalent to zeroing out the steps beyond the lower and upper limits. The returned steps will contain the specified lower and upper limit keys inclusively.
 
-        .. note::
-            This function will not preserve the step values at the clamp boundries, if you wish to preserve the values beyond the boundries, please use the clip function.
+        This function will not preserve the step values at the clamp boundries, if you wish to preserve the values beyond the boundries, please use the clip function.
 
         Paramaters
         ============
@@ -297,8 +293,7 @@ class Steps(
         """
         Clip the steps between lower and upper limits, this function is equivalent to taking a slice of the steps and returning a new steps object only containing data between the clip boundries. The boundry values provided may or may not be returned, as the closest step key value within the specificied range will form the new boundry.
 
-        .. note::
-            This function will preserve the step values at the clip boundries, if you wish to zero out values beyond the boundries, please use the clamp function.
+        This function will preserve the step values at the clip boundries, if you wish to zero out values beyond the boundries, please use the clamp function.
 
         Paramaters
         ============
@@ -428,7 +423,7 @@ class Steps(
 
         See Also
         =========
-        rshift (>>)
+        rshift
 
         """
 
@@ -453,7 +448,7 @@ class Steps(
 
         See Also
         =========
-        lshift (<<)
+        lshift
 
         """
         
@@ -462,7 +457,6 @@ class Steps(
 
         if self._using_dt:
             other = date_to_float(other)
-
 
         rshift_steps[:,DataModel.START.value] = rshift_steps[:,DataModel.START.value] + other
         return new_instance.add_steps(rshift_steps)

@@ -1,232 +1,164 @@
 
+
 <!DOCTYPE html>
-
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="lang:clipboard.copy" content="Copy to clipboard">
-  <meta name="lang:clipboard.copied" content="Copied to clipboard">
-  <meta name="lang:search.language" content="en">
-  <meta name="lang:search.pipeline.stopwords" content="True">
-  <meta name="lang:search.pipeline.trimmer" content="True">
-  <meta name="lang:search.result.none" content="No matching documents">
-  <meta name="lang:search.result.one" content="1 matching document">
-  <meta name="lang:search.result.other" content="# matching documents">
-  <meta name="lang:search.tokenizer" content="[\s\-]+">
-
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
   
-    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
-
-    <style>
-      body,
-      input {
-        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
-      }
-
-      code,
-      kbd,
-      pre {
-        font-family: "Roboto Mono", "Courier New", Courier, monospace
-      }
-    </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Forex Analysis &mdash; HotStepper</title>
   
 
-  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
-  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
-  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
   
-  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
-  
-  <meta name="theme-color" content="#3f51b5">
-  <script src="../_static/javascripts/modernizr.js"></script>
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
   
   
+
   
-    <title>&lt;no title&gt; &#8212; HotStepper</title>
-    <link rel="stylesheet" href="../_static/material.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-  
-   
+    <link rel="next" title="Uber Trips" href="uber%20trips.html" />
+    <link rel="prev" title="Statistical Analysis" href="../utility%20functions.html" /> 
+</head>
 
-  </head>
-  <body dir=ltr
-        data-md-color-primary=indigo data-md-color-accent=deep-purple>
-  
-  <svg class="md-svg">
-    <defs data-children-count="0">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-      
-    </defs>
-  </svg>
-  
-  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
-  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
-  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#examples/currency" tabindex="1" class="md-skip"> Skip to content </a>
-  <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="HotStepper"
-           class="md-header-nav__button md-logo">
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
           
-              <img src="../_static/HotstepperLogo.png" height="26"
-                   alt="HotStepper logo">
+
           
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">HotStepper</span>
-          <span class="md-header-nav__topic"> &lt;no title&gt; </span>
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-        
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="../search.html" method="GET" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
-             autocapitalize="off" autocomplete="off" spellcheck="false"
-             data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
-            Type to start searching
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+            <a href="../index.html" class="icon icon-home"> HotStepper
+          
+
+          
+            
+            <img src="../_static/HotstepperLogo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            <a href="https://github.com/TangleSpace/HotStepper" title="Go to repository" class="md-source" data-md-source="github">
-
-    <div class="md-source__icon">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
-    HotStepper
-  </div>
-</a>
-          </div>
+          
         </div>
-      
-      
-  
-  <script src="../_static/javascripts/version_dropdown.js"></script>
-  <script>
-    var json_loc = "../"versions.json"",
-        target_loc = "../../",
-        text = "Versions";
-    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
-  </script>
-  
 
-    </div>
-  </nav>
-</header>
-
-  
-  <div class="md-container">
-    
-    
-    
-  <nav class="md-tabs" data-md-component="tabs">
-    <div class="md-tabs__inner md-grid">
-      <ul class="md-tabs__list">
-          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">HotStepper</a></li>
-      </ul>
-    </div>
-  </nav>
-    <main class="md-main">
-      <div class="md-main__inner md-grid" data-md-component="container">
         
-          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="HotStepper" class="md-nav__button md-logo">
-      
-        <img src="../_static/HotstepperLogo.png" alt=" logo" width="48" height="48">
-      
-    </a>
-    <a href="../index.html"
-       title="HotStepper">HotStepper</a>
-  </label>
-    <div class="md-nav__source">
-      <a href="https://github.com/TangleSpace/HotStepper" title="Go to repository" class="md-source" data-md-source="github">
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../steps.html">Steps Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utility%20functions.html">Statistical Analysis</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Forex Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uber%20trips.html">Uber Trips</a></li>
+</ul>
 
-    <div class="md-source__icon">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
-    HotStepper
-  </div>
-</a>
-    </div>
-  
-  
+            
+          
+        </div>
+        
+      </div>
+    </nav>
 
-</nav>
-              </div>
-            </div>
-          </div>
-          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                
-<nav class="md-nav md-nav--secondary">
-  <ul class="md-nav__list" data-md-scrollfix="">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">HotStepper</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
     
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/examples/currency.ipynb.txt">Show Source</a> </li>
-
-<li id="searchbox" class="md-nav__item"></li>
-
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Forex Analysis</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/examples/currency.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
   </ul>
-</nav>
-              </div>
-            </div>
-          </div>
-        
-        <div class="md-content">
-          <article class="md-content__inner md-typeset" role="main">
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   
 <style>
@@ -475,14 +407,38 @@ div.rendered_html tbody tr:nth-child(odd) {
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
 </style>
+<div class="section" id="Forex-Analysis">
+<h1>Forex Analysis<a class="headerlink" href="#Forex-Analysis" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"..//..//"</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;..//..//&quot;</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -494,7 +450,7 @@ div.rendered_html tbody tr:hover {
 <span class="kn">from</span> <span class="nn">hotstepper.utilities.helpers</span> <span class="kn">import</span> <span class="n">rolling_window</span><span class="p">,</span> <span class="n">prepare_datetime</span><span class="p">,</span><span class="n">get_epoch_start</span><span class="p">,</span><span class="n">get_epoch_end</span><span class="p">,</span><span class="n">float_to_date</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -504,7 +460,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">df_gbpusd_h1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">'..//..//data//forex//GBPUSD_H1.csv'</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span><span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">'Time'</span><span class="p">])</span>
+<span></span><span class="n">df_gbpusd_h1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;..//..//data//forex//GBPUSD_H1.csv&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">])</span>
 <span class="n">df_gbpusd_h1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 
 </pre></div>
@@ -516,7 +472,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
-<style scoped="">
+<style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
@@ -530,64 +486,64 @@ div.rendered_html tbody tr:hover {
     }
 </style>
 <table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>Time</th>
-<th>Open</th>
-<th>High</th>
-<th>Low</th>
-<th>Close</th>
-<th>Volume</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>2013-01-28 10:00:00</td>
-<td>1.57474</td>
-<td>1.57475</td>
-<td>1.57243</td>
-<td>1.57243</td>
-<td>8337</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2013-01-28 11:00:00</td>
-<td>1.57245</td>
-<td>1.57263</td>
-<td>1.57050</td>
-<td>1.57050</td>
-<td>8119</td>
-</tr>
-<tr>
-<th>2</th>
-<td>2013-01-28 12:00:00</td>
-<td>1.57049</td>
-<td>1.57329</td>
-<td>1.57049</td>
-<td>1.57257</td>
-<td>11026</td>
-</tr>
-<tr>
-<th>3</th>
-<td>2013-01-28 13:00:00</td>
-<td>1.57256</td>
-<td>1.57389</td>
-<td>1.57102</td>
-<td>1.57366</td>
-<td>11717</td>
-</tr>
-<tr>
-<th>4</th>
-<td>2013-01-28 14:00:00</td>
-<td>1.57366</td>
-<td>1.57431</td>
-<td>1.57133</td>
-<td>1.57171</td>
-<td>11911</td>
-</tr>
-</tbody>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Time</th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2013-01-28 10:00:00</td>
+      <td>1.57474</td>
+      <td>1.57475</td>
+      <td>1.57243</td>
+      <td>1.57243</td>
+      <td>8337</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2013-01-28 11:00:00</td>
+      <td>1.57245</td>
+      <td>1.57263</td>
+      <td>1.57050</td>
+      <td>1.57050</td>
+      <td>8119</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2013-01-28 12:00:00</td>
+      <td>1.57049</td>
+      <td>1.57329</td>
+      <td>1.57049</td>
+      <td>1.57257</td>
+      <td>11026</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2013-01-28 13:00:00</td>
+      <td>1.57256</td>
+      <td>1.57389</td>
+      <td>1.57102</td>
+      <td>1.57366</td>
+      <td>11717</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2013-01-28 14:00:00</td>
+      <td>1.57366</td>
+      <td>1.57431</td>
+      <td>1.57133</td>
+      <td>1.57171</td>
+      <td>11911</td>
+    </tr>
+  </tbody>
 </table>
 </div></div>
 </div>
@@ -605,9 +561,9 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">gbpusd_h1_open_steps</span> <span class="o">=</span> <span class="n">Steps</span><span class="o">.</span><span class="n">read_dataframe</span><span class="p">(</span><span class="n">df_gbpusd_h1</span><span class="p">,</span><span class="n">start</span> <span class="o">=</span> <span class="s1">'Time'</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="s1">'Open'</span><span class="p">,</span><span class="n">convert_delta</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span><span class="n">gbpusd_h1_open_steps</span> <span class="o">=</span> <span class="n">Steps</span><span class="o">.</span><span class="n">read_dataframe</span><span class="p">(</span><span class="n">df_gbpusd_h1</span><span class="p">,</span><span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;Time&#39;</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="s1">&#39;Open&#39;</span><span class="p">,</span><span class="n">convert_delta</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
 
 </pre></div>
@@ -626,29 +582,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_currency_3_1.svg" src="../_images/examples_currency_3_1.svg"/></div>
+<img alt="../_images/examples_currency_4_1.svg" src="../_images/examples_currency_4_1.svg" /></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">gbpusd_h1_open_steps</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([1.32463])
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -660,76 +597,108 @@ array([1.32463])
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_currency_5_0.svg" src="../_images/examples_currency_5_0.svg"/></div>
+<img alt="../_images/examples_currency_5_0.svg" src="../_images/examples_currency_5_0.svg" /></div>
 </div>
 <p>We can look more closely at how this pair moved differently between 2017 and 2018, we first create new steps for these date ranges and have a look at what we have.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">gbpusd_h1_open_steps_2017</span> <span class="o">=</span> <span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">lbound</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">ubound</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">31</span><span class="p">))</span>
-<span class="n">gbpusd_h1_open_steps_2018</span> <span class="o">=</span> <span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">lbound</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">ubound</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">31</span><span class="p">))</span>
+<span></span><span class="n">gbpusd_h1_open_steps_2017</span> <span class="o">=</span> <span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="n">lbound</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">31</span><span class="p">),</span><span class="n">ubound</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">31</span><span class="p">))</span>
+<span class="n">gbpusd_h1_open_steps_2018</span> <span class="o">=</span> <span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="n">lbound</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">31</span><span class="p">),</span><span class="n">ubound</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">31</span><span class="p">))</span>
 
 <span class="p">(</span><span class="n">gbpusd_h1_open_steps_2018</span><span class="o">.</span><span class="n">integrate</span><span class="p">())</span><span class="o">/</span><span class="n">gbpusd_h1_open_steps_2017</span><span class="o">.</span><span class="n">integrate</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.0365144559041144
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;GBPUSD&#39;</span><span class="p">)</span>
+<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Logit&#39;</span><span class="p">)</span>
+<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">smooth_basis</span><span class="o">=</span><span class="n">Basis</span><span class="p">(</span><span class="n">Bases</span><span class="o">.</span><span class="n">arctan</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Arctan&#39;</span><span class="p">)</span>
+<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">smooth_basis</span><span class="o">=</span><span class="n">Basis</span><span class="p">(</span><span class="n">Bases</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Sigmoid&#39;</span><span class="p">)</span>
+
+
+<span class="c1">#and the rolling mean</span>
+<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">plot_rolling_step</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">rolling_function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span><span class="n">window</span><span class="o">=</span><span class="mi">2500</span><span class="p">,</span><span class="n">pre_mid_post</span><span class="o">=</span><span class="s1">&#39;mid&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Rolling Mean&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1.0362126907416778
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'GBPUSD'</span><span class="p">)</span>
-<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Logit'</span><span class="p">)</span>
-<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">smooth_basis</span><span class="o">=</span><span class="n">Basis</span><span class="p">(</span><span class="n">Bases</span><span class="o">.</span><span class="n">arctan</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">'Arctan'</span><span class="p">)</span>
-<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">smooth_basis</span><span class="o">=</span><span class="n">Basis</span><span class="p">(</span><span class="n">Bases</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">'Sigmoid'</span><span class="p">)</span>
-
-
-<span class="c1">#and the rolling mean</span>
-<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">plot_rolling_step</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">rolling_function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span><span class="n">window</span><span class="o">=</span><span class="mi">2500</span><span class="p">,</span><span class="n">pre_mid_post</span><span class="o">=</span><span class="s1">'mid'</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Rolling Mean'</span><span class="p">)</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x2461ed5c700&gt;
+&lt;matplotlib.legend.Legend at 0x1c53a4c1df0&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_currency_8_1.svg" src="../_images/examples_currency_8_1.svg"/></div>
+<img alt="../_images/examples_currency_8_1.svg" src="../_images/examples_currency_8_1.svg" /></div>
 </div>
 <p>From the plot of the logit, arctan, sigmoid and centred rolling mean of the data, we can see the logit basis plot is very similar to the centred rolling mean, with the advantage of not needing the warm-up at the start and tends to be less sensitive to extreme changes, leading to a smoother curve.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">gbpusd_h1_open_steps_2017</span> <span class="o">=</span> <span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">31</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">gbpusd_h1_open_steps_2017</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">gbpusd_h1_open_steps_2017</span><span class="o">.</span><span class="n">plot_rolling_step</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">rolling_function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span><span class="n">window</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span><span class="n">pre_mid_post</span><span class="o">=</span><span class="s1">'mid'</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Rolling Mean'</span><span class="p">)</span>
-<span class="n">gbpusd_h1_open_steps_2017</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Logit'</span><span class="p">)</span>
+<span class="n">gbpusd_h1_open_steps_2017</span><span class="o">.</span><span class="n">plot_rolling_step</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">rolling_function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span><span class="n">window</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span><span class="n">pre_mid_post</span><span class="o">=</span><span class="s1">&#39;mid&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Rolling Mean&#39;</span><span class="p">)</span>
+<span class="n">gbpusd_h1_open_steps_2017</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Logit&#39;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x1c53a4587c0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_currency_10_1.svg" src="../_images/examples_currency_10_1.svg" /></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">gbpusd_h1_open_steps_2017_smooth</span> <span class="o">=</span> <span class="n">gbpusd_h1_open_steps_2017</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">gbpusd_h1_open_steps_2017_smooth</span><span class="o">.</span><span class="n">rebase</span><span class="p">(</span><span class="n">Basis</span><span class="p">(</span><span class="n">Bases</span><span class="o">.</span><span class="n">logit</span><span class="p">))</span>
+
+<span class="n">gbpusd_h1_open_steps_2017_delta</span> <span class="o">=</span> <span class="n">gbpusd_h1_open_steps_2017</span> <span class="o">-</span> <span class="n">gbpusd_h1_open_steps_2017_smooth</span>
+
+<span class="n">gbpusd_h1_open_steps_2017</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">gbpusd_h1_open_steps_2017_smooth</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">gbpusd_h1_open_steps_2017_delta</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -739,22 +708,175 @@ array([1.32463])
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x24624e6f5b0&gt;
+&lt;AxesSubplot:&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_currency_10_1.svg" src="../_images/examples_currency_10_1.svg"/></div>
+<img alt="../_images/examples_currency_11_1.svg" src="../_images/examples_currency_11_1.svg" /></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">histogram_plot</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'values'</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">'frequency'</span><span class="p">,</span><span class="n">label_style</span><span class="o">=</span><span class="s1">'int'</span><span class="p">)</span>
-<span class="c1">#ax.set_xticklabels(ax.get_xticks(), rotation = 0);</span>
+<span></span><span class="n">gbpusd_h1_open_steps_2017_delta</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Metric</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Count</td>
+      <td>6227</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Mean</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Median</td>
+      <td>-0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Mode</td>
+      <td>-0.02</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Std</td>
+      <td>0.01</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Var</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Min</td>
+      <td>-0.02</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>25%</td>
+      <td>-0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>75%</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Max</td>
+      <td>0.02</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Area</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Start</td>
+      <td>2017-01-01 22:00:00</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>End</td>
+      <td>2017-12-31 00:00:00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">gbpusd_h1_open_steps_2017_delta</span><span class="o">.</span><span class="n">histogram_plot</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;AxesSubplot:title={&#39;center&#39;:&#39;Step Values Histogram&#39;}, xlabel=&#39;Steps Range&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_currency_13_1.svg" src="../_images/examples_currency_13_1.svg" /></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">gbpusd_h1_open_steps_2017_delta</span><span class="o">.</span><span class="n">pacf_plot</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;AxesSubplot:title={&#39;center&#39;:&#39;Steps Partial Autocorrelation for Lags = 20&#39;}, xlabel=&#39;Lag&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_currency_14_1.svg" src="../_images/examples_currency_14_1.svg" /></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">histogram_plot</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;values&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;frequency&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -762,10 +884,10 @@ array([1.32463])
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_currency_11_0.svg" src="../_images/examples_currency_11_0.svg"/></div>
+<img alt="../_images/examples_currency_15_0.svg" src="../_images/examples_currency_15_0.svg" /></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -774,22 +896,22 @@ array([1.32463])
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;AxesSubplot:title={'center':'Step Values Empirical Distribution'}, xlabel='Steps Range'&gt;
+&lt;AxesSubplot:title={&#39;center&#39;:&#39;Step Values Empirical Distribution&#39;}, xlabel=&#39;Steps Range&#39;&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_currency_12_1.svg" src="../_images/examples_currency_12_1.svg"/></div>
+<img alt="../_images/examples_currency_16_1.svg" src="../_images/examples_currency_16_1.svg" /></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -798,19 +920,19 @@ array([1.32463])
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;AxesSubplot:title={'center':'Steps Partial Autocorrelation for Lags = 20'}, xlabel='Lag'&gt;
+&lt;AxesSubplot:title={&#39;center&#39;:&#39;Steps Partial Autocorrelation for Lags = 20&#39;}, xlabel=&#39;Lag&#39;&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_currency_13_1.svg" src="../_images/examples_currency_13_1.svg"/></div>
+<img alt="../_images/examples_currency_17_1.svg" src="../_images/examples_currency_17_1.svg" /></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -821,39 +943,54 @@ array([1.32463])
 </pre></div>
 </div>
 </div>
+</div>
 
 
-          </article>
-        </div>
-      </div>
-    </main>
-  </div>
-  <footer class="md-footer">
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-          
-          
-        </a>
-        
-      </nav>
-    </div>
-    <div class="md-footer-meta md-typeset">
-      <div class="md-footer-meta__inner md-grid">
-        <div class="md-footer-copyright">
-          <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2020, Jackson Storm.
-              
+           </div>
+           
           </div>
-            Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
-             and
-            <a href="https://github.com/bashtage/sphinx-material/">Material for
-              Sphinx</a>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="uber%20trips.html" class="btn btn-neutral float-right" title="Uber Trips" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../utility%20functions.html" class="btn btn-neutral float-left" title="Statistical Analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Jackson Storm.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
         </div>
       </div>
-    </div>
-  </footer>
-  <script src="../_static/javascripts/application.js"></script>
-  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
-  </body>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>

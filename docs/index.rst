@@ -3,13 +3,11 @@ HotStepper documentation
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
-.. autoclass:: hotstepper.Steps.Steps
-   :members:
-
-.. autoclass:: hotstepper.mixins.StepsPlottingMixin
-   :members:
+   steps
+   utility functions
+   examples/currency
+   examples/uber trips
    
 Indices and tables
 ==================
