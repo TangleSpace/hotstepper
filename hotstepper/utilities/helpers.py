@@ -75,6 +75,18 @@ def is_date_time(value):
 def is_delta_datetime(value):
     return isinstance(value,timedelta) and isinstance(value,pd.Timedelta) or isinstance(value,np.timedelta64)
 
+# def date_to_float_multi(date_value):
+#     if is_date_time(date_value[0]):
+#         if isinstance(date_value[0],np.datetime64):
+#             return np.array(date_value,dtype=np.float)/10.0**9
+#         else:
+#             # convert all times to utc
+#             if hasattr(date_value[0],'tz_localize') and callable(date_value[0].tz_localize):
+#                 date_value = date_value.tz_localize(None)
+#             return (pytz.utc.localize(date_value)).timestamp()
+#     else:
+#         raise TypeError('Only datetime, numpy.datetime64, Pandas.Timestamp and derived datetime types are valid.')
+
 def date_to_float(date_value):
     if is_date_time(date_value):
         if isinstance(date_value,np.datetime64):
@@ -295,17 +307,21 @@ def prepare_datetime(x, return_dt=True):
     else:
         return np.sort(np.asarray(list(map(get_dt, x))).astype(pd.Timestamp))
 
+def get_ts_vector():
+    return np.vectorize(date_to_float) 
 
 def prepare_input(x):
     """
     
     """
 
-    x = process_slice(x)
-
     #either we expanded using the slice or wrapped the input in an iter
     #NOTE: Always return sorted for performance
     if is_date_time(x[0]):
+        # if isinstance(x,np.ndarray):
+        #     return np.sort(x.astype(float))
+        # #return np.sort(np.asfarray(list(map(get_ts, x))))
+        # else:
         return np.sort(np.asfarray(list(map(get_ts, x))))
     else:
         return np.sort(np.asfarray(x))

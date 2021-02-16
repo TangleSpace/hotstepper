@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import hotstepper.analysis as analysis
 import hotstepper.mixins as mixins
-from hotstepper.utilities.helpers import get_epoch_start, prepare_input,get_clean_step_data,prepare_datetime
+from hotstepper.utilities.helpers import get_epoch_start, prepare_input,get_clean_step_data,prepare_datetime,process_slice
 from hotstepper.core.data_model import DataModel
 from hotstepper.basis.Basis import Basis
 from hotstepper.basis.Bases import Bases
@@ -137,6 +137,7 @@ class AbstractSteps(ABC):
 
 
     def __getitem__(self,x):
+        x = process_slice(x)
         return self.fast_step(x)
 
 
@@ -223,7 +224,7 @@ class AbstractSteps(ABC):
         return search_data[np.clip(idxs,0,limit)]
 
 
-    def smooth_step(self,xdata,smooth_factor = None,smooth_basis = None, process_input = False):
+    def smooth_step(self,xdata,smooth_factor = None,smooth_basis = None, process_input = True):
         """
         This is a mathematical function definition of the Steps object, this is a dynamically created formula representation that can be passed an array of values to evaluate the steps function at.
         If a basis other than the default (Heaviside) is assigned and no new basis is provided, this function will return the same result as a call to the `step` function. If the default basis is assigned, and no new
@@ -404,7 +405,7 @@ class AbstractSteps(ABC):
         Returns
         =======
         Basis
-        
+
         """
         
         return self._basis
