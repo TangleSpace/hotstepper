@@ -7,53 +7,9 @@ import pytz
 from datetime import datetime, timedelta
 
 
-#########################################################################
-#-----------------------methods taken from staircaes---------------------
-#########################################################################
-# def _set_default_timezone(tz=None):
-#     global tz_default
-#     tz_default = pytz.timezone(tz) if tz else None
-    
-# def _get_default_timezone():
-#     return tz_default
-    
-# def _get_default_use_dates():
-#     return use_dates_default
-    
-# def _verify_window(left_delta, right_delta, zero):
-#     assert left_delta <= zero, "left_delta must not be positive"
-#     assert right_delta >= zero, "right_delta must not be negative"
-#     assert right_delta - left_delta > zero, "window length must be non-zero"
-    
-# def _check_binop_timezones(first, second):
-#     assert first.tz == second.tz, "operands must have the same timezone, or none at all"
-
-# def _convert_date_to_float(val, tz=None):
-#     if val is None:
-#         return None
-#     if hasattr(val, "__iter__"):
-#         if not isinstance(val, pd.Series):
-#             val = pd.Series(val)
-#         #if val.dt.tz is None and tz is not None:
-#         #    val = val.dt.tz_localize(tz)
-#         deltas = pd.TimedeltaIndex(val - origin.tz_localize(tz))
-#         return list(deltas/pd.Timedelta(1, 'h'))
-#     #if val.tz is None and tz is not None:
-#     #    val = val.tz_localize(tz)
-#     return (val - origin.tz_localize(tz))/pd.Timedelta(1, 'h')
-    
-# def _convert_float_to_date(val, tz=None):
-#     if hasattr(val, "__iter__"):
-#         if not isinstance(val, np.ndarray):
-#             val = np.array(val)
-#         return list(pd.to_timedelta(val*3600, unit='s') + origin.tz_localize(tz))
-#     return pd.to_timedelta(val*3600, unit='s') + origin.tz_localize(tz)
-#########################################################################
-#-----------------------methods taken from staircaes---------------------
-#########################################################################
-
 #all the valid value types we can process without error
 valid_input_types = (int,float,pd.Timestamp,datetime,np.datetime64,np.int,np.float,np.float64,np.int32)
+origin = pd.to_datetime("1970-1-1")
 
 def get_clean_step_data(st):
     steps_raw = st.step_values()
@@ -69,23 +25,12 @@ def get_clean_step_data(st):
 
     return step_keys, steps_raw
 
+
 def is_date_time(value):
     return (hasattr(value,'timestamp') and callable(value.timestamp)) or isinstance(value,np.datetime64)
 
 def is_delta_datetime(value):
     return isinstance(value,timedelta) and isinstance(value,pd.Timedelta) or isinstance(value,np.timedelta64)
-
-# def date_to_float_multi(date_value):
-#     if is_date_time(date_value[0]):
-#         if isinstance(date_value[0],np.datetime64):
-#             return np.array(date_value,dtype=np.float)/10.0**9
-#         else:
-#             # convert all times to utc
-#             if hasattr(date_value[0],'tz_localize') and callable(date_value[0].tz_localize):
-#                 date_value = date_value.tz_localize(None)
-#             return (pytz.utc.localize(date_value)).timestamp()
-#     else:
-#         raise TypeError('Only datetime, numpy.datetime64, Pandas.Timestamp and derived datetime types are valid.')
 
 def date_to_float(date_value):
     if is_date_time(date_value):
@@ -149,11 +94,11 @@ def timedelta_to_float(dt_delta):
         raise TypeError('Only datetime.timedelta, numpy.timedelta64, Pandas.Timedelta and derived datetime interval types are valid.')
 
 
-def get_value(val, is_dt = False):
-    if is_dt:
-        return date_to_float(val)
-    else:
-        return val
+# def get_value(val, is_dt = False):
+#     if is_dt:
+#         return date_to_float(val)
+#     else:
+#         return val
 
 
 def _prettyplot(step_dict,plot_start=0,plot_start_value=0,ax=None,start_index=1,end_index=None,include_end=True,**kargs):
@@ -251,18 +196,18 @@ def rolling_window(arr, window):
     return np.lib.stride_tricks.as_strided(arr,shape=shape,strides=strides)
     
 
-def get_ts(ts):
-    return date_to_float(ts)
+# def get_ts(ts):
+#     return date_to_float(ts)
 
 
-def ts_to_dt(val, is_dt=False):
-    if is_dt:
-        return get_dt(val)
-    else:
-        return val
+# def ts_to_dt(val, is_dt=False):
+#     if is_dt:
+#         return get_dt(val)
+#     else:
+#         return val
 
 
-def get_dt(ts):
+def get_datetime(ts):
     if is_date_time(ts):
         return ts
     else:
@@ -272,64 +217,95 @@ def get_dt(ts):
             return float_to_date(ts)
 
 
-def process_slice(sl):
+def process_slice(sliz):
     """
 
     """
-    x = sl
-    if type(sl) is slice:
-        if is_date_time(sl.start):
-            if sl.step is None:
-                x = np.arange(sl.start,sl.stop,pd.Timedelta(minutes=1)).astype(pd.Timestamp)
+    x = sliz
+    if type(sliz) is slice:
+        if is_date_time(sliz.start):
+            if sliz.step is None:
+                x = np.arange(sliz.start,sliz.stop,pd.Timedelta(minutes=1)).astype(pd.Timestamp)
             else:
-                x = np.arange(sl.start,sl.stop,sl.step).astype(pd.Timestamp)
+                x = np.arange(sliz.start,sliz.stop,sliz.step).astype(pd.Timestamp)
         else:
-            if sl.step is None:
-                x = np.arange(sl.start,sl.stop,0.001)
+            if sliz.step is None:
+                x = np.arange(sliz.start,sliz.stop,0.001)
             else:
-                x = np.arange(sl.start,sl.stop,sl.step)
-    elif not hasattr(sl,'__iter__'):
-        x = [sl]
+                x = np.arange(sliz.start,sliz.stop,sliz.step)
+    elif not hasattr(sliz,'__iter__'):
+        x = [sliz]
 
     return x
 
-def prepare_datetime(x, return_dt=True):
+def prepare_datetime(xdata, return_dt=True):
     """
 
     """
+    if not hasattr(xdata, "__iter__"):
+        xdata = [xdata]
 
-    x = process_slice(x)
-    
-    #either we expanded using the slice or wrapped the input in an iter
-    #NOTE: Always return sorted for performance
-    if is_date_time(x[0]) and return_dt:
-        return np.sort(x)
+    #Always return sorted for performance
+    if is_date_time(xdata[0]) and return_dt:
+        return np.sort(xdata)
     else:
-        return np.sort(np.asarray(list(map(get_dt, x))).astype(pd.Timestamp))
+        #return _convert_float_to_date(x)
+        return np.sort(np.asarray(list(map(get_datetime, xdata))).astype(pd.Timestamp))
 
-def get_ts_vector():
-    return np.vectorize(date_to_float) 
 
-def prepare_input(x):
+def date_to_float_bulk(date_value, tz=None):
+
+    if date_value is None:
+        return None
+    if hasattr(date_value, "__iter__"):
+        if not isinstance(date_value, pd.Series):
+            val = pd.Series(date_value)
+        deltas = pd.TimedeltaIndex(val - origin.tz_localize(tz))
+        return list(deltas / pd.Timedelta(1, "s"))
+    return (date_value - origin.tz_localize(tz)) / pd.Timedelta(1, "s")
+
+
+def prepare_input(xdata):
     """
+    A helper function to convert a value or array of values that will be used to evaluate the steps function at. Interally the steps equations
+    use floating point numbers, therefore datetime, integers and floats all need to be presented as floats to the numpy equations and functions.
+
+    Parameters
+    ===========
+    xdata : array_like
+        The value or values to convert into floats ready to use directly in the steps function equations.
+
+    See Also
+    =========
+    prepare_datetime
+
+    """
+
     
-    """
+    if not hasattr(xdata, "__iter__"):
+        xdata = [xdata]
 
-    #either we expanded using the slice or wrapped the input in an iter
-    #NOTE: Always return sorted for performance
-    if is_date_time(x[0]):
-        # if isinstance(x,np.ndarray):
-        #     return np.sort(x.astype(float))
-        # #return np.sort(np.asfarray(list(map(get_ts, x))))
-        # else:
-        return np.sort(np.asfarray(list(map(get_ts, x))))
+    #Always return sorted for performance
+    if is_date_time(xdata[0]):
+        return np.sort(date_to_float_bulk(xdata))
     else:
-        return np.sort(np.asfarray(x))
+        return np.sort(np.asfarray(xdata))
 
 
-def steps_plot(steps,method=None,smooth_factor = None,smooth_basis=None,ts_grain = None,ax=None,where='post',**kargs):
+def steps_plot(
+    steps,
+    method=None,
+    smooth_factor=None,
+    smooth_basis=None,
+    ts_grain = None,
+    ax=None,
+    where='post',
+    **kargs):
+
     """
-    
+    A universal plotting function for objects that implement the AbstractSteps interface.
+
+
     """
 
     if ax is None:

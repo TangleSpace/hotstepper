@@ -14,9 +14,7 @@ from hotstepper.utilities.helpers import (
     is_date_time,
     get_epoch_start,
     get_epoch_end,
-    date_to_float,
-    ts_to_dt,
-    get_value
+    date_to_float
 )
 
 
@@ -117,7 +115,7 @@ class Steps(
 
         for s,e,w in zip(start,end,weight):
             if pd.isnull(s) and not pd.isnull(e):
-                yield (epoch_start,-1,w)
+                yield (epoch_start,1,w)
                 yield (convert_func(e),1,-w)
             elif pd.isnull(s) and pd.isnull(e):
                 yield (epoch_start,1,w)
@@ -255,8 +253,8 @@ class Steps(
                 end_key = all_keys[-1]
 
             #The real value start and end points for the entire series of steps
-            self._start = ts_to_dt(start_key,self._using_dt)
-            self._end = ts_to_dt(end_key,self._using_dt)
+            self._start = start_key
+            self._end = end_key
 
             #this is the computed summary describing the steps data for fast access
             all_data = np.empty((all_keys.shape[0],3))
@@ -321,6 +319,13 @@ class Steps(
 
         if lbound is None and ubound is None:
             return self
+
+        if self._using_dt:
+            if lbound is not None:
+                lbound = date_to_float(lbound)
+
+            if ubound is not None:
+                ubound = date_to_float(ubound)
         
         new_steps = self._clip(lbound,ubound)
         return Steps(self._using_dt).add_steps(new_steps)
@@ -332,7 +337,7 @@ class Steps(
 
         if lbound is None:
             lower_idx = 0
-            idxs = np.searchsorted(self._all_data[:,DataModel.START.value],get_value(ubound,self._using_dt)*self._ts_scale,side='right')
+            idxs = np.searchsorted(self._all_data[:,DataModel.START.value],ubound,side='right')
             upper_idx = idxs if idxs >=0 else -1
 
             step_slice = step_data[:upper_idx]
@@ -342,7 +347,7 @@ class Steps(
             new_steps[:,DataModel.WEIGHT.value] = step_slice[:,DataModel.DIRECTION.value]
 
         elif ubound is None:
-            idxs = np.searchsorted(self._all_data[:,DataModel.START.value],get_value(lbound,self._using_dt)*self._ts_scale,side='right')
+            idxs = np.searchsorted(self._all_data[:,DataModel.START.value],lbound,side='right')
             lower_idx = idxs if idxs >=0 else 0
             upper_idx = -1
 
@@ -356,12 +361,12 @@ class Steps(
             if new_start_weight !=0:
                 new_steps = np.insert(new_steps,0,[[get_epoch_start(False),1,new_start_weight]],axis=0)
             else:
-                new_steps = np.insert(new_steps,0,[[get_value(lbound,self._using_dt)*self._ts_scale,1,new_start_weight]],axis=0)
+                new_steps = np.insert(new_steps,0,[[lbound,1,new_start_weight]],axis=0)
 
         else:
-            if lbound <= self.first():
+            if lbound <= self._start:
                 lower_idx = 0
-                idxs = np.searchsorted(self._all_data[:,DataModel.START.value],get_value(ubound,self._using_dt)*self._ts_scale,side='right')
+                idxs = np.searchsorted(self._all_data[:,DataModel.START.value],ubound,side='right')
                 upper_idx = idxs if idxs >=0 else -1
 
                 step_slice = step_data[:upper_idx]
@@ -370,8 +375,8 @@ class Steps(
                 new_steps[:,DataModel.DIRECTION.value] = 1
                 new_steps[:,DataModel.WEIGHT.value] = step_slice[:,DataModel.DIRECTION.value]
 
-            elif ubound >= self.last():
-                idxs = np.searchsorted(self._all_data[:,DataModel.START.value],get_value(lbound,self._using_dt)*self._ts_scale,side='right')
+            elif ubound >= self._end:
+                idxs = np.searchsorted(self._all_data[:,DataModel.START.value],lbound,side='right')
                 lower_idx = idxs if idxs >=0 else 0
                 upper_idx = -1
 
@@ -385,12 +390,12 @@ class Steps(
                 if new_start_weight !=0:
                     new_steps = np.insert(new_steps,0,[[get_epoch_start(False),1,new_start_weight]],axis=0)
                 else:
-                    new_steps = np.insert(new_steps,0,[[get_value(lbound,self._using_dt)*self._ts_scale,1,new_start_weight]],axis=0)
+                    new_steps = np.insert(new_steps,0,[[lbound,1,new_start_weight]],axis=0)
             else:
-                idxs = np.searchsorted(self._all_data[:,DataModel.START.value],get_value(lbound,self._using_dt)*self._ts_scale,side='right')
+                idxs = np.searchsorted(self._all_data[:,DataModel.START.value],lbound,side='right')
                 lower_idx = idxs if idxs >=0 else 0
 
-                idxs = np.searchsorted(self._all_data[:,DataModel.START.value],get_value(ubound,self._using_dt)*self._ts_scale,side='right')
+                idxs = np.searchsorted(self._all_data[:,DataModel.START.value],ubound,side='right')
                 upper_idx = idxs if idxs >=0 else -1
 
                 step_slice = step_data[lower_idx:upper_idx]
@@ -405,9 +410,9 @@ class Steps(
                 if new_start_weight !=0:
                     new_steps = np.insert(new_steps,0,[[get_epoch_start(False),1,new_start_weight]],axis=0)
                 else:
-                    new_steps = np.insert(new_steps,0,[[get_value(lbound,self._using_dt)*self._ts_scale,1,new_start_weight]],axis=0)
+                    new_steps = np.insert(new_steps,0,[[lbound,1,new_start_weight]],axis=0)
 
-                new_steps = np.append(new_steps,[[get_value(ubound,self._using_dt)*self._ts_scale,1,end_val]],axis=0)
+                new_steps = np.append(new_steps,[[ubound,1,end_val]],axis=0)
 
         return new_steps
 
@@ -429,7 +434,11 @@ class Steps(
 
         new_instance = Steps(use_datetime=self._using_dt,basis=self._basis)
         lshift_steps = np.copy(self._step_data)
-        lshift_steps[:,DataModel.START.value] = lshift_steps[:,DataModel.START.value] - get_value(other,self._using_dt)
+
+        if self._using_dt:
+            other = date_to_float(other)
+
+        lshift_steps[:,DataModel.START.value] = lshift_steps[:,DataModel.START.value] - other
         return new_instance.add_steps(lshift_steps)
 
 
@@ -450,7 +459,12 @@ class Steps(
         
         new_instance = Steps(use_datetime=self._using_dt,basis=self._basis)
         rshift_steps = np.copy(self._step_data)
-        rshift_steps[:,DataModel.START.value] = rshift_steps[:,DataModel.START.value] + get_value(other,self._using_dt)
+
+        if self._using_dt:
+            other = date_to_float(other)
+
+
+        rshift_steps[:,DataModel.START.value] = rshift_steps[:,DataModel.START.value] + other
         return new_instance.add_steps(rshift_steps)
 
 

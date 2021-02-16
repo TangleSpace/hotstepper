@@ -6,7 +6,14 @@ import numpy as np
 import pandas as pd
 import hotstepper.analysis as analysis
 import hotstepper.mixins as mixins
-from hotstepper.utilities.helpers import get_epoch_start, prepare_input,get_clean_step_data,prepare_datetime,process_slice
+from hotstepper.utilities.helpers import (
+    get_epoch_start, 
+    prepare_input,
+    get_clean_step_data,
+    prepare_datetime,
+    process_slice,
+    get_datetime)
+
 from hotstepper.core.data_model import DataModel
 from hotstepper.basis.Basis import Basis
 from hotstepper.basis.Bases import Bases
@@ -90,7 +97,9 @@ class AbstractSteps(ABC):
             First finite key value of the steps.
 
         """
-        
+        if self._using_dt:
+            return get_datetime(self._start)
+
         return self._start
 
 
@@ -104,6 +113,9 @@ class AbstractSteps(ABC):
             Last finite key value of the steps.
             
         """
+
+        if self._using_dt:
+            return get_datetime(self._end)
 
         return self._end
 
@@ -184,7 +196,7 @@ class AbstractSteps(ABC):
         return result
 
 
-    def fast_step(self,xdata,process_input=True):
+    def fast_step(self,xdata,process_input=True,side='right'):
         """
         This will evaluate the cummulative steps function at the provided input values. This function ignores the assigned basis and performs some numpy trickery to improve performance.
         Paramters
@@ -220,7 +232,7 @@ class AbstractSteps(ABC):
 
         #improves lookup performance, just need an extra check to avoid over/under run
         limit = search_data.shape[0]
-        idxs = np.searchsorted(self._all_data[:,DataModel.START.value],x,side='right')
+        idxs = np.searchsorted(self._all_data[:,DataModel.START.value],x,side=side)
         return search_data[np.clip(idxs,0,limit)]
 
 
@@ -311,17 +323,6 @@ class AbstractSteps(ABC):
         else:
             self._index = 0
             raise StopIteration
-
-    def __getitem__(self,x):
-        return self.step(x)
-
-
-    def step_data(self):
-        return self._step_data
-
-
-    def step_data(self):
-        return self._step_data
 
 
     def using_datetime(self):
