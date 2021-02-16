@@ -1,9 +1,9 @@
-import abc
+from abc import ABC
 import numpy as np
 from hotstepper.mixins.operations import apply_math_function
 
 
-class MathFunctionsMixin(metaclass=abc.ABCMeta):
+class MathFunctionsMixin(ABC):
 
     def __rfloordiv__(self,other):
         return apply_math_function(self,other,np.floor_divide)

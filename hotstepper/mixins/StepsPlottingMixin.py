@@ -1,4 +1,4 @@
-import abc
+from abc import ABC
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -20,7 +20,7 @@ from hotstepper.analysis.statistics import (
 )
 
 
-class StepsPlottingMixin(metaclass=abc.ABCMeta):
+class StepsPlottingMixin(ABC):
     """
     A plotting mixin class to generate plots for any object implementing the AbstractSteps interface.
 

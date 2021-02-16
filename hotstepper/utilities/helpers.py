@@ -1,6 +1,5 @@
 from __future__ import annotations
 import matplotlib.pyplot as plt
-import matplotlib.ticker as ticker
 import numpy as np
 import pandas as pd
 import pytz
@@ -29,8 +28,10 @@ def get_clean_step_data(st):
 def is_date_time(value):
     return (hasattr(value,'timestamp') and callable(value.timestamp)) or isinstance(value,np.datetime64)
 
+
 def is_delta_datetime(value):
     return isinstance(value,timedelta) and isinstance(value,pd.Timedelta) or isinstance(value,np.timedelta64)
+
 
 def date_to_float(date_value):
     if is_date_time(date_value):
@@ -92,13 +93,6 @@ def timedelta_to_float(dt_delta):
             return dt_delta/np.timedelta64(1,'s')
     else:
         raise TypeError('Only datetime.timedelta, numpy.timedelta64, Pandas.Timedelta and derived datetime interval types are valid.')
-
-
-# def get_value(val, is_dt = False):
-#     if is_dt:
-#         return date_to_float(val)
-#     else:
-#         return val
 
 
 def _prettyplot(step_dict,plot_start=0,plot_start_value=0,ax=None,start_index=1,end_index=None,include_end=True,**kargs):
@@ -190,21 +184,11 @@ def get_plot_range(start,end, delta = None, use_datetime = False):
 
             return np.arange(start-shift, start + shift, delta)
 
+
 def rolling_window(arr, window):
     shape = arr.shape[:-1]+(arr.shape[-1]-window+1, window)
     strides = arr.strides + (arr.strides[-1],)
     return np.lib.stride_tricks.as_strided(arr,shape=shape,strides=strides)
-    
-
-# def get_ts(ts):
-#     return date_to_float(ts)
-
-
-# def ts_to_dt(val, is_dt=False):
-#     if is_dt:
-#         return get_dt(val)
-#     else:
-#         return val
 
 
 def get_datetime(ts):
@@ -238,6 +222,7 @@ def process_slice(sliz):
 
     return x
 
+
 def prepare_datetime(xdata, return_dt=True):
     """
 
@@ -249,7 +234,6 @@ def prepare_datetime(xdata, return_dt=True):
     if is_date_time(xdata[0]) and return_dt:
         return np.sort(xdata)
     else:
-        #return _convert_float_to_date(x)
         return np.sort(np.asarray(list(map(get_datetime, xdata))).astype(pd.Timestamp))
 
 
@@ -331,7 +315,6 @@ def steps_plot(
             reverse_step = np_keys[0]==get_epoch_start(False)
             np_keys = get_plot_range(steps.first(),steps.last(),ts_grain,use_datetime=steps.using_datetime())
             np_values = steps.step(np_keys)
-
 
     if method == 'pretty':
         if len(np_keys) == 0:

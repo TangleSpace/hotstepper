@@ -52,7 +52,7 @@ class AbstractSteps(ABC):
 
         Parameters
         ===========
-        other : step. steps
+        other : AbstractSteps
             The other steps object to come this one to
 
         Returns
@@ -204,7 +204,7 @@ class AbstractSteps(ABC):
         xdata : array_like(int, float, datetime)
             The values the steps function is to be evaluated at.
             .. note::
-                This fnuction will ignore the assigned basis and evaluate the cummulative function directly, to ensure the assigned basis is used, please use the `step` function.
+                This function will ignore the assigned basis and evaluate the cummulative function directly, to ensure the assigned basis is used, please use the `step` function.
 
         process_input : bool, Optional
             Indicate if the input data needs processing, to convert datetimes to floats for calculation. Primarily used internally to avoid converting input data twice.
@@ -306,6 +306,7 @@ class AbstractSteps(ABC):
                 return (delta/5.0)
             else:
                 return 10.0
+
 
     def reflect(self,reflect_point = 0):
         return self*-1 + reflect_point

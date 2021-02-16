@@ -1,9 +1,9 @@
-import abc
+from abc import ABC
 import operator
 from hotstepper.mixins.operations import filter_values
 
 
-class FilterFunctionsMixin(metaclass=abc.ABCMeta):
+class FilterFunctionsMixin(ABC):
 
     def __neg__(self):
         return self*-1
