@@ -1,12 +1,7 @@
 Statistical Analysis
 ======================================
 
-.. currentmodule:: hotstepper.analysis.statistics
+.. currentmodule:: hotstepper.utilities.helpers
 
 .. autosummary::
    :toctree: api/
-
-   acf
-   pacf
-   ecdf
-   histogram

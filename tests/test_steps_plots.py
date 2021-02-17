@@ -31,6 +31,7 @@ def perform_plot_comparison(test_name, fig):
 
 def get_test_images(test_name, test_fig):
     testplot_file = './basecharts/{}_test.png'.format(test_name)
+    test_fig.set_dpi(200.0)
     test_fig.savefig(testplot_file)
 
     return './basecharts/{}_baseline.png'.format(test_name), testplot_file

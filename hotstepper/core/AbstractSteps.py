@@ -161,7 +161,7 @@ class AbstractSteps(ABC):
         """
         This is a mathematical function definition of the Steps object, this is a dynamically created formula representation that can be passed an array of values to evaluate the steps function at.
         
-        Paramters
+        Parameters
         ==========
         xdata : array_like(int, float, datetime)
             The values the steps function is the be evaluated at using the assigned mathematical basis function.
@@ -181,6 +181,10 @@ class AbstractSteps(ABC):
 
         """
 
+        #if we are using default basis, get answer even quicker
+        # if self._basis.name == 'Heaviside':
+        #     return self.fast_step(xdata=xdata,process_input=process_input)
+
         if process_input:
             x = prepare_input(xdata)
         else:
@@ -199,12 +203,14 @@ class AbstractSteps(ABC):
     def fast_step(self,xdata,process_input=True,side='right'):
         """
         This will evaluate the cummulative steps function at the provided input values. This function ignores the assigned basis and performs some numpy trickery to improve performance.
-        Paramters
+        .. note::
+            This function will ignore the assigned basis and evaluate the cummulative function directly, to ensure the assigned basis is used, please use the `step` function.
+
+        
+        Parameters
         ==========
         xdata : array_like(int, float, datetime)
             The values the steps function is to be evaluated at.
-            .. note::
-                This function will ignore the assigned basis and evaluate the cummulative function directly, to ensure the assigned basis is used, please use the `step` function.
 
         process_input : bool, Optional
             Indicate if the input data needs processing, to convert datetimes to floats for calculation. Primarily used internally to avoid converting input data twice.
@@ -242,7 +248,7 @@ class AbstractSteps(ABC):
         If a basis other than the default (Heaviside) is assigned and no new basis is provided, this function will return the same result as a call to the `step` function. If the default basis is assigned, and no new
         basis is provided, the Logit basis will be temporarily assigned, the result generated and the basis will be reset to the default.
 
-        Paramters
+        Parameters
         ==========
         xdata : array_like(int, float, datetime)
             The values the steps function is the be evaluated at using the assigned mathematical basis function.
@@ -354,14 +360,14 @@ class AbstractSteps(ABC):
     def steps(self):
         """
         Return all the raw steps data within this steps object.
-        The format follows the internal `DataModel`.
+        The format follows the internal `hotstepper.core.data_model`.
+        array(
             array(
-                array(
-                    step_key,
-                    step_delta,
-                    step_cummulative
-                )
+                step_key,
+                step_delta,
+                step_cummulative
             )
+        )
 
 
         Returns
@@ -422,8 +428,8 @@ class AbstractSteps(ABC):
         new_basis : Basis
             The new basis to assign to the steps function. If the provided Basis is None, the basis will be reset to the default of the Heaviside function.
 
-            .. note::
-                If the new basis has the default value for the param property, an internally generated value will be assigned.
+        .. note::
+            If the new basis has the default value for the param property, an internally generated value will be assigned.
 
         """
         

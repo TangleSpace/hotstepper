@@ -1,0 +1,807 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    
+    <title>
+      hotstepper.Steps.Steps | HotStepper
+    </title>
+    <link
+      rel="stylesheet"
+      href="../_static/pygments.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../_static/theme.css"
+    />
+        <link rel="search" title="Search" href="../search.html"/>
+        <link rel="index" title="Index" href="../genindex.html"/>
+  </head><body class="text-gray-900 antialiased min-h-screen md:h-screen flex flex-col">
+    <a
+  class="block text-xl bg-white px-8 py-4 z-20 absolute top-0 inset-x-0 text-center transform
+  -translate-y-full focus:translate-y-0 focus:outline-none transition-transform duration-75"
+  href="#hotstepper-steps-steps"
+  title="Skip navigation links"
+  >Skip to content</a>
+    <header class="md:sticky top-0 bg-gray-900 shadow-md flex md:flex-row justify-between items-center z-10"><a class="py-4 hover:bg-gray-700 focus:bg-gray-700 tooltipped tooltipped-se"
+      href="../index.html"
+      aria-label="Back to homepage">
+      <img class="h-8 mx-5" src="../_static/HotstepperLogo.png" alt="Logo" />
+    </a><h2 class="text-xl text-gray-100 mx-5 py-4">HotStepper</h2><form
+    id="searchbox"
+    action="../search.html"
+    method="get"
+    class="hidden md:flex my-auto mx-5 justify-between items-center print:hidden">
+
+    <input
+      name="q"
+      id="search-input"
+      type="search"
+      aria-label="Search the docs"
+      placeholder="Search the docs"
+      class="p-2 flex-1 focus:bg-yellow-100"
+      style="width: 300px;"
+    />
+    
+<button class="p-2 text-white bg-gray-700 hover:bg-gray-200 hover:text-pink-500 focus:bg-gray-200 focus:text-pink-500 tooltipped tooltipped-sw"
+        aria-label="Get search results">
+  <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+</button>
+
+  </form>
+</header>
+    <div class="md:overflow-hidden flex flex-col md:flex-row flex-1"><nav
+  role="navigation"
+  data-menu="closed"
+  style="width: 270px;"
+  class="h-full fixed md:relative inset-y-0 left-0 z-20 md:z-0
+         bg-white text-gray-700 border-r overflow-x-hidden pt-16
+         print:hidden flex flex-col"
+>
+  <div class="nav-toc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../steps.html">Steps methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#constructor-basic-methods">Constructor &amp; basic methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#step-functions">Step Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.step.html">hotstepper.Steps.Steps.step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.smooth_step.html">hotstepper.Steps.Steps.smooth_step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.fast_step.html">hotstepper.Steps.Steps.fast_step</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#arithmetic-operators">Arithmetic operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.add.html">hotstepper.Steps.Steps.add</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#relational-operators">Relational operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.compare.html">hotstepper.Steps.Steps.compare</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#logical-operators">Logical operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.normalise.html">hotstepper.Steps.Steps.normalise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.invert.html">hotstepper.Steps.Steps.invert</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#statistical-operators">Statistical operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#summary-statistics">Summary statistics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.integrate.html">hotstepper.Steps.Steps.integrate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.describe.html">hotstepper.Steps.Steps.describe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.min.html">hotstepper.Steps.Steps.min</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.max.html">hotstepper.Steps.Steps.max</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.var.html">hotstepper.Steps.Steps.var</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.std.html">hotstepper.Steps.Steps.std</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.mean.html">hotstepper.Steps.Steps.mean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.median.html">hotstepper.Steps.Steps.median</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.percentile.html">hotstepper.Steps.Steps.percentile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.ecdf.html">hotstepper.Steps.Steps.ecdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.histogram.html">hotstepper.Steps.Steps.histogram</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#miscellaneous-functions">Miscellaneous functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.clip.html">hotstepper.Steps.Steps.clip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.clamp.html">hotstepper.Steps.Steps.clamp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.rshift.html">hotstepper.Steps.Steps.rshift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.Steps.lshift.html">hotstepper.Steps.Steps.lshift</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Case Studies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/currency.html">Forex Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/uber%20trips.html">Uber Trips</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../helpers.html">Helper Functions</a></li>
+</ul>
+</div>
+<button
+    id="closeNavBtn"
+    aria-label="Close menu"
+    title="Close menu"
+    class="text-4xl text-gray-800 p-4 bottom-0 hover:text-pink-500 md:hidden focus:text-pink-500 self-center">
+  <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+</button>
+
+</nav>
+      <div id="main-wrapper" class="overflow-y-auto md:w-full flex flex-col flex-1">
+        <main role="main" class="px-5 md:ml-fluid flex-1 "><nav role="navigation"
+     aria-label="breadcrumbs"
+     class="mt-16 mb-12 text-sm text-gray-700 leading-tight print:hidden">
+  <a class="text-blue-700" href="../index.html">HotStepper</a>
+  <span class="text-gray-700 mr-1">/</span><span aria-current="page">hotstepper.Steps.Steps</span>
+</nav>
+          
+  <section id="hotstepper-steps-steps">
+<h1>hotstepper.Steps.Steps<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-steps-steps" aria-label="Copy link to section: hotstepper.Steps.Steps."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h1>
+<dl class="py class code-definition">
+<dt id="hotstepper.Steps.Steps">
+<em class="property">class </em><code class="sig-prename descclassname">hotstepper.Steps.</code><code class="sig-name descname">Steps</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">use_datetime</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">start</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">end</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">weight</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">basis</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.Steps.Steps" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Bases: <a class="reference internal" href="../modules/hotstepper.mixins.html#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin</span></code></a>, <a class="reference internal" href="../modules/hotstepper.mixins.html#hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin" title="hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin</span></code></a>, <a class="reference internal" href="../modules/hotstepper.mixins.html#hotstepper.mixins.MathFunctionsMixin.MathFunctionsMixin" title="hotstepper.mixins.MathFunctionsMixin.MathFunctionsMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">hotstepper.mixins.MathFunctionsMixin.MathFunctionsMixin</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">hotstepper.core.AbstractSteps.AbstractSteps</span></code></p>
+<blockquote>
+<div><p>Class representing a complex step function made of individual step objects. The Steps object can be treated as a
+mathemtical function in Numpy and as a Python object.</p>
+<dl>
+<dt><strong>Terminology</strong></dt><dd><p><em>start</em> : The x value of where the step function changes value.</p>
+<p><em>end</em> The x value where the step function changes value in the opposite direction to the start location.
+.. note:</p>
+<div class="highlight">
+<div class='code-header'>
+<span class='code-lang'>python</span>
+<button class='copy tooltipped tooltipped-nw' aria-label='Copy this code'><svg xmlns='http://www.w3.org/2000/xvg' viewBox='0 0 24 24' aria-hidden='true'><path d='M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z' /></svg></button>
+</div>
+<pre><code><span class="n">If</span> <span class="n">no</span> <span class="n">start</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">specified</span><span class="p">,</span> <span class="n">the</span> <span class="n">end</span> <span class="n">location</span> <span class="n">still</span> <span class="n">represents</span> <span class="n">the</span> <span class="n">step</span> <span class="n">function</span> <span class="n">change</span> <span class="ow">in</span> <span class="n">value</span> <span class="n">that</span> <span class="n">would</span> <span class="n">have</span> <span class="n">been</span> <span class="n">opposite</span> <span class="k">if</span> <span class="n">a</span> <span class="n">start</span> <span class="n">been</span> <span class="n">specified</span><span class="o">.</span> <span class="n">In</span> <span class="n">this</span> <span class="n">case</span><span class="p">,</span> <span class="n">the</span> <span class="s1">&#39;start&#39;</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">at</span> <span class="n">negative</span> <span class="n">infinity</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">end</span> <span class="n">location</span> <span class="ow">is</span> <span class="n">where</span> <span class="n">the</span> <span class="n">reverse</span> <span class="n">change</span> <span class="n">occurs</span><span class="o">.</span>
+</code></pre></div>
+<p><em>weight</em> : The y value of the step function at the step keys.</p>
+</dd>
+</dl>
+<div class="admonition note" id="hotstepper-steps-steps-note-1">
+<p class="admonition-title">Note<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-steps-steps-note-1" aria-label="Copy link to this note."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p>The convention used in the HotStepper library for step function intervals is the same as that used in signal processing, whereby the step function assumes the step weight value at and beyond the step key value.</p>
+</div>
+<p>For a technical discussion of what this means, a good starting reference is <a class="reference external" href="https://en.wikipedia.org/wiki/Step_function">Wikipedia<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="external-link-icon" aria-hidden="true"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a>.</p>
+</div></blockquote>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>use_datetime</strong><span class="classifier">bool, Optional</span></dt><dd><blockquote>
+<div><p>Set this value to indicate that all independant variable values (step keys), are datetime format. If the values passed as step keys
+have a callable timestamp() method or are of the accepted types below, this value will be inferred automatically, else if an error occurs,
+a good practise is to explicitly set this value.</p>
+<div class="admonition note" id="hotstepper-steps-steps-note-2">
+<p class="admonition-title">Note<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-steps-steps-note-2" aria-label="Copy link to this note."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p>Accepted types: Pandas.Timestamp, datetime.datetime, numpy.datetime64 and any type derived from these three or exposing a callable timestamp() method returning a float or integer value os seconds since POSIX epoch.</p>
+</div>
+</div></blockquote>
+<dl class="simple">
+<dt>start<span class="classifier">int, float, datetime_like, Optional</span></dt><dd><p>A quick convenience parameter if this Steps object consists of 1 or 2 steps, the start key can be passed directly in the constructor.</p>
+</dd>
+<dt>end<span class="classifier">int, float, datetime_like, Optional</span></dt><dd><p>A quick convenience parameter if this Steps object consists of 1 or 2 steps, the end key can be passed directly in the constructor.</p>
+</dd>
+<dt>weight<span class="classifier">int, float, Optional</span></dt><dd><p>A quick convenience parameter if this Steps object consists of 1 or 2 steps, the weight is the step value.</p>
+</dd>
+<dt>basis: Basis, Optional</dt><dd><p>The is the basis function that will be used for all steps associated with this step function. The default basis -&gt; Basis() is the Heaviside function</p>
+</dd>
+</dl>
+<div class="math notranslate nohighlight">
+\[heta(t) = \left\{
+egin{array}{ll}
+    0 &amp; \quad t &lt; 0 \
+    1 &amp; \quad t \geq 0
+\end{array}\]</div>
+</dd>
+<dt><strong>ight.</strong></dt><dd><p>where t in mathbb{R}</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__call__</span></code>(x)</p></td>
+<td><p>Call self as a function.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">acf</span></code>([maxlags])</p></td>
+<td><p>Calculates the Auto Correction Function for the steps data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">acf_plot</span></code>([lags, minlags, ax])</p></td>
+<td><p>Plot an auto-correlation function of the cummulative step values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps.add" title="hotstepper.Steps.Steps.add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add</span></code></a>(steps)</p></td>
+<td><p>Add an array of step or steps objects to this collection of steps.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps.add_direct" title="hotstepper.Steps.Steps.add_direct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_direct</span></code></a>([pd_data_start, pd_data_end, …])</p></td>
+<td><p>Add an array of individual step objects to this collection of steps.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps.add_steps" title="hotstepper.Steps.Steps.add_steps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_steps</span></code></a>(step_data_np)</p></td>
+<td><p>Add an array of internal step data as per the DataModel used internally by HotStepper.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_math_function</span></code>(caller, other, math_function)</p></td>
+<td><p>Apply the supplied function to two objects evaluated at the union of all their unique step keys.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_reduction_function</span></code>(steps_to_combine, …)</p></td>
+<td><p>Apply the supplied function to all provided objects evaluated at the union of all their unique step keys.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">basis</span></code>()</p></td>
+<td><p>Return a reference to the assigned <cite>Basis</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps.clamp" title="hotstepper.Steps.Steps.clamp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clamp</span></code></a>([lbound, ubound])</p></td>
+<td><p>Clamp the steps between lower and upper limits, this function is equivalent to zeroing out the steps beyond the lower and upper limits.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code>()</p></td>
+<td><p>Clear all the step data defined within the steps object, the same as defining a new Steps object with no data, except will retain the assigned datetime flag and base.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps.clip" title="hotstepper.Steps.Steps.clip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clip</span></code></a>([lbound, ubound])</p></td>
+<td><p>Clip the steps between lower and upper limits, this function is equivalent to taking a slice of the steps and returning a new steps object only containing data between the clip boundries.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.compare.html#hotstepper.Steps.Steps.compare" title="hotstepper.Steps.Steps.compare"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compare</span></code></a>(other)</p></td>
+<td><p>Compare the steps function with another to determine if the two are equivalent based on their cummulative values and step keys.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.copy.html#hotstepper.Steps.Steps.copy" title="hotstepper.Steps.Steps.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>()</p></td>
+<td><p>Return a shallow copy of this steps object</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.describe.html#hotstepper.Steps.Steps.describe" title="hotstepper.Steps.Steps.describe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">describe</span></code></a>([precision, return_dataframe])</p></td>
+<td><p>Generate a table containing a number of standard statistical metrics for the steps data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.ecdf.html#hotstepper.Steps.Steps.ecdf" title="hotstepper.Steps.Steps.ecdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ecdf</span></code></a>()</p></td>
+<td><p>Calculates the Empirical Cummulative Distribution Function for the steps data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ecdf_plot</span></code>([ax])</p></td>
+<td><p>Plot an empirical cummulative distribution function of the cummulative step values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.fast_step.html#hotstepper.Steps.Steps.fast_step" title="hotstepper.Steps.Steps.fast_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fast_step</span></code></a>(xdata[, process_input, side])</p></td>
+<td><p>This will evaluate the cummulative steps function at the provided input values. This function ignores the assigned basis and performs some numpy trickery to improve performance. .. note::     This function will ignore the assigned basis and evaluate the cummulative function directly, to ensure the assigned basis is used, please use the <cite>step</cite> function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_values</span></code>(other, operation_func[, …])</p></td>
+<td><p>This function is used to create a filtered version of the steps by removing steps not evaluating to true from applying the comparison function at all step change locations.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">first</span></code>()</p></td>
+<td><p>The first key or start value of the steps, if the steps extend to negative infinity, the first value will be the first finite key value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.histogram.html#hotstepper.Steps.Steps.histogram" title="hotstepper.Steps.Steps.histogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">histogram</span></code></a>([bins, axis, ts_grain])</p></td>
+<td><p>Calculates a histogram for the corresponding step function values</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">histogram_plot</span></code>([bins, axis, precision, …])</p></td>
+<td><p>Plot a histogram of the cummulative step values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.invert.html#hotstepper.Steps.Steps.invert" title="hotstepper.Steps.Steps.invert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">invert</span></code></a>([normalise_value])</p></td>
+<td><p>Create new steps with a constant weight of 1 everywhere the steps are equal to zero.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">last</span></code>()</p></td>
+<td><p>The last key or start value of the steps, if the steps extend to positive infinity, the last value will be the last finite key value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps.lshift" title="hotstepper.Steps.Steps.lshift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lshift</span></code></a>(other)</p></td>
+<td><p>The left shift.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.normalise.html#hotstepper.Steps.Steps.normalise" title="hotstepper.Steps.Steps.normalise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalise</span></code></a>([normalise_value])</p></td>
+<td><p>Create new steps with a constant weight of 1 everywhere the steps are not equal to zero.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pacf</span></code>([maxlags])</p></td>
+<td><p>Calculates the Partial Auto Correction Function for the steps data.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pacf_plot</span></code>([lags, minlags, ax])</p></td>
+<td><p>Plot an partial auto-correlation function of the cummulative step values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_rolling_step</span></code>([rolling_function, …])</p></td>
+<td><p>Plot the result of applying a reduction function to a rolling window across the step values.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_array</span></code>([start, end, weight, …])</p></td>
+<td><p>Read arrays of values for start, end and weight values that represent either the cummulative value of the data steps or the direct step values seperately, indexed by the start and possibly end arrays.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_dataframe</span></code>(data[, start, end, weight, …])</p></td>
+<td><p>Read a Pandas dataframe with values that represent either the cummulative value of the data steps or the direct step values seperately.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rebase</span></code>([new_basis])</p></td>
+<td><p>Change the basis function to apply to the steps data when evaluating as a mathematical function, the default basis is the Heaviside step function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps.rshift" title="hotstepper.Steps.Steps.rshift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rshift</span></code></a>(other)</p></td>
+<td><p>The right shift.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.smooth_step.html#hotstepper.Steps.Steps.smooth_step" title="hotstepper.Steps.Steps.smooth_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smooth_step</span></code></a>(xdata[, smooth_factor, …])</p></td>
+<td><p>This is a mathematical function definition of the Steps object, this is a dynamically created formula representation that can be passed an array of values to evaluate the steps function at.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.step.html#hotstepper.Steps.Steps.step" title="hotstepper.Steps.Steps.step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">step</span></code></a>(xdata[, process_input])</p></td>
+<td><p>This is a mathematical function definition of the Steps object, this is a dynamically created formula representation that can be passed an array of values to evaluate the steps function at.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">step_changes</span></code>()</p></td>
+<td><p><p>”</p>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.step_keys.html#hotstepper.Steps.Steps.step_keys" title="hotstepper.Steps.Steps.step_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">step_keys</span></code></a>()</p></td>
+<td><p><p>”</p>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">step_values</span></code>()</p></td>
+<td><p><p>”</p>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.steps.html#hotstepper.Steps.Steps.steps" title="hotstepper.Steps.Steps.steps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">steps</span></code></a>()</p></td>
+<td><p>Return all the raw steps data within this steps object. The format follows the internal <cite>hotstepper.core.data_model</cite>. array(     array(         step_key,         step_delta,         step_cummulative     ) ).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">summary</span></code>([plot_params])</p></td>
+<td><p>Plot and display summary details and statistics for the Steps object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">using_datetime</span></code>()</p></td>
+<td><p>Check if this steps object is using datetime step keys or not.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 71%" />
+<col style="width: 29%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Series</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>correlation</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>covariance</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>integrate</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>max</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>mean</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>mean_integrate</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>median</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>min</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>mode</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>percentile</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>plot</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>reflect</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>rolling_function_step</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>smooth_plot</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>span_and_weights</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>std</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>var</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method code-definition">
+<dt id="hotstepper.Steps.Steps.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">use_datetime</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">start</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">end</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">weight</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">basis</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.Steps.Steps.__init__" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Series</span></code>([xdata, ydata])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hotstepper.Steps.Steps.__init__" title="hotstepper.Steps.Steps.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([use_datetime, start, end, weight, …])</p></td>
+<td><p>Initialize self.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">acf</span></code>([maxlags])</p></td>
+<td><p>Calculates the Auto Correction Function for the steps data.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">acf_plot</span></code>([lags, minlags, ax])</p></td>
+<td><p>Plot an auto-correlation function of the cummulative step values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps.add" title="hotstepper.Steps.Steps.add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add</span></code></a>(steps)</p></td>
+<td><p>Add an array of step or steps objects to this collection of steps.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps.add_direct" title="hotstepper.Steps.Steps.add_direct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_direct</span></code></a>([pd_data_start, pd_data_end, …])</p></td>
+<td><p>Add an array of individual step objects to this collection of steps.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps.add_steps" title="hotstepper.Steps.Steps.add_steps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_steps</span></code></a>(step_data_np)</p></td>
+<td><p>Add an array of internal step data as per the DataModel used internally by HotStepper.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_math_function</span></code>(caller, other, math_function)</p></td>
+<td><p>Apply the supplied function to two objects evaluated at the union of all their unique step keys.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_reduction_function</span></code>(steps_to_combine, …)</p></td>
+<td><p>Apply the supplied function to all provided objects evaluated at the union of all their unique step keys.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">basis</span></code>()</p></td>
+<td><p>Return a reference to the assigned <cite>Basis</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps.clamp" title="hotstepper.Steps.Steps.clamp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clamp</span></code></a>([lbound, ubound])</p></td>
+<td><p>Clamp the steps between lower and upper limits, this function is equivalent to zeroing out the steps beyond the lower and upper limits.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code>()</p></td>
+<td><p>Clear all the step data defined within the steps object, the same as defining a new Steps object with no data, except will retain the assigned datetime flag and base.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps.clip" title="hotstepper.Steps.Steps.clip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clip</span></code></a>([lbound, ubound])</p></td>
+<td><p>Clip the steps between lower and upper limits, this function is equivalent to taking a slice of the steps and returning a new steps object only containing data between the clip boundries.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.compare.html#hotstepper.Steps.Steps.compare" title="hotstepper.Steps.Steps.compare"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compare</span></code></a>(other)</p></td>
+<td><p>Compare the steps function with another to determine if the two are equivalent based on their cummulative values and step keys.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.copy.html#hotstepper.Steps.Steps.copy" title="hotstepper.Steps.Steps.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>()</p></td>
+<td><p>Return a shallow copy of this steps object</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">correlation</span></code>(other)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">covariance</span></code>(other)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.describe.html#hotstepper.Steps.Steps.describe" title="hotstepper.Steps.Steps.describe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">describe</span></code></a>([precision, return_dataframe])</p></td>
+<td><p>Generate a table containing a number of standard statistical metrics for the steps data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.ecdf.html#hotstepper.Steps.Steps.ecdf" title="hotstepper.Steps.Steps.ecdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ecdf</span></code></a>()</p></td>
+<td><p>Calculates the Empirical Cummulative Distribution Function for the steps data.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ecdf_plot</span></code>([ax])</p></td>
+<td><p>Plot an empirical cummulative distribution function of the cummulative step values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.fast_step.html#hotstepper.Steps.Steps.fast_step" title="hotstepper.Steps.Steps.fast_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fast_step</span></code></a>(xdata[, process_input, side])</p></td>
+<td><p>This will evaluate the cummulative steps function at the provided input values. This function ignores the assigned basis and performs some numpy trickery to improve performance. .. note::     This function will ignore the assigned basis and evaluate the cummulative function directly, to ensure the assigned basis is used, please use the <cite>step</cite> function.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_values</span></code>(other, operation_func[, …])</p></td>
+<td><p>This function is used to create a filtered version of the steps by removing steps not evaluating to true from applying the comparison function at all step change locations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">first</span></code>()</p></td>
+<td><p>The first key or start value of the steps, if the steps extend to negative infinity, the first value will be the first finite key value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.histogram.html#hotstepper.Steps.Steps.histogram" title="hotstepper.Steps.Steps.histogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">histogram</span></code></a>([bins, axis, ts_grain])</p></td>
+<td><p>Calculates a histogram for the corresponding step function values</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">histogram_plot</span></code>([bins, axis, precision, …])</p></td>
+<td><p>Plot a histogram of the cummulative step values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.integrate.html#hotstepper.Steps.Steps.integrate" title="hotstepper.Steps.Steps.integrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">integrate</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.invert.html#hotstepper.Steps.Steps.invert" title="hotstepper.Steps.Steps.invert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">invert</span></code></a>([normalise_value])</p></td>
+<td><p>Create new steps with a constant weight of 1 everywhere the steps are equal to zero.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">last</span></code>()</p></td>
+<td><p>The last key or start value of the steps, if the steps extend to positive infinity, the last value will be the last finite key value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps.lshift" title="hotstepper.Steps.Steps.lshift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lshift</span></code></a>(other)</p></td>
+<td><p>The left shift.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.max.html#hotstepper.Steps.Steps.max" title="hotstepper.Steps.Steps.max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.mean.html#hotstepper.Steps.Steps.mean" title="hotstepper.Steps.Steps.mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mean</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mean_integrate</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.median.html#hotstepper.Steps.Steps.median" title="hotstepper.Steps.Steps.median"><code class="xref py py-obj docutils literal notranslate"><span class="pre">median</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.min.html#hotstepper.Steps.Steps.min" title="hotstepper.Steps.Steps.min"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code></a>([include_zero])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mode</span></code>([policy])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.normalise.html#hotstepper.Steps.Steps.normalise" title="hotstepper.Steps.Steps.normalise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalise</span></code></a>([normalise_value])</p></td>
+<td><p>Create new steps with a constant weight of 1 everywhere the steps are not equal to zero.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pacf</span></code>([maxlags])</p></td>
+<td><p>Calculates the Partial Auto Correction Function for the steps data.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pacf_plot</span></code>([lags, minlags, ax])</p></td>
+<td><p>Plot an partial auto-correlation function of the cummulative step values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.percentile.html#hotstepper.Steps.Steps.percentile" title="hotstepper.Steps.Steps.percentile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">percentile</span></code></a>(percent)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.plot.html#hotstepper.Steps.Steps.plot" title="hotstepper.Steps.Steps.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>([method, smooth_factor, ts_grain, ax, …])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_rolling_step</span></code>([rolling_function, …])</p></td>
+<td><p>Plot the result of applying a reduction function to a rolling window across the step values.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_array</span></code>([start, end, weight, …])</p></td>
+<td><p>Read arrays of values for start, end and weight values that represent either the cummulative value of the data steps or the direct step values seperately, indexed by the start and possibly end arrays.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_dataframe</span></code>(data[, start, end, weight, …])</p></td>
+<td><p>Read a Pandas dataframe with values that represent either the cummulative value of the data steps or the direct step values seperately.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rebase</span></code>([new_basis])</p></td>
+<td><p>Change the basis function to apply to the steps data when evaluating as a mathematical function, the default basis is the Heaviside step function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reflect</span></code>([reflect_point])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rolling_function_step</span></code>(x[, rolling_function, …])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps.rshift" title="hotstepper.Steps.Steps.rshift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rshift</span></code></a>(other)</p></td>
+<td><p>The right shift.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">smooth_plot</span></code>([smooth_factor, smooth_basis, …])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.smooth_step.html#hotstepper.Steps.Steps.smooth_step" title="hotstepper.Steps.Steps.smooth_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smooth_step</span></code></a>(xdata[, smooth_factor, …])</p></td>
+<td><p>This is a mathematical function definition of the Steps object, this is a dynamically created formula representation that can be passed an array of values to evaluate the steps function at.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">span_and_weights</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.std.html#hotstepper.Steps.Steps.std" title="hotstepper.Steps.Steps.std"><code class="xref py py-obj docutils literal notranslate"><span class="pre">std</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.step.html#hotstepper.Steps.Steps.step" title="hotstepper.Steps.Steps.step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">step</span></code></a>(xdata[, process_input])</p></td>
+<td><p>This is a mathematical function definition of the Steps object, this is a dynamically created formula representation that can be passed an array of values to evaluate the steps function at.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">step_changes</span></code>()</p></td>
+<td><p><p>”</p>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.step_keys.html#hotstepper.Steps.Steps.step_keys" title="hotstepper.Steps.Steps.step_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">step_keys</span></code></a>()</p></td>
+<td><p><p>”</p>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">step_values</span></code>()</p></td>
+<td><p><p>”</p>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.steps.html#hotstepper.Steps.Steps.steps" title="hotstepper.Steps.Steps.steps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">steps</span></code></a>()</p></td>
+<td><p>Return all the raw steps data within this steps object. The format follows the internal <cite>hotstepper.core.data_model</cite>. array(     array(         step_key,         step_delta,         step_cummulative     ) ).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">summary</span></code>([plot_params])</p></td>
+<td><p>Plot and display summary details and statistics for the Steps object.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">using_datetime</span></code>()</p></td>
+<td><p>Check if this steps object is using datetime step keys or not.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hotstepper.Steps.Steps.var.html#hotstepper.Steps.Steps.var" title="hotstepper.Steps.Steps.var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">var</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method code-definition">
+<dt id="hotstepper.Steps.Steps.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">steps</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.Steps.Steps.add" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Add an array of step or steps objects to this collection of steps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>steps</strong> (<em>array_like</em>) – An array of step or steps object.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A new steps object containing all the step data from all provided step objects.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps" title="hotstepper.Steps.Steps">Steps</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method code-definition">
+<dt id="hotstepper.Steps.Steps.add_direct">
+<code class="sig-name descname">add_direct</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pd_data_start</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pd_data_end</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pd_data_weight</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.Steps.Steps.add_direct" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Add an array of individual step objects to this collection of steps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pd_data_start</strong> (<em>array_like, Optional</em>) – Array of values that represent the step start key locations.</p></li>
+<li><p><strong>pd_data_end</strong> (<em>array_like, Optional</em>) – Array of values that represent the step end key locations.</p></li>
+<li><p><strong>pd_data_weight</strong> (<em>array_like, Optional</em>) – Array of values that represent the step values.</p></li>
+<li><p><strong>.. note::</strong> – If more than one array of values are assigned, all arrays must be the same length.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps" title="hotstepper.Steps.Steps">Steps</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method code-definition">
+<dt id="hotstepper.Steps.Steps.add_steps">
+<code class="sig-name descname">add_steps</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">step_data_np</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.Steps.Steps.add_steps" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Add an array of internal step data as per the DataModel used internally by HotStepper.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>step_data_np</strong> (<em>array_like.</em>) – Array of step arrays to be directly added to the current steps object.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps" title="hotstepper.Steps.Steps">Steps</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method code-definition">
+<dt id="hotstepper.Steps.Steps.clamp">
+<code class="sig-name descname">clamp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lbound</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ubound</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.Steps.Steps.clamp" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Clamp the steps between lower and upper limits, this function is equivalent to zeroing out the steps beyond the lower and upper limits. The returned steps will contain the specified lower and upper limit keys inclusively.</p>
+<p><strong>This function will not preserve the step values at the clamp boundries, if you wish to preserve the values beyond the boundries, please use the clip function.</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lbound</strong> (<em>int, float, datetime_like, Optional</em>) – The lower step key boundry (x axis value) of the returned steps object, the exact start key of the return object will be the key value = lbound.</p></li>
+<li><p><strong>ubound</strong> (<em>int, float, datetime_like, Optional</em>) – The upper step key boundry (x axis value) of the returned steps object, the exact start key of the return object will be the key value = ubound.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso" id="hotstepper-steps-steps-note-3">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-steps-steps-note-3" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps.clip" title="hotstepper.Steps.Steps.clip"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Steps.clip()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py method code-definition">
+<dt id="hotstepper.Steps.Steps.clip">
+<code class="sig-name descname">clip</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lbound</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ubound</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.Steps.Steps.clip" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Clip the steps between lower and upper limits, this function is equivalent to taking a slice of the steps and returning a new steps object only containing data between the clip boundries. The boundry values provided may or may not be returned, as the closest step key value within the specificied range will form the new boundry.</p>
+<p><strong>This function will preserve the step values at the clip boundries, if you wish to zero out values beyond the boundries, please use the clamp function.</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lbound</strong> (<em>int, float, datetime_like, Optional</em>) – The lower step key boundry (x axis value) of the returned steps object, the exact start key of the return object will be the key value &gt;= lbound.</p></li>
+<li><p><strong>ubound</strong> (<em>int, float, datetime_like, Optional</em>) – The upper step key boundry (x axis value) of the returned steps object, the exact start key of the return object will be the key value &lt;= ubound.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso" id="hotstepper-steps-steps-note-4">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-steps-steps-note-4" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps.clamp" title="hotstepper.Steps.Steps.clamp"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Steps.clamp()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py method code-definition">
+<dt id="hotstepper.Steps.Steps.lshift">
+<code class="sig-name descname">lshift</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.Steps.Steps.lshift" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>The left shift. Shifts the steps keys to the left, this operation is equivalent to subtracting a constant value from all step keys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<em>int, float, timedelta_like</em>) – The amount to subtract from all step keys. The type should align to the step key type, i.e. if the steps are using datetime, then other should be a timedelta type, else an int or float.</p>
+</dd>
+</dl>
+<div class="admonition seealso" id="hotstepper-steps-steps-note-5">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-steps-steps-note-5" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps.rshift" title="hotstepper.Steps.Steps.rshift"><code class="xref py py-meth docutils literal notranslate"><span class="pre">rshift()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py method code-definition">
+<dt id="hotstepper.Steps.Steps.rshift">
+<code class="sig-name descname">rshift</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.Steps.Steps.rshift" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>The right shift. Shifts the steps keys to the right, this operation is equivalent to adding a constant value to all step keys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> (<em>int, float, timedelta_like</em>) – The amount to addfrom all step keys. The type should align to the step key type, i.e. if the steps are using datetime, then other should be a timedelta type, else an int or float.</p>
+</dd>
+</dl>
+<div class="admonition seealso" id="hotstepper-steps-steps-note-6">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-steps-steps-note-6" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><a class="reference internal" href="../modules/hotstepper.html#hotstepper.Steps.Steps.lshift" title="hotstepper.Steps.Steps.lshift"><code class="xref py py-meth docutils literal notranslate"><span class="pre">lshift()</span></code></a></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+        </main>
+        <footer
+  role="contentinfo"
+  class="mt-20 px-5 md:ml-fluid mb-4 flex-shrink-0 text-sm text-gray-700 "
+>&copy; Copyright 2020, Jackson Storm&nbsp;Made with <a href="https://www.sphinx-doc.org">Sphinx 3.2.1</a></footer>
+      </div>
+      <div class="sticky bottom-0 md:hidden print:hidden bg-white">
+  <div class="flex justify-center items-center">
+    <button
+      id="openNavBtn"
+      aria-labelledby="menuLabel"
+      class="text-3xl p-4 flex items-center focus:bg-gray-200">
+      <svg aria-hidden="true" class="fill-current h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      <span id="menuLabel" class="pl-2 text-sm font-medium uppercase tracking-wide text-gray-700">Menu</span>
+    </button><button
+      id="openSearchBtn"
+      aria-labelledby="searchLabel"
+      class="text-3xl p-4 flex items-center focus:bg-gray-200">
+      <svg aria-hidden="true" class="fill-current h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <span id="searchLabel" class="pl-2 text-sm font-medium uppercase tracking-wide text-gray-700">Search</span>
+    </button>
+  </div>
+</div>
+      <div
+  id="search-pane" data-menu="closed"
+  class="w-full fixed bottom-0 left-0 z-10 bg-gray-900 overflow-x-hidden pt-10 flex flex-col items-center md:hidden"
+>
+<h4 id="search-label" class="text-xl text-white mb-4">Enter search term</h4><form
+    id="searchbox" action="../search.html" method="get"
+    class="flex w-full justify-between items-center max-w-sm px-12">
+
+    <input
+      name="q"
+      aria-labelledby="search-label"
+      type="search"
+      placeholder="Search the docs"
+      class="p-2 flex-1"
+    />
+    
+<button class="p-2 text-white bg-gray-700 hover:bg-gray-200 hover:text-pink-500 focus:bg-gray-200 focus:text-pink-500 tooltipped tooltipped-sw"
+        aria-label="Get search results">
+  <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+</button>
+
+  </form>
+
+  
+<button
+    id="closeSearchBtn"
+    aria-label="Close menu"
+    title="Close menu"
+    class="text-4xl text-gray-200 p-4 bottom-0 hover:text-pink-500 md:hidden focus:text-pink-500 self-center">
+  <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+</button>
+
+</div>
+      <div
+  id="snackbar"
+  class="fixed bottom-0 right-0 opacity-0 p-4 m-4 bg-gray-900 text-gray-100 transition transform duration-500 translate-y-full"
+></div>
+<div id="screen" style="display: none;" class="fixed inset-0 bg-black bg-opacity-50"></div>
+    </div>
+    
+      
+<script id="documentation_options"
+        data-url_root="../"
+        src="../_static/documentation_options.js">
+</script>
+<script src="../_static/jquery.js"></script>
+<script src="../_static/underscore.js"></script>
+<script src="../_static/doctools.js"></script>
+<script src="../_static/language_data.js"></script>
+<script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+<script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+<script src="../_static/theme.js" defer></script>
+    
+  </body>
+</html>

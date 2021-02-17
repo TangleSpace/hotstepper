@@ -51,6 +51,11 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
     'examples/Index.ipynb'
 ]
 
+napoleon_numpy_docstring = True
+napoleon_google_docstring = False
+napoleon_use_param = False
+napoleon_use_ivar = True
+
 #autosummary_generate = True
 master_doc = 'index'
 
@@ -60,50 +65,19 @@ plot_formats = [("png", 90)]
 plot_html_show_formats = False
 plot_html_show_source_link = False
 
-# -- Options for HTML output -------------------------------------------------
-
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
-#
-# Required theme setup
-#html_theme = 'sphinx_material'
-html_theme = 'sphinx_rtd_theme'
-
-# Set link name generated in the top bar.
-html_title = 'HotStepper'
-
-# Material theme options (see theme.conf for more information)
-html_theme_options = {
-
-    # Set the name of the project to appear in the navigation.
-    'nav_title': 'HotStepper',
-
-    # Set you GA account ID to enable tracking
-    #'google_analytics_account': 'UA-XXXXX',
-
-    # Specify a base_url used to generate sitemap.xml. If not
-    # specified, then no sitemap will be built.
-    'base_url': 'https://github.com/TangleSpace/HotStepper',
-
-    # Set the color and the accent color
-    'color_primary': 'indigo',
-    'color_accent': 'deep-purple',
-
-    # Set the repo location to get a badge with stats
-    'repo_url': 'https://github.com/TangleSpace/HotStepper',
-    'repo_name': 'HotStepper',
-
-    # Visible levels of the global TOC; -1 means unlimited
-    'globaltoc_depth': 2,
-    # If False, expand all TOC entries
-    'globaltoc_collapse': False,
-    # If True, show hidden TOC entries
-    'globaltoc_includehidden': False,
+autodoc_default_options = {
+    'members': True,
+    'show-inheritance': True,
 }
+## Generate autodoc stubs with summaries from code
+autosummary_generate = True
+
+# -- Options for HTML output -------------------------------------------------
+html_title = 'HotStepper'
+html_theme = "sphinxawesome_theme"
 
 # html_theme_options = {
-#     "google_analytics_account": "UA-65430466-2",
-#     "base_url": "https://railing.readthedocs.io/en/latest/",
+#     'color': '#9c00ff'
 # }
 
 html_logo = 'images/HotstepperLogo.png'

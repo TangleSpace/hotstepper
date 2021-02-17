@@ -29,15 +29,17 @@ class Steps(
     Class representing a complex step function made of individual step objects. The Steps object can be treated as a 
     mathemtical function in Numpy and as a Python object.
 
-    ***Terminology*** used within this class and the HotStepper library is
+    **Terminology**
         *start* : The x value of where the step function changes value.
 
         *end* The x value where the step function changes value in the opposite direction to the start location. 
-        .. note:: If no start value is specified, the end location still represents the step function change in value that would have been opposite if a start been specified. In this case, the 'start' value is at negative infinity and the end location is where the reverse change occurs.
+        .. note:: 
+            If no start value is specified, the end location still represents the step function change in value that would have been opposite if a start been specified. In this case, the 'start' value is at negative infinity and the end location is where the reverse change occurs.
 
         *weight* : The y value of the step function at the step keys.
 
-    .. note:: The convention used in the HotStepper library for step function intervals is the same as that used in signal processing, whereby the step function assumes the step weight value at and beyond the step key value.
+    .. note::
+        The convention used in the HotStepper library for step function intervals is the same as that used in signal processing, whereby the step function assumes the step weight value at and beyond the step key value.
 
     For a technical discussion of what this means, a good starting reference is `Wikipedia <https://en.wikipedia.org/wiki/Step_function>`_.
     
@@ -268,11 +270,11 @@ class Steps(
 
     def clamp(self,lbound=None,ubound=None):
         """
-        Clamp the steps between lower and upper limits, this function is equivalent to zeroing out the steps beyond the lower and upper limits. The returned steps will contain the specified lower and upper limit keys inclusively.
+        Clamp the steps between lower and upper limits, this function is equivalent to zeroing out the steps beyond the lower and upper limits. The returned steps will contain the specified lower and upper limit keys inclusively. 
+        
+        **This function will not preserve the step values at the clamp boundries, if you wish to preserve the values beyond the boundries, please use the clip function.**
 
-        This function will not preserve the step values at the clamp boundries, if you wish to preserve the values beyond the boundries, please use the clip function.
-
-        Paramaters
+        Parameters
         ============
         lbound : int, float, datetime_like, Optional
             The lower step key boundry (x axis value) of the returned steps object, the exact start key of the return object will be the key value = lbound. 
@@ -282,7 +284,7 @@ class Steps(
 
         See Also
         ==========
-        clip
+        Steps.clip
 
         """
         
@@ -291,11 +293,11 @@ class Steps(
 
     def clip(self,lbound=None,ubound=None):
         """
-        Clip the steps between lower and upper limits, this function is equivalent to taking a slice of the steps and returning a new steps object only containing data between the clip boundries. The boundry values provided may or may not be returned, as the closest step key value within the specificied range will form the new boundry.
+        Clip the steps between lower and upper limits, this function is equivalent to taking a slice of the steps and returning a new steps object only containing data between the clip boundries. The boundry values provided may or may not be returned, as the closest step key value within the specificied range will form the new boundry. 
+        
+        **This function will preserve the step values at the clip boundries, if you wish to zero out values beyond the boundries, please use the clamp function.**
 
-        This function will preserve the step values at the clip boundries, if you wish to zero out values beyond the boundries, please use the clamp function.
-
-        Paramaters
+        Parameters
         ============
         lbound : int, float, datetime_like, Optional
             The lower step key boundry (x axis value) of the returned steps object, the exact start key of the return object will be the key value >= lbound. 
@@ -305,7 +307,7 @@ class Steps(
 
         See Also
         =========
-        clamp
+        Steps.clamp
 
         """
 
@@ -412,11 +414,11 @@ class Steps(
         return new_steps
 
 
-    def __lshift__(self,other):
+    def lshift(self,other):
         """
-        The left shift operator <<. Shifts the steps keys to the left, this operation is equivalent to subtracting a constant value from all step keys. 
+        The left shift. Shifts the steps keys to the left, this operation is equivalent to subtracting a constant value from all step keys. 
 
-        Paramaters
+        Parameters
         ============
         other : int, float, timedelta_like
             The amount to subtract from all step keys. The type should align to the step key type, i.e. if the steps are using datetime, then other should be a timedelta type, else an int or float.
@@ -437,11 +439,11 @@ class Steps(
         return new_instance.add_steps(lshift_steps)
 
 
-    def __rshift__(self,other):
+    def rshift(self,other):
         """
-        The right shift operator >>. Shifts the steps keys to the right, this operation is equivalent to adding a constant value to all step keys. 
+        The right shift. Shifts the steps keys to the right, this operation is equivalent to adding a constant value to all step keys. 
 
-        Paramaters
+        Parameters
         ============
         other : int, float, timedelta_like
             The amount to addfrom all step keys. The type should align to the step key type, i.e. if the steps are using datetime, then other should be a timedelta type, else an int or float.
@@ -460,6 +462,14 @@ class Steps(
 
         rshift_steps[:,DataModel.START.value] = rshift_steps[:,DataModel.START.value] + other
         return new_instance.add_steps(rshift_steps)
+
+
+    def __lshift__(self,other):
+        return self.lshift(other)
+
+
+    def __rshift__(self,other):
+        return self.rshift(other)
 
 
     def __repr__(self):

@@ -4,10 +4,9 @@ HotStepper documentation
 .. toctree::
    :maxdepth: 2
 
-   steps
-   utility functions
-   examples/currency
-   examples/uber trips
+   steps.rst
+   examples.rst
+   helpers.rst
    
 Indices and tables
 ==================

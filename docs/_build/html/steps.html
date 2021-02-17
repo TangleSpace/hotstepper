@@ -1,271 +1,289 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Steps Class &mdash; HotStepper</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Statistical Analysis" href="utility%20functions.html" />
-    <link rel="prev" title="HotStepper documentation" href="index.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="index.html" class="icon icon-home"> HotStepper
-          
-
-          
-            
-            <img src="_static/HotstepperLogo.png" class="logo" alt="Logo"/>
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Steps Class</a></li>
-<li class="toctree-l1"><a class="reference internal" href="utility%20functions.html">Statistical Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/currency.html">Forex Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/uber%20trips.html">Uber Trips</a></li>
+<meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<title>
+      Steps methods | HotStepper
+    </title>
+<link href="_static/pygments.css" rel="stylesheet"/>
+<link href="_static/theme.css" rel="stylesheet"/>
+<link href="search.html" rel="search" title="Search"/>
+<link href="genindex.html" rel="index" title="Index"/>
+<link href="api/hotstepper.Steps.Steps.step.html" rel="next" title="hotstepper.Steps.Steps.step"/>
+<link href="index.html" rel="prev" title="HotStepper documentation"/>
+</head><body class="text-gray-900 antialiased min-h-screen md:h-screen flex flex-col">
+<a class="block text-xl bg-white px-8 py-4 z-20 absolute top-0 inset-x-0 text-center transform -translate-y-full focus:translate-y-0 focus:outline-none transition-transform duration-75" href="#steps-methods" title="Skip navigation links">Skip to content</a>
+<header class="md:sticky top-0 bg-gray-900 shadow-md flex md:flex-row justify-between items-center z-10"><a aria-label="Back to homepage" class="py-4 hover:bg-gray-700 focus:bg-gray-700 tooltipped tooltipped-se" href="index.html">
+<img alt="Logo" class="h-8 mx-5" src="_static/HotstepperLogo.png"/>
+</a><h2 class="text-xl text-gray-100 mx-5 py-4">HotStepper</h2><form action="search.html" class="hidden md:flex my-auto mx-5 justify-between items-center print:hidden" id="searchbox" method="get">
+<input aria-label="Search the docs" class="p-2 flex-1 focus:bg-yellow-100" id="search-input" name="q" placeholder="Search the docs" style="width: 300px;" type="search"/>
+<button aria-label="Get search results" class="p-2 text-white bg-gray-700 hover:bg-gray-200 hover:text-pink-500 focus:bg-gray-200 focus:text-pink-500 tooltipped tooltipped-sw">
+<svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+</button>
+</form>
+</header>
+<div class="md:overflow-hidden flex flex-col md:flex-row flex-1"><nav class="h-full fixed md:relative inset-y-0 left-0 z-20 md:z-0 bg-white text-gray-700 border-r overflow-x-hidden pt-16 print:hidden flex flex-col" data-menu="closed" role="navigation" style="width: 270px;">
+<div class="nav-toc"><ul class="current">
+<li class="toctree-l1 current expanded"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="current reference internal" href="#">Steps methods</a></div><ul>
+<li class="toctree-l2"><div class="nav-link"><a class="reference internal" href="#constructor-basic-methods">Constructor &amp; basic methods</a></div></li>
+<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="#step-functions">Step Functions</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.step.html">hotstepper.Steps.Steps.step</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.smooth_step.html">hotstepper.Steps.Steps.smooth_step</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.fast_step.html">hotstepper.Steps.Steps.fast_step</a></div></li>
 </ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">HotStepper</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Steps Class</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-          
-            <a href="_sources/steps.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+</li>
+<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="#arithmetic-operators">Arithmetic operators</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.add.html">hotstepper.Steps.Steps.add</a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="#relational-operators">Relational operators</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.compare.html">hotstepper.Steps.Steps.compare</a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="#logical-operators">Logical operators</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.normalise.html">hotstepper.Steps.Steps.normalise</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.invert.html">hotstepper.Steps.Steps.invert</a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><a class="reference internal" href="#statistical-operators">Statistical operators</a></div></li>
+<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="#summary-statistics">Summary statistics</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.integrate.html">hotstepper.Steps.Steps.integrate</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.describe.html">hotstepper.Steps.Steps.describe</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.min.html">hotstepper.Steps.Steps.min</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.max.html">hotstepper.Steps.Steps.max</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.var.html">hotstepper.Steps.Steps.var</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.std.html">hotstepper.Steps.Steps.std</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.mean.html">hotstepper.Steps.Steps.mean</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.median.html">hotstepper.Steps.Steps.median</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.percentile.html">hotstepper.Steps.Steps.percentile</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.ecdf.html">hotstepper.Steps.Steps.ecdf</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.histogram.html">hotstepper.Steps.Steps.histogram</a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="#miscellaneous-functions">Miscellaneous functions</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.clip.html">hotstepper.Steps.Steps.clip</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.clamp.html">hotstepper.Steps.Steps.clamp</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.rshift.html">hotstepper.Steps.Steps.rshift</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.lshift.html">hotstepper.Steps.Steps.lshift</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="examples.html">Case Studies</a></div><ul>
+<li class="toctree-l2"><div class="nav-link"><a class="reference internal" href="examples/currency.html">Forex Analysis</a></div></li>
+<li class="toctree-l2"><div class="nav-link"><a class="reference internal" href="examples/uber%20trips.html">Uber Trips</a></div></li>
+</ul>
+</li>
+<li class="toctree-l1"><div class="nav-link"><a class="reference internal" href="helpers.html">Helper Functions</a></div></li>
+</ul>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="steps-class">
-<h1>Steps Class<a class="headerlink" href="#steps-class" title="Permalink to this headline">¶</a></h1>
+<button aria-label="Close menu" class="text-4xl text-gray-800 p-4 bottom-0 hover:text-pink-500 md:hidden focus:text-pink-500 self-center" id="closeNavBtn" title="Close menu">
+<svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="overflow-y-auto md:w-full flex flex-col flex-1" id="main-wrapper">
+<main class="px-5 md:ml-fluid flex-1" role="main"><nav aria-label="breadcrumbs" class="mt-16 mb-12 text-sm text-gray-700 leading-tight print:hidden" role="navigation">
+<a class="text-blue-700" href="index.html">HotStepper</a>
+<span class="text-gray-700 mr-1">/</span><span aria-current="page">Steps methods</span>
+</nav>
+<section id="steps-methods">
+<span id="api-steps"></span><h1>Steps methods<a aria-label="Copy link to section: Steps methods." class="headerlink tooltipped tooltipped-ne" href="#steps-methods" role="button"><svg pointer-events="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h1>
+<section id="constructor-basic-methods">
+<h2>Constructor &amp; basic methods<a aria-label="Copy link to section: Constructor &amp; basic methods." class="headerlink tooltipped tooltipped-ne" href="#constructor-basic-methods" role="button"><svg pointer-events="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
+<col style="width: 10%"/>
+<col style="width: 90%"/>
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="modules/hotstepper.html#hotstepper.Steps.Steps.add" title="hotstepper.Steps.Steps.add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.add</span></code></a>(steps)</p></td>
-<td><p>Add an array of step or steps objects to this collection of steps.</p></td>
+</tbody>
+</table>
+</section>
+<section id="step-functions">
+<span id="api-step-functions"></span><h2>Step Functions<a aria-label="Copy link to section: Step Functions." class="headerlink tooltipped tooltipped-ne" href="#step-functions" role="button"><svg pointer-events="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.Steps.step.html#hotstepper.Steps.Steps.step" title="hotstepper.Steps.Steps.step"><code class="xref py py-obj docutils literal notranslate">Steps.step</code></a>(xdata[, process_input])</p></td>
+<td><p>This is a mathematical function definition of the Steps object, this is a dynamically created formula representation that can be passed an array of values to evaluate the steps function at.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="modules/hotstepper.html#hotstepper.Steps.Steps.add_steps" title="hotstepper.Steps.Steps.add_steps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.add_steps</span></code></a>(step_data_np)</p></td>
-<td><p>Add an array of internal step data as per the DataModel used internally by HotStepper.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/hotstepper.Steps.Steps.smooth_step.html#hotstepper.Steps.Steps.smooth_step" title="hotstepper.Steps.Steps.smooth_step"><code class="xref py py-obj docutils literal notranslate">Steps.smooth_step</code></a>(xdata[, smooth_factor, …])</p></td>
+<td><p>This is a mathematical function definition of the Steps object, this is a dynamically created formula representation that can be passed an array of values to evaluate the steps function at.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="modules/hotstepper.html#hotstepper.Steps.Steps.add_direct" title="hotstepper.Steps.Steps.add_direct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.add_direct</span></code></a>([pd_data_start, …])</p></td>
-<td><p>Add an array of individual step objects to this collection of steps.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="modules/hotstepper.html#hotstepper.Steps.Steps.clip" title="hotstepper.Steps.Steps.clip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.clip</span></code></a>([lbound, ubound])</p></td>
-<td><p>Clip the steps between lower and upper limits, this function is equivalent to taking a slice of the steps and returning a new steps object only containing data between the clip boundries.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="modules/hotstepper.html#hotstepper.Steps.Steps.clamp" title="hotstepper.Steps.Steps.clamp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.clamp</span></code></a>([lbound, ubound])</p></td>
-<td><p>Clamp the steps between lower and upper limits, this function is equivalent to zeroing out the steps beyond the lower and upper limits.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.plot</span></code>([method, smooth_factor, …])</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.__lshift__</span></code>(other)</p></td>
-<td><p>The left shift operator &lt;&lt;.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.__rshift__</span></code>(other)</p></td>
-<td><p>The right shift operator &gt;&gt;.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.Steps.fast_step.html#hotstepper.Steps.Steps.fast_step" title="hotstepper.Steps.Steps.fast_step"><code class="xref py py-obj docutils literal notranslate">Steps.fast_step</code></a>(xdata[, process_input, side])</p></td>
+<td><p>This will evaluate the cummulative steps function at the provided input values. This function ignores the assigned basis and performs some numpy trickery to improve performance. :Parameters: * <strong>xdata</strong> (<em>array_like(int, float, datetime)</em>) – The values the steps function is to be evaluated at. .. note::                    This function will ignore the assigned basis and evaluate the cummulative function directly, to ensure the assigned basis is used, please use the <cite>step</cite> function. * <strong>process_input</strong> (<em>bool, Optional</em>) – Indicate if the input data needs processing, to convert datetimes to floats for calculation. Primarily used internally to avoid converting input data twice.</p></td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="arithmetic-operators">
+<span id="api-arithmetic-operators"></span><h2>Arithmetic operators<a aria-label="Copy link to section: Arithmetic operators." class="headerlink tooltipped tooltipped-ne" href="#arithmetic-operators" role="button"><svg pointer-events="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/hotstepper.html#hotstepper.Steps.Steps.add" title="hotstepper.Steps.Steps.add"><code class="xref py py-obj docutils literal notranslate">Steps.add</code></a>(steps)</p></td>
+<td><p>Add an array of step or steps objects to this collection of steps.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="relational-operators">
+<span id="api-relational-operators"></span><h2>Relational operators<a aria-label="Copy link to section: Relational operators." class="headerlink tooltipped tooltipped-ne" href="#relational-operators" role="button"><svg pointer-events="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.Steps.compare.html#hotstepper.Steps.Steps.compare" title="hotstepper.Steps.Steps.compare"><code class="xref py py-obj docutils literal notranslate">Steps.compare</code></a>(other)</p></td>
+<td><p>Compare the steps function with another to determine if the two are equivalent based on their cummulative values and step keys.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="logical-operators">
+<span id="api-logical-operators"></span><h2>Logical operators<a aria-label="Copy link to section: Logical operators." class="headerlink tooltipped tooltipped-ne" href="#logical-operators" role="button"><svg pointer-events="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.Steps.normalise.html#hotstepper.Steps.Steps.normalise" title="hotstepper.Steps.Steps.normalise"><code class="xref py py-obj docutils literal notranslate">Steps.normalise</code></a>([normalise_value])</p></td>
+<td><p>Create new steps with a constant weight of 1 everywhere the steps are not equal to zero.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/hotstepper.Steps.Steps.invert.html#hotstepper.Steps.Steps.invert" title="hotstepper.Steps.Steps.invert"><code class="xref py py-obj docutils literal notranslate">Steps.invert</code></a>([normalise_value])</p></td>
+<td><p>Create new steps with a constant weight of 1 everywhere the steps are equal to zero.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="statistical-operators">
+<span id="api-statistical-operators"></span><h2>Statistical operators<a aria-label="Copy link to section: Statistical operators." class="headerlink tooltipped tooltipped-ne" href="#statistical-operators" role="button"><svg pointer-events="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+</tbody>
+</table>
+</section>
+<section id="summary-statistics">
+<span id="api-summary-statistics"></span><h2>Summary statistics<a aria-label="Copy link to section: Summary statistics." class="headerlink tooltipped tooltipped-ne" href="#summary-statistics" role="button"><svg pointer-events="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.Steps.integrate.html#hotstepper.Steps.Steps.integrate" title="hotstepper.Steps.Steps.integrate"><code class="xref py py-obj docutils literal notranslate">Steps.integrate</code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/hotstepper.Steps.Steps.describe.html#hotstepper.Steps.Steps.describe" title="hotstepper.Steps.Steps.describe"><code class="xref py py-obj docutils literal notranslate">Steps.describe</code></a>([precision, return_dataframe])</p></td>
+<td><p>Generate a table containing a number of standard statistical metrics for the steps data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.Steps.min.html#hotstepper.Steps.Steps.min" title="hotstepper.Steps.Steps.min"><code class="xref py py-obj docutils literal notranslate">Steps.min</code></a>([include_zero])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/hotstepper.Steps.Steps.max.html#hotstepper.Steps.Steps.max" title="hotstepper.Steps.Steps.max"><code class="xref py py-obj docutils literal notranslate">Steps.max</code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.Steps.var.html#hotstepper.Steps.Steps.var" title="hotstepper.Steps.Steps.var"><code class="xref py py-obj docutils literal notranslate">Steps.var</code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/hotstepper.Steps.Steps.std.html#hotstepper.Steps.Steps.std" title="hotstepper.Steps.Steps.std"><code class="xref py py-obj docutils literal notranslate">Steps.std</code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.Steps.mean.html#hotstepper.Steps.Steps.mean" title="hotstepper.Steps.Steps.mean"><code class="xref py py-obj docutils literal notranslate">Steps.mean</code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/hotstepper.Steps.Steps.median.html#hotstepper.Steps.Steps.median" title="hotstepper.Steps.Steps.median"><code class="xref py py-obj docutils literal notranslate">Steps.median</code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.Steps.percentile.html#hotstepper.Steps.Steps.percentile" title="hotstepper.Steps.Steps.percentile"><code class="xref py py-obj docutils literal notranslate">Steps.percentile</code></a>(percent)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/hotstepper.Steps.Steps.ecdf.html#hotstepper.Steps.Steps.ecdf" title="hotstepper.Steps.Steps.ecdf"><code class="xref py py-obj docutils literal notranslate">Steps.ecdf</code></a>()</p></td>
+<td><p>Calculates the Empirical Cummulative Distribution Function for the steps data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.Steps.histogram.html#hotstepper.Steps.Steps.histogram" title="hotstepper.Steps.Steps.histogram"><code class="xref py py-obj docutils literal notranslate">Steps.histogram</code></a>([bins, axis, ts_grain])</p></td>
+<td><p>Calculates a histogram for the corresponding step function values</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="miscellaneous-functions">
+<h2>Miscellaneous functions<a aria-label="Copy link to section: Miscellaneous functions." class="headerlink tooltipped tooltipped-ne" href="#miscellaneous-functions" role="button"><svg pointer-events="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/hotstepper.html#hotstepper.Steps.Steps.clip" title="hotstepper.Steps.Steps.clip"><code class="xref py py-obj docutils literal notranslate">Steps.clip</code></a>([lbound, ubound])</p></td>
+<td><p>Clip the steps between lower and upper limits, this function is equivalent to taking a slice of the steps and returning a new steps object only containing data between the clip boundries.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/hotstepper.html#hotstepper.Steps.Steps.clamp" title="hotstepper.Steps.Steps.clamp"><code class="xref py py-obj docutils literal notranslate">Steps.clamp</code></a>([lbound, ubound])</p></td>
+<td><p>Clamp the steps between lower and upper limits, this function is equivalent to zeroing out the steps beyond the lower and upper limits.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/hotstepper.html#hotstepper.Steps.Steps.rshift" title="hotstepper.Steps.Steps.rshift"><code class="xref py py-obj docutils literal notranslate">Steps.rshift</code></a>(other)</p></td>
+<td><p>The right shift.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/hotstepper.html#hotstepper.Steps.Steps.lshift" title="hotstepper.Steps.Steps.lshift"><code class="xref py py-obj docutils literal notranslate">Steps.lshift</code></a>(other)</p></td>
+<td><p>The left shift.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</main>
+<footer class="mt-20 px-5 md:ml-fluid mb-4 flex-shrink-0 text-sm text-gray-700" role="contentinfo">� Copyright 2020, Jackson Storm�Made with <a href="https://www.sphinx-doc.org">Sphinx 3.2.1</a></footer>
 </div>
-
-
-           </div>
-           
-          </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="utility%20functions.html" class="btn btn-neutral float-right" title="Statistical Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="index.html" class="btn btn-neutral float-left" title="HotStepper documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &#169; Copyright 2020, Jackson Storm.
-
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
+<div class="sticky bottom-0 md:hidden print:hidden bg-white">
+<div class="flex justify-center items-center">
+<button aria-labelledby="menuLabel" class="text-3xl p-4 flex items-center focus:bg-gray-200" id="openNavBtn">
+<svg aria-hidden="true" class="fill-current h-8 w-8" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+<span class="pl-2 text-sm font-medium uppercase tracking-wide text-gray-700" id="menuLabel">Menu</span>
+</button><button aria-labelledby="searchLabel" class="text-3xl p-4 flex items-center focus:bg-gray-200" id="openSearchBtn">
+<svg aria-hidden="true" class="fill-current h-8 w-8" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+<span class="pl-2 text-sm font-medium uppercase tracking-wide text-gray-700" id="searchLabel">Search</span>
+</button>
+</div>
+</div>
+<div class="w-full fixed bottom-0 left-0 z-10 bg-gray-900 overflow-x-hidden pt-10 flex flex-col items-center md:hidden" data-menu="closed" id="search-pane">
+<h4 class="text-xl text-white mb-4" id="search-label">Enter search term</h4><form action="search.html" class="flex w-full justify-between items-center max-w-sm px-12" id="searchbox" method="get">
+<input aria-labelledby="search-label" class="p-2 flex-1" name="q" placeholder="Search the docs" type="search"/>
+<button aria-label="Get search results" class="p-2 text-white bg-gray-700 hover:bg-gray-200 hover:text-pink-500 focus:bg-gray-200 focus:text-pink-500 tooltipped tooltipped-sw">
+<svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+</button>
+</form>
+<button aria-label="Close menu" class="text-4xl text-gray-200 p-4 bottom-0 hover:text-pink-500 md:hidden focus:text-pink-500 self-center" id="closeSearchBtn" title="Close menu">
+<svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</div>
+<div class="fixed bottom-0 right-0 opacity-0 p-4 m-4 bg-gray-900 text-gray-100 transition transform duration-500 translate-y-full" id="snackbar"></div>
+<div class="fixed inset-0 bg-black bg-opacity-50" id="screen" style="display: none;"></div>
+</div>
+<script data-url_root="./" id="documentation_options" src="_static/documentation_options.js">
+</script>
+<script src="_static/jquery.js"></script>
+<script src="_static/underscore.js"></script>
+<script src="_static/doctools.js"></script>
+<script src="_static/language_data.js"></script>
+<script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+<script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+<script defer="" src="_static/theme.js"></script>
 </body>
 </html>

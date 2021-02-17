@@ -1,349 +1,348 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>hotstepper.utilities package &mdash; HotStepper</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <title>
+      hotstepper.utilities package | HotStepper
+    </title>
+    <link
+      rel="stylesheet"
+      href="../_static/pygments.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../_static/theme.css"
+    />
+        <link rel="search" title="Search" href="../search.html"/>
+        <link rel="index" title="Index" href="../genindex.html"/>
+  </head><body class="text-gray-900 antialiased min-h-screen md:h-screen flex flex-col">
+    <a
+  class="block text-xl bg-white px-8 py-4 z-20 absolute top-0 inset-x-0 text-center transform
+  -translate-y-full focus:translate-y-0 focus:outline-none transition-transform duration-75"
+  href="#hotstepper-utilities-package"
+  title="Skip navigation links"
+  >Skip to content</a>
+    <header class="md:sticky top-0 bg-gray-900 shadow-md flex md:flex-row justify-between items-center z-10"><a class="py-4 hover:bg-gray-700 focus:bg-gray-700 tooltipped tooltipped-se"
+      href="../index.html"
+      aria-label="Back to homepage">
+      <img class="h-8 mx-5" src="../_static/HotstepperLogo.png" alt="Logo" />
+    </a><h2 class="text-xl text-gray-100 mx-5 py-4">HotStepper</h2><form
+    id="searchbox"
+    action="../search.html"
+    method="get"
+    class="hidden md:flex my-auto mx-5 justify-between items-center print:hidden">
+
+    <input
+      name="q"
+      id="search-input"
+      type="search"
+      aria-label="Search the docs"
+      placeholder="Search the docs"
+      class="p-2 flex-1 focus:bg-yellow-100"
+      style="width: 300px;"
+    />
     
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
+<button class="p-2 text-white bg-gray-700 hover:bg-gray-200 hover:text-pink-500 focus:bg-gray-200 focus:text-pink-500 tooltipped tooltipped-sw"
+        aria-label="Get search results">
+  <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+</button>
 
-    
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../index.html" class="icon icon-home"> HotStepper
-          
-
-          
-            
-            <img src="../_static/HotstepperLogo.png" class="logo" alt="Logo"/>
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
   </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../steps.html">Steps Class</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../utility%20functions.html">Statistical Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/currency.html">Forex Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/uber%20trips.html">Uber Trips</a></li>
+</header>
+    <div class="md:overflow-hidden flex flex-col md:flex-row flex-1"><nav
+  role="navigation"
+  data-menu="closed"
+  style="width: 270px;"
+  class="h-full fixed md:relative inset-y-0 left-0 z-20 md:z-0
+         bg-white text-gray-700 border-r overflow-x-hidden pt-16
+         print:hidden flex flex-col"
+>
+  <div class="nav-toc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../steps.html">Steps methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#constructor-basic-methods">Constructor &amp; basic methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#arithmetic-operators">Arithmetic operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.add.html">hotstepper.Steps.Steps.add</a></li>
 </ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">HotStepper</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>hotstepper.utilities package</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-          
-            <a href="../_sources/modules/hotstepper.utilities.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#relational-operators">Relational operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.compare.html">hotstepper.Steps.Steps.compare</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#logical-operators">Logical operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.normalise.html">hotstepper.Steps.Steps.normalise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.invert.html">hotstepper.Steps.Steps.invert</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#statistical-operators">Statistical operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#summary-statistics">Summary statistics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.integrate.html">hotstepper.Steps.Steps.integrate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.describe.html">hotstepper.Steps.Steps.describe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.min.html">hotstepper.Steps.Steps.min</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.max.html">hotstepper.Steps.Steps.max</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.var.html">hotstepper.Steps.Steps.var</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.std.html">hotstepper.Steps.Steps.std</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.mean.html">hotstepper.Steps.Steps.mean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.median.html">hotstepper.Steps.Steps.median</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.percentile.html">hotstepper.Steps.Steps.percentile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.ecdf.html">hotstepper.Steps.Steps.ecdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.histogram.html">hotstepper.Steps.Steps.histogram</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#miscellaneous-functions">Miscellaneous functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.clip.html">hotstepper.Steps.Steps.clip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.clamp.html">hotstepper.Steps.Steps.clamp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.rshift.html">hotstepper.Steps.Steps.rshift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.lshift.html">hotstepper.Steps.Steps.lshift</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../utility%20functions.html">Statistical Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Case Studies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/currency.html">Forex Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/uber%20trips.html">Uber Trips</a></li>
+</ul>
+</li>
+</ul>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
+<button
+    id="closeNavBtn"
+    aria-label="Close menu"
+    title="Close menu"
+    class="text-4xl text-gray-800 p-4 bottom-0 hover:text-pink-500 md:hidden focus:text-pink-500 self-center">
+  <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+</button>
 
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="hotstepper-utilities-package">
-<h1>hotstepper.utilities package<a class="headerlink" href="#hotstepper-utilities-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="module-hotstepper.utilities.helpers">
-<span id="hotstepper-utilities-helpers-module"></span><h2>hotstepper.utilities.helpers module<a class="headerlink" href="#module-hotstepper.utilities.helpers" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
+</nav>
+      <div id="main-wrapper" class="overflow-y-auto md:w-full flex flex-col flex-1">
+        <main role="main" class="px-5 md:ml-fluid flex-1 "><nav role="navigation"
+     aria-label="breadcrumbs"
+     class="mt-16 mb-12 text-sm text-gray-700 leading-tight print:hidden">
+  <a class="text-blue-700" href="../index.html">HotStepper</a>
+  <span class="text-gray-700 mr-1">/</span><span aria-current="page">hotstepper.utilities package</span>
+</nav>
+          
+  <section id="hotstepper-utilities-package">
+<h1>hotstepper.utilities package<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-utilities-package" aria-label="Copy link to section: hotstepper.utilities package."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h1>
+<section id="submodules">
+<h2>Submodules<a role="button" class="headerlink tooltipped tooltipped-ne" href="#submodules" aria-label="Copy link to section: Submodules."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2>
+</section>
+<section id="module-hotstepper.utilities.helpers">
+<span id="hotstepper-utilities-helpers-module"></span><h2>hotstepper.utilities.helpers module<a role="button" class="headerlink tooltipped tooltipped-ne" href="#module-hotstepper.utilities.helpers" aria-label="Copy link to section: hotstepper.utilities.helpers module."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2>
+<dl class="py function code-definition">
 <dt id="hotstepper.utilities.helpers.date_to_float">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">date_to_float</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.date_to_float" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">date_to_float</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date_value</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.date_to_float" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.utilities.helpers.date_to_float_bulk">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">date_to_float_bulk</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.date_to_float_bulk" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">date_to_float_bulk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date_value</span></em>, <em class="sig-param"><span class="n">tz</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.date_to_float_bulk" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.utilities.helpers.float_to_date">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">float_to_date</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">float_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.float_to_date" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">float_to_date</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">float_value</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.float_to_date" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.utilities.helpers.get_clean_step_data">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">get_clean_step_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">st</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.get_clean_step_data" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">get_clean_step_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">st</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.get_clean_step_data" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.utilities.helpers.get_datetime">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">get_datetime</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.get_datetime" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">get_datetime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ts</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.get_datetime" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.utilities.helpers.get_default_plot_color">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">get_default_plot_color</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.get_default_plot_color" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">get_default_plot_color</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.get_default_plot_color" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.utilities.helpers.get_default_plot_size">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">get_default_plot_size</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.get_default_plot_size" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">get_default_plot_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.get_default_plot_size" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.utilities.helpers.get_epoch_end">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">get_epoch_end</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_datetime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.get_epoch_end" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">get_epoch_end</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">use_datetime</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.get_epoch_end" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.utilities.helpers.get_epoch_start">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">get_epoch_start</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_datetime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.get_epoch_start" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">get_epoch_start</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">use_datetime</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.get_epoch_start" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.utilities.helpers.get_plot_range">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">get_plot_range</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_datetime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.get_plot_range" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">get_plot_range</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">end</span></em>, <em class="sig-param"><span class="n">delta</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">use_datetime</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.get_plot_range" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.utilities.helpers.input_types">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">input_types</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.input_types" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">input_types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.input_types" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.utilities.helpers.is_date_time">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">is_date_time</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.is_date_time" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">is_date_time</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.is_date_time" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.utilities.helpers.is_delta_datetime">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">is_delta_datetime</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.is_delta_datetime" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">is_delta_datetime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.is_delta_datetime" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.utilities.helpers.prepare_datetime">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">prepare_datetime</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.prepare_datetime" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">prepare_datetime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xdata</span></em>, <em class="sig-param"><span class="n">return_dt</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.prepare_datetime" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.utilities.helpers.prepare_input">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">prepare_input</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.prepare_input" title="Permalink to this definition">¶</a></dt>
-<dd><p>A helper function to convert a value or array of values that will be used to evaluate the steps function at. Interally the steps equations
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">prepare_input</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xdata</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.prepare_input" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>A helper function to convert a value or array of values that will be used to evaluate the steps function at. Interally the steps equations
 use floating point numbers, therefore datetime, integers and floats all need to be presented as floats to the numpy equations and functions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>xdata</strong> (<em>array_like</em>) – The value or values to convert into floats ready to use directly in the steps function equations.</p>
 </dd>
 </dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="#hotstepper.utilities.helpers.prepare_datetime" title="hotstepper.utilities.helpers.prepare_datetime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepare_datetime</span></code></a></p>
+<div class="admonition seealso" id="hotstepper-utilities-helpers-module-note-1">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-utilities-helpers-module-note-1" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><a class="reference internal" href="#hotstepper.utilities.helpers.prepare_datetime" title="hotstepper.utilities.helpers.prepare_datetime"><code class="xref py py-func docutils literal notranslate"><span class="pre">prepare_datetime()</span></code></a></p>
 </div>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.utilities.helpers.process_slice">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">process_slice</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sliz</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.process_slice" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="hotstepper.utilities.helpers.rolling_window">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">rolling_window</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.rolling_window" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="hotstepper.utilities.helpers.steps_plot">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">steps_plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts_grain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">where</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'post'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.steps_plot" title="Permalink to this definition">¶</a></dt>
-<dd><p>A universal plotting function for objects that implement the AbstractSteps interface.</p>
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">process_slice</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sliz</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.process_slice" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
+<dt id="hotstepper.utilities.helpers.rolling_window">
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">rolling_window</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arr</span></em>, <em class="sig-param"><span class="n">window</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.rolling_window" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
+
+<dl class="py function code-definition">
+<dt id="hotstepper.utilities.helpers.steps_plot">
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">steps_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">steps</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">smooth_factor</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">smooth_basis</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ts_grain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">where</span><span class="o">=</span><span class="default_value">'post'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kargs</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.steps_plot" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>A universal plotting function for objects that implement the AbstractSteps interface.</p>
+</dd></dl>
+
+<dl class="py function code-definition">
 <dt id="hotstepper.utilities.helpers.timedelta_to_float">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.utilities.helpers.</span></code><code class="sig-name descname"><span class="pre">timedelta_to_float</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt_delta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.utilities.helpers.timedelta_to_float" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">hotstepper.utilities.helpers.</code><code class="sig-name descname">timedelta_to_float</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dt_delta</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.utilities.helpers.timedelta_to_float" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-</div>
-<div class="section" id="module-hotstepper.utilities">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hotstepper.utilities" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
+</section>
+<section id="module-hotstepper.utilities">
+<span id="module-contents"></span><h2>Module contents<a role="button" class="headerlink tooltipped tooltipped-ne" href="#module-hotstepper.utilities" aria-label="Copy link to section: Module contents."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2>
+</section>
+</section>
 
 
-           </div>
-           
-          </div>
-          <footer>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &#169; Copyright 2020, Jackson Storm.
-
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-        </div>
+        </main>
+        <footer
+  role="contentinfo"
+  class="mt-20 px-5 md:ml-fluid mb-4 flex-shrink-0 text-sm text-gray-700 "
+>&copy; Copyright 2020, Jackson Storm&nbsp;Made with <a href="https://www.sphinx-doc.org">Sphinx 3.2.1</a></footer>
       </div>
-
-    </section>
-
+      <div class="sticky bottom-0 md:hidden print:hidden bg-white">
+  <div class="flex justify-center items-center">
+    <button
+      id="openNavBtn"
+      aria-labelledby="menuLabel"
+      class="text-3xl p-4 flex items-center focus:bg-gray-200">
+      <svg aria-hidden="true" class="fill-current h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      <span id="menuLabel" class="pl-2 text-sm font-medium uppercase tracking-wide text-gray-700">Menu</span>
+    </button><button
+      id="openSearchBtn"
+      aria-labelledby="searchLabel"
+      class="text-3xl p-4 flex items-center focus:bg-gray-200">
+      <svg aria-hidden="true" class="fill-current h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <span id="searchLabel" class="pl-2 text-sm font-medium uppercase tracking-wide text-gray-700">Search</span>
+    </button>
   </div>
-  
+</div>
+      <div
+  id="search-pane" data-menu="closed"
+  class="w-full fixed bottom-0 left-0 z-10 bg-gray-900 overflow-x-hidden pt-10 flex flex-col items-center md:hidden"
+>
+<h4 id="search-label" class="text-xl text-white mb-4">Enter search term</h4><form
+    id="searchbox" action="../search.html" method="get"
+    class="flex w-full justify-between items-center max-w-sm px-12">
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
+    <input
+      name="q"
+      aria-labelledby="search-label"
+      type="search"
+      placeholder="Search the docs"
+      class="p-2 flex-1"
+    />
     
-   
+<button class="p-2 text-white bg-gray-700 hover:bg-gray-200 hover:text-pink-500 focus:bg-gray-200 focus:text-pink-500 tooltipped tooltipped-sw"
+        aria-label="Get search results">
+  <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+</button>
 
-</body>
+  </form>
+
+  
+<button
+    id="closeSearchBtn"
+    aria-label="Close menu"
+    title="Close menu"
+    class="text-4xl text-gray-200 p-4 bottom-0 hover:text-pink-500 md:hidden focus:text-pink-500 self-center">
+  <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+</button>
+
+</div>
+      <div
+  id="snackbar"
+  class="fixed bottom-0 right-0 opacity-0 p-4 m-4 bg-gray-900 text-gray-100 transition transform duration-500 translate-y-full"
+></div>
+<div id="screen" style="display: none;" class="fixed inset-0 bg-black bg-opacity-50"></div>
+    </div>
+    
+      
+<script id="documentation_options"
+        data-url_root="../"
+        src="../_static/documentation_options.js">
+</script>
+<script src="../_static/jquery.js"></script>
+<script src="../_static/underscore.js"></script>
+<script src="../_static/doctools.js"></script>
+<script src="../_static/language_data.js"></script>
+<script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+<script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+<script src="../_static/theme.js" defer></script>
+    
+  </body>
 </html>

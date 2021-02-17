@@ -1,198 +1,144 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>hotstepper.mixins package &mdash; HotStepper</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <title>
+      hotstepper.mixins package | HotStepper
+    </title>
+    <link
+      rel="stylesheet"
+      href="../_static/pygments.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../_static/theme.css"
+    />
+        <link rel="search" title="Search" href="../search.html"/>
+        <link rel="index" title="Index" href="../genindex.html"/>
+  </head><body class="text-gray-900 antialiased min-h-screen md:h-screen flex flex-col">
+    <a
+  class="block text-xl bg-white px-8 py-4 z-20 absolute top-0 inset-x-0 text-center transform
+  -translate-y-full focus:translate-y-0 focus:outline-none transition-transform duration-75"
+  href="#hotstepper-mixins-package"
+  title="Skip navigation links"
+  >Skip to content</a>
+    <header class="md:sticky top-0 bg-gray-900 shadow-md flex md:flex-row justify-between items-center z-10"><a class="py-4 hover:bg-gray-700 focus:bg-gray-700 tooltipped tooltipped-se"
+      href="../index.html"
+      aria-label="Back to homepage">
+      <img class="h-8 mx-5" src="../_static/HotstepperLogo.png" alt="Logo" />
+    </a><h2 class="text-xl text-gray-100 mx-5 py-4">HotStepper</h2><form
+    id="searchbox"
+    action="../search.html"
+    method="get"
+    class="hidden md:flex my-auto mx-5 justify-between items-center print:hidden">
+
+    <input
+      name="q"
+      id="search-input"
+      type="search"
+      aria-label="Search the docs"
+      placeholder="Search the docs"
+      class="p-2 flex-1 focus:bg-yellow-100"
+      style="width: 300px;"
+    />
     
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
+<button class="p-2 text-white bg-gray-700 hover:bg-gray-200 hover:text-pink-500 focus:bg-gray-200 focus:text-pink-500 tooltipped tooltipped-sw"
+        aria-label="Get search results">
+  <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+</button>
 
-    
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../index.html" class="icon icon-home"> HotStepper
-          
-
-          
-            
-            <img src="../_static/HotstepperLogo.png" class="logo" alt="Logo"/>
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
   </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../steps.html">Steps Class</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../utility%20functions.html">Statistical Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/currency.html">Forex Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/uber%20trips.html">Uber Trips</a></li>
+</header>
+    <div class="md:overflow-hidden flex flex-col md:flex-row flex-1"><nav
+  role="navigation"
+  data-menu="closed"
+  style="width: 270px;"
+  class="h-full fixed md:relative inset-y-0 left-0 z-20 md:z-0
+         bg-white text-gray-700 border-r overflow-x-hidden pt-16
+         print:hidden flex flex-col"
+>
+  <div class="nav-toc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../steps.html">Steps methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#constructor-basic-methods">Constructor &amp; basic methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#arithmetic-operators">Arithmetic operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.add.html">hotstepper.Steps.Steps.add</a></li>
 </ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">HotStepper</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>hotstepper.mixins package</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-          
-            <a href="../_sources/modules/hotstepper.mixins.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#relational-operators">Relational operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.compare.html">hotstepper.Steps.Steps.compare</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#logical-operators">Logical operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.normalise.html">hotstepper.Steps.Steps.normalise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.invert.html">hotstepper.Steps.Steps.invert</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#statistical-operators">Statistical operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#summary-statistics">Summary statistics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.integrate.html">hotstepper.Steps.Steps.integrate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.describe.html">hotstepper.Steps.Steps.describe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.min.html">hotstepper.Steps.Steps.min</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.max.html">hotstepper.Steps.Steps.max</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.var.html">hotstepper.Steps.Steps.var</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.std.html">hotstepper.Steps.Steps.std</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.mean.html">hotstepper.Steps.Steps.mean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.median.html">hotstepper.Steps.Steps.median</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.percentile.html">hotstepper.Steps.Steps.percentile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.ecdf.html">hotstepper.Steps.Steps.ecdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.histogram.html">hotstepper.Steps.Steps.histogram</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#miscellaneous-functions">Miscellaneous functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.clip.html">hotstepper.Steps.Steps.clip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.clamp.html">hotstepper.Steps.Steps.clamp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.rshift.html">hotstepper.Steps.Steps.rshift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.lshift.html">hotstepper.Steps.Steps.lshift</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../utility%20functions.html">Statistical Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Case Studies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/currency.html">Forex Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/uber%20trips.html">Uber Trips</a></li>
+</ul>
+</li>
+</ul>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
+<button
+    id="closeNavBtn"
+    aria-label="Close menu"
+    title="Close menu"
+    class="text-4xl text-gray-800 p-4 bottom-0 hover:text-pink-500 md:hidden focus:text-pink-500 self-center">
+  <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+</button>
 
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="hotstepper-mixins-package">
-<h1>hotstepper.mixins package<a class="headerlink" href="#hotstepper-mixins-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="module-hotstepper.mixins.FilterFunctionsMixin">
-<span id="hotstepper-mixins-filterfunctionsmixin-module"></span><h2>hotstepper.mixins.FilterFunctionsMixin module<a class="headerlink" href="#module-hotstepper.mixins.FilterFunctionsMixin" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
+</nav>
+      <div id="main-wrapper" class="overflow-y-auto md:w-full flex flex-col flex-1">
+        <main role="main" class="px-5 md:ml-fluid flex-1 "><nav role="navigation"
+     aria-label="breadcrumbs"
+     class="mt-16 mb-12 text-sm text-gray-700 leading-tight print:hidden">
+  <a class="text-blue-700" href="../index.html">HotStepper</a>
+  <span class="text-gray-700 mr-1">/</span><span aria-current="page">hotstepper.mixins package</span>
+</nav>
+          
+  <section id="hotstepper-mixins-package">
+<h1>hotstepper.mixins package<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-mixins-package" aria-label="Copy link to section: hotstepper.mixins package."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h1>
+<section id="submodules">
+<h2>Submodules<a role="button" class="headerlink tooltipped tooltipped-ne" href="#submodules" aria-label="Copy link to section: Submodules."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2>
+</section>
+<section id="module-hotstepper.mixins.FilterFunctionsMixin">
+<span id="hotstepper-mixins-filterfunctionsmixin-module"></span><h2>hotstepper.mixins.FilterFunctionsMixin module<a role="button" class="headerlink tooltipped tooltipped-ne" href="#module-hotstepper.mixins.FilterFunctionsMixin" aria-label="Copy link to section: hotstepper.mixins.FilterFunctionsMixin module."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2>
+<dl class="py class code-definition">
 <dt id="hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hotstepper.mixins.FilterFunctionsMixin.</span></code><code class="sig-name descname"><span class="pre">FilterFunctionsMixin</span></code><a class="headerlink" href="#hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<em class="property">class </em><code class="sig-prename descclassname">hotstepper.mixins.FilterFunctionsMixin.</code><code class="sig-name descname">FilterFunctionsMixin</code><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -208,13 +154,14 @@
 </tr>
 </tbody>
 </table>
-<dl class="py method">
+<dl class="py method code-definition">
 <dt id="hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin.invert">
-<code class="sig-name descname"><span class="pre">invert</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalise_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin.invert" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create new steps with a constant weight of 1 everywhere the steps are equal to zero.</p>
+<code class="sig-name descname">invert</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">normalise_value</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin.invert" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Create new steps with a constant weight of 1 everywhere the steps are equal to zero.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>normalise_value</strong> (<em>int</em><em>, </em><em>float</em><em>, </em><em>Optional</em>) – The value the constant weight will be set to where the steps are equal to zero.</p>
+<dd class="field-odd"><p><strong>normalise_value</strong> (<em>int, float, Optional</em>) – The value the constant weight will be set to where the steps are equal to zero.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p></p>
@@ -225,13 +172,14 @@
 </dl>
 </dd></dl>
 
-<dl class="py method">
+<dl class="py method code-definition">
 <dt id="hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin.normalise">
-<code class="sig-name descname"><span class="pre">normalise</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalise_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin.normalise" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create new steps with a constant weight of 1 everywhere the steps are not equal to zero.</p>
+<code class="sig-name descname">normalise</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">normalise_value</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.FilterFunctionsMixin.FilterFunctionsMixin.normalise" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Create new steps with a constant weight of 1 everywhere the steps are not equal to zero.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>normalise_value</strong> (<em>int</em><em>, </em><em>float</em><em>, </em><em>Optional</em>) – The value the constant weight will be set to where the steps are not equal to zero.</p>
+<dd class="field-odd"><p><strong>normalise_value</strong> (<em>int, float, Optional</em>) – The value the constant weight will be set to where the steps are not equal to zero.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p></p>
@@ -244,22 +192,24 @@
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-hotstepper.mixins.MathFunctionsMixin">
-<span id="hotstepper-mixins-mathfunctionsmixin-module"></span><h2>hotstepper.mixins.MathFunctionsMixin module<a class="headerlink" href="#module-hotstepper.mixins.MathFunctionsMixin" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
+</section>
+<section id="module-hotstepper.mixins.MathFunctionsMixin">
+<span id="hotstepper-mixins-mathfunctionsmixin-module"></span><h2>hotstepper.mixins.MathFunctionsMixin module<a role="button" class="headerlink tooltipped tooltipped-ne" href="#module-hotstepper.mixins.MathFunctionsMixin" aria-label="Copy link to section: hotstepper.mixins.MathFunctionsMixin module."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2>
+<dl class="py class code-definition">
 <dt id="hotstepper.mixins.MathFunctionsMixin.MathFunctionsMixin">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hotstepper.mixins.MathFunctionsMixin.</span></code><code class="sig-name descname"><span class="pre">MathFunctionsMixin</span></code><a class="headerlink" href="#hotstepper.mixins.MathFunctionsMixin.MathFunctionsMixin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<em class="property">class </em><code class="sig-prename descclassname">hotstepper.mixins.MathFunctionsMixin.</code><code class="sig-name descname">MathFunctionsMixin</code><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.MathFunctionsMixin.MathFunctionsMixin" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 </dd></dl>
 
-</div>
-<div class="section" id="module-hotstepper.mixins.StepsPlottingMixin">
-<span id="hotstepper-mixins-stepsplottingmixin-module"></span><h2>hotstepper.mixins.StepsPlottingMixin module<a class="headerlink" href="#module-hotstepper.mixins.StepsPlottingMixin" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
+</section>
+<section id="module-hotstepper.mixins.StepsPlottingMixin">
+<span id="hotstepper-mixins-stepsplottingmixin-module"></span><h2>hotstepper.mixins.StepsPlottingMixin module<a role="button" class="headerlink tooltipped tooltipped-ne" href="#module-hotstepper.mixins.StepsPlottingMixin" aria-label="Copy link to section: hotstepper.mixins.StepsPlottingMixin module."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2>
+<dl class="py class code-definition">
 <dt id="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">hotstepper.mixins.StepsPlottingMixin.</span></code><code class="sig-name descname"><span class="pre">StepsPlottingMixin</span></code><a class="headerlink" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<em class="property">class </em><code class="sig-prename descclassname">hotstepper.mixins.StepsPlottingMixin.</code><code class="sig-name descname">StepsPlottingMixin</code><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>A plotting mixin class to generate plots for any object implementing the AbstractSteps interface.</p>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
@@ -302,15 +252,16 @@
 </tr>
 </tbody>
 </table>
-<dl class="py method">
+<dl class="py method code-definition">
 <dt id="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.acf_plot">
-<code class="sig-name descname"><span class="pre">acf_plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minlags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.acf_plot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot an auto-correlation function of the cummulative step values.</p>
+<code class="sig-name descname">acf_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lags</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">minlags</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kargs</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.acf_plot" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Plot an auto-correlation function of the cummulative step values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>lags</strong> (<em>int</em><em>, </em><em>Optional</em>) – The number of previous steps to perform ACF analysis.</p></li>
-<li><p><strong>minlags</strong> (<em>int</em><em>, </em><em>Optional</em>) – The minimum lag to include.</p></li>
+<li><p><strong>lags</strong> (<em>int, Optional</em>) – The number of previous steps to perform ACF analysis.</p></li>
+<li><p><strong>minlags</strong> (<em>int, Optional</em>) – The minimum lag to include.</p></li>
 <li><p><strong>ax</strong> (<em>Matplotlib.Axes</em>) – The plot axis to create the plot on if being created externally.</p></li>
 <li><p><strong>**kargs</strong> – Matplotlib key-value paramters to pass to the plot.</p></li>
 </ul>
@@ -322,22 +273,23 @@
 <dd class="field-odd"><p>Matplotlib.Axes</p>
 </dd>
 </dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">histogram_plot</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">summary</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_rolling_step</span></code></a></p>
+<div class="admonition seealso" id="hotstepper-mixins-stepsplottingmixin-module-note-1">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-mixins-stepsplottingmixin-module-note-1" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">histogram_plot()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary"><code class="xref py py-meth docutils literal notranslate"><span class="pre">summary()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_rolling_step()</span></code></a></p>
 </div>
 <p class="rubric">References</p>
 <dl class="citation">
 <dt class="label" id="rf4f083cf756f-1"><span class="brackets">1</span></dt>
-<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/autocorrelation_function">https://en.wikipedia.org/wiki/autocorrelation_function</a></p>
+<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/autocorrelation_function">https://en.wikipedia.org/wiki/autocorrelation_function<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="external-link-icon" aria-hidden="true"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="py method">
+<dl class="py method code-definition">
 <dt id="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.ecdf_plot">
-<code class="sig-name descname"><span class="pre">ecdf_plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.ecdf_plot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot an empirical cummulative distribution function of the cummulative step values.</p>
+<code class="sig-name descname">ecdf_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kargs</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.ecdf_plot" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Plot an empirical cummulative distribution function of the cummulative step values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -352,33 +304,34 @@
 <dd class="field-odd"><p>Matplotlib.Axes</p>
 </dd>
 </dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">histogram_plot</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">summary</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_rolling_step</span></code></a></p>
+<div class="admonition seealso" id="hotstepper-mixins-stepsplottingmixin-module-note-2">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-mixins-stepsplottingmixin-module-note-2" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">histogram_plot()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary"><code class="xref py py-meth docutils literal notranslate"><span class="pre">summary()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_rolling_step()</span></code></a></p>
 </div>
 <p class="rubric">References</p>
 <dl class="citation">
 <dt class="label" id="r4273b4d25784-1"><span class="brackets">1</span></dt>
-<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Empirical_distribution_function">https://en.wikipedia.org/wiki/Empirical_distribution_function</a></p>
+<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Empirical_distribution_function">https://en.wikipedia.org/wiki/Empirical_distribution_function<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="external-link-icon" aria-hidden="true"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="py method">
+<dl class="py method code-definition">
 <dt id="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot">
-<code class="sig-name descname"><span class="pre">histogram_plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts_grain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bins'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot a histogram of the cummulative step values.</p>
+<code class="sig-name descname">histogram_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bins</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">precision</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">ts_grain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">label_style</span><span class="o">=</span><span class="default_value">'bins'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kargs</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Plot a histogram of the cummulative step values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>bins</strong> (<em>int</em><em>, </em><em>array of ints</em><em>, </em><em>Optional</em>) – How many bins to partition the data into or an array of the specific bin values to partition the data into.</p></li>
-<li><p><strong>axis</strong> (<em>int</em><em>, </em><em>Optional</em>) – The data axis to partition into the bins.
+<li><p><strong>bins</strong> (<em>int, array of ints, Optional</em>) – How many bins to partition the data into or an array of the specific bin values to partition the data into.</p></li>
+<li><p><strong>axis</strong> (<em>int, Optional</em>) – The data axis to partition into the bins.
 axis = 0 will parition the y values
 axis = 1 will partition the x values</p></li>
-<li><p><strong>precision</strong> (<em>int</em><em>, </em><em>Optional</em>) – The number of digits the bins labels will display.</p></li>
+<li><p><strong>precision</strong> (<em>int, Optional</em>) – The number of digits the bins labels will display.</p></li>
 <li><p><strong>ax</strong> (<em>Matplotlib.Axes</em>) – The plot axis to create the plot on if being created externally.</p></li>
-<li><p><strong>ts_grain</strong> (<em>Timedelta</em><em>, </em><em>Optional</em>) – The delta time precision to use when binning the data if using axis = 1 and the data type is datetime like.</p></li>
-<li><p><strong>label_style</strong> (<em>str</em><em>, </em><em>Optional</em>) – The x-axis label style to use on the plot, the available styles are;
+<li><p><strong>ts_grain</strong> (<em>Timedelta, Optional</em>) – The delta time precision to use when binning the data if using axis = 1 and the data type is datetime like.</p></li>
+<li><p><strong>label_style</strong> (<em>str, Optional</em>) – The x-axis label style to use on the plot, the available styles are;
 ‘bins’  -&gt; [8.3, 9.4), number of digits is set by setting the precision paramter.
 ‘value’ -&gt; 8.8, the lower inclusion value of the bin range will be used as the label.</p></li>
 <li><p><strong>**kargs</strong> – Matplotlib key-value paramters to pass to the plot.</p></li>
@@ -391,21 +344,22 @@ axis = 1 will partition the x values</p></li>
 <dd class="field-odd"><p>Matplotlib.Axes</p>
 </dd>
 </dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.ecdf_plot" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.ecdf_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ecdf_plot</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">summary</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_rolling_step</span></code></a></p>
+<div class="admonition seealso" id="hotstepper-mixins-stepsplottingmixin-module-note-3">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-mixins-stepsplottingmixin-module-note-3" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.ecdf_plot" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.ecdf_plot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ecdf_plot()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary"><code class="xref py py-meth docutils literal notranslate"><span class="pre">summary()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_rolling_step()</span></code></a></p>
 </div>
 </dd></dl>
 
-<dl class="py method">
+<dl class="py method code-definition">
 <dt id="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.pacf_plot">
-<code class="sig-name descname"><span class="pre">pacf_plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minlags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.pacf_plot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot an partial auto-correlation function of the cummulative step values.</p>
+<code class="sig-name descname">pacf_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lags</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">minlags</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kargs</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.pacf_plot" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Plot an partial auto-correlation function of the cummulative step values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>lags</strong> (<em>int</em><em>, </em><em>Optional</em>) – The number of previous steps to perform PACF analysis.</p></li>
-<li><p><strong>minlags</strong> (<em>int</em><em>, </em><em>Optional</em>) – The minimum lag to include.</p></li>
+<li><p><strong>lags</strong> (<em>int, Optional</em>) – The number of previous steps to perform PACF analysis.</p></li>
+<li><p><strong>minlags</strong> (<em>int, Optional</em>) – The minimum lag to include.</p></li>
 <li><p><strong>ax</strong> (<em>Matplotlib.Axes</em>) – The plot axis to create the plot on if being created externally.</p></li>
 <li><p><strong>**kargs</strong> – Matplotlib key-value paramters to pass to the plot.</p></li>
 </ul>
@@ -417,35 +371,37 @@ axis = 1 will partition the x values</p></li>
 <dd class="field-odd"><p>Matplotlib.Axes</p>
 </dd>
 </dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">histogram_plot</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">summary</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_rolling_step</span></code></a></p>
+<div class="admonition seealso" id="hotstepper-mixins-stepsplottingmixin-module-note-4">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-mixins-stepsplottingmixin-module-note-4" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">histogram_plot()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary"><code class="xref py py-meth docutils literal notranslate"><span class="pre">summary()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_rolling_step()</span></code></a></p>
 </div>
 <p class="rubric">References</p>
 <dl class="citation">
 <dt class="label" id="r932ce0ae4093-1"><span class="brackets">1</span></dt>
-<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Partial_autocorrelation_function">https://en.wikipedia.org/wiki/Partial_autocorrelation_function</a></p>
+<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Partial_autocorrelation_function">https://en.wikipedia.org/wiki/Partial_autocorrelation_function<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="external-link-icon" aria-hidden="true"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="py method">
+<dl class="py method code-definition">
 <dt id="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot">
-<code class="sig-name descname"><span class="pre">plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts_grain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">where</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'post'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">smooth_factor</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ts_grain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">where</span><span class="o">=</span><span class="default_value">'post'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kargs</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-<dl class="py method">
+<dl class="py method code-definition">
 <dt id="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step">
-<code class="sig-name descname"><span class="pre">plot_rolling_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rolling_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_mid_post</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mid'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts_grain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot the result of applying a reduction function to a rolling window across the step values.</p>
+<code class="sig-name descname">plot_rolling_step</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rolling_function</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">window</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">pre_mid_post</span><span class="o">=</span><span class="default_value">'mid'</span></em>, <em class="sig-param"><span class="n">ts_grain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kargs</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Plot the result of applying a reduction function to a rolling window across the step values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>rolling_function</strong> (<em>Numpy.ufunc</em><em>, </em><em>Optional</em>) – A numpy reduction function to apply to the rolling window across the steps data, for example np.mean, np.max.</p></li>
-<li><p><strong>widnow</strong> (<em>int</em><em>, </em><em>Optional</em>) – The size of the rolling window to apply across the steps data.</p></li>
-<li><p><strong>pre_mid_post</strong> (<em>{'pre'</em><em>,</em><em>'mid'</em><em>,</em><em>'post'}</em><em>, </em><em>Optional</em>) – Where to centre the reduction location within the rolling window. Using centre will associate the reduced value with the centre key of the window.</p></li>
+<li><p><strong>rolling_function</strong> (<em>Numpy.ufunc, Optional</em>) – A numpy reduction function to apply to the rolling window across the steps data, for example np.mean, np.max.</p></li>
+<li><p><strong>widnow</strong> (<em>int, Optional</em>) – The size of the rolling window to apply across the steps data.</p></li>
+<li><p><strong>pre_mid_post</strong> (<em>{‘pre’,’mid’,’post’}, Optional</em>) – Where to centre the reduction location within the rolling window. Using centre will associate the reduced value with the centre key of the window.</p></li>
 <li><p><strong>ax</strong> (<em>Matplotlib.Axes</em>) – The plot axis to create the plot on if being created externally.</p></li>
-<li><p><strong>ts_grain</strong> (<em>Timedelta</em><em>, </em><em>Optional</em>) – The delta time precision to use when binning the data if using axis = 1 and the data type is datetime like.</p></li>
+<li><p><strong>ts_grain</strong> (<em>Timedelta, Optional</em>) – The delta time precision to use when binning the data if using axis = 1 and the data type is datetime like.</p></li>
 <li><p><strong>**kargs</strong> – Matplotlib key-value paramters to pass to the plot.</p></li>
 </ul>
 </dd>
@@ -456,21 +412,23 @@ axis = 1 will partition the x values</p></li>
 <dd class="field-odd"><p>Matplotlib.Axes</p>
 </dd>
 </dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.ecdf_plot" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.ecdf_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ecdf_plot</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.pacf_plot" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.pacf_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pacf_plot</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">histogram_plot</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">summary</span></code></a></p>
+<div class="admonition seealso" id="hotstepper-mixins-stepsplottingmixin-module-note-5">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-mixins-stepsplottingmixin-module-note-5" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.ecdf_plot" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.ecdf_plot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ecdf_plot()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.pacf_plot" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.pacf_plot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pacf_plot()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">histogram_plot()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary"><code class="xref py py-meth docutils literal notranslate"><span class="pre">summary()</span></code></a></p>
 </div>
 </dd></dl>
 
-<dl class="py method">
+<dl class="py method code-definition">
 <dt id="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.smooth_plot">
-<code class="sig-name descname"><span class="pre">smooth_plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">smooth_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts_grain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">where</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'post'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.smooth_plot" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">smooth_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">smooth_factor</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">smooth_basis</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ts_grain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">where</span><span class="o">=</span><span class="default_value">'post'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kargs</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.smooth_plot" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-<dl class="py method">
+<dl class="py method code-definition">
 <dt id="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary">
-<code class="sig-name descname"><span class="pre">summary</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot and display summary details and statistics for the Steps object.</p>
+<code class="sig-name descname">summary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plot_params</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.summary" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Plot and display summary details and statistics for the Steps object.</p>
 <p>Plots
 - Steps
 - Smooth steps
@@ -478,22 +436,21 @@ axis = 1 will partition the x values</p></li>
 - Histogram</p>
 <p>Statistics
 Same as Steps.describe()</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>plot_params</strong> (<em>dictionary_like</em><em>, </em><em>Optional</em>) – <p>A dictionary to control the look of the plots.
+<dd class="field-odd"><p><strong>plot_params</strong> (<em>dictionary_like, Optional</em>) – A dictionary to control the look of the plots.
 {‘steps_plot’: {parameter_name:value, } -&gt; the same as <a href="#id1"><span class="problematic" id="id2">**</span></a>kargs,</p>
 <blockquote>
-<div><p>’smooth_steps_plot’: {parameter_name:value, } -&gt; the same as <a href="#id3"><span class="problematic" id="id4">**</span></a>kargs,
+<div><p>‘smooth_steps_plot’: {parameter_name:value, } -&gt; the same as <a href="#id3"><span class="problematic" id="id4">**</span></a>kargs,
 ‘ecdf_plot’: {parameter_name:value, } -&gt; the same as <a href="#id5"><span class="problematic" id="id6">**</span></a>kargs,
 ‘histogram_plot’: {parameter_name:value, } -&gt; the same as <a href="#id7"><span class="problematic" id="id8">**</span></a>kargs}</p>
 </div></blockquote>
 <dl class="simple">
-<dt>example, plot_params = {‘steps_plot’: {‘color’: ‘green’,},</dt><dd><p>’smooth_steps_plot’: {‘linewidth’: 5, },
+<dt>example, plot_params = {‘steps_plot’: {‘color’: ‘green’,},</dt><dd><p>‘smooth_steps_plot’: {‘linewidth’: 5, },
 ‘ecdf_plot’: {‘linestyle’: ‘:’, },
 ‘histogram_plot’: {‘width’: 4}}</p>
 </dd>
 </dl>
-</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>[steps_plot_ax,
@@ -506,31 +463,32 @@ statistics_table]</p>
 <dd class="field-odd"><p>Array of Matplotilib Axes objects</p>
 </dd>
 </dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.ecdf_plot" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.ecdf_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ecdf_plot</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">histogram_plot</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_rolling_step</span></code></a></p>
+<div class="admonition seealso" id="hotstepper-mixins-stepsplottingmixin-module-note-6">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-mixins-stepsplottingmixin-module-note-6" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.ecdf_plot" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.ecdf_plot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ecdf_plot()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.histogram_plot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">histogram_plot()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step" title="hotstepper.mixins.StepsPlottingMixin.StepsPlottingMixin.plot_rolling_step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_rolling_step()</span></code></a></p>
 </div>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-hotstepper.mixins.operations">
-<span id="hotstepper-mixins-operations-module"></span><h2>hotstepper.mixins.operations module<a class="headerlink" href="#module-hotstepper.mixins.operations" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
+</section>
+<section id="module-hotstepper.mixins.operations">
+<span id="hotstepper-mixins-operations-module"></span><h2>hotstepper.mixins.operations module<a role="button" class="headerlink tooltipped tooltipped-ne" href="#module-hotstepper.mixins.operations" aria-label="Copy link to section: hotstepper.mixins.operations module."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2>
+<dl class="py function code-definition">
 <dt id="hotstepper.mixins.operations.apply_math_function">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.mixins.operations.</span></code><code class="sig-name descname"><span class="pre">apply_math_function</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">caller</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">math_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.operations.apply_math_function" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply the supplied function to two objects evaluated at the union of all their unique step keys.</p>
+<code class="sig-prename descclassname">hotstepper.mixins.operations.</code><code class="sig-name descname">apply_math_function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">caller</span></em>, <em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">math_function</span></em>, <em class="sig-param"><span class="n">sample_points</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.operations.apply_math_function" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Apply the supplied function to two objects evaluated at the union of all their unique step keys.</p>
 <p>For example, math_function = numpy.multiply will multiple the step values from each steps object together at each of the step keys that forms the union set of all step keys.
 Simply, a list of unique step keys will be generated based on those from each steps object and the provided function will be applied across all steps values at each of those keys to generate a new steps object.</p>
 <p>If the second argument is a scalar, this value will be broadcast to match the number of step keys in the longest step or steps object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>caller</strong> (<a class="reference internal" href="hotstepper.html#hotstepper.Step.Step" title="hotstepper.Step.Step"><em>Step</em></a><em>, </em><a class="reference internal" href="hotstepper.html#hotstepper.Steps.Steps" title="hotstepper.Steps.Steps"><em>Steps</em></a>) – The parent object with step values to perform the math operation on</p></li>
-<li><p><strong>other</strong> (<em>int</em><em>, </em><em>float</em><em>, </em><a class="reference internal" href="hotstepper.html#hotstepper.Step.Step" title="hotstepper.Step.Step"><em>Step</em></a><em>, </em><a class="reference internal" href="hotstepper.html#hotstepper.Steps.Steps" title="hotstepper.Steps.Steps"><em>Steps</em></a>) – Steps or scalar value to be combined with the caller object values evaluated at the common union of step keys using the provided math_function.</p></li>
-<li><p><strong>math_function</strong> (<em>math_like function</em><em>, </em><em>e.g. numpy.add</em><em>, </em><em>operator.__mul__</em>) – A binary math function that accepts two arguments and returns an array the same length as the longest input, e.g +,-,*,/, np.add, np.multiply etc.</p></li>
-<li><p><strong>sample_points</strong> (<em>array_like of int</em><em>,</em><em>float</em><em> or </em><em>datetime_like</em><em>, </em><em>Optional</em>) – Specifiy the specific points the math_function function is to be evaluated across all provided step functions.</p></li>
+<li><p><strong>caller</strong> (<em>Step, Steps</em>) – The parent object with step values to perform the math operation on</p></li>
+<li><p><strong>other</strong> (<em>int, float, Step, Steps</em>) – Steps or scalar value to be combined with the caller object values evaluated at the common union of step keys using the provided math_function.</p></li>
+<li><p><strong>math_function</strong> (<em>math_like function, e.g. numpy.add, operator.__mul__</em>) – A binary math function that accepts two arguments and returns an array the same length as the longest input, e.g +,-,*,/, np.add, np.multiply etc.</p></li>
+<li><p><strong>sample_points</strong> (<em>array_like of int,float or datetime_like, Optional</em>) – Specifiy the specific points the math_function function is to be evaluated across all provided step functions.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -540,26 +498,27 @@ Simply, a list of unique step keys will be generated based on those from each st
 <dd class="field-odd"><p><a class="reference internal" href="hotstepper.html#hotstepper.Steps.Steps" title="hotstepper.Steps.Steps">Steps</a></p>
 </dd>
 </dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="#hotstepper.mixins.operations.filter_values" title="hotstepper.mixins.operations.filter_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_values</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.operations.apply_reduction_function" title="hotstepper.mixins.operations.apply_reduction_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_reduction_function</span></code></a></p>
+<div class="admonition seealso" id="hotstepper-mixins-operations-module-note-7">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-mixins-operations-module-note-7" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><a class="reference internal" href="#hotstepper.mixins.operations.filter_values" title="hotstepper.mixins.operations.filter_values"><code class="xref py py-func docutils literal notranslate"><span class="pre">filter_values()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.operations.apply_reduction_function" title="hotstepper.mixins.operations.apply_reduction_function"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_reduction_function()</span></code></a></p>
 </div>
 <p class="rubric">Examples</p>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.mixins.operations.apply_reduction_function">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.mixins.operations.</span></code><code class="sig-name descname"><span class="pre">apply_reduction_function</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps_to_combine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduction_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.operations.apply_reduction_function" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply the supplied function to all provided objects evaluated at the union of all their unique step keys.</p>
+<code class="sig-prename descclassname">hotstepper.mixins.operations.</code><code class="sig-name descname">apply_reduction_function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">steps_to_combine</span></em>, <em class="sig-param"><span class="n">reduction_function</span></em>, <em class="sig-param"><span class="n">sample_points</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.operations.apply_reduction_function" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Apply the supplied function to all provided objects evaluated at the union of all their unique step keys.</p>
 <p>For example, reduction_function = numpy.mean will find the mean across all objects evaluated at each step key that is from the union set of all keys.
 Simply, a list of unique step keys will be generated based on those from each steps object and the provided function will be applied across all steps values at each of those keys to generate a new steps object.</p>
 <p>If the second argument is a scalar, this value will be broadcast to match the number of step keys in the longest step or steps object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>steps_to_combine</strong> (<em>int</em><em>, </em><em>float</em><em>, </em><a class="reference internal" href="hotstepper.html#hotstepper.Step.Step" title="hotstepper.Step.Step"><em>Step</em></a><em>, </em><a class="reference internal" href="hotstepper.html#hotstepper.Steps.Steps" title="hotstepper.Steps.Steps"><em>Steps</em></a>) – Objects and/or numbers to apply the reduction function at each of the unique keys.</p></li>
+<li><p><strong>steps_to_combine</strong> (<em>int, float, Step, Steps</em>) – Objects and/or numbers to apply the reduction function at each of the unique keys.</p></li>
 <li><p><strong>reduction_function</strong> (<em>math_like function</em>) – A reduction function that returns a scalar for each input array, e.g mean, variance, np.mean, np.std, np.median etc.</p></li>
-<li><p><strong>sample_points</strong> (<em>array_like of int</em><em>,</em><em>float</em><em> or </em><em>datetime_like</em><em>, </em><em>Optional</em>) – Specifiy the specific points the reduction_function function is to be evaluated across all provided step functions.</p></li>
+<li><p><strong>sample_points</strong> (<em>array_like of int,float or datetime_like, Optional</em>) – Specifiy the specific points the reduction_function function is to be evaluated across all provided step functions.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -569,23 +528,24 @@ Simply, a list of unique step keys will be generated based on those from each st
 <dd class="field-odd"><p><a class="reference internal" href="hotstepper.html#hotstepper.Steps.Steps" title="hotstepper.Steps.Steps">Steps</a></p>
 </dd>
 </dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="#hotstepper.mixins.operations.filter_values" title="hotstepper.mixins.operations.filter_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_values</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.operations.apply_math_function" title="hotstepper.mixins.operations.apply_math_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_math_function</span></code></a></p>
+<div class="admonition seealso" id="hotstepper-mixins-operations-module-note-8">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-mixins-operations-module-note-8" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><a class="reference internal" href="#hotstepper.mixins.operations.filter_values" title="hotstepper.mixins.operations.filter_values"><code class="xref py py-func docutils literal notranslate"><span class="pre">filter_values()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.operations.apply_math_function" title="hotstepper.mixins.operations.apply_math_function"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_math_function()</span></code></a></p>
 </div>
 <p class="rubric">Examples</p>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.mixins.operations.filter_values">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.mixins.operations.</span></code><code class="sig-name descname"><span class="pre">filter_values</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">caller</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operation_func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalise_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.operations.filter_values" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function is used to create a filtered version of the steps by removing steps not evaluating to true from applying the comparison function at all step change locations.</p>
+<code class="sig-prename descclassname">hotstepper.mixins.operations.</code><code class="sig-name descname">filter_values</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">caller</span></em>, <em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">operation_func</span></em>, <em class="sig-param"><span class="n">normalise_value</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.operations.filter_values" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>This function is used to create a filtered version of the steps by removing steps not evaluating to true from applying the comparison function at all step change locations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>other</strong> (<em>int</em><em>, </em><em>float</em>) – Any value to compare each steps value against.</p></li>
+<li><p><strong>other</strong> (<em>int, float</em>) – Any value to compare each steps value against.</p></li>
 <li><p><strong>operation_func</strong> (<em>binary boolean function</em>) – A binary comparison function that returns a bool, e.g &gt;,&lt;,==.</p></li>
-<li><p><strong>normalise_value</strong> (<em>int</em><em>, </em><em>float</em><em>, </em><em>Optional</em>) – A value to assign at the step keys that are included in the return object. If a value of zero is used, the return object will have the value of the step function between the included step keys.</p></li>
+<li><p><strong>normalise_value</strong> (<em>int, float, Optional</em>) – A value to assign at the step keys that are included in the return object. If a value of zero is used, the return object will have the value of the step function between the included step keys.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -595,28 +555,29 @@ Simply, a list of unique step keys will be generated based on those from each st
 <dd class="field-odd"><p><a class="reference internal" href="hotstepper.html#hotstepper.Steps.Steps" title="hotstepper.Steps.Steps">Steps</a></p>
 </dd>
 </dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="#hotstepper.mixins.operations.apply_reduction_function" title="hotstepper.mixins.operations.apply_reduction_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_reduction_function</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.operations.apply_math_function" title="hotstepper.mixins.operations.apply_math_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_math_function</span></code></a></p>
+<div class="admonition seealso" id="hotstepper-mixins-operations-module-note-9">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-mixins-operations-module-note-9" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><a class="reference internal" href="#hotstepper.mixins.operations.apply_reduction_function" title="hotstepper.mixins.operations.apply_reduction_function"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_reduction_function()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.operations.apply_math_function" title="hotstepper.mixins.operations.apply_math_function"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_math_function()</span></code></a></p>
 </div>
 </dd></dl>
 
-</div>
-<div class="section" id="module-hotstepper.mixins.read_write">
-<span id="hotstepper-mixins-read-write-module"></span><h2>hotstepper.mixins.read_write module<a class="headerlink" href="#module-hotstepper.mixins.read_write" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
+</section>
+<section id="module-hotstepper.mixins.read_write">
+<span id="hotstepper-mixins-read-write-module"></span><h2>hotstepper.mixins.read_write module<a role="button" class="headerlink tooltipped tooltipped-ne" href="#module-hotstepper.mixins.read_write" aria-label="Copy link to section: hotstepper.mixins.read_write module."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2>
+<dl class="py function code-definition">
 <dt id="hotstepper.mixins.read_write.read_array">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.mixins.read_write.</span></code><code class="sig-name descname"><span class="pre">read_array</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_datetime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.read_write.read_array" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read arrays of values for start, end and weight values that represent either the cummulative value of the data steps or the direct step
+<code class="sig-prename descclassname">hotstepper.mixins.read_write.</code><code class="sig-name descname">read_array</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cls</span></em>, <em class="sig-param"><span class="n">start</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">end</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">weight</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">use_datetime</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">convert_delta</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.read_write.read_array" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Read arrays of values for start, end and weight values that represent either the cummulative value of the data steps or the direct step
 values seperately, indexed by the start and possibly end arrays.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>start</strong> (<em>array_like</em>) – An array of step start location values.</p></li>
-<li><p><strong>end</strong> (<em>array_like</em><em>, </em><em>Optional</em>) – An array of step end location values.</p></li>
-<li><p><strong>weight</strong> (<em>array_like</em><em>, </em><em>Optional</em>) – An array of step weight values, if these are not provided, a value of 1 will be assigned for each row entry.</p></li>
-<li><p><strong>use_datetime</strong> (<em>bool</em><em>, </em><em>Opyional</em>) – Assume start and end fields are of datetime format (Numpy.datetime64,datetime or Pandas.Timestamp).</p></li>
-<li><p><strong>convert_delta</strong> (<em>bool</em><em>, </em><em>Optional</em>) – Assume weight values are individual step weights (default), or convert values by performing a delta between adjacent values. The data
+<li><p><strong>end</strong> (<em>array_like, Optional</em>) – An array of step end location values.</p></li>
+<li><p><strong>weight</strong> (<em>array_like, Optional</em>) – An array of step weight values, if these are not provided, a value of 1 will be assigned for each row entry.</p></li>
+<li><p><strong>use_datetime</strong> (<em>bool, Opyional</em>) – Assume start and end fields are of datetime format (Numpy.datetime64,datetime or Pandas.Timestamp).</p></li>
+<li><p><strong>convert_delta</strong> (<em>bool, Optional</em>) – Assume weight values are individual step weights (default), or convert values by performing a delta between adjacent values. The data
 is assumed to be sorted by the provided start values.</p></li>
 </ul>
 </dd>
@@ -627,9 +588,9 @@ is assumed to be sorted by the provided start values.</p></li>
 <dd class="field-odd"><p><a class="reference internal" href="hotstepper.html#hotstepper.Steps.Steps" title="hotstepper.Steps.Steps">Steps</a></p>
 </dd>
 </dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="#hotstepper.mixins.read_write.read_dataframe" title="hotstepper.mixins.read_write.read_dataframe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_dataframe</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.read_write.read_dict" title="hotstepper.mixins.read_write.read_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_dict</span></code></a></p>
+<div class="admonition seealso" id="hotstepper-mixins-read-write-module-note-10">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-mixins-read-write-module-note-10" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><a class="reference internal" href="#hotstepper.mixins.read_write.read_dataframe" title="hotstepper.mixins.read_write.read_dataframe"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_dataframe()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.read_write.read_dict" title="hotstepper.mixins.read_write.read_dict"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_dict()</span></code></a></p>
 </div>
 <p class="rubric">Examples</p>
 <p>We can calculate a derivative value of a function.
@@ -647,20 +608,21 @@ This value is close to the analytical solution:
 f’(x) = 4x, so f’(3) = 12</p>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.mixins.read_write.read_dataframe">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.mixins.read_write.</span></code><code class="sig-name descname"><span class="pre">read_dataframe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_datetime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.read_write.read_dataframe" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read a Pandas dataframe with values that represent either the cummulative value of the data steps or the direct step
+<code class="sig-prename descclassname">hotstepper.mixins.read_write.</code><code class="sig-name descname">read_dataframe</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cls</span></em>, <em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">start</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">end</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">weight</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">use_datetime</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">convert_delta</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.read_write.read_dataframe" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Read a Pandas dataframe with values that represent either the cummulative value of the data steps or the direct step
 values seperately.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<em>Pandas.DataFrame</em>) – A dataframe representing the data to convert to steps.</p></li>
-<li><p><strong>start</strong> (<em>str</em><em>, </em><em>Optional</em>) – The name of the column containing the start data.</p></li>
-<li><p><strong>end</strong> (<em>str</em><em>, </em><em>Optional</em>) – The name of the column containing the end data.</p></li>
-<li><p><strong>weight</strong> (<em>str</em><em>, </em><em>Optional</em>) – The name of the column containg the step weight data, if this is not provided, a value of 1 will be assigned for each row entry.</p></li>
-<li><p><strong>use_datetime</strong> (<em>bool</em><em>, </em><em>Optional</em>) – Assume start and end fields are of datetime format (Numpy.datetime64,datetime or Pandas.Timestamp).</p></li>
-<li><p><strong>convert_delta</strong> (<em>bool</em><em>, </em><em>Optional</em>) – Assume weight values are individual step weights (default), or convert values by performing a delta between adjacent values. The data
+<li><p><strong>start</strong> (<em>str, Optional</em>) – The name of the column containing the start data.</p></li>
+<li><p><strong>end</strong> (<em>str, Optional</em>) – The name of the column containing the end data.</p></li>
+<li><p><strong>weight</strong> (<em>str, Optional</em>) – The name of the column containg the step weight data, if this is not provided, a value of 1 will be assigned for each row entry.</p></li>
+<li><p><strong>use_datetime</strong> (<em>bool, Optional</em>) – Assume start and end fields are of datetime format (Numpy.datetime64,datetime or Pandas.Timestamp).</p></li>
+<li><p><strong>convert_delta</strong> (<em>bool, Optional</em>) – Assume weight values are individual step weights (default), or convert values by performing a delta between adjacent values. The data
 is assumed to be sorted by the provided start values.</p></li>
 </ul>
 </dd>
@@ -671,9 +633,9 @@ is assumed to be sorted by the provided start values.</p></li>
 <dd class="field-odd"><p><a class="reference internal" href="hotstepper.html#hotstepper.Steps.Steps" title="hotstepper.Steps.Steps">Steps</a></p>
 </dd>
 </dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="#hotstepper.mixins.read_write.read_array" title="hotstepper.mixins.read_write.read_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_array</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.read_write.read_dict" title="hotstepper.mixins.read_write.read_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_dict</span></code></a></p>
+<div class="admonition seealso" id="hotstepper-mixins-read-write-module-note-11">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-mixins-read-write-module-note-11" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><a class="reference internal" href="#hotstepper.mixins.read_write.read_array" title="hotstepper.mixins.read_write.read_array"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_array()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.read_write.read_dict" title="hotstepper.mixins.read_write.read_dict"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_dict()</span></code></a></p>
 </div>
 <p class="rubric">Examples</p>
 <p>We can calculate a derivative value of a function.
@@ -691,10 +653,11 @@ This value is close to the analytical solution:
 f’(x) = 4x, so f’(3) = 12</p>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.mixins.read_write.read_dict">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.mixins.read_write.</span></code><code class="sig-name descname"><span class="pre">read_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_datetime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.read_write.read_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read a dictionary with values that represent either the cummulative value of the data steps or the direct step
+<code class="sig-prename descclassname">hotstepper.mixins.read_write.</code><code class="sig-name descname">read_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cls</span></em>, <em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">use_datetime</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">convert_delta</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.read_write.read_dict" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Read a dictionary with values that represent either the cummulative value of the data steps or the direct step
 values seperately, indexed by the dictionary key values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -702,8 +665,8 @@ values seperately, indexed by the dictionary key values.</p>
 <li><p><strong>data</strong> (<em>dictionary_like</em>) – A dictionary representing the data to convert to steps. Assumed format is:
 key   -&gt; step start
 value -&gt; step weight</p></li>
-<li><p><strong>use_datetime</strong> (<em>bool</em><em>, </em><em>Optional</em>) – Assume start and end fields are of datetime format (Numpy.datetime64,datetime or Pandas.Timestamp).</p></li>
-<li><p><strong>convert_delta</strong> (<em>bool</em><em>, </em><em>Optional</em>) – Assume weight values are individual step weights (default), or convert values by performing a delta between adjacent values. The data
+<li><p><strong>use_datetime</strong> (<em>bool, Optional</em>) – Assume start and end fields are of datetime format (Numpy.datetime64,datetime or Pandas.Timestamp).</p></li>
+<li><p><strong>convert_delta</strong> (<em>bool, Optional</em>) – Assume weight values are individual step weights (default), or convert values by performing a delta between adjacent values. The data
 is assumed to be sorted by the provided start values.</p></li>
 </ul>
 </dd>
@@ -714,9 +677,9 @@ is assumed to be sorted by the provided start values.</p></li>
 <dd class="field-odd"><p><a class="reference internal" href="hotstepper.html#hotstepper.Steps.Steps" title="hotstepper.Steps.Steps">Steps</a></p>
 </dd>
 </dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="#hotstepper.mixins.read_write.read_array" title="hotstepper.mixins.read_write.read_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_array</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.read_write.read_dataframe" title="hotstepper.mixins.read_write.read_dataframe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_dataframe</span></code></a></p>
+<div class="admonition seealso" id="hotstepper-mixins-read-write-module-note-12">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-mixins-read-write-module-note-12" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><a class="reference internal" href="#hotstepper.mixins.read_write.read_array" title="hotstepper.mixins.read_write.read_array"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_array()</span></code></a>, <a class="reference internal" href="#hotstepper.mixins.read_write.read_dataframe" title="hotstepper.mixins.read_write.read_dataframe"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_dataframe()</span></code></a></p>
 </div>
 <p class="rubric">Examples</p>
 <p>We can calculate a derivative value of a function.
@@ -734,15 +697,16 @@ This value is close to the analytical solution:
 f’(x) = 4x, so f’(3) = 12</p>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.mixins.read_write.to_dataframe">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.mixins.read_write.</span></code><code class="sig-name descname"><span class="pre">to_dataframe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cummulative_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.read_write.to_dataframe" title="Permalink to this definition">¶</a></dt>
-<dd><p>Export steps data to a Pandas dataframe as either the step index value and cumulative value or the individual step values at each step index as keys.</p>
-<dl class="field-list simple">
+<code class="sig-prename descclassname">hotstepper.mixins.read_write.</code><code class="sig-name descname">to_dataframe</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">steps</span></em>, <em class="sig-param"><span class="n">cummulative_output</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.read_write.to_dataframe" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Export steps data to a Pandas dataframe as either the step index value and cumulative value or the individual step values at each step index as keys.</p>
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>steps</strong> (<em>Steps object</em>) – </p></li>
-<li><p><strong>cummulative_output</strong> (<em>bool</em><em>, </em><em>Optional = True</em>) – <p>Export cumulative value of all steps at each step index (default) or the step change (delta) value between each step index
+<dd class="field-odd"><ul>
+<li><p><strong>steps</strong> (<em>Steps object</em>)</p></li>
+<li><p><strong>cummulative_output</strong> (<em>bool, Optional = True</em>) – Export cumulative value of all steps at each step index (default) or the step change (delta) value between each step index
 Output columns (cumulative)
 start : step index
 value : cumulative steps value</p>
@@ -751,7 +715,7 @@ value : cumulative steps value</p>
 start : step index start
 end   : step index end (next index after start)
 value : steps delta value between start and end indexes</p>
-</p></li>
+</li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -761,9 +725,9 @@ value : steps delta value between start and end indexes</p>
 <dd class="field-odd"><p>Pandas.DataFrame</p>
 </dd>
 </dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_array</span></code>, <a class="reference internal" href="#hotstepper.mixins.read_write.to_dict" title="hotstepper.mixins.read_write.to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code></a></p>
+<div class="admonition seealso" id="hotstepper-mixins-read-write-module-note-13">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-mixins-read-write-module-note-13" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><code class="xref py py-func docutils literal notranslate"><span class="pre">to_array()</span></code>, <a class="reference internal" href="#hotstepper.mixins.read_write.to_dict" title="hotstepper.mixins.read_write.to_dict"><code class="xref py py-func docutils literal notranslate"><span class="pre">to_dict()</span></code></a></p>
 </div>
 <p class="rubric">Examples</p>
 <p>We can calculate a derivative value of a function.
@@ -781,10 +745,11 @@ This value is close to the analytical solution:
 f’(x) = 4x, so f’(3) = 12</p>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.mixins.read_write.to_dict">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.mixins.read_write.</span></code><code class="sig-name descname"><span class="pre">to_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cummulative_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.read_write.to_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Export steps data to a dictionary with values that represent either the cummulative value of the data steps or the direct step
+<code class="sig-prename descclassname">hotstepper.mixins.read_write.</code><code class="sig-name descname">to_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">steps</span></em>, <em class="sig-param"><span class="n">cummulative_output</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.read_write.to_dict" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+<p>Export steps data to a dictionary with values that represent either the cummulative value of the data steps or the direct step
 values seperately, indexed by the dictionary key values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -792,77 +757,115 @@ values seperately, indexed by the dictionary key values.</p>
 <li><p><strong>data</strong> (<em>dictionary_like</em>) – A dictionary representing the data to convert to steps. Assumed format is:
 key    -&gt; step start
 value  -&gt; step weight</p></li>
-<li><p><strong>use_datetime</strong> (<em>bool</em><em>, </em><em>Optional = False</em>) – Assume start and end fields are of datetime format (Numpy.datetime64,datetime or Pandas.Timestamp).</p></li>
-<li><p><strong>convert_delta</strong> – Assume weight values are individual step weights (default), or convert values by performing a delta between adjacent values. The data
+<li><p><strong>use_datetime</strong> (<em>bool, Optional = False</em>) – Assume start and end fields are of datetime format (Numpy.datetime64,datetime or Pandas.Timestamp).</p></li>
+<li><p><strong>convert_delta</strong> (<em>bool, Optional = False</em>) – Assume weight values are individual step weights (default), or convert values by performing a delta between adjacent values. The data
 is assumed to be sorted by the provided start values.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="module-hotstepper.mixins">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hotstepper.mixins" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
+</section>
+<section id="module-hotstepper.mixins">
+<span id="module-contents"></span><h2>Module contents<a role="button" class="headerlink tooltipped tooltipped-ne" href="#module-hotstepper.mixins" aria-label="Copy link to section: Module contents."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2>
+<dl class="py function code-definition">
 <dt id="hotstepper.mixins.apply_classmethods">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.mixins.</span></code><code class="sig-name descname"><span class="pre">apply_classmethods</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.apply_classmethods" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">hotstepper.mixins.</code><code class="sig-name descname">apply_classmethods</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cls</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.apply_classmethods" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.mixins.apply_mixins">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.mixins.</span></code><code class="sig-name descname"><span class="pre">apply_mixins</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.apply_mixins" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">hotstepper.mixins.</code><code class="sig-name descname">apply_mixins</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cls</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.apply_mixins" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-<dl class="py function">
+<dl class="py function code-definition">
 <dt id="hotstepper.mixins.apply_staticmethods">
-<code class="sig-prename descclassname"><span class="pre">hotstepper.mixins.</span></code><code class="sig-name descname"><span class="pre">apply_staticmethods</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.mixins.apply_staticmethods" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">hotstepper.mixins.</code><code class="sig-name descname">apply_staticmethods</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cls</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.mixins.apply_staticmethods" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
-           </div>
-           
-          </div>
-          <footer>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &#169; Copyright 2020, Jackson Storm.
-
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-        </div>
+        </main>
+        <footer
+  role="contentinfo"
+  class="mt-20 px-5 md:ml-fluid mb-4 flex-shrink-0 text-sm text-gray-700 "
+>&copy; Copyright 2020, Jackson Storm&nbsp;Made with <a href="https://www.sphinx-doc.org">Sphinx 3.2.1</a></footer>
       </div>
-
-    </section>
-
+      <div class="sticky bottom-0 md:hidden print:hidden bg-white">
+  <div class="flex justify-center items-center">
+    <button
+      id="openNavBtn"
+      aria-labelledby="menuLabel"
+      class="text-3xl p-4 flex items-center focus:bg-gray-200">
+      <svg aria-hidden="true" class="fill-current h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      <span id="menuLabel" class="pl-2 text-sm font-medium uppercase tracking-wide text-gray-700">Menu</span>
+    </button><button
+      id="openSearchBtn"
+      aria-labelledby="searchLabel"
+      class="text-3xl p-4 flex items-center focus:bg-gray-200">
+      <svg aria-hidden="true" class="fill-current h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <span id="searchLabel" class="pl-2 text-sm font-medium uppercase tracking-wide text-gray-700">Search</span>
+    </button>
   </div>
-  
+</div>
+      <div
+  id="search-pane" data-menu="closed"
+  class="w-full fixed bottom-0 left-0 z-10 bg-gray-900 overflow-x-hidden pt-10 flex flex-col items-center md:hidden"
+>
+<h4 id="search-label" class="text-xl text-white mb-4">Enter search term</h4><form
+    id="searchbox" action="../search.html" method="get"
+    class="flex w-full justify-between items-center max-w-sm px-12">
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
+    <input
+      name="q"
+      aria-labelledby="search-label"
+      type="search"
+      placeholder="Search the docs"
+      class="p-2 flex-1"
+    />
     
-   
+<button class="p-2 text-white bg-gray-700 hover:bg-gray-200 hover:text-pink-500 focus:bg-gray-200 focus:text-pink-500 tooltipped tooltipped-sw"
+        aria-label="Get search results">
+  <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+</button>
 
-</body>
+  </form>
+
+  
+<button
+    id="closeSearchBtn"
+    aria-label="Close menu"
+    title="Close menu"
+    class="text-4xl text-gray-200 p-4 bottom-0 hover:text-pink-500 md:hidden focus:text-pink-500 self-center">
+  <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+</button>
+
+</div>
+      <div
+  id="snackbar"
+  class="fixed bottom-0 right-0 opacity-0 p-4 m-4 bg-gray-900 text-gray-100 transition transform duration-500 translate-y-full"
+></div>
+<div id="screen" style="display: none;" class="fixed inset-0 bg-black bg-opacity-50"></div>
+    </div>
+    
+      
+<script id="documentation_options"
+        data-url_root="../"
+        src="../_static/documentation_options.js">
+</script>
+<script src="../_static/jquery.js"></script>
+<script src="../_static/underscore.js"></script>
+<script src="../_static/doctools.js"></script>
+<script src="../_static/language_data.js"></script>
+<script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+<script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+<script src="../_static/theme.js" defer></script>
+    
+  </body>
 </html>

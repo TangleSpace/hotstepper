@@ -54,7 +54,11 @@ def float_to_date(float_value):
     elif float_value >= get_epoch_end(False):
         return get_epoch_end(True)
     else:
-        return pd.Timestamp(float_value*10.0**9)
+        return _float_to_date(float_value)
+
+
+def _float_to_date(float_value):
+    return pd.Timestamp(float_value*10.0**9)
 
 
 def input_types():
@@ -192,13 +196,10 @@ def rolling_window(arr, window):
 
 
 def get_datetime(ts):
-    if is_date_time(ts):
-        return ts
+    if pd.isnull(ts) or ts <= get_epoch_start(False):
+        return get_epoch_start(True)
     else:
-        if pd.isnull(ts) or ts <= get_epoch_start(False):
-            return get_epoch_start(True)
-        else:
-            return float_to_date(ts)
+        return _float_to_date(ts)
 
 
 def process_slice(sliz):
@@ -234,7 +235,7 @@ def prepare_datetime(xdata, return_dt=True):
     if is_date_time(xdata[0]) and return_dt:
         return np.sort(xdata)
     else:
-        return np.sort(np.asarray(list(map(get_datetime, xdata))).astype(pd.Timestamp))
+        return np.sort(np.asarray([get_datetime(x) for x in xdata]).astype(pd.Timestamp))
 
 
 def date_to_float_bulk(date_value, tz=None):
