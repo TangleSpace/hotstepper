@@ -65,6 +65,12 @@
   <div class="nav-toc"><ul>
 <li class="toctree-l1"><a class="reference internal" href="../steps.html">Steps methods</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../steps.html#constructor-basic-methods">Constructor &amp; basic methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../steps.html#step-functions">Step Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.step.html">hotstepper.Steps.Steps.step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.smooth_step.html">hotstepper.Steps.Steps.smooth_step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.fast_step.html">hotstepper.Steps.Steps.fast_step</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../steps.html#arithmetic-operators">Arithmetic operators</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../api/hotstepper.Steps.Steps.add.html">hotstepper.Steps.Steps.add</a></li>
 </ul>
@@ -102,12 +108,12 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../utility%20functions.html">Statistical Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Case Studies</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../examples/currency.html">Forex Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/uber%20trips.html">Uber Trips</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../helpers.html">Helper Functions</a></li>
 </ul>
 </div>
 <button
@@ -662,7 +668,7 @@ values seperately, indexed by the dictionary key values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>dictionary_like</em>) – A dictionary representing the data to convert to steps. Assumed format is:
+<li><p><strong>data</strong> (<em>dictionary_like</em>) – A dictionary representing the data to convert to steps. Assumed format is,
 key   -&gt; step start
 value -&gt; step weight</p></li>
 <li><p><strong>use_datetime</strong> (<em>bool, Optional</em>) – Assume start and end fields are of datetime format (Numpy.datetime64,datetime or Pandas.Timestamp).</p></li>
@@ -706,8 +712,8 @@ f’(x) = 4x, so f’(3) = 12</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul>
 <li><p><strong>steps</strong> (<em>Steps object</em>)</p></li>
-<li><p><strong>cummulative_output</strong> (<em>bool, Optional = True</em>) – Export cumulative value of all steps at each step index (default) or the step change (delta) value between each step index
-Output columns (cumulative)
+<li><p><strong>cummulative_output</strong> (<em>bool, Optional = True</em>) – Export cumulative value of all steps at each step index (default) or the step change (delta) value between each step index.</p>
+<p>Output columns (cumulative)
 start : step index
 value : cumulative steps value</p>
 <p>or</p>
@@ -751,18 +757,50 @@ f’(x) = 4x, so f’(3) = 12</p>
 <dd>
 <p>Export steps data to a dictionary with values that represent either the cummulative value of the data steps or the direct step
 values seperately, indexed by the dictionary key values.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
+<dd class="field-odd"><ul>
 <li><p><strong>data</strong> (<em>dictionary_like</em>) – A dictionary representing the data to convert to steps. Assumed format is:
 key    -&gt; step start
 value  -&gt; step weight</p></li>
 <li><p><strong>use_datetime</strong> (<em>bool, Optional = False</em>) – Assume start and end fields are of datetime format (Numpy.datetime64,datetime or Pandas.Timestamp).</p></li>
 <li><p><strong>convert_delta</strong> (<em>bool, Optional = False</em>) – Assume weight values are individual step weights (default), or convert values by performing a delta between adjacent values. The data
-is assumed to be sorted by the provided start values.</p></li>
+is assumed to be sorted by the provided start values.</p>
+<p>Output format (cumulative)
+key   -&gt; step index
+value -&gt; cumulative steps value</p>
+<p>or</p>
+<p>Output format (delta)
+start : step index
+value : steps delta value between start and next index</p>
+</li>
 </ul>
 </dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dictionary</p>
+</dd>
 </dl>
+<div class="admonition seealso" id="hotstepper-mixins-read-write-module-note-14">
+<p class="admonition-title">See also<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-mixins-read-write-module-note-14" aria-label="Copy link to this seealso."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></p>
+<p><code class="xref py py-func docutils literal notranslate"><span class="pre">to_array()</span></code>, <a class="reference internal" href="#hotstepper.mixins.read_write.to_dataframe" title="hotstepper.mixins.read_write.to_dataframe"><code class="xref py py-func docutils literal notranslate"><span class="pre">to_dataframe()</span></code></a></p>
+</div>
+<p class="rubric">Examples</p>
+<p>We can calculate a derivative value of a function.
+&gt;&gt;&gt; from scipy.misc import central_diff_weights
+&gt;&gt;&gt; def f(x):
+…     return 2 * x**2 + 3
+&gt;&gt;&gt; x = 3.0 # derivative point
+&gt;&gt;&gt; h = 0.1 # differential step
+&gt;&gt;&gt; Np = 3 # point number for central derivative
+&gt;&gt;&gt; weights = central_diff_weights(Np) # weights for first derivative
+&gt;&gt;&gt; vals = [f(x + (i - Np/2) * h) for i in range(Np)]
+&gt;&gt;&gt; sum(w * v for (w, v) in zip(weights, vals))/h
+11.79999999999998
+This value is close to the analytical solution:
+f’(x) = 4x, so f’(3) = 12</p>
 </dd></dl>
 
 </section>

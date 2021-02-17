@@ -67,7 +67,7 @@ plot_html_show_source_link = False
 
 autodoc_default_options = {
     'members': True,
-    'show-inheritance': True,
+    #'show-inheritance': True,
 }
 ## Generate autodoc stubs with summaries from code
 autosummary_generate = True

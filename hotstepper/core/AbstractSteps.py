@@ -6,6 +6,10 @@ import numpy as np
 import pandas as pd
 import hotstepper.analysis as analysis
 import hotstepper.mixins as mixins
+from hotstepper.core.data_model import DataModel
+from hotstepper.basis.Basis import Basis
+from hotstepper.basis.Bases import Bases
+
 from hotstepper.utilities.helpers import (
     get_epoch_start, 
     prepare_input,
@@ -14,9 +18,7 @@ from hotstepper.utilities.helpers import (
     process_slice,
     get_datetime)
 
-from hotstepper.core.data_model import DataModel
-from hotstepper.basis.Basis import Basis
-from hotstepper.basis.Bases import Bases
+
 
 
 class AbstractSteps(ABC):
@@ -73,6 +75,7 @@ class AbstractSteps(ABC):
         else:
             return (st_this_values==other).all()
 
+
     def step_changes(self):
         """"
         The individual step changes at each key value, these are the delta values that add and subtract across the series to realise the entire step function.
@@ -111,7 +114,7 @@ class AbstractSteps(ABC):
         ========
         int, float or datetime
             Last finite key value of the steps.
-            
+
         """
 
         if self._using_dt:
@@ -182,7 +185,7 @@ class AbstractSteps(ABC):
         """
 
         #if we are using default basis, get answer even quicker
-        # if self._basis.name == 'Heaviside':
+        # if self._basis.name == 'Heaviside' and self._all_data.shape[0] != 1:
         #     return self.fast_step(xdata=xdata,process_input=process_input)
 
         if process_input:

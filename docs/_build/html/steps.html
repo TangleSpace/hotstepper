@@ -118,7 +118,7 @@
 <td><p>This is a mathematical function definition of the Steps object, this is a dynamically created formula representation that can be passed an array of values to evaluate the steps function at.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.Steps.fast_step.html#hotstepper.Steps.Steps.fast_step" title="hotstepper.Steps.Steps.fast_step"><code class="xref py py-obj docutils literal notranslate">Steps.fast_step</code></a>(xdata[, process_input, side])</p></td>
-<td><p>This will evaluate the cummulative steps function at the provided input values. This function ignores the assigned basis and performs some numpy trickery to improve performance. :Parameters: * <strong>xdata</strong> (<em>array_like(int, float, datetime)</em>) – The values the steps function is to be evaluated at. .. note::                    This function will ignore the assigned basis and evaluate the cummulative function directly, to ensure the assigned basis is used, please use the <cite>step</cite> function. * <strong>process_input</strong> (<em>bool, Optional</em>) – Indicate if the input data needs processing, to convert datetimes to floats for calculation. Primarily used internally to avoid converting input data twice.</p></td>
+<td><p>This will evaluate the cummulative steps function at the provided input values. This function ignores the assigned basis and performs some numpy trickery to improve performance. .. note::     This function will ignore the assigned basis and evaluate the cummulative function directly, to ensure the assigned basis is used, please use the <cite>step</cite> function.</p></td>
 </tr>
 </tbody>
 </table>

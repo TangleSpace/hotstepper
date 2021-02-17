@@ -30,13 +30,13 @@ class Steps(
     mathemtical function in Numpy and as a Python object.
 
     **Terminology**
-        *start* : The x value of where the step function changes value.
+    *start* : The x value of where the step function changes value.
 
-        *end* The x value where the step function changes value in the opposite direction to the start location. 
-        .. note:: 
-            If no start value is specified, the end location still represents the step function change in value that would have been opposite if a start been specified. In this case, the 'start' value is at negative infinity and the end location is where the reverse change occurs.
+    *end* The x value where the step function changes value in the opposite direction to the start location. 
+    .. note:: 
+        If no start value is specified, the end location still represents the step function change in value that would have been opposite if a start been specified. In this case, the 'start' value is at negative infinity and the end location is where the reverse change occurs.
 
-        *weight* : The y value of the step function at the step keys.
+    *weight* : The y value of the step function at the step keys.
 
     .. note::
         The convention used in the HotStepper library for step function intervals is the same as that used in signal processing, whereby the step function assumes the step weight value at and beyond the step key value.
@@ -51,7 +51,7 @@ class Steps(
         have a callable timestamp() method or are of the accepted types below, this value will be inferred automatically, else if an error occurs,
         a good practise is to explicitly set this value.
 
-        .. note:: Accepted types: Pandas.Timestamp, datetime.datetime, numpy.datetime64 and any type derived from these three or exposing a callable timestamp() method returning a float or integer value os seconds since POSIX epoch.
+    .. note:: Accepted types: Pandas.Timestamp, datetime.datetime, numpy.datetime64 and any type derived from these three or exposing a callable timestamp() method returning a float or integer value os seconds since POSIX epoch.
 
     start : int, float, datetime_like, Optional
         A quick convenience parameter if this Steps object consists of 1 or 2 steps, the start key can be passed directly in the constructor.
@@ -67,18 +67,32 @@ class Steps(
         The is the basis function that will be used for all steps associated with this step function. The default basis -> Basis() is the Heaviside function
 
     .. math::
-        \theta(t) = \left\{
-                \begin{array}{ll}
-                    0 & \quad t < 0 \\
-                    1 & \quad t \geq 0
-                \end{array}
-            \right.
-        where t \in \mathbb{R}
+        :nowrap:
+
+        \\begin{eqnarray}
+            y    & = & ax^2 + bx + c \\\\
+            f(x) & = & x^2 + 2xy + y^2
+        \\end{eqnarray}
+
+        \\theta = \\{
+            \\begin{eqnarray}
+                0 & \\quad t < 0 \\\\
+                1 & \\quad t \\geq 0
+            \\end{eqnarray}
 
     """
-    
 
-    def __init__(self,use_datetime = False, start=None, end = None, weight = None, basis = None):
+#    """
+#         \\theta(t) = \\left\{
+#             \\begin{array}{ll}
+#                 0 & \\\\quad t < 0 \\\\
+#                 1 & \\\\quad t \\\\geq 0
+#             \\end{array}
+#         \\right.
+#     where  \\ t \\in \\mathbb{R}
+#    """ 
+
+    def __init__(self,use_datetime=False, start=None, end=None, weight=None, basis=None):
         super().__init__(use_datetime,basis)
 
         initialise_values_now = False
@@ -218,15 +232,15 @@ class Steps(
 
         """
 
-        return self.add_steps(np.concatenate([s.step_data() for s in steps]))
+        return self.add_steps(np.concatenate([s.steps() for s in steps]))
 
 
     def _recalculate(self):
         try:
             self._step_data = self._step_data[np.argsort(self._step_data[:,DataModel.START.value])]
 
-            #great numpy group by library! self._step_data[:,DataModel.DIRECTION.value]*
-            all_keys,all_values = group_by(self._step_data[:,DataModel.START.value]).sum(self._step_data[:,DataModel.WEIGHT.value])
+            #great numpy group by library! 
+            all_keys,all_values = group_by(self._step_data[:,DataModel.START.value]).sum(self._step_data[:,DataModel.DIRECTION.value]*self._step_data[:,DataModel.WEIGHT.value])
 
             #this is the raw step definitiondata for the application of basis functions
             self._step_data = np.empty((len(all_keys),3))
