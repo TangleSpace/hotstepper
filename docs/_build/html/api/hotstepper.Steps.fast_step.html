@@ -210,14 +210,14 @@
 <dd><p>This will evaluate the cummulative steps function at the provided input values. This function ignores the assigned basis and performs some numpy trickery to improve performance.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Note
-This function will ignore the assigned basis and evaluate the cummulative function directly, to ensure the assigned basis is used, please use the <cite>step</cite> function.</p>
+<p>This function will ignore the assigned basis and evaluate the cummulative function directly, to ensure the assigned basis is used, please use the <cite>step</cite> function.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>xdata</strong> (<em>array_like</em><em>(</em><em>int</em><em>, </em><em>float</em><em>, </em><em>datetime</em><em>)</em>) – The values the steps function is to be evaluated at.</p></li>
 <li><p><strong>process_input</strong> (<em>bool</em><em>, </em><em>Optional</em>) – Indicate if the input data needs processing, to convert datetimes to floats for calculation. Primarily used internally to avoid converting input data twice.</p></li>
+<li><p><strong>side</strong> (<em>{'right'</em><em>, </em><em>'left'}</em><em>, </em><em>Optional</em>) – Location to evaluate the steps function relative to the step location. Default is <em>‘right’</em>, which means the step assumes the weight value on and after the step key value.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

@@ -165,7 +165,7 @@ class AbstractSteps(ABC):
         This is a mathematical function definition of the Steps object, this is a dynamically created formula representation that can be passed an array of values to evaluate the steps function at.
         
         Parameters
-        ==========
+        ===========
         xdata : array_like(int, float, datetime)
             The values the steps function is the be evaluated at using the assigned mathematical basis function.
 
@@ -207,7 +207,7 @@ class AbstractSteps(ABC):
         """
         This will evaluate the cummulative steps function at the provided input values. This function ignores the assigned basis and performs some numpy trickery to improve performance.
         
-        .. note:: Note
+        .. note::
             This function will ignore the assigned basis and evaluate the cummulative function directly, to ensure the assigned basis is used, please use the `step` function.
 
         
@@ -218,6 +218,9 @@ class AbstractSteps(ABC):
 
         process_input : bool, Optional
             Indicate if the input data needs processing, to convert datetimes to floats for calculation. Primarily used internally to avoid converting input data twice.
+
+        side : {'right', 'left'}, Optional
+            Location to evaluate the steps function relative to the step location. Default is *'right'*, which means the step assumes the weight value on and after the step key value.
 
         Returns
         ========
@@ -365,6 +368,7 @@ class AbstractSteps(ABC):
         """
         Return all the raw steps data within this steps object.
         The format follows the internal `hotstepper.core.data_model`.
+
         array(
             [
             step_key,
@@ -433,7 +437,7 @@ class AbstractSteps(ABC):
             The new basis to assign to the steps function. If the provided Basis is None, the basis will be reset to the default of the Heaviside function.
 
 
-        .. note:: Note
+        .. note::
             If the new basis has the default value for the param property, an internally generated value will be assigned.
 
         """

@@ -73,7 +73,7 @@ plot_html_show_source_link = False
 # }
 ## Generate autodoc stubs with summaries from code
 autosummary_generate = True
-
+autoclass_content = 'class'
 # -- Options for HTML output -------------------------------------------------
 html_title = 'HotStepper'
 html_theme = 'sphinx_material'
