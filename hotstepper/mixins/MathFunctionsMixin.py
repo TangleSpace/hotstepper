@@ -13,8 +13,9 @@ class MathFunctionsMixin(ABC):
 
     def __mod__(self,other):
         """
-        The '%' operation to take modulo int, float, step and steps objects like they are numbers.
-        .. note::
+        The *%* operation to take modulo int, float, step and steps objects like they are numbers.
+
+        .. note:: Note
             right and in-place subtraction is also available.
             3 - steps
             steps -= 3
@@ -38,8 +39,9 @@ class MathFunctionsMixin(ABC):
 
     def __truediv__(self,other):
         """
-        The '/' operation to divide int, float, step and steps objects like they are numbers.
-        .. note::
+        The */* operation to divide int, float, step and steps objects like they are numbers.
+
+        .. note:: Note
             right and in-place division is also available.
             3/steps
             steps /=3
@@ -61,8 +63,9 @@ class MathFunctionsMixin(ABC):
 
     def __mul__(self,other):
         """
-        The '*' operation to multiply int, float, step and steps objects like they are numbers.
-        .. note::
+        The *** operation to multiply int, float, step and steps objects like they are numbers.
+
+        .. note:: Note
             right and in-place multiplication is also available.
             3*steps
             steps *=3
@@ -84,7 +87,7 @@ class MathFunctionsMixin(ABC):
 
     def __pow__(self,power_val):
         """
-        The '^' operation to raise the steps to the power of.
+        The *^* operation to raise the steps to the power of.
 
         Parameters
         ==============
@@ -105,8 +108,9 @@ class MathFunctionsMixin(ABC):
 
     def __add__(self,other):
         """
-        The '+' operation to add int, float, step and steps objects like they are numbers.
-        .. note::
+        The *+* operation to add int, float, step and steps objects like they are numbers.
+
+        .. note:: Note
             right and in-place addition is also available.
             3 + steps
             steps += 3
@@ -137,8 +141,9 @@ class MathFunctionsMixin(ABC):
 
     def __sub__(self,other):
         """
-        The '-' operation to subtract int, float, step and steps objects like they are numbers.
-        .. note::
+        The *-* operation to subtract int, float, step and steps objects like they are numbers.
+
+        .. note:: Note
             right and in-place subtraction is also available.
             3 - steps
             steps -= 3

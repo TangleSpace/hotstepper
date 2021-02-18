@@ -55,28 +55,48 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
 
 napoleon_numpy_docstring = True
 napoleon_google_docstring = False
-napoleon_use_param = False
-napoleon_use_ivar = True
+#napoleon_use_param = False
+#napoleon_use_ivar = True
 
 #autosummary_generate = True
 master_doc = 'index'
 
 # matplotlib plot directive
-plot_include_source = True
+#plot_include_source = True
 plot_formats = [("png", 90)]
 plot_html_show_formats = False
 plot_html_show_source_link = False
 
-autodoc_default_options = {
-    'members': True,
-    #'show-inheritance': True,
-}
+# autodoc_default_options = {
+#     'members': True,
+#     #'show-inheritance': True,
+# }
 ## Generate autodoc stubs with summaries from code
 autosummary_generate = True
 
 # -- Options for HTML output -------------------------------------------------
 html_title = 'HotStepper'
-html_theme = "sphinxawesome_theme"
+html_theme = 'sphinx_material'
+
+html_theme_options = {
+
+    # Set the name of the project to appear in the navigation.
+    'nav_title': 'HotStepper',
+
+    # Set the color and the accent color
+    'color_primary': 'indigo',
+    'color_accent': 'deep-purple',
+
+
+    # Visible levels of the global TOC; -1 means unlimited
+    'globaltoc_depth': 3,
+    # If False, expand all TOC entries
+    'globaltoc_collapse': False,
+    # If True, show hidden TOC entries
+    'globaltoc_includehidden': False,
+}
+
+#html_theme = "sphinxawesome_theme"
 
 # html_theme_options = {
 #     'color': '#9c00ff'
