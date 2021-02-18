@@ -20,7 +20,6 @@ from hotstepper.utilities.helpers import (
 
 
 
-
 class AbstractSteps(ABC):
     """
     The base class that defines the steps object interface, base properties and methods expected of all derived classes.
@@ -77,7 +76,7 @@ class AbstractSteps(ABC):
 
 
     def step_changes(self):
-        """"
+        """
         The individual step changes at each key value, these are the delta values that add and subtract across the series to realise the entire step function.
 
         Returns
@@ -124,13 +123,14 @@ class AbstractSteps(ABC):
 
 
     def step_values(self):
-        """"
+        """
         The cummulative step values at each key value.
+
 
         Returns
         ========
         array
-            Cummulative steps value at each step key within the steps object.
+            Cummulative steps value at each step key within the steps object
 
         """
 
@@ -138,13 +138,14 @@ class AbstractSteps(ABC):
 
 
     def step_keys(self):
-        """"
+        """
         The step key values within this object.
+
 
         Returns
         ========
         array
-            Step keys.
+            Step keys
 
         """
 
@@ -369,18 +370,16 @@ class AbstractSteps(ABC):
         Return all the raw steps data within this steps object.
         The format follows the internal `hotstepper.core.data_model`.
 
-        array(
-            [
-            step_key,
-            step_delta,
-            step_cummulative
-            ]
-        )
+        array
+            array
+                step_key,
+                step_delta,
+                step_cummulative
 
 
         Returns
         ========
-        array
+        array(array)
 
         See Also
         ========
@@ -390,7 +389,23 @@ class AbstractSteps(ABC):
         
         return self._all_data
 
-    def Series(self,xdata=None,ydata=None):
+
+    def series(self,xdata=None,ydata=None):
+        """
+        A convenience function to either return the internal steps data in a Pandas Series object with the steps keys as the index or convert a provided 2-D set of data into a Pandas Series.
+
+        The Pandas Series has a number of helpful methods and features and the ability to quickly convert 2-D data into a Pandas Series allows for fast iteration during analysis.
+
+        Parameters
+        ============
+        xdata : array_like, tuple, Optional
+            A 1-D array representing the data to use as the index of the Pandas Series or,
+            A tuple representing 2 x 1-D arrays to use as the index and values of the Pandas Series.
+
+        ydata : array_like, Optional
+            A 1-D array represeting the data to use as the values of the Pandas Series. If no xdata is provided, an integer based index will be generated across the length of the provided ydata.
+        """
+        
         if ydata is None and xdata is None:
             xdata, ydata = get_clean_step_data(self)
 

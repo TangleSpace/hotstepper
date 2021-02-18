@@ -1,3 +1,7 @@
+import os
+import sys
+sys.path.insert(0, r"..//")
+
 import warnings
 warnings.filterwarnings("ignore")
 

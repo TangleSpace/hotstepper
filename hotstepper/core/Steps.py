@@ -240,6 +240,10 @@ class Steps(
 
     def _recalculate(self):
         try:
+            self._step_data = self._step_data[~np.isnan(self._step_data[:,DataModel.START.value])]
+            self._step_data = self._step_data[self._step_data[:,DataModel.START.value]!=0]
+            self._step_data = self._step_data[self._step_data[:,DataModel.START.value]!=np.NINF]
+            self._step_data = self._step_data[self._step_data[:,DataModel.START.value]!=np.PINF]
             self._step_data = self._step_data[np.argsort(self._step_data[:,DataModel.START.value])]
 
             #great numpy group by library! 

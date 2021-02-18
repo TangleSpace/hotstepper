@@ -2,7 +2,7 @@ import hotstepper.mixins.operations as o
 import hotstepper.mixins.read_write as rw
 
 to_add = [o.filter_values]
-cl_to_add = [rw.read_array,rw.read_dataframe]
+cl_to_add = [rw.read_array,rw.read_dataframe,rw.read_dict]
 st_to_add = [o.apply_reduction_function,o.apply_math_function]
 
 
