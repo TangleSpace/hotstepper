@@ -1,7 +1,3 @@
-import os
-import sys
-sys.path.insert(0, r"..")
-
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -10,11 +6,9 @@ import numpy as np
 import pandas as pd
 import datetime
 
-#from hotstepper.Basis import Basis
-from hotstepper.Step import Step
-from hotstepper.Steps import Steps
+from hotstepper import Step
+from hotstepper import Steps
 import hotstepper.samples as samples
-#from hotstepper.analysis.stats import *
 
 
 def test_pow():

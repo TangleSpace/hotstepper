@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    
+    <title>
+      hotstepper.Steps.smooth_plot | HotStepper
+    </title>
+    <link
+      rel="stylesheet"
+      href="../_static/pygments.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../_static/theme.css"
+    />
+      <link rel="stylesheet" href="../_static/graphviz.css" />
+        <link rel="search" title="Search" href="../search.html"/>
+        <link rel="index" title="Index" href="../genindex.html"/>
+        <link
+          rel="next"
+          title="hotstepper.Steps.plot_rolling_step"
+          href="hotstepper.Steps.plot_rolling_step.html"
+        />
+        <link
+          rel="prev"
+          title="hotstepper.Steps.plot"
+          href="hotstepper.Steps.plot.html"
+        />
+  </head><body class="text-gray-900 antialiased min-h-screen md:h-screen flex flex-col">
+    <a
+  class="block text-xl bg-white px-8 py-4 z-20 absolute top-0 inset-x-0 text-center transform
+  -translate-y-full focus:translate-y-0 focus:outline-none transition-transform duration-75"
+  href="#hotstepper-steps-smooth-plot"
+  title="Skip navigation links"
+  >Skip to content</a>
+    <header class="md:sticky top-0 bg-gray-900 shadow-md flex md:flex-row justify-between items-center z-10"><a class="py-4 hover:bg-gray-700 focus:bg-gray-700 tooltipped tooltipped-se"
+      href="../index.html"
+      aria-label="Back to homepage">
+      <img class="h-8 mx-5" src="../_static/HotstepperLogo.png" alt="Logo" />
+    </a><h2 class="text-xl text-gray-100 mx-5 py-4">HotStepper</h2><form
+    id="searchbox"
+    action="../search.html"
+    method="get"
+    class="hidden md:flex my-auto mx-5 justify-between items-center print:hidden">
+
+    <input
+      name="q"
+      id="search-input"
+      type="search"
+      aria-label="Search the docs"
+      placeholder="Search the docs"
+      class="p-2 flex-1 focus:bg-yellow-100"
+      style="width: 300px;"
+    />
+    
+<button class="p-2 text-white bg-gray-700 hover:bg-gray-200 hover:text-pink-500 focus:bg-gray-200 focus:text-pink-500 tooltipped tooltipped-sw"
+        aria-label="Get search results">
+  <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+</button>
+
+  </form>
+</header>
+    <div class="md:overflow-hidden flex flex-col md:flex-row flex-1"><nav
+  role="navigation"
+  data-menu="closed"
+  style="width: 270px;"
+  class="h-full fixed md:relative inset-y-0 left-0 z-20 md:z-0
+         bg-white text-gray-700 border-r overflow-x-hidden pt-16
+         print:hidden flex flex-col"
+>
+  <div class="nav-toc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../steps_methods.html">Steps methods</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../steps_methods.html#basic-methods">Basic methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.copy.html">hotstepper.Steps.copy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.clear.html">hotstepper.Steps.clear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.first.html">hotstepper.Steps.first</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.last.html">hotstepper.Steps.last</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.using_datetime.html">hotstepper.Steps.using_datetime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.step_keys.html">hotstepper.Steps.step_keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.step_values.html">hotstepper.Steps.step_values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.steps.html">hotstepper.Steps.steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../steps_methods.html#plotting-functions">Plotting functions</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.plot.html">hotstepper.Steps.plot</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">hotstepper.Steps.smooth_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.plot_rolling_step.html">hotstepper.Steps.plot_rolling_step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.histogram_plot.html">hotstepper.Steps.histogram_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.ecdf_plot.html">hotstepper.Steps.ecdf_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.pacf_plot.html">hotstepper.Steps.pacf_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.acf_plot.html">hotstepper.Steps.acf_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.summary.html">hotstepper.Steps.summary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps_methods.html#class-loader-functions">Class Loader functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.read_dataframe.html">hotstepper.Steps.read_dataframe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.read_array.html">hotstepper.Steps.read_array</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps_methods.html#instance-loader-functions">Instance Loader functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.add.html">hotstepper.Steps.add</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.add_steps.html">hotstepper.Steps.add_steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.add_direct.html">hotstepper.Steps.add_direct</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps_methods.html#step-functions">Step Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.step.html">hotstepper.Steps.step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.smooth_step.html">hotstepper.Steps.smooth_step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.fast_step.html">hotstepper.Steps.fast_step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.rebase.html">hotstepper.Steps.rebase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.basis.html">hotstepper.Steps.basis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps_methods.html#arithmetic-operators">Arithmetic operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.__neg__.html">hotstepper.Steps.__neg__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.__add__.html">hotstepper.Steps.__add__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.__sub__.html">hotstepper.Steps.__sub__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.__mul__.html">hotstepper.Steps.__mul__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.__truediv__.html">hotstepper.Steps.__truediv__</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps_methods.html#logical-operators">Logical operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.normalise.html">hotstepper.Steps.normalise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.invert.html">hotstepper.Steps.invert</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.reflect.html">hotstepper.Steps.reflect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.__eq__.html">hotstepper.Steps.__eq__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.__ne__.html">hotstepper.Steps.__ne__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.__gt__.html">hotstepper.Steps.__gt__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.__lt__.html">hotstepper.Steps.__lt__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.__ge__.html">hotstepper.Steps.__ge__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.__le__.html">hotstepper.Steps.__le__</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps_methods.html#statistical-operators">Statistical operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.covariance.html">hotstepper.Steps.covariance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.correlation.html">hotstepper.Steps.correlation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.span_and_weights.html">hotstepper.Steps.span_and_weights</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps_methods.html#summary-statistics">Summary statistics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.integrate.html">hotstepper.Steps.integrate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.describe.html">hotstepper.Steps.describe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.min.html">hotstepper.Steps.min</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.max.html">hotstepper.Steps.max</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.var.html">hotstepper.Steps.var</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.std.html">hotstepper.Steps.std</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.mean.html">hotstepper.Steps.mean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.median.html">hotstepper.Steps.median</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.percentile.html">hotstepper.Steps.percentile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.ecdf.html">hotstepper.Steps.ecdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.histogram.html">hotstepper.Steps.histogram</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../steps_methods.html#miscellaneous-functions">Miscellaneous functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.clip.html">hotstepper.Steps.clip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.clamp.html">hotstepper.Steps.clamp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.rshift.html">hotstepper.Steps.rshift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.lshift.html">hotstepper.Steps.lshift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hotstepper.Steps.compare.html">hotstepper.Steps.compare</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Case Studies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/currency.html">Forex Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/uber%20trips.html">Uber Trips</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../helpers.html">Helper Functions</a></li>
+</ul>
+</div>
+<button
+    id="closeNavBtn"
+    aria-label="Close menu"
+    title="Close menu"
+    class="text-4xl text-gray-800 p-4 bottom-0 hover:text-pink-500 md:hidden focus:text-pink-500 self-center">
+  <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+</button>
+
+</nav>
+      <div id="main-wrapper" class="overflow-y-auto md:w-full flex flex-col flex-1">
+        <main role="main" class="px-5 md:ml-fluid flex-1 "><nav role="navigation"
+     aria-label="breadcrumbs"
+     class="mt-16 mb-12 text-sm text-gray-700 leading-tight print:hidden">
+  <a class="text-blue-700" href="../index.html">HotStepper</a>
+  <span class="text-gray-700 mr-1">/</span><a class="text-blue-700" href="../steps_methods.html">Steps methods</a>
+    <span class="text-gray-700 mr-1">/</span><span aria-current="page">hotstepper.Steps.smooth_plot</span>
+</nav>
+          
+  <section id="hotstepper-steps-smooth-plot">
+<h1>hotstepper.Steps.smooth_plot<a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper-steps-smooth-plot" aria-label="Copy link to section: hotstepper.Steps.smooth_plot."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h1>
+<dl class="py method code-definition">
+<dt id="hotstepper.Steps.smooth_plot">
+<code class="sig-prename descclassname">Steps.</code><code class="sig-name descname">smooth_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">smooth_factor</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">smooth_basis</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ts_grain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">where</span><span class="o">=</span><span class="default_value">'post'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kargs</span></em><span class="sig-paren">)</span><a role="button" class="headerlink tooltipped tooltipped-ne" href="#hotstepper.Steps.smooth_plot" aria-label="Copy link to this definition."><svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></dt>
+<dd>
+</dd></dl>
+
+</section>
+
+
+        </main>
+        <footer
+  role="contentinfo"
+  class="mt-20 px-5 md:ml-fluid mb-4 flex-shrink-0 text-sm text-gray-700 "
+>&copy; Copyright 2020, Jackson Storm&nbsp;Made with <a href="https://www.sphinx-doc.org">Sphinx 3.2.1</a></footer>
+      </div>
+      <div class="sticky bottom-0 md:hidden print:hidden bg-white">
+  <div class="flex justify-center items-center">
+    <button
+      id="openNavBtn"
+      aria-labelledby="menuLabel"
+      class="text-3xl p-4 flex items-center focus:bg-gray-200">
+      <svg aria-hidden="true" class="fill-current h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      <span id="menuLabel" class="pl-2 text-sm font-medium uppercase tracking-wide text-gray-700">Menu</span>
+    </button><button
+      id="openSearchBtn"
+      aria-labelledby="searchLabel"
+      class="text-3xl p-4 flex items-center focus:bg-gray-200">
+      <svg aria-hidden="true" class="fill-current h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <span id="searchLabel" class="pl-2 text-sm font-medium uppercase tracking-wide text-gray-700">Search</span>
+    </button>
+  </div>
+</div>
+      <div
+  id="search-pane" data-menu="closed"
+  class="w-full fixed bottom-0 left-0 z-10 bg-gray-900 overflow-x-hidden pt-10 flex flex-col items-center md:hidden"
+>
+<h4 id="search-label" class="text-xl text-white mb-4">Enter search term</h4><form
+    id="searchbox" action="../search.html" method="get"
+    class="flex w-full justify-between items-center max-w-sm px-12">
+
+    <input
+      name="q"
+      aria-labelledby="search-label"
+      type="search"
+      placeholder="Search the docs"
+      class="p-2 flex-1"
+    />
+    
+<button class="p-2 text-white bg-gray-700 hover:bg-gray-200 hover:text-pink-500 focus:bg-gray-200 focus:text-pink-500 tooltipped tooltipped-sw"
+        aria-label="Get search results">
+  <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+</button>
+
+  </form>
+
+  
+<button
+    id="closeSearchBtn"
+    aria-label="Close menu"
+    title="Close menu"
+    class="text-4xl text-gray-200 p-4 bottom-0 hover:text-pink-500 md:hidden focus:text-pink-500 self-center">
+  <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+</button>
+
+</div>
+      <div
+  id="snackbar"
+  class="fixed bottom-0 right-0 opacity-0 p-4 m-4 bg-gray-900 text-gray-100 transition transform duration-500 translate-y-full"
+></div>
+<div id="screen" style="display: none;" class="fixed inset-0 bg-black bg-opacity-50"></div>
+    </div>
+    
+      
+<script id="documentation_options"
+        data-url_root="../"
+        src="../_static/documentation_options.js">
+</script>
+<script src="../_static/jquery.js"></script>
+<script src="../_static/underscore.js"></script>
+<script src="../_static/doctools.js"></script>
+<script src="../_static/language_data.js"></script>
+<script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+<script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+<script src="../_static/theme.js" defer></script>
+    
+  </body>
+</html>

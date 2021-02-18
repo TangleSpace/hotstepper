@@ -29,6 +29,8 @@ extensions = [
     'sphinx.ext.autosummary', 
     'sphinx.ext.coverage', 
     'sphinx.ext.mathjax',
+    'sphinx.ext.graphviz',
+    'sphinx.ext.inheritance_diagram',
     'sphinx.ext.napoleon',
     'matplotlib.sphinxext.plot_directive',    
     'numpydoc',  # handle NumPy documentation formatted docstrings]

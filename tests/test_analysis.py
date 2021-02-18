@@ -1,17 +1,9 @@
-import os
-import sys
-sys.path.insert(0, r"..//")
-
 import warnings
 warnings.filterwarnings("ignore")
 
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
-import datetime
-
-from hotstepper.Step import Step
-from hotstepper.Steps import Steps
+import hotstepper as hs
 import hotstepper.samples as samples
 
 
@@ -27,6 +19,7 @@ vessel_stats = {
     'percentile50': 7.0,
     'percentile37': 6.0
 }
+
 
 def test_statistic_values():
 

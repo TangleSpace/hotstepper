@@ -2,8 +2,8 @@ import sys
 sys.path.insert(0, r"..")
 
 import pandas as pd
-from hotstepper.Steps import Steps
-#from hotstepper.Step import Step
+from hotstepper import Steps
+from hotstepper import Step
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -16,9 +16,14 @@ def page_view_sample():
 
 def hotel_stays_sample():
     df = pd.read_csv(r"..//data/hotel_stays.csv", parse_dates=['check_in', 'check_out'], dayfirst=True)
-    return Steps.read_dataframe(df,'check_in','check_out',use_datetime=True)
+    return df,Steps.read_dataframe(df,'check_in','check_out',use_datetime=True)
 
 
 def vessel_queue_sample():
     df = pd.read_csv(r"..//data/vessel_queue.csv", parse_dates=['enter', 'leave'], dayfirst=True)
     return Steps.read_dataframe(df,'enter','leave',use_datetime=True)
+
+
+def daily_temperature_sample():
+    df = pd.read_csv(r'..//data//daily-min-temperatures.csv',parse_dates=['Date'])
+    return Steps.read_dataframe(df,start='Date',weight='Temp',convert_delta=True)

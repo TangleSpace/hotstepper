@@ -1,7 +1,4 @@
 import os
-import sys
-sys.path.insert(0, r"..//")
-
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -11,8 +8,8 @@ import pandas as pd
 import datetime
 
 from matplotlib.testing.compare import compare_images
-from hotstepper.Step import Step
-from hotstepper.Steps import Steps
+from hotstepper import Step
+from hotstepper import Steps
 import hotstepper.samples as samples
 
 
@@ -21,12 +18,14 @@ def perform_plot_comparison(test_name, fig):
     actual_image, test_image = get_test_images(test_name, fig)
     results = compare_images(actual_image,test_image,tol=0.0001,in_decorator=True)
 
-    os.remove(test_image)
 
     if results is not None:
         os.remove(results['diff'])
         print(results['diff'])
         raise AssertionError('{} test failed'.format(test_name))
+    else:
+        #if the test failed, save the plot for review
+        os.remove(test_image)
 
 
 def get_test_images(test_name, test_fig):

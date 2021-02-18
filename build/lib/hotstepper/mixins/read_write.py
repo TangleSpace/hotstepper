@@ -1,7 +1,6 @@
 
 from __future__ import annotations
 import numpy as np
-from collections import defaultdict
 import pandas as pd
 
 from hotstepper.utilities.helpers import get_epoch_start, prepare_datetime
@@ -26,14 +25,12 @@ def to_dict(steps,cummulative_output = True):
         is assumed to be sorted by the provided start values.
 
         Output format (cumulative)
-        --------------------------
         key   -> step index
         value -> cumulative steps value
 
         or
 
         Output format (delta)
-        ---------------------
         start : step index
         value : steps delta value between start and next index
 
@@ -76,7 +73,8 @@ def to_dataframe(steps, cummulative_output = True):
     steps : Steps object
 
     cummulative_output : bool, Optional = True
-        Export cumulative value of all steps at each step index (default) or the step change (delta) value between each step index
+        Export cumulative value of all steps at each step index (default) or the step change (delta) value between each step index.
+
         Output columns (cumulative)
         start : step index
         value : cumulative steps value
@@ -146,7 +144,7 @@ def read_dict(cls, data,use_datetime = False, convert_delta = True):
     Parameters
     ==============
     data : dictionary_like 
-        A dictionary representing the data to convert to steps. Assumed format is:
+        A dictionary representing the data to convert to steps. Assumed format is,
         key   -> step start
         value -> step weight
 

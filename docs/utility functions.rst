@@ -1,7 +1,7 @@
 Statistical Analysis
 ======================================
 
-.. currentmodule:: hotstepper.utilities.helpers
+.. currentmodule:: hotstepper.utilities
 
 .. autosummary::
    :toctree: api/

@@ -1,6 +1,6 @@
 Helper Functions
 ==========
 
-.. automodule:: hotstepper.utilities.helpers
+.. automodule:: hotstepper.utilities
   :members:
   

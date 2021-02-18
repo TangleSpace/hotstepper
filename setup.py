@@ -13,7 +13,8 @@ setuptools.setup(
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
     ],
-    install_requires=['numpy>=1.19.5',
+    install_requires=[
+'numpy>=1.19.5',
 			'numpy-indexed==0.3.5',
 			'pandas>=1.2.0',
 			'pytz>=2020.1',                    

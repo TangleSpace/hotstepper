@@ -8,13 +8,11 @@ warnings.filterwarnings("ignore")
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import datetime
 
-#from hotstepper.Basis import Basis
-from hotstepper.Step import Step
-from hotstepper.Steps import Steps
+from hotstepper import Step
+from hotstepper import Steps
 import hotstepper.samples as samples
-#from hotstepper.analysis.stats import *
+
 
 temperature_pacf50 = np.array(
         [ 1.00000000e+00,  7.74412727e-01,  7.67161046e-02,  1.90753456e-01,

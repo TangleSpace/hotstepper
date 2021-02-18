@@ -11,6 +11,7 @@
     </title>
 <link href="_static/pygments.css" rel="stylesheet"/>
 <link href="_static/theme.css" rel="stylesheet"/>
+<link href="_static/graphviz.css" rel="stylesheet"/>
 <link href="#" rel="search" title="Search"/>
 <link href="genindex.html" rel="index" title="Index"/>
 </head><body class="text-gray-900 antialiased min-h-screen md:h-screen flex flex-col">
@@ -26,47 +27,94 @@
 </header>
 <div class="md:overflow-hidden flex flex-col md:flex-row flex-1"><nav class="h-full fixed md:relative inset-y-0 left-0 z-20 md:z-0 bg-white text-gray-700 border-r overflow-x-hidden pt-16 print:hidden flex flex-col" data-menu="closed" role="navigation" style="width: 270px;">
 <div class="nav-toc"><ul>
-<li class="toctree-l1"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="steps.html">Steps methods</a></div><ul>
-<li class="toctree-l2"><div class="nav-link"><a class="reference internal" href="steps.html#constructor-basic-methods">Constructor &amp; basic methods</a></div></li>
-<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="steps.html#step-functions">Step Functions</a></div><ul>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.step.html">hotstepper.Steps.Steps.step</a></div></li>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.smooth_step.html">hotstepper.Steps.Steps.smooth_step</a></div></li>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.fast_step.html">hotstepper.Steps.Steps.fast_step</a></div></li>
+<li class="toctree-l1"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="steps_methods.html">Steps methods</a></div><ul>
+<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="steps_methods.html#basic-methods">Basic methods</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.copy.html">hotstepper.Steps.copy</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.clear.html">hotstepper.Steps.clear</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.first.html">hotstepper.Steps.first</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.last.html">hotstepper.Steps.last</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.using_datetime.html">hotstepper.Steps.using_datetime</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.step_keys.html">hotstepper.Steps.step_keys</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.step_values.html">hotstepper.Steps.step_values</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.steps.html">hotstepper.Steps.steps</a></div></li>
 </ul>
 </li>
-<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="steps.html#arithmetic-operators">Arithmetic operators</a></div><ul>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.add.html">hotstepper.Steps.Steps.add</a></div></li>
+<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="steps_methods.html#plotting-functions">Plotting functions</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.plot.html">hotstepper.Steps.plot</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.smooth_plot.html">hotstepper.Steps.smooth_plot</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.plot_rolling_step.html">hotstepper.Steps.plot_rolling_step</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.histogram_plot.html">hotstepper.Steps.histogram_plot</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.ecdf_plot.html">hotstepper.Steps.ecdf_plot</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.pacf_plot.html">hotstepper.Steps.pacf_plot</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.acf_plot.html">hotstepper.Steps.acf_plot</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.summary.html">hotstepper.Steps.summary</a></div></li>
 </ul>
 </li>
-<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="steps.html#relational-operators">Relational operators</a></div><ul>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.compare.html">hotstepper.Steps.Steps.compare</a></div></li>
+<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="steps_methods.html#class-loader-functions">Class Loader functions</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.read_dataframe.html">hotstepper.Steps.read_dataframe</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.read_array.html">hotstepper.Steps.read_array</a></div></li>
 </ul>
 </li>
-<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="steps.html#logical-operators">Logical operators</a></div><ul>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.normalise.html">hotstepper.Steps.Steps.normalise</a></div></li>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.invert.html">hotstepper.Steps.Steps.invert</a></div></li>
+<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="steps_methods.html#instance-loader-functions">Instance Loader functions</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.add.html">hotstepper.Steps.add</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.add_steps.html">hotstepper.Steps.add_steps</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.add_direct.html">hotstepper.Steps.add_direct</a></div></li>
 </ul>
 </li>
-<li class="toctree-l2"><div class="nav-link"><a class="reference internal" href="steps.html#statistical-operators">Statistical operators</a></div></li>
-<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="steps.html#summary-statistics">Summary statistics</a></div><ul>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.integrate.html">hotstepper.Steps.Steps.integrate</a></div></li>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.describe.html">hotstepper.Steps.Steps.describe</a></div></li>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.min.html">hotstepper.Steps.Steps.min</a></div></li>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.max.html">hotstepper.Steps.Steps.max</a></div></li>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.var.html">hotstepper.Steps.Steps.var</a></div></li>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.std.html">hotstepper.Steps.Steps.std</a></div></li>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.mean.html">hotstepper.Steps.Steps.mean</a></div></li>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.median.html">hotstepper.Steps.Steps.median</a></div></li>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.percentile.html">hotstepper.Steps.Steps.percentile</a></div></li>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.ecdf.html">hotstepper.Steps.Steps.ecdf</a></div></li>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.histogram.html">hotstepper.Steps.Steps.histogram</a></div></li>
+<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="steps_methods.html#step-functions">Step Functions</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.step.html">hotstepper.Steps.step</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.smooth_step.html">hotstepper.Steps.smooth_step</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.fast_step.html">hotstepper.Steps.fast_step</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.rebase.html">hotstepper.Steps.rebase</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.basis.html">hotstepper.Steps.basis</a></div></li>
 </ul>
 </li>
-<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="steps.html#miscellaneous-functions">Miscellaneous functions</a></div><ul>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.clip.html">hotstepper.Steps.Steps.clip</a></div></li>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.clamp.html">hotstepper.Steps.Steps.clamp</a></div></li>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.rshift.html">hotstepper.Steps.Steps.rshift</a></div></li>
-<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.Steps.lshift.html">hotstepper.Steps.Steps.lshift</a></div></li>
+<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="steps_methods.html#arithmetic-operators">Arithmetic operators</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.__neg__.html">hotstepper.Steps.__neg__</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.__add__.html">hotstepper.Steps.__add__</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.__sub__.html">hotstepper.Steps.__sub__</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.__mul__.html">hotstepper.Steps.__mul__</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.__truediv__.html">hotstepper.Steps.__truediv__</a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="steps_methods.html#logical-operators">Logical operators</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.normalise.html">hotstepper.Steps.normalise</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.invert.html">hotstepper.Steps.invert</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.reflect.html">hotstepper.Steps.reflect</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.__eq__.html">hotstepper.Steps.__eq__</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.__ne__.html">hotstepper.Steps.__ne__</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.__gt__.html">hotstepper.Steps.__gt__</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.__lt__.html">hotstepper.Steps.__lt__</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.__ge__.html">hotstepper.Steps.__ge__</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.__le__.html">hotstepper.Steps.__le__</a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="steps_methods.html#statistical-operators">Statistical operators</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.covariance.html">hotstepper.Steps.covariance</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.correlation.html">hotstepper.Steps.correlation</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.span_and_weights.html">hotstepper.Steps.span_and_weights</a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="steps_methods.html#summary-statistics">Summary statistics</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.integrate.html">hotstepper.Steps.integrate</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.describe.html">hotstepper.Steps.describe</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.min.html">hotstepper.Steps.min</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.max.html">hotstepper.Steps.max</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.var.html">hotstepper.Steps.var</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.std.html">hotstepper.Steps.std</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.mean.html">hotstepper.Steps.mean</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.median.html">hotstepper.Steps.median</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.percentile.html">hotstepper.Steps.percentile</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.ecdf.html">hotstepper.Steps.ecdf</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.histogram.html">hotstepper.Steps.histogram</a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><svg aria-hidden="true" class="expand" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" href="steps_methods.html#miscellaneous-functions">Miscellaneous functions</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.clip.html">hotstepper.Steps.clip</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.clamp.html">hotstepper.Steps.clamp</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.rshift.html">hotstepper.Steps.rshift</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.lshift.html">hotstepper.Steps.lshift</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" href="api/hotstepper.Steps.compare.html">hotstepper.Steps.compare</a></div></li>
 </ul>
 </li>
 </ul>
