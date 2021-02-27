@@ -4,6 +4,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import matplotlib.ticker as ticker
+import seaborn as sns
+
 from hotstepper.utilities.helpers import (
     get_epoch_start, steps_plot,
     get_default_plot_color,
@@ -20,6 +22,10 @@ from hotstepper.analysis.statistics import (
     acf
 )
 
+colors = ["#9c00ff","#2931b3","#800080","#531cb3", "#5465ff","#835af1"]
+
+# Set your custom color palette
+sns.set_palette(sns.color_palette(colors))
 
 class StepsPlottingMixin(ABC):
     """
@@ -85,6 +91,9 @@ class StepsPlottingMixin(ABC):
         smooth_factor : int, float, Optional
             If using the method='smooth' option, set the strength of the smoothing to apply.
 
+        smooth_basis : Basis, Optional
+            The `:class: Basis` to use when calculating the smooth steps function.
+
         ts_grain : int, float, Pandas.Timedetla, Optional
             If using method = 'function' or 'smooth', specify the increment size between step key locations used to calculate the steps function.
 
@@ -127,8 +136,8 @@ class StepsPlottingMixin(ABC):
                 
             _, ax = plt.subplots(figsize=plot_size)
 
-        if kargs.get('color') is None:
-            kargs['color']=get_default_plot_color()
+        #if kargs.get('color') is None:
+        #    kargs['color']=get_default_plot_color()
 
         np_keys = self.step_keys()
         np_values = self.step_values()
@@ -189,8 +198,6 @@ class StepsPlottingMixin(ABC):
             ax.step(np_keys,np_values, where=where, **kargs)
 
         return ax
-        
-        #return steps_plot(self,method=method,smooth_factor = smooth_factor,ts_grain = ts_grain,ax=ax,where=where,**kargs)
 
 
     def plot_rolling_step(self,rolling_function=None, window=5, pre_mid_post='mid',ts_grain=None,ax=None,**kargs):
@@ -237,8 +244,8 @@ class StepsPlottingMixin(ABC):
                 
             _, ax = plt.subplots(figsize=plot_size)
 
-        if kargs.get('color') is None:
-            kargs['color']=get_default_plot_color()
+        #if kargs.get('color') is None:
+        #    kargs['color']=get_default_plot_color()
 
         np_keys = self.step_keys()
         
@@ -312,8 +319,8 @@ class StepsPlottingMixin(ABC):
         if kargs.get('title') is None:
             kargs['title']='Steps Autocorrelation for Lags = {}'.format(lags)
 
-        if kargs.get('color',None) is None:
-            kargs['color']= get_default_plot_color()
+        #if kargs.get('color',None) is None:
+        #    kargs['color']= get_default_plot_color()
 
         ecdf_series = pd.Series(
             data=y[minlags:],
@@ -377,8 +384,8 @@ class StepsPlottingMixin(ABC):
         if kargs.get('title') is None:
             kargs['title']='Steps Partial Autocorrelation for Lags = {}'.format(lags)
 
-        if kargs.get('color',None) is None:
-            kargs['color']= get_default_plot_color()
+        #if kargs.get('color',None) is None:
+        #    kargs['color']= get_default_plot_color()
 
         ecdf_series = pd.Series(
             data=y[minlags:],
@@ -436,8 +443,8 @@ class StepsPlottingMixin(ABC):
         if kargs.get('title') is None:
             kargs['title']='Step Values Empirical Distribution'
 
-        if kargs.get('color',None) is None:
-            kargs['color']= get_default_plot_color()
+        #if kargs.get('color',None) is None:
+        #    kargs['color']= get_default_plot_color()
 
         ecdf_series = pd.Series(
             data=y,
@@ -510,8 +517,8 @@ class StepsPlottingMixin(ABC):
         if kargs.get('title') is None:
             kargs['title']='Step Values Histogram'
 
-        if kargs.get('color',None) is None:
-            kargs['color']= get_default_plot_color()
+        #if kargs.get('color',None) is None:
+        #    kargs['color']= get_default_plot_color()
 
         histo_series = pd.Series(
                 data=y[1:],
@@ -586,7 +593,7 @@ class StepsPlottingMixin(ABC):
             step_params.update(plot_params.get('steps_plot', None))
         self.plot(**step_params)
 
-        smooth_step_params = {'ax':axr1, 'color':'g','linewidth':3}
+        smooth_step_params = {'ax':axr1,'linewidth':3}
         if plot_params.get('smooth_steps_plot', None) is not None:
             smooth_step_params.update(plot_params.get('smooth_steps_plot', None))
         self.smooth_plot(**smooth_step_params)

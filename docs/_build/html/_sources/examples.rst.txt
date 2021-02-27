@@ -6,3 +6,6 @@ Case Studies
 
    examples/currency
    examples/uber trips
+   examples/daily temperatures
+   examples/store_orders
+   examples/vessel movement

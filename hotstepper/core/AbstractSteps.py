@@ -241,7 +241,7 @@ class AbstractSteps(ABC):
             x = xdata
 
         search_data = np.concatenate([self.step(np.array([get_epoch_start(False)]),False),self._all_data[:,DataModel.WEIGHT.value]])
-        if self._all_data.shape[0] < 50:
+        if self._all_data.shape[0] < 5:
             return self.step(x)
 
         #improves lookup performance, just need an extra check to avoid over/under run

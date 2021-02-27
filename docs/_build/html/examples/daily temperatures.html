@@ -46,17 +46,22 @@
   
   
   
-    <title>&lt;no title&gt; &#8212; HotStepper</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <title>Daily Temperatures &#8212; HotStepper</title>
     <link rel="stylesheet" href="../_static/material.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sales Order Example" href="store_orders.html" />
+    <link rel="prev" title="Uber Trips" href="uber%20trips.html" />
   
    
 
@@ -94,7 +99,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">HotStepper</span>
-          <span class="md-header-nav__topic"> &lt;no title&gt; </span>
+          <span class="md-header-nav__topic"> Daily Temperatures </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -151,6 +156,7 @@
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
           <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">HotStepper</a></li>
+          <li class="md-tabs__item"><a href="../examples.html" class="md-tabs__link">Case Studies</a></li>
       </ul>
     </div>
   </nav>
@@ -444,8 +450,10 @@ div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
+
+<h1 id="examples-daily-temperatures--page-root">Daily Temperatures<a class="headerlink" href="#examples-daily-temperatures--page-root" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>1
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -455,10 +463,9 @@ div.rendered_html tbody tr:hover {
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">staircase</span> <span class="k">as</span> <span class="nn">sc</span>
 
 <span class="kn">from</span> <span class="nn">hotstepper.utilities.helpers</span> <span class="kn">import</span> <span class="n">prepare_datetime</span><span class="p">,</span><span class="n">get_clean_step_data</span>
-<span class="kn">from</span> <span class="nn">hotstepper.Steps</span> <span class="kn">import</span> <span class="n">Steps</span>
+<span class="kn">from</span> <span class="nn">hotstepper</span> <span class="kn">import</span> <span class="n">Steps</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
@@ -466,7 +473,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>2
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -476,7 +483,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>2
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -533,12 +540,11 @@ div.rendered_html tbody tr:hover {
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>3
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">df_temps</span><span class="o">.</span><span class="n">Temp</span><span class="p">,</span><span class="n">prepend</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="c1">#sc_steps = sc.Stairs(use_dates=True).layer(start=df_temps.Date,value=vals)</span>
 <span class="n">temps_steps</span> <span class="o">=</span> <span class="n">Steps</span><span class="o">.</span><span class="n">read_dataframe</span><span class="p">(</span><span class="n">df_temps</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="s1">'Date'</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="s1">'Temp'</span><span class="p">,</span><span class="n">convert_delta</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">temps_steps</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 
@@ -549,10 +555,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_daily_temperatures_2_0.svg" src="../_images/examples_daily_temperatures_2_0.svg"/></div>
+<img alt="../_images/examples_daily_temperatures_3_0.svg" src="../_images/examples_daily_temperatures_3_0.svg"/></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>4
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -564,11 +570,11 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_daily_temperatures_3_0.svg" src="../_images/examples_daily_temperatures_3_0.svg"/></div>
+<img alt="../_images/examples_daily_temperatures_4_0.svg" src="../_images/examples_daily_temperatures_4_0.svg"/></div>
 </div>
 <p>From the summary view of the data, we can clearly see that there is a cycle in the data, so the next question is, how long is this? Some quick ways to see the nature of time series is to use auto correlation and partial auto correlation. Luckily, out of the box, Hotstepper implements both. We can expect a large correlation between the 1st and 2nd lag,s therefore we can exclude them from the chart to get a better look at the remaining lags.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>5
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>6
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -578,7 +584,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>5
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>6
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -590,10 +596,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_daily_temperatures_5_1.svg" src="../_images/examples_daily_temperatures_5_1.svg"/></div>
+<img alt="../_images/examples_daily_temperatures_6_1.svg" src="../_images/examples_daily_temperatures_6_1.svg"/></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>6
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -605,7 +611,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_daily_temperatures_6_0.svg" src="../_images/examples_daily_temperatures_6_0.svg"/></div>
+<img alt="../_images/examples_daily_temperatures_7_0.svg" src="../_images/examples_daily_temperatures_7_0.svg"/></div>
 </div>
 <p>So we have</p>
 <div class="nbinput nblast docutils container">
@@ -620,7 +626,7 @@ div.rendered_html tbody tr:hover {
 <p>How often was it over 20 degrees? This is a good lesson to understand that step functions aren’t the same as regular functions.</p>
 <p>If we naively filter the data and take the ratio to the total of the days having a temperature greater than 20 degrees, we would have an incorrect result.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>7
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -639,14 +645,14 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Percentage days greater than 20 degrees, via steps 0.02
+Percentage days greater than 20 degrees, via steps 0.019999999999999993
 Percentage days greater than 20 degrees, via pandas 0.020273972602739727
 </pre></div></div>
 </div>
 <p>So what has happened?, the simple answer is that we are are only evaluating the step function on and after each step key, therefore, if the first day is over 20, whilst it is in the steps function, when we include it in the integral, it has no weight, as it exists only at a single instant of the step function.</p>
 <p>So, we have to include the full day of the first step, instead of only the value at the edge between the first and second day. The easy way to do this and ensure we don’t include anything else is to clamp the values beyond the range of the first full day and the last.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>8
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>9
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -665,23 +671,24 @@ Percentage days greater than 20 degrees, via pandas 0.020273972602739727
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Percentage days greater than 20 degrees, via steps 0.02027397260273973
+Percentage days greater than 20 degrees, via steps 0.020273972602739724
 Percentage days greater than 20 degrees, via pandas 0.020273972602739727
 </pre></div></div>
 </div>
+<p>For some reason, we might want to return the steps data as a Pandas Series object, I don’t blame you, they are nice and handy, so, through the magic of HotStepper and method chaining, we can create a Series object and call the Pandas.Series.plot method on it.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>16
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>11
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 
-<span></span><span class="n">temps_steps</span><span class="o">.</span><span class="n">Series</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span></span><span class="n">temps_steps</span><span class="o">.</span><span class="n">series</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>16
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>11
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -693,7 +700,7 @@ Percentage days greater than 20 degrees, via pandas 0.020273972602739727
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_daily_temperatures_13_1.svg" src="../_images/examples_daily_temperatures_13_1.svg"/></div>
+<img alt="../_images/examples_daily_temperatures_15_1.svg" src="../_images/examples_daily_temperatures_15_1.svg"/></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> 
@@ -706,6 +713,7 @@ Percentage days greater than 20 degrees, via pandas 0.020273972602739727
 </div>
 
 
+
           </article>
         </div>
       </div>
@@ -715,6 +723,30 @@ Percentage days greater than 20 degrees, via pandas 0.020273972602739727
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
+            <a href="uber%20trips.html" title="Uber Trips"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> Uber Trips </span>
+              </div>
+            </a>
+          
+          
+            <a href="store_orders.html" title="Sales Order Example"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> Sales Order Example </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
           
         </a>
         
@@ -728,7 +760,7 @@ Percentage days greater than 20 degrees, via pandas 0.020273972602739727
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.5.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

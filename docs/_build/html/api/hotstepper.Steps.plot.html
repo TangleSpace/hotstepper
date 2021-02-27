@@ -47,14 +47,17 @@
   
   
     <title>hotstepper.Steps.plot &#8212; HotStepper</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/material.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="hotstepper.Steps.smooth_plot" href="hotstepper.Steps.smooth_plot.html" />
@@ -203,13 +206,14 @@
 <h1 id="api-hotstepper-steps-plot--page-root">hotstepper.Steps.plot<a class="headerlink" href="#api-hotstepper-steps-plot--page-root" title="Permalink to this headline">¶</a></h1>
 <dl class="py method">
 <dt id="hotstepper.Steps.plot">
-<code class="sig-prename descclassname"><span class="pre">Steps.</span></code><code class="sig-name descname"><span class="pre">plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts_grain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">where</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'post'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.Steps.plot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">Steps.</code><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">smooth_factor</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">smooth_basis</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ts_grain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">where</span><span class="o">=</span><span class="default_value">'post'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.Steps.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the steps function using different parameters and methods.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>method</strong> (<em>{'function'</em><em>,</em><em>'smooth'</em><em>,</em><em>'pretty'</em><em>, </em><em>Optional}</em>) – Specify how the steps should be calculated to generate the plot and the type of plot style.</p></li>
 <li><p><strong>smooth_factor</strong> (<em>int</em><em>, </em><em>float</em><em>, </em><em>Optional</em>) – If using the method=’smooth’ option, set the strength of the smoothing to apply.</p></li>
+<li><p><strong>smooth_basis</strong> (<em>Basis</em><em>, </em><em>Optional</em>) – The <cite>:class: Basis</cite> to use when calculating the smooth steps function.</p></li>
 <li><p><strong>ts_grain</strong> (<em>int</em><em>, </em><em>float</em><em>, </em><em>Pandas.Timedetla</em><em>, </em><em>Optional</em>) – If using method = ‘function’ or ‘smooth’, specify the increment size between step key locations used to calculate the steps function.</p></li>
 <li><p><strong>ax</strong> (<em>Matplotlib.Axes</em><em>, </em><em>Optional</em>) – The axes to plot this chart onto is already defined.</p></li>
 <li><p><strong>where</strong> (<em>{'pre'</em><em>, </em><em>'post'</em><em>, </em><em>Optional}</em>) – How to draw the step plot, this parameter is the same as the Matplotlib <em>where</em> parameter used in the Axes.step plotting function.</p></li>
@@ -287,7 +291,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.5.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

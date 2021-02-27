@@ -47,14 +47,17 @@
   
   
     <title>Forex Analysis &#8212; HotStepper</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/material.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Uber Trips" href="uber%20trips.html" />
@@ -472,8 +475,9 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<p>Load the data from a csv into a dataframe, as this provides the easiest way to process the raw data in readiness to use within HotStepper.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>3
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -484,7 +488,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>3
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -564,30 +568,24 @@ div.rendered_html tbody tr:hover {
 </table>
 </div></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> 
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
+<p>With a dataframe loaded, we can pass the dataframe in and specify which columns should be read with our steps data, since we have a monotonic series (there is a single value of y for each value of x), we want to automatically create the difference between time steps, this is easily asked for with the convert_delta = True parameter.</p>
+<p>It should also be noted, we parsed the datetime field when loaded the dataframe, in this case the “Time” field, since this is already parsed and typed as datetime, HotStepper will detect this and automatically set the using_datetime = True parameter during the loading process.</p>
+<p>In the event of an error or some confusion in the data loaded, setting this paramter explicitly will ensure the key values are typed as datetime.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>4
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">gbpusd_h1_open_steps</span> <span class="o">=</span> <span class="n">Steps</span><span class="o">.</span><span class="n">read_dataframe</span><span class="p">(</span><span class="n">df_gbpusd_h1</span><span class="p">,</span><span class="n">start</span> <span class="o">=</span> <span class="s1">'Time'</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="s1">'Open'</span><span class="p">,</span><span class="n">convert_delta</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
 
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>4
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -599,10 +597,11 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_currency_4_1.svg" src="../_images/examples_currency_4_1.svg"/></div>
+<img alt="../_images/examples_currency_5_1.svg" src="../_images/examples_currency_5_1.svg"/></div>
 </div>
+<p>We got a nice visual of the data and a quick smooth plot, this is handy to get a feel for the data, if we want to understand the data more than just a quick visual, but hey, we’re busy people, so we want understanding, quickly, HotStepper has this covered, we can use the summary() method on the steps, this will create a very nice summary of our dataset in one line of code.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>5
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>6
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -614,11 +613,11 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_currency_5_0.svg" src="../_images/examples_currency_5_0.svg"/></div>
+<img alt="../_images/examples_currency_7_0.svg" src="../_images/examples_currency_7_0.svg"/></div>
 </div>
-<p>We can look more closely at how this pair moved differently between 2017 and 2018, we first create new steps for these date ranges and have a look at what we have.</p>
+<p>We can look more closely at how this pair moved differently between 2017 and 2018, we first create new steps for these date ranges and have a look at what we have. A simple way to understand how these two years are related is to compare if, only aggregate, the price was higher, lower or the same.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>6
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -630,27 +629,29 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>6
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1.0365144559041144
+1.0365144559041157
 </pre></div></div>
 </div>
+<p>So taking the ratio of the area under the curve across the two years, we see that 2018 was approximately 3.7% higher than 2017, how easy was that!</p>
+<p>Now we can also compare the effect different smoothing bases have and finally compare that with a centred rolling average, this can be done very quickly on the same chart for the same dataset by using the ability to pass in a Basis for each specific smooth plot.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>7
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'GBPUSD'</span><span class="p">)</span>
-<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Logit'</span><span class="p">)</span>
-<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">smooth_basis</span><span class="o">=</span><span class="n">Basis</span><span class="p">(</span><span class="n">Bases</span><span class="o">.</span><span class="n">arctan</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">'Arctan'</span><span class="p">)</span>
-<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">smooth_basis</span><span class="o">=</span><span class="n">Basis</span><span class="p">(</span><span class="n">Bases</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">'Sigmoid'</span><span class="p">)</span>
+<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Logit'</span><span class="p">)</span>
+<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">smooth_basis</span><span class="o">=</span><span class="n">Basis</span><span class="p">(</span><span class="n">Bases</span><span class="o">.</span><span class="n">arctan</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">'Arctan'</span><span class="p">)</span>
+<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">smooth_basis</span><span class="o">=</span><span class="n">Basis</span><span class="p">(</span><span class="n">Bases</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">'Sigmoid'</span><span class="p">)</span>
 
 
 <span class="c1">#and the rolling mean</span>
-<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">plot_rolling_step</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">rolling_function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span><span class="n">window</span><span class="o">=</span><span class="mi">2500</span><span class="p">,</span><span class="n">pre_mid_post</span><span class="o">=</span><span class="s1">'mid'</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Rolling Mean'</span><span class="p">)</span>
+<span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">plot_rolling_step</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">rolling_function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span><span class="n">window</span><span class="o">=</span><span class="mi">2500</span><span class="p">,</span><span class="n">pre_mid_post</span><span class="o">=</span><span class="s1">'mid'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Rolling Mean'</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
@@ -658,52 +659,55 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>7
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x285f44db070&gt;
+&lt;matplotlib.legend.Legend at 0x243bb694190&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_currency_8_1.svg" src="../_images/examples_currency_8_1.svg"/></div>
+<img alt="../_images/examples_currency_11_1.svg" src="../_images/examples_currency_11_1.svg"/></div>
 </div>
 <p>From the plot of the logit, arctan, sigmoid and centred rolling mean of the data, we can see the logit basis plot is very similar to the centred rolling mean, with the advantage of not needing the warm-up at the start and tends to be less sensitive to extreme changes, leading to a smoother curve.</p>
+<p>Now we have a better view of the data and the effect of different basis functions on the smoothing, lets look more closely at 2017. We can simply clip that year out of the original data and investigate this portion with some smoothing.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>8
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>9
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">gbpusd_h1_open_steps_2017</span> <span class="o">=</span> <span class="n">gbpusd_h1_open_steps</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">31</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">gbpusd_h1_open_steps_2017</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">gbpusd_h1_open_steps_2017</span><span class="o">.</span><span class="n">plot_rolling_step</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">rolling_function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span><span class="n">window</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span><span class="n">pre_mid_post</span><span class="o">=</span><span class="s1">'mid'</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Rolling Mean'</span><span class="p">)</span>
-<span class="n">gbpusd_h1_open_steps_2017</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Logit'</span><span class="p">)</span>
+<span class="n">gbpusd_h1_open_steps_2017</span><span class="o">.</span><span class="n">plot_rolling_step</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">rolling_function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span><span class="n">window</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span><span class="n">pre_mid_post</span><span class="o">=</span><span class="s1">'mid'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Rolling Mean'</span><span class="p">)</span>
+<span class="n">gbpusd_h1_open_steps_2017</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Logit'</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>8
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>9
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x285f3104910&gt;
+&lt;matplotlib.legend.Legend at 0x243bfde0400&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_currency_10_1.svg" src="../_images/examples_currency_10_1.svg"/></div>
+<img alt="../_images/examples_currency_14_1.svg" src="../_images/examples_currency_14_1.svg"/></div>
 </div>
+<p>An interesting analysis in forex is to understand when and by how much the price moves away and towards a centre line value, much like mean reversion. With HotStepper, we can generate a new steps object directly representing the difference by creating a smooth basis copy of the data, in this case the 2017 GBPUSD open steps with a logit basis, we can directly subtract this smoothed version of the data from the original noisy 2017 data to get the difference. With this in hand, we have all the
+power of the HotStepper tools.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>9
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>10
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -714,13 +718,13 @@ div.rendered_html tbody tr:hover {
 <span class="n">gbpusd_h1_open_steps_2017_delta</span> <span class="o">=</span> <span class="n">gbpusd_h1_open_steps_2017</span> <span class="o">-</span> <span class="n">gbpusd_h1_open_steps_2017_smooth</span>
 
 <span class="n">gbpusd_h1_open_steps_2017</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">gbpusd_h1_open_steps_2017_smooth</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">)</span>
+<span class="n">gbpusd_h1_open_steps_2017_smooth</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">gbpusd_h1_open_steps_2017_delta</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>9
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>10
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -732,10 +736,11 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_currency_11_1.svg" src="../_images/examples_currency_11_1.svg"/></div>
+<img alt="../_images/examples_currency_16_1.svg" src="../_images/examples_currency_16_1.svg"/></div>
 </div>
+<p>Get some quick statistics on the 2017 detla data with the describe() method.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>10
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>11
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -744,7 +749,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>10
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>11
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -779,12 +784,12 @@ div.rendered_html tbody tr:hover {
 <tr>
 <th>1</th>
 <td>Mean</td>
-<td>0</td>
+<td>0.0</td>
 </tr>
 <tr>
 <th>2</th>
 <td>Median</td>
-<td>-0</td>
+<td>-0.0</td>
 </tr>
 <tr>
 <th>3</th>
@@ -799,7 +804,7 @@ div.rendered_html tbody tr:hover {
 <tr>
 <th>5</th>
 <td>Var</td>
-<td>0</td>
+<td>0.0</td>
 </tr>
 <tr>
 <th>6</th>
@@ -809,12 +814,12 @@ div.rendered_html tbody tr:hover {
 <tr>
 <th>7</th>
 <td>25%</td>
-<td>-0</td>
+<td>-0.0</td>
 </tr>
 <tr>
 <th>8</th>
 <td>75%</td>
-<td>0</td>
+<td>0.0</td>
 </tr>
 <tr>
 <th>9</th>
@@ -840,8 +845,9 @@ div.rendered_html tbody tr:hover {
 </table>
 </div></div>
 </div>
+<p>We can generate all the summary, histogram etc. plots directly on the delta data, since this is another steps object.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>11
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>12
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -850,7 +856,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>11
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>12
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -862,10 +868,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_currency_13_1.svg" src="../_images/examples_currency_13_1.svg"/></div>
+<img alt="../_images/examples_currency_20_1.svg" src="../_images/examples_currency_20_1.svg"/></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>12
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>13
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -874,7 +880,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>12
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>13
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -886,10 +892,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_currency_14_1.svg" src="../_images/examples_currency_14_1.svg"/></div>
+<img alt="../_images/examples_currency_21_1.svg" src="../_images/examples_currency_21_1.svg"/></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>13
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>14
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -901,10 +907,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_currency_15_0.svg" src="../_images/examples_currency_15_0.svg"/></div>
+<img alt="../_images/examples_currency_22_0.svg" src="../_images/examples_currency_22_0.svg"/></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>14
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>15
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -913,7 +919,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>14
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>15
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -925,58 +931,32 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_currency_16_1.svg" src="../_images/examples_currency_16_1.svg"/></div>
+<img alt="../_images/examples_currency_23_1.svg" src="../_images/examples_currency_23_1.svg"/></div>
 </div>
+<p>We can quickly look at how the prices are related with a partial auto correlation plot. We know that the directly previous price is well correlated, as the open is the same as the previous close. We can exclude these and look back something simple like 24 steps, this is the last day of hourly open prices.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>15
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>16
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">gbpusd_h1_open_steps_2017</span><span class="o">.</span><span class="n">pacf_plot</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span></span><span class="n">gbpusd_h1_open_steps_2017</span><span class="o">.</span><span class="n">pacf_plot</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>15
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>16
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;AxesSubplot:title={'center':'Steps Partial Autocorrelation for Lags = 20'}, xlabel='Lag'&gt;
+&lt;AxesSubplot:title={'center':'Steps Partial Autocorrelation for Lags = 24'}, xlabel='Lag'&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/examples_currency_17_1.svg" src="../_images/examples_currency_17_1.svg"/></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>14
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">steps</span> <span class="o">=</span> <span class="n">Step</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">Step</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">steps</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">smooth_factor</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">steps</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Smooth Steps Plot'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>14
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Text(0.5, 1.0, 'Smooth Steps Plot')
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/examples_currency_18_1.svg" src="../_images/examples_currency_18_1.svg"/></div>
+<img alt="../_images/examples_currency_25_1.svg" src="../_images/examples_currency_25_1.svg"/></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> 
@@ -1036,7 +1016,7 @@ Text(0.5, 1.0, 'Smooth Steps Plot')
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.5.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
