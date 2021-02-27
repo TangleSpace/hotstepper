@@ -143,7 +143,7 @@ def get_plot_range(start,end, delta = None, use_datetime = False):
     """
 
     shift = None
-    start = end if start == get_epoch_start(False) else start
+    start = end if start == get_epoch_start(use_datetime) else start
     end = None if end == start else end
 
 
@@ -157,31 +157,31 @@ def get_plot_range(start,end, delta = None, use_datetime = False):
 
             if delta is None:
                 if int(0.01*span_seconds) > 0:
-                    delta = pd.Timedelta(nanoseconds=int(0.005*span_seconds))
+                    delta = pd.Timedelta(nanoseconds=int(0.0005*span_seconds))
                 else:
                     delta = pd.Timedelta(seconds=10)
             return np.arange(start-shift, end + shift, delta).astype(pd.Timestamp)
         else:
             if start.hour > 0:
-                shift = pd.Timedelta(hours=5)
+                shift = pd.Timedelta(hours=3)
                 delta = pd.Timedelta(hours=1)
             elif start.minute > 0:
                 shift = pd.Timedelta(minutes=6)
                 delta = pd.Timedelta(minutes=2)
             else:
-                shift = pd.Timedelta(hours=36)
-                delta = pd.Timedelta(hours=12)
+                shift = pd.Timedelta(hours=20)
+                delta = pd.Timedelta(hours=6)
             return np.arange(start-shift, start + shift, delta).astype(pd.Timestamp)
     else:
         if end is not None:
             shift = 0.5*(end - start)
 
             if delta is None:
-                delta = 0.1*shift
+                delta = 0.05*shift
 
             return np.arange(start-shift, end + shift, delta)
         else:
-            shift = 0.1*start if (start !=0 and start !=get_epoch_start(False)) else 0.5
+            shift = 0.05*start if (start !=0 and start !=get_epoch_start(False)) else 0.5
 
             if delta is None:
                 delta = 0.01*shift
@@ -277,21 +277,94 @@ def prepare_input(xdata):
         return np.sort(np.asfarray(xdata))
 
 
-def steps_plot(
-    steps,
-    method=None,
-    smooth_factor=None,
-    smooth_basis=None,
-    ts_grain = None,
-    ax=None,
-    where='post',
-    **kargs):
+# def steps_plot(
+#     steps,
+#     method=None,
+#     smooth_factor=None,
+#     smooth_basis=None,
+#     ts_grain = None,
+#     ax=None,
+#     where='post',
+#     **kargs):
 
-    """
-    A universal plotting function for objects that implement the AbstractSteps interface.
+#     """
+#     A universal plotting function for objects that implement the AbstractSteps interface.
 
 
-    """
+#     """
+
+#     if ax is None:
+#         plot_size = kargs.pop('figsize',None)
+#         if plot_size is None:
+#             plot_size = get_default_plot_size()
+            
+#         _, ax = plt.subplots(figsize=plot_size)
+
+#     if kargs.get('color') is None:
+#         kargs['color']=get_default_plot_color()
+
+#     np_keys = steps.step_keys()
+#     np_values = steps.step_values()
+
+#     reverse_step = False
+
+#     if len(np_keys) < 3 :
+#         if len(np_keys) == 0:
+#             ax.axhline(steps(get_epoch_start(steps.using_datetime()))[0], **kargs)
+#             return ax
+#         else:
+#             reverse_step = np_keys[0]==get_epoch_start(False)
+#             np_keys = get_plot_range(steps.first(),steps.last(),ts_grain,use_datetime=steps.using_datetime())
+#             np_values = steps.step(np_keys)
+
+#     if method == 'pretty':
+#         if len(np_keys) == 0:
+#             ax.axhline(steps(0)[0], **kargs)
+#         else:
+#             _prettyplot(np_values,plot_start=steps.first(),plot_start_value=0,ax=ax,**kargs)
+
+#     elif method == 'function':
+#             tsx = get_plot_range(steps.first(),steps.last(),ts_grain,use_datetime=steps.using_datetime())
+#             ax.step(tsx,steps.step(tsx), where=where, **kargs)
+            
+#     elif method == 'smooth':      
+#         # small offset to ensure we plot the initial step transition
+#         if steps.using_datetime():
+#             ts_grain = pd.Timedelta(minutes=1)
+#             np_keys = prepare_datetime(np_keys)
+#         else:
+#             ts_grain = 0.000000000001
+            
+#         if np_keys[0] == get_epoch_start(steps.using_datetime()):
+#             np_keys[0] = np_keys[1] - ts_grain
+#         elif not reverse_step:
+#             np_keys = np.insert(np_keys,0,np_keys[0] - ts_grain)
+#             np_values = np.insert(np_values,0,0)
+#             np_keys[0] = np_keys[0] - ts_grain
+
+#         ax.plot(np_keys,steps.smooth_step(np_keys,smooth_factor = smooth_factor, smooth_basis=smooth_basis), **kargs)
+#     else:
+#         # small offset to ensure we plot the initial step transition
+#         if steps.using_datetime():
+#             ts_grain = pd.Timedelta(minutes=1)
+#             np_keys = prepare_datetime(np_keys)
+#         else:
+#             ts_grain = 0.0000000001
+        
+#         if np_keys[0] == get_epoch_start(steps.using_datetime()):
+#             np_keys[0] = np_keys[1] - ts_grain
+#         elif not reverse_step:
+#             np_keys = np.insert(np_keys,0,np_keys[0] - ts_grain)
+#             np_values = np.insert(np_values,0,0)
+#             np_keys[0] = np_keys[0] - ts_grain
+
+
+#         ax.step(np_keys,np_values, where=where, **kargs)
+
+#     return ax
+
+
+def steps_plot(steps,method=None,smooth_factor = None,smooth_basis=None,ts_grain = None,ax=None,where='post',**kargs):
 
     if ax is None:
         plot_size = kargs.pop('figsize',None)
@@ -306,16 +379,14 @@ def steps_plot(
     np_keys = steps.step_keys()
     np_values = steps.step_values()
 
-    reverse_step = False
-
     if len(np_keys) < 3 :
         if len(np_keys) == 0:
             ax.axhline(steps(get_epoch_start(steps.using_datetime()))[0], **kargs)
             return ax
         else:
-            reverse_step = np_keys[0]==get_epoch_start(False)
             np_keys = get_plot_range(steps.first(),steps.last(),ts_grain,use_datetime=steps.using_datetime())
             np_values = steps.step(np_keys)
+
 
     if method == 'pretty':
         if len(np_keys) == 0:
@@ -337,7 +408,7 @@ def steps_plot(
             
         if np_keys[0] == get_epoch_start(steps.using_datetime()):
             np_keys[0] = np_keys[1] - ts_grain
-        elif not reverse_step:
+        else:
             np_keys = np.insert(np_keys,0,np_keys[0] - ts_grain)
             np_values = np.insert(np_values,0,0)
             np_keys[0] = np_keys[0] - ts_grain
@@ -353,7 +424,7 @@ def steps_plot(
         
         if np_keys[0] == get_epoch_start(steps.using_datetime()):
             np_keys[0] = np_keys[1] - ts_grain
-        elif not reverse_step:
+        else:
             np_keys = np.insert(np_keys,0,np_keys[0] - ts_grain)
             np_values = np.insert(np_values,0,0)
             np_keys[0] = np_keys[0] - ts_grain

@@ -39,7 +39,7 @@ class MathFunctionsMixin(ABC):
 
     def __truediv__(self,other):
         """
-        The **/** operation to divide int, float, step and steps objects like they are numbers.
+        The **\/** operation to divide int, float, step and steps objects like they are numbers.
 
         .. note::
             right and in-place division is also available.
@@ -63,7 +63,7 @@ class MathFunctionsMixin(ABC):
 
     def __mul__(self,other):
         """
-        The ***** operation to multiply int, float, step and steps objects like they are numbers.
+        The **\*** operation to multiply int, float, step and steps objects like they are numbers.
 
         .. note::
             right and in-place multiplication is also available.

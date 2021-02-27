@@ -25,6 +25,8 @@ author = hs.__author__
 release = hs.__version__
 
 extensions = [
+    'matplotlib.sphinxext.plot_directive',
+    'IPython.sphinxext.ipython_directive',
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary', 
     'sphinx.ext.coverage', 
@@ -53,6 +55,9 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
     'examples/Index.ipynb'
 ]
 
+nbsphinx_input_prompt = '%s'
+nbsphinx_output_prompt = '%s'
+
 napoleon_numpy_docstring = True
 napoleon_google_docstring = False
 #napoleon_use_param = False
@@ -61,11 +66,27 @@ napoleon_google_docstring = False
 #autosummary_generate = True
 master_doc = 'index'
 
+suppress_warnings = [
+    "nbsphinx.ipykernel",
+]
+
 # matplotlib plot directive
-#plot_include_source = True
+plot_include_source = True
 plot_formats = [("png", 90)]
 plot_html_show_formats = False
 plot_html_show_source_link = False
+
+plot_pre_code = """
+import os
+import sys
+sys.path.insert(0, os.path.abspath('..//'))
+sys.path.insert(0, os.path.abspath('..'))
+import numpy as np
+import pandas as pd
+import hotstepper as hs
+from hotstepper import Step, Steps
+import matplotlib.pyplot as plt
+"""
 
 # autodoc_default_options = {
 #     'members': True,

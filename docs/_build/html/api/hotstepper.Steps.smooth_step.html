@@ -47,17 +47,14 @@
   
   
     <title>hotstepper.Steps.smooth_step &#8212; HotStepper</title>
-    <link rel="stylesheet" href="../_static/material.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="hotstepper.Steps.fast_step" href="hotstepper.Steps.fast_step.html" />
@@ -206,7 +203,7 @@
 <h1 id="api-hotstepper-steps-smooth-step--page-root">hotstepper.Steps.smooth_step<a class="headerlink" href="#api-hotstepper-steps-smooth-step--page-root" title="Permalink to this headline">¶</a></h1>
 <dl class="py method">
 <dt id="hotstepper.Steps.smooth_step">
-<code class="sig-prename descclassname">Steps.</code><code class="sig-name descname">smooth_step</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xdata</span></em>, <em class="sig-param"><span class="n">smooth_factor</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">smooth_basis</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">process_input</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.Steps.smooth_step" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">Steps.</span></code><code class="sig-name descname"><span class="pre">smooth_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.Steps.smooth_step" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a mathematical function definition of the Steps object, this is a dynamically created formula representation that can be passed an array of values to evaluate the steps function at.
 If a basis other than the default (Heaviside) is assigned and no new basis is provided, this function will return the same result as a call to the <cite>step</cite> function. If the default basis is assigned, and no new
 basis is provided, the Logit basis will be temporarily assigned, the result generated and the basis will be reset to the default.</p>
@@ -228,7 +225,7 @@ basis is provided, the Logit basis will be temporarily assigned, the result gene
 </dl>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="hotstepper.Steps.step.html#hotstepper.Steps.step" title="hotstepper.Steps.step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">step()</span></code></a>, <a class="reference internal" href="hotstepper.Steps.fast_step.html#hotstepper.Steps.fast_step" title="hotstepper.Steps.fast_step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fast_step()</span></code></a></p>
+<p><a class="reference internal" href="hotstepper.Steps.step.html#hotstepper.Steps.step" title="hotstepper.Steps.step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">step</span></code></a>, <a class="reference internal" href="hotstepper.Steps.fast_step.html#hotstepper.Steps.fast_step" title="hotstepper.Steps.fast_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fast_step</span></code></a></p>
 </div>
 </dd></dl>
 
@@ -280,7 +277,7 @@ basis is provided, the Logit basis will be temporarily assigned, the result gene
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.5.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

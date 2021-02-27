@@ -9,6 +9,7 @@ from hotstepper.utilities.helpers import (
     get_default_plot_color,
     get_default_plot_size,
     prepare_datetime,
+    get_plot_range,
     get_epoch_start
 )
 
@@ -27,11 +28,169 @@ class StepsPlottingMixin(ABC):
     """
 
     def smooth_plot(self,smooth_factor = None,smooth_basis=None, ts_grain = None,ax=None,where='post',**kargs):
-        return steps_plot(self,method='smooth',smooth_factor = smooth_factor,smooth_basis=smooth_basis,ts_grain = ts_grain,ax=ax,where=where,**kargs)
+        """
+        Plot a smoothed steps function using different parameters and methods.
+
+        Parameters
+        ===========
+        smooth_factor : int, float, Optional
+            If using the method='smooth' option, set the strength of the smoothing to apply.
+
+        smooth_basis : Basis, Optional
+            The `:class: Basis` to use when calculating the smooth steps function.
+
+        ts_grain : int, float, Pandas.Timedetla, Optional
+            If using method = 'function' or 'smooth', specify the increment size between step key locations used to calculate the steps function.
+
+        ax : Matplotlib.Axes, Optional
+            The axes to plot this chart onto is already defined.
+
+        where : {'pre', 'post', Optional}
+            How to draw the step plot, this parameter is the same as the Matplotlib *where* parameter used in the Axes.step plotting function.
+
+        **kargs :
+            Matplotlib key-value arguments
+            
+
+        Returns
+        =========
+        Matplotlib.Axes
+            A reference to the plot axes object to allow further plotting on the same axes.
+
+        Examples
+        ==========
+
+        .. plot::
+            :context: close-figs
+
+            st = Step(5,10,3) + Step(6,weight=2)
+            ax = st.smooth_plot(smooth_factor=2,ts_grain=0.01)
+            st.plot(ax=ax,color='g')
+            ax.set_title('Smooth Steps Plot')
+
+        """
+        
+        return self.plot(method='smooth',smooth_factor = smooth_factor,smooth_basis=smooth_basis,ts_grain = ts_grain,ax=ax,where=where,**kargs)
 
 
-    def plot(self,method=None,smooth_factor = None,ts_grain = None,ax=None,where='post',**kargs):
-        return steps_plot(self,method=method,smooth_factor = smooth_factor,ts_grain = ts_grain,ax=ax,where=where,**kargs)
+    def plot(self,method=None,smooth_factor=None,smooth_basis=None,ts_grain = None,ax=None,where='post',**kargs):
+        """
+        Plot the steps function using different parameters and methods.
+
+        Parameters
+        ===========
+        method : {'function','smooth','pretty', Optional}
+            Specify how the steps should be calculated to generate the plot and the type of plot style.
+
+        smooth_factor : int, float, Optional
+            If using the method='smooth' option, set the strength of the smoothing to apply.
+
+        ts_grain : int, float, Pandas.Timedetla, Optional
+            If using method = 'function' or 'smooth', specify the increment size between step key locations used to calculate the steps function.
+
+        ax : Matplotlib.Axes, Optional
+            The axes to plot this chart onto is already defined.
+
+        where : {'pre', 'post', Optional}
+            How to draw the step plot, this parameter is the same as the Matplotlib *where* parameter used in the Axes.step plotting function.
+
+        **kargs :
+            Matplotlib key-value arguments
+
+
+        Returns
+        =========
+        Matplotlib.Axes
+            A reference to the plot axes object to allow further plotting on the same axes.
+
+        Examples
+        ==========
+
+        .. plot::
+            :context: close-figs
+
+            s1 = Step(5,10,3)
+            s2 = Step(6,weight=2)
+            st = s1 + s2
+            ax = s1.plot(color='r')
+            s2.plot(ax=ax,color='g',method='function')
+            st.plot(ax=ax)
+
+            ax.set_title('Steps Plot')
+
+        """
+
+        if ax is None:
+            plot_size = kargs.pop('figsize',None)
+            if plot_size is None:
+                plot_size = get_default_plot_size()
+                
+            _, ax = plt.subplots(figsize=plot_size)
+
+        if kargs.get('color') is None:
+            kargs['color']=get_default_plot_color()
+
+        np_keys = self.step_keys()
+        np_values = self.step_values()
+
+        reverse_step = False
+
+        if len(np_keys) < 3 :
+            if len(np_keys) == 0:
+                ax.axhline(self(get_epoch_start(self.using_datetime()))[0], **kargs)
+                return ax
+            else:
+                reverse_step = np_keys[0]==get_epoch_start(False)
+                np_keys = get_plot_range(self.first(),self.last(),ts_grain,use_datetime=self.using_datetime())
+                np_values = self.step(np_keys)
+
+        if method == 'pretty':
+            if len(np_keys) == 0:
+                ax.axhline(self(0)[0], **kargs)
+            #else:
+                #_prettyplot(np_values,plot_start=self.first(),plot_start_value=0,ax=ax,**kargs)
+
+        elif method == 'function':
+                tsx = get_plot_range(self.first(),self.last(),ts_grain,use_datetime=self.using_datetime())
+                ax.step(tsx,self.step(tsx), where=where, **kargs)
+                
+        elif method == 'smooth':      
+            # small offset to ensure we plot the initial step transition
+            if self.using_datetime():
+                ts_grain = pd.Timedelta(minutes=1)
+                np_keys = prepare_datetime(np_keys)
+            else:
+                ts_grain = 0.000000000001
+                
+            if np_keys[0] == get_epoch_start(self.using_datetime()):
+                np_keys[0] = np_keys[1] - ts_grain
+            elif not reverse_step:
+                np_keys = np.insert(np_keys,0,np_keys[0] - ts_grain)
+                np_values = np.insert(np_values,0,0)
+                np_keys[0] = np_keys[0] - ts_grain
+
+            ax.plot(np_keys,self.smooth_step(np_keys,smooth_factor = smooth_factor, smooth_basis=smooth_basis), **kargs)
+        else:
+            # small offset to ensure we plot the initial step transition
+            if self.using_datetime():
+                ts_grain = pd.Timedelta(minutes=1)
+                np_keys = prepare_datetime(np_keys)
+            else:
+                ts_grain = 0.0000000001
+            
+            if np_keys[0] == get_epoch_start(self.using_datetime()):
+                np_keys[0] = np_keys[1] - ts_grain
+            elif not reverse_step:
+                np_keys = np.insert(np_keys,0,np_keys[0] - ts_grain)
+                np_values = np.insert(np_values,0,0)
+                np_keys[0] = np_keys[0] - ts_grain
+
+
+            ax.step(np_keys,np_values, where=where, **kargs)
+
+        return ax
+        
+        #return steps_plot(self,method=method,smooth_factor = smooth_factor,ts_grain = ts_grain,ax=ax,where=where,**kargs)
 
 
     def plot_rolling_step(self,rolling_function=None, window=5, pre_mid_post='mid',ts_grain=None,ax=None,**kargs):

@@ -1,7 +1,9 @@
 
 from __future__ import annotations
 import numpy as np
+from numpy.core.numeric import NaN
 import pandas as pd
+from pandas._libs.tslibs import NaT
 
 from hotstepper.utilities.helpers import get_epoch_start, prepare_datetime
 
@@ -309,7 +311,7 @@ def read_array(cls, start=None,end=None,weight=None,use_datetime = False, conver
             if weight[0] !=0:
                 weight0 = weight[0]
 
-            if weight0 !=0:
+            if weight0 !=0 and not pd.isnull(start[0]):
                 weight = np.diff(weight)
                 new_steps = cls(use_datetime).add_direct(start,end,weight)
                 new_steps.add_steps([[get_epoch_start(False),1,weight0]])
@@ -320,6 +322,18 @@ def read_array(cls, start=None,end=None,weight=None,use_datetime = False, conver
             new_steps = cls(use_datetime).add_direct(start,end,weight)
             
         return new_steps
+        # if convert_delta:
+        #     if weight[0] !=0: # and not pd.isnull(start[0]):
+        #         weight = np.diff(weight)
+        #         new_steps = cls(use_datetime).add_direct(start,end,weight)
+        #         new_steps.add_steps([[get_epoch_start(False),1,weight[0]]])
+        #     else:
+        #         weight = np.diff(weight,prepend=0)
+        #         new_steps = cls(use_datetime).add_direct(start,end,weight)
+        # else:
+        #     new_steps = cls(use_datetime).add_direct(start,end,weight)
+            
+        # return new_steps
     else:
         raise TypeError("input data must be array like, python array or ndarray.")
 
