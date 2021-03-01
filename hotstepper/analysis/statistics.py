@@ -184,6 +184,23 @@ def histogram(steps, bins=None,axis=0,ts_grain = None):
 
 
 def span_and_weights(st):
+    """
+    Returns a number of data items for the step keys within the dataset, such as;
+     - first key, (same as a call to steps.first(), except will always return float)
+     - last key, (same as a call to steps.first(), except will always return float)
+     - span, the total duration or difference between last - first, if the steps are using datetime keys, this will be the total number of seconds between the first and last keys
+     - weight, this is the percentage of the total span duration each step value is realised. It is simply the percentage of time spent at each particular steps value, this is not unique.
+    
+    .. note::
+        If the steps object has values at +/- infinity, these will be ignored, as these values don't contribute a finite weight or span.
+
+    Returns
+    ========
+        tuple (first key, last key,span,weight)
+        
+
+    """
+    
     step_keys, _ = get_clean_step_data(st)
 
     min_key = np.amin(step_keys)
@@ -198,6 +215,16 @@ def span_and_weights(st):
 
 
 def mean_integrate(st):
+    """
+    Mainly used internally, provided as a convenience to calculate and return the mean, integral and variance of the steps object in one call and return the results as a tuple.
+
+
+    Returns
+    ========
+        tuple (mean, integral, variance)
+
+    """
+    
     _, steps_raw = get_clean_step_data(st)
 
     _,_,span, weight = span_and_weights(st)
@@ -212,21 +239,66 @@ def mean_integrate(st):
 
 
 def mean(st):
+    """
+    Returns the weighted mean of the cummulative steps values across all step keys.
+
+    .. note::
+        If you wish to calculate the mean for a portion of the step keys, use the clip() method to isolate the segment and then call the mean() method on the segment.
+
+    Returns
+    =======
+        float
+
+    """
+    
     m,_,_ = mean_integrate(st)
     return m
 
 
 def var(st):
+    """
+    Returns the weighted variance of the cummulative steps values across all step keys.
+
+    .. note::
+        This is the population variance.
+
+    Returns
+    =======
+        float
+
+    """
+    
     _,_,v = mean_integrate(st)
     return v
 
 
 def std(st):
+    """
+    Returns the weighted standard deviation of the cummulative steps values across all step keys.
+
+    .. note::
+        This is the population standard deviation.
+
+    Returns
+    =======
+        float
+            
+    """
+
     _,_,v = mean_integrate(st)
     return np.sqrt(v)
 
 
 def integrate(st):
+    """
+    Returns the integral (area under the curve) for the cummulative steps values across all step keys.
+
+    Returns
+    =======
+        float
+            
+    """
+
     m,a,v = mean_integrate(st)
     return a
 
@@ -238,6 +310,15 @@ def percentile(st, percent):
 
 
 def min(st, include_zero=True):
+    """
+    Returns the minimum value for the cummulative steps values across all step keys.
+
+    Returns
+    =======
+        float
+            
+    """
+
     _, steps_raw = get_clean_step_data(st)
     if not include_zero:
         steps_raw = steps_raw[steps_raw!=0]
@@ -246,14 +327,40 @@ def min(st, include_zero=True):
 
 
 def max(st):
+    """
+    Returns the maximum value for the cummulative steps values across all step keys.
+
+    Returns
+    =======
+        float
+            
+    """
     _, steps_raw = get_clean_step_data(st)
 
     return np.max(steps_raw)
 
 def median(st):
+    """
+    Returns the median value for the cummulative steps values across all step keys.
+
+    Returns
+    =======
+        float
+            
+    """
+    
     return percentile(st,50)
 
 def mode(st, policy='omit'):
+    """
+    Returns the mode value for the cummulative steps values across all step keys.
+
+    Returns
+    =======
+        float
+            
+    """
+    
     _, steps_raw = get_clean_step_data(st)
 
     m,_ = stats.mode(steps_raw,nan_policy=policy)
@@ -261,10 +368,38 @@ def mode(st, policy='omit'):
 
 
 def covariance(st,other):
+    """
+    Returns the covariance between this steps object and another.
+
+    Parameters
+    ===========
+    other : Steps
+        The other steps object to calculate the covariance between each steps object cummulative values.
+
+    Returns
+    =======
+        float
+
+    """
+    
     return mean(st*other) - mean(st)*mean(other)
 
 
 def correlation(st,other):
+    """
+    Returns the correlation between this steps object and another.
+
+    Parameters
+    ===========
+    other : Steps
+        The other steps object to calculate the correlation between each steps object cummulative values.
+
+    Returns
+    =======
+        float
+
+    """
+    
     return covariance(st,other)/(std(st)*std(other))
 
 def describe(st, precision = 2, return_dataframe = True):
@@ -306,6 +441,7 @@ def describe(st, precision = 2, return_dataframe = True):
 def rolling_function_step(steps,x,rolling_function=None, window = 1, pre_mid_post = 'mid'):
 
     """
+    Apply a reduction function across a rolling windows on the cummulative steps values.
     
     """
 
