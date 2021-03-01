@@ -14,10 +14,15 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
-'numpy>=1.19.5',
+            'numpy>=1.19.5',
+            'matplotlib>=3.3.3',
 			'numpy-indexed==0.3.5',
 			'pandas>=1.2.0',
-			'pytz>=2020.1',                    
+			'pytz>=2020.1',  
+            'seaborn>=0.11.1',
+            'scipy>=1.5.4',
+            'statsmodels>=0.12.0',
+            'numba>=0.51.2',
                       ],
 
 )
