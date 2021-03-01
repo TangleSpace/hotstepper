@@ -11,7 +11,8 @@ from hotstepper.basis.Basis import Basis
 from hotstepper.basis.Bases import Bases
 
 from hotstepper.utilities.helpers import (
-    get_epoch_start, 
+    get_epoch_start,
+    get_epoch_end,
     prepare_input,
     get_clean_step_data,
     prepare_datetime,
@@ -73,6 +74,56 @@ class AbstractSteps(ABC):
             return np.array_equal(st_this_keys, st_that_keys) and np.array_equal(st_this_values,st_that_values)
         else:
             return (st_this_values==other).all()
+
+
+    def steps_data(self,deltas=False):
+        """
+        A clean multi-dimensional numpy array of the step keys and either the cummulative values or the step change values all in floats and ready to use in further analysis.
+        
+        .. note::
+            This function returns a dataset that can directly be consumed by numpy, Sklearn and similar packages for forecasting or analysis.
+
+
+        Parameters
+        ===========
+        deltas : bool, Optional
+            Return the step delta changes instead of the cummulative total at each step key.
+
+        Returns
+        ========
+        array
+
+
+        """
+
+        if deltas:
+            nice_data = np.copy(self._step_data[:,[DataModel.START.value,DataModel.DIRECTION.value]])
+        else:
+            nice_data = np.copy(self._step_data[:,[DataModel.START.value,DataModel.WEIGHT.value]])
+
+        if nice_data[0,DataModel.START.value] == get_epoch_start(False):
+            nice_data = nice_data[1:]
+
+        if nice_data[-1,DataModel.START.value] == get_epoch_end(False):
+            nice_data = nice_data[:-1]
+
+        return nice_data
+
+
+    def iloc(self,idx,raw_keys=True):
+        """
+        The individual step changes at each key value, these are the delta values that add and subtract across the series to realise the entire step function.
+
+        Returns
+        ========
+        array
+            Individual step change values within the steps object.
+
+        """
+
+        nice_data = np.copy(self._step_data[idx,[DataModel.START.value,DataModel.DIRECTION.value,DataModel.WEIGHT.value]])
+
+        return nice_data
 
 
     def step_changes(self):
