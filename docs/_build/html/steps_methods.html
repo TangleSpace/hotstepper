@@ -177,6 +177,90 @@
   </label>
   
 
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+    
+      <a href="howto%20recipes.html" class="md-nav__link">Hot-To Recipes</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="steps_class.html" class="md-nav__link">Steps class</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> Steps methods </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">Steps methods</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#steps-methods--page-root" class="md-nav__link">Steps methods</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#basic-methods" class="md-nav__link">Basic methods</a>
+        </li>
+        <li class="md-nav__item"><a href="#plotting-functions" class="md-nav__link">Plotting functions</a>
+        </li>
+        <li class="md-nav__item"><a href="#class-loader-functions" class="md-nav__link">Class Loader functions</a>
+        </li>
+        <li class="md-nav__item"><a href="#instance-loader-functions" class="md-nav__link">Instance Loader functions</a>
+        </li>
+        <li class="md-nav__item"><a href="#step-functions" class="md-nav__link">Step Functions</a>
+        </li>
+        <li class="md-nav__item"><a href="#arithmetic-operators" class="md-nav__link">Arithmetic operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#logical-operators" class="md-nav__link">Logical operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#statistical-operators" class="md-nav__link">Statistical operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#summary-statistics" class="md-nav__link">Summary statistics</a>
+        </li>
+        <li class="md-nav__item"><a href="#miscellaneous-functions" class="md-nav__link">Miscellaneous functions</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/steps_methods.rst.txt">Show Source</a> </li>
+
+  </ul>
+</nav>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="basis.html" class="md-nav__link">Basis and Bases</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="examples.html" class="md-nav__link">Case Studies</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="helpers.html" class="md-nav__link">Helper Functions</a>
+      
+    
+    </li>
+  </ul>
+  
+
 </nav>
               </div>
             </div>
@@ -248,16 +332,19 @@
 <tr class="row-even"><td><p><a class="reference internal" href="api/hotstepper.Steps.last.html#hotstepper.Steps.last" title="hotstepper.Steps.last"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.last</span></code></a>()</p></td>
 <td><p>The last key or start value of the steps, if the steps extend to positive infinity, the last value will be the last finite key value.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.using_datetime.html#hotstepper.Steps.using_datetime" title="hotstepper.Steps.using_datetime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.using_datetime</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.series.html#hotstepper.Steps.series" title="hotstepper.Steps.series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.series</span></code></a>([xdata, ydata])</p></td>
+<td><p>A convenience function to either return the internal steps data in a Pandas Series object with the steps keys as the index or convert a provided 2-D set of data into a Pandas Series.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/hotstepper.Steps.using_datetime.html#hotstepper.Steps.using_datetime" title="hotstepper.Steps.using_datetime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.using_datetime</span></code></a>()</p></td>
 <td><p>Check if this steps object is using datetime step keys or not.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/hotstepper.Steps.step_keys.html#hotstepper.Steps.step_keys" title="hotstepper.Steps.step_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.step_keys</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.step_keys.html#hotstepper.Steps.step_keys" title="hotstepper.Steps.step_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.step_keys</span></code></a>()</p></td>
 <td><p>The step key values within this object.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.step_values.html#hotstepper.Steps.step_values" title="hotstepper.Steps.step_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.step_values</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/hotstepper.Steps.step_values.html#hotstepper.Steps.step_values" title="hotstepper.Steps.step_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.step_values</span></code></a>()</p></td>
 <td><p>The cummulative step values at each key value.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/hotstepper.Steps.steps.html#hotstepper.Steps.steps" title="hotstepper.Steps.steps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.steps</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.steps.html#hotstepper.Steps.steps" title="hotstepper.Steps.steps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.steps</span></code></a>()</p></td>
 <td><p>Return all the raw steps data within this steps object.</p></td>
 </tr>
 </tbody>

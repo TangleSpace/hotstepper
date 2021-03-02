@@ -14,6 +14,7 @@ Basic methods
    Steps.clear
    Steps.first
    Steps.last
+   Steps.series
    Steps.using_datetime
    Steps.step_keys
    Steps.step_values

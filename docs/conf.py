@@ -110,18 +110,12 @@ html_theme_options = {
 
 
     # Visible levels of the global TOC; -1 means unlimited
-    'globaltoc_depth': 3,
+    'globaltoc_depth': 1,
     # If False, expand all TOC entries
     'globaltoc_collapse': False,
     # If True, show hidden TOC entries
     'globaltoc_includehidden': False,
 }
-
-#html_theme = "sphinxawesome_theme"
-
-# html_theme_options = {
-#     'color': '#9c00ff'
-# }
 
 html_logo = 'images/HotstepperLogo.png'
 
@@ -133,6 +127,6 @@ html_static_path = ['_static']
 # def setup(app):
 #     app.add_css_file('custom.css')
 
-# html_sidebars = {
-#     "**":["logo.html", "globaltoc.html", "relations.html", "searchbox.html", "gumroad.html",]
-# }
+html_sidebars = {
+    "**": ["logo-text.html", "globaltoc.html", "localtoc.html", "searchbox.html"]
+}

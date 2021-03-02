@@ -103,31 +103,6 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
         
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="GET" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
-             autocapitalize="off" autocomplete="off" spellcheck="false"
-             data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
-            Type to start searching
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
       </div>
       
       
@@ -173,6 +148,599 @@
     <a href="index.html"
        title="HotStepper">HotStepper</a>
   </label>
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+    
+      <a href="howto%20recipes.html" class="md-nav__link">Hot-To Recipes</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="notebooks/How%20To%27s.html" class="md-nav__link">How-To Recipes</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="notebooks/More%20How%20To%27s.html" class="md-nav__link">More How-To Recipes</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="steps_class.html" class="md-nav__link">Steps class</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="steps_class.html#terminology" class="md-nav__link">Terminology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="steps_class.html#parameters" class="md-nav__link">Parameters</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="steps_methods.html" class="md-nav__link">Steps methods</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="steps_methods.html#basic-methods" class="md-nav__link">Basic methods</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.copy.html" class="md-nav__link">hotstepper.Steps.copy</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.clear.html" class="md-nav__link">hotstepper.Steps.clear</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.first.html" class="md-nav__link">hotstepper.Steps.first</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.last.html" class="md-nav__link">hotstepper.Steps.last</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.using_datetime.html" class="md-nav__link">hotstepper.Steps.using_datetime</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.step_keys.html" class="md-nav__link">hotstepper.Steps.step_keys</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.step_values.html" class="md-nav__link">hotstepper.Steps.step_values</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.steps.html" class="md-nav__link">hotstepper.Steps.steps</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="steps_methods.html#plotting-functions" class="md-nav__link">Plotting functions</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.plot.html" class="md-nav__link">hotstepper.Steps.plot</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.smooth_plot.html" class="md-nav__link">hotstepper.Steps.smooth_plot</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.plot_rolling_step.html" class="md-nav__link">hotstepper.Steps.plot_rolling_step</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.histogram_plot.html" class="md-nav__link">hotstepper.Steps.histogram_plot</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.ecdf_plot.html" class="md-nav__link">hotstepper.Steps.ecdf_plot</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.pacf_plot.html" class="md-nav__link">hotstepper.Steps.pacf_plot</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.acf_plot.html" class="md-nav__link">hotstepper.Steps.acf_plot</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.summary.html" class="md-nav__link">hotstepper.Steps.summary</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="steps_methods.html#class-loader-functions" class="md-nav__link">Class Loader functions</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.read_dataframe.html" class="md-nav__link">hotstepper.Steps.read_dataframe</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.read_array.html" class="md-nav__link">hotstepper.Steps.read_array</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.read_dict.html" class="md-nav__link">hotstepper.Steps.read_dict</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="steps_methods.html#instance-loader-functions" class="md-nav__link">Instance Loader functions</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.add.html" class="md-nav__link">hotstepper.Steps.add</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.add_steps.html" class="md-nav__link">hotstepper.Steps.add_steps</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.add_direct.html" class="md-nav__link">hotstepper.Steps.add_direct</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="steps_methods.html#step-functions" class="md-nav__link">Step Functions</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.step.html" class="md-nav__link">hotstepper.Steps.step</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.smooth_step.html" class="md-nav__link">hotstepper.Steps.smooth_step</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.fast_step.html" class="md-nav__link">hotstepper.Steps.fast_step</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.rebase.html" class="md-nav__link">hotstepper.Steps.rebase</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.basis.html" class="md-nav__link">hotstepper.Steps.basis</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="steps_methods.html#arithmetic-operators" class="md-nav__link">Arithmetic operators</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.__neg__.html" class="md-nav__link">hotstepper.Steps.__neg__</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.__add__.html" class="md-nav__link">hotstepper.Steps.__add__</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.__sub__.html" class="md-nav__link">hotstepper.Steps.__sub__</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.__mul__.html" class="md-nav__link">hotstepper.Steps.__mul__</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.__truediv__.html" class="md-nav__link">hotstepper.Steps.__truediv__</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="steps_methods.html#logical-operators" class="md-nav__link">Logical operators</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.normalise.html" class="md-nav__link">hotstepper.Steps.normalise</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.invert.html" class="md-nav__link">hotstepper.Steps.invert</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.reflect.html" class="md-nav__link">hotstepper.Steps.reflect</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.__eq__.html" class="md-nav__link">hotstepper.Steps.__eq__</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.__ne__.html" class="md-nav__link">hotstepper.Steps.__ne__</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.__gt__.html" class="md-nav__link">hotstepper.Steps.__gt__</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.__lt__.html" class="md-nav__link">hotstepper.Steps.__lt__</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.__ge__.html" class="md-nav__link">hotstepper.Steps.__ge__</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.__le__.html" class="md-nav__link">hotstepper.Steps.__le__</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="steps_methods.html#statistical-operators" class="md-nav__link">Statistical operators</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.covariance.html" class="md-nav__link">hotstepper.Steps.covariance</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.correlation.html" class="md-nav__link">hotstepper.Steps.correlation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.span_and_weights.html" class="md-nav__link">hotstepper.Steps.span_and_weights</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="steps_methods.html#summary-statistics" class="md-nav__link">Summary statistics</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.integrate.html" class="md-nav__link">hotstepper.Steps.integrate</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.describe.html" class="md-nav__link">hotstepper.Steps.describe</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.min.html" class="md-nav__link">hotstepper.Steps.min</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.max.html" class="md-nav__link">hotstepper.Steps.max</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.var.html" class="md-nav__link">hotstepper.Steps.var</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.std.html" class="md-nav__link">hotstepper.Steps.std</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.mean.html" class="md-nav__link">hotstepper.Steps.mean</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.median.html" class="md-nav__link">hotstepper.Steps.median</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.percentile.html" class="md-nav__link">hotstepper.Steps.percentile</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.ecdf.html" class="md-nav__link">hotstepper.Steps.ecdf</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.histogram.html" class="md-nav__link">hotstepper.Steps.histogram</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="steps_methods.html#miscellaneous-functions" class="md-nav__link">Miscellaneous functions</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.clip.html" class="md-nav__link">hotstepper.Steps.clip</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.clamp.html" class="md-nav__link">hotstepper.Steps.clamp</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.rshift.html" class="md-nav__link">hotstepper.Steps.rshift</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.lshift.html" class="md-nav__link">hotstepper.Steps.lshift</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api/hotstepper.Steps.compare.html" class="md-nav__link">hotstepper.Steps.compare</a>
+      
+    
+    </li></ul>
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="examples.html" class="md-nav__link">Case Studies</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="examples/currency.html" class="md-nav__link">Forex Analysis</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="examples/uber%20trips.html" class="md-nav__link">Uber Trips</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="examples/daily%20temperatures.html" class="md-nav__link">Daily Temperatures</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="examples/store_orders.html" class="md-nav__link">Sales Order Example</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="examples/vessel%20movement.html" class="md-nav__link">Vessel Movements</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="helpers.html" class="md-nav__link">Helper Functions</a>
+      
+    
+    </li>
+  </ul>
   
 
 </nav>

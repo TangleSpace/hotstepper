@@ -33,7 +33,7 @@ def acf(steps, maxlags = 10):
 
     References
     ==========
-    .. [1] https://en.wikipedia.org/wiki/Partial_autocorrelation_function
+    .. https://en.wikipedia.org/wiki/Partial_autocorrelation_function
 
     """
     _, steps_raw = get_clean_step_data(steps)
@@ -47,8 +47,9 @@ def acf(steps, maxlags = 10):
 
     return lags,acf
 
-def pacf(steps, maxlags = 10):
 
+def pacf(steps, maxlags = 10):
+    
     """
     Calculates the Partial Auto Correction Function for the steps data.
     
@@ -71,7 +72,7 @@ def pacf(steps, maxlags = 10):
 
     References
     ==========
-    .. [1] https://en.wikipedia.org/wiki/Partial_autocorrelation_function
+    .. https://en.wikipedia.org/wiki/Partial_autocorrelation_function
 
     """
     _, steps_raw = get_clean_step_data(steps)
@@ -110,7 +111,7 @@ def ecdf(steps):
 
     References
     ==========
-    .. [1] https://en.wikipedia.org/wiki/Empirical_distribution_function
+    .. https://en.wikipedia.org/wiki/Empirical_distribution_function
 
     """
 

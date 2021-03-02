@@ -321,7 +321,7 @@
   },
   {
    "source": [
-    "But what there's more!"
+    "But wait there's more!"
    ],
    "cell_type": "markdown",
    "metadata": {}
@@ -394,13 +394,11 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
    "source": [
     "ok, but we don't like some of the formatting and i already know that at lag = 0 it is 100% correlated, so can i throw that away?"
-   ]
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
   },
   {
    "cell_type": "code",
