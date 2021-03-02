@@ -304,6 +304,16 @@ def integrate(st):
 
 
 def percentile(st, percent):
+    """
+    Return the value of the percentile of the cummulative steps values.
+
+    Returns
+    ========
+        float
+
+        
+    """
+    
     _, steps_raw = get_clean_step_data(st)
 
     return np.percentile(steps_raw,percent)

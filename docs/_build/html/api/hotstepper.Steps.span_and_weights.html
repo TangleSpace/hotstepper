@@ -207,7 +207,28 @@
 <dl class="py method">
 <dt id="hotstepper.Steps.span_and_weights">
 <code class="sig-prename descclassname">Steps.</code><code class="sig-name descname">span_and_weights</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.Steps.span_and_weights" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="simple">
+<dt>Returns a number of data items for the step keys within the dataset, such as;</dt><dd><ul class="simple">
+<li><p>first key, (same as a call to steps.first(), except will always return float)</p></li>
+<li><p>last key, (same as a call to steps.first(), except will always return float)</p></li>
+<li><p>span, the total duration or difference between last - first, if the steps are using datetime keys, this will be the total number of seconds between the first and last keys</p></li>
+<li><p>weight, this is the percentage of the total span duration each step value is realised. It is simply the percentage of time spent at each particular steps value, this is not unique.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the steps object has values at +/- infinity, these will be ignored, as these values don’t contribute a finite weight or span.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple (first key, last key,span,weight)</p>
+</dd>
+</dl>
+</dd></dl>
 
 
 

@@ -208,39 +208,40 @@
 <dt id="hotstepper.Steps.summary">
 <code class="sig-prename descclassname">Steps.</code><code class="sig-name descname">summary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plot_params</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.Steps.summary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot and display summary details and statistics for the Steps object.</p>
-<p>Plots
-- Steps
-- Smooth steps
-- ECDF
-- Histogram</p>
+<dl class="simple">
+<dt>Plots</dt><dd><ul class="simple">
+<li><p>Steps</p></li>
+<li><p>Smooth steps</p></li>
+<li><p>ECDF</p></li>
+<li><p>Histogram</p></li>
+</ul>
+</dd>
+</dl>
 <p>Statistics
 Same as Steps.describe()</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>plot_params</strong> (<em>dictionary_like</em><em>, </em><em>Optional</em>) – <p>A dictionary to control the look of the plots.
-{‘steps_plot’: {parameter_name:value, } -&gt; the same as <a href="#id1"><span class="problematic" id="id2">**</span></a>kargs,</p>
-<blockquote>
-<div><p>’smooth_steps_plot’: {parameter_name:value, } -&gt; the same as <a href="#id3"><span class="problematic" id="id4">**</span></a>kargs,
+{
+‘steps_plot’: {parameter_name:value, } -&gt; the same as <a href="#id1"><span class="problematic" id="id2">**</span></a>kargs,
+‘smooth_steps_plot’: {parameter_name:value, } -&gt; the same as <a href="#id3"><span class="problematic" id="id4">**</span></a>kargs,
 ‘ecdf_plot’: {parameter_name:value, } -&gt; the same as <a href="#id5"><span class="problematic" id="id6">**</span></a>kargs,
-‘histogram_plot’: {parameter_name:value, } -&gt; the same as <a href="#id7"><span class="problematic" id="id8">**</span></a>kargs}</p>
-</div></blockquote>
-<dl class="simple">
-<dt>example, plot_params = {‘steps_plot’: {‘color’: ‘green’,},</dt><dd><p>’smooth_steps_plot’: {‘linewidth’: 5, },
+‘histogram_plot’: {parameter_name:value, } -&gt; the same as <a href="#id7"><span class="problematic" id="id8">**</span></a>kargs
+}</p>
+<p>example, plot_params =
+{
+‘steps_plot’: {‘color’: ‘green’,},
+‘smooth_steps_plot’: {‘linewidth’: 5, },
 ‘ecdf_plot’: {‘linestyle’: ‘:’, },
-‘histogram_plot’: {‘width’: 4}}</p>
-</dd>
-</dl>
+‘histogram_plot’: {‘width’: 4}
+}</p>
 </p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>[steps_plot_ax,
-ecdf_plot_ax,
-statistics_table_ax,
-histogram_plot_ax,
-statistics_table]</p>
+<dd class="field-even"><p>[steps_plot_ax,ecdf_plot_ax, statistics_table_ax, histogram_plot_ax,statistics_table]</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Array of Matplotilib Axes objects</p>
+<dd class="field-odd"><p>array</p>
 </dd>
 </dl>
 <div class="admonition seealso">

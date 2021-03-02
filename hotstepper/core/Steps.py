@@ -140,7 +140,7 @@ class Steps(
                 yield (convert_func(s),1,w)
             else:
                 yield (convert_func(s),1,w)
-                yield (convert_func(e),1,-1*w)
+                yield (convert_func(e),1,-w)
 
 
     def add_steps(self,step_data_np):
@@ -353,7 +353,7 @@ class Steps(
 
     def _clip(self,lbound=None,ubound=None):
 
-        step_data = self.steps()
+        step_data = self._all_data
 
         if lbound is None:
             lower_idx = 0

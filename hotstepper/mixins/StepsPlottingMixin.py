@@ -541,10 +541,10 @@ class StepsPlottingMixin(ABC):
         Plot and display summary details and statistics for the Steps object.
 
         Plots
-        - Steps
-        - Smooth steps
-        - ECDF
-        - Histogram
+         - Steps
+         - Smooth steps
+         - ECDF
+         - Histogram
 
         Statistics
         Same as Steps.describe()
@@ -553,24 +553,25 @@ class StepsPlottingMixin(ABC):
         ==============
         plot_params : dictionary_like, Optional
             A dictionary to control the look of the plots.
-            {'steps_plot': {parameter_name:value, } -> the same as **kargs,
-             'smooth_steps_plot': {parameter_name:value, } -> the same as **kargs,
-             'ecdf_plot': {parameter_name:value, } -> the same as **kargs,
-             'histogram_plot': {parameter_name:value, } -> the same as **kargs}
+            {
+            'steps_plot': {parameter_name:value, } -> the same as **kargs,
+            'smooth_steps_plot': {parameter_name:value, } -> the same as **kargs,
+            'ecdf_plot': {parameter_name:value, } -> the same as **kargs,
+            'histogram_plot': {parameter_name:value, } -> the same as **kargs
+            }
 
-            example, plot_params = {'steps_plot': {'color': 'green',},
-                            'smooth_steps_plot': {'linewidth': 5, },
-                            'ecdf_plot': {'linestyle': ':', },
-                            'histogram_plot': {'width': 4}}
+            example, plot_params =
+            {
+            'steps_plot': {'color': 'green',},
+            'smooth_steps_plot': {'linewidth': 5, },
+            'ecdf_plot': {'linestyle': ':', },
+            'histogram_plot': {'width': 4}
+            }
 
         Returns
         ==============
-            Array of Matplotilib Axes objects 
-                [steps_plot_ax,
-                ecdf_plot_ax, 
-                statistics_table_ax, 
-                histogram_plot_ax,
-                statistics_table]
+        array
+            [steps_plot_ax,ecdf_plot_ax, statistics_table_ax, histogram_plot_ax,statistics_table]
 
         See Also
         ==============

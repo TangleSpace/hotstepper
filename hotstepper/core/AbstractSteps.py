@@ -437,8 +437,11 @@ class AbstractSteps(ABC):
         core.DataModel
 
         """
+        raw_steps = np.copy(self._all_data)
+        raw_steps[:,DataModel.WEIGHT.value] = raw_steps[:,DataModel.WEIGHT.value]
+        raw_steps[:,DataModel.WEIGHT.value] = 1
         
-        return self._all_data
+        return raw_steps
 
 
     def series(self,xdata=None,ydata=None):
