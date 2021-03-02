@@ -335,16 +335,19 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.series.html#hotstepper.Steps.series" title="hotstepper.Steps.series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.series</span></code></a>([xdata, ydata])</p></td>
 <td><p>A convenience function to either return the internal steps data in a Pandas Series object with the steps keys as the index or convert a provided 2-D set of data into a Pandas Series.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/hotstepper.Steps.using_datetime.html#hotstepper.Steps.using_datetime" title="hotstepper.Steps.using_datetime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.using_datetime</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/hotstepper.Steps.iloc.html#hotstepper.Steps.iloc" title="hotstepper.Steps.iloc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.iloc</span></code></a>(idx[, raw_keys])</p></td>
+<td><p>The individual step changes at each key value, these are the delta values that add and subtract across the series to realise the entire step function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.using_datetime.html#hotstepper.Steps.using_datetime" title="hotstepper.Steps.using_datetime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.using_datetime</span></code></a>()</p></td>
 <td><p>Check if this steps object is using datetime step keys or not.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.step_keys.html#hotstepper.Steps.step_keys" title="hotstepper.Steps.step_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.step_keys</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/hotstepper.Steps.step_keys.html#hotstepper.Steps.step_keys" title="hotstepper.Steps.step_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.step_keys</span></code></a>()</p></td>
 <td><p>The step key values within this object.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/hotstepper.Steps.step_values.html#hotstepper.Steps.step_values" title="hotstepper.Steps.step_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.step_values</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.step_values.html#hotstepper.Steps.step_values" title="hotstepper.Steps.step_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.step_values</span></code></a>()</p></td>
 <td><p>The cummulative step values at each key value.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/hotstepper.Steps.steps.html#hotstepper.Steps.steps" title="hotstepper.Steps.steps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.steps</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/hotstepper.Steps.steps.html#hotstepper.Steps.steps" title="hotstepper.Steps.steps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.steps</span></code></a>()</p></td>
 <td><p>Return all the raw steps data within this steps object.</p></td>
 </tr>
 </tbody>

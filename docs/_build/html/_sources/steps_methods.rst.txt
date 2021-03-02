@@ -15,6 +15,7 @@ Basic methods
    Steps.first
    Steps.last
    Steps.series
+   Steps.iloc
    Steps.using_datetime
    Steps.step_keys
    Steps.step_values

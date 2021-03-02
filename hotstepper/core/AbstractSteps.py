@@ -112,7 +112,12 @@ class AbstractSteps(ABC):
 
     def iloc(self,idx,raw_keys=True):
         """
-        The individual step changes at each key value, these are the delta values that add and subtract across the series to realise the entire step function.
+        The individual step changes at each array index, these are the delta values that add and subtract across the series to realise the entire step function.
+
+        Parameters
+        ============
+        idx : int, slice
+            The numpy index, range index or slice to lookup the raw step change values wihtin the Steps DataModel
 
         Returns
         ========
@@ -458,6 +463,11 @@ class AbstractSteps(ABC):
 
         ydata : array_like, Optional
             A 1-D array represeting the data to use as the values of the Pandas Series. If no xdata is provided, an integer based index will be generated across the length of the provided ydata.
+
+        Returns
+        ========
+        Pandas.Series
+        
         """
         
         if ydata is None and xdata is None:
