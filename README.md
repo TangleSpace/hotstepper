@@ -5,7 +5,7 @@ The Hot Stepper library is for exploring datasets via step function expansions.
 
 It's all about tools that just work and no need for extensive knowledge of Pandas or Numpy or whatever, just HotStepper!. Albeit, knowledge of Pandas and Numpy is useful.
 
-<p align="left"><img src="https://github.com/TangleSpace/hotstepper/tree/master/docs/images/summary.gif?raw=true" title="Data Summary" alt="Data Summary", width="50%" height="auto"></p>
+<p align="left"><img src="https://github.com/TangleSpace/hotstepper/blob/master/docs/images/summary.gif" title="Data Summary" alt="Data Summary", width="50%" height="auto"></p>
 
 What the f*&^ is a step function you may ask?, Have you ever seen some stairs?, this is an equal oppotunity package, so you may be in a wheel chair and unable to use stairs in the typical way, so just having seen some stairs will suffix.
 
