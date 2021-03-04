@@ -85,7 +85,7 @@ class Bases(ABC):
         result = np.zeros(len(x))
             
         for i in nb.prange(steps.shape[0]):
-            result += steps[i,2]*np.sinc(-1*steps[i,1]*(x-steps[i,0])/param)
+            result += steps[i,2]*np.sinc(steps[i,1]*(x-steps[i,0])/param)
 
         return result
 

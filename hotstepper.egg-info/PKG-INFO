@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: hotstepper
+Version: 1.0.2
+Summary: Numpy based step function library.
+Home-page: https://github.com/tanglespace/hotstepper
+Author: Jackson Storm
+Author-email: c6lculus8ntr0py@gmail.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
