@@ -197,7 +197,7 @@ def span_and_weights(st):
 
     Returns
     ========
-        tuple (first key, last key,span,weight)
+    tuple (first key, last key,span,weight)
         
 
     """
@@ -222,7 +222,7 @@ def mean_integrate(st):
 
     Returns
     ========
-        tuple (mean, integral, variance)
+    tuple (mean, integral, variance)
 
     """
     
@@ -248,7 +248,7 @@ def mean(st):
 
     Returns
     =======
-        float
+    float
 
     """
     
@@ -265,7 +265,7 @@ def var(st):
 
     Returns
     =======
-        float
+    float
 
     """
     
@@ -282,7 +282,7 @@ def std(st):
 
     Returns
     =======
-        float
+    float
             
     """
 
@@ -296,7 +296,7 @@ def integrate(st):
 
     Returns
     =======
-        float
+    float
             
     """
 
@@ -310,7 +310,7 @@ def percentile(st, percent):
 
     Returns
     ========
-        float
+    float
 
         
     """
@@ -326,7 +326,7 @@ def min(st, include_zero=True):
 
     Returns
     =======
-        float
+    float
             
     """
 
@@ -343,7 +343,7 @@ def max(st):
 
     Returns
     =======
-        float
+    float
             
     """
     _, steps_raw = get_clean_step_data(st)
@@ -356,7 +356,7 @@ def median(st):
 
     Returns
     =======
-        float
+    float
             
     """
     
@@ -368,7 +368,7 @@ def mode(st, policy='omit'):
 
     Returns
     =======
-        float
+    float
             
     """
     
@@ -389,7 +389,7 @@ def covariance(st,other):
 
     Returns
     =======
-        float
+    float
 
     """
     
@@ -407,7 +407,7 @@ def correlation(st,other):
 
     Returns
     =======
-        float
+    float
 
     """
     

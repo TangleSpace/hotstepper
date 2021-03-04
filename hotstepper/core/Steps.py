@@ -85,16 +85,6 @@ class Steps(
 
     """
 
-#    """
-#         \\theta(t) = \\left\{
-#             \\begin{array}{ll}
-#                 0 & \\\\quad t < 0 \\\\
-#                 1 & \\\\quad t \\\\geq 0
-#             \\end{array}
-#         \\right.
-#     where  \\ t \\in \\mathbb{R}
-#    """ 
-
     def __init__(self,use_datetime=False, start=None, end=None, weight=None, basis=None):
         super().__init__(use_datetime,basis)
 

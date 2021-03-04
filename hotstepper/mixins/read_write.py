@@ -46,21 +46,6 @@ def to_dict(steps,cummulative_output = True):
     to_array
     to_dataframe
 
-    Examples
-    ==============
-    We can calculate a derivative value of a function.
-    >>> from scipy.misc import central_diff_weights
-    >>> def f(x):
-    ...     return 2 * x**2 + 3
-    >>> x = 3.0 # derivative point
-    >>> h = 0.1 # differential step
-    >>> Np = 3 # point number for central derivative
-    >>> weights = central_diff_weights(Np) # weights for first derivative
-    >>> vals = [f(x + (i - Np/2) * h) for i in range(Np)]
-    >>> sum(w * v for (w, v) in zip(weights, vals))/h
-    11.79999999999998
-    This value is close to the analytical solution:
-    f'(x) = 4x, so f'(3) = 12
     """
 
     pass
@@ -98,21 +83,6 @@ def to_dataframe(steps, cummulative_output = True):
     to_array
     to_dict
 
-    Examples
-    ==============
-    We can calculate a derivative value of a function.
-    >>> from scipy.misc import central_diff_weights
-    >>> def f(x):
-    ...     return 2 * x**2 + 3
-    >>> x = 3.0 # derivative point
-    >>> h = 0.1 # differential step
-    >>> Np = 3 # point number for central derivative
-    >>> weights = central_diff_weights(Np) # weights for first derivative
-    >>> vals = [f(x + (i - Np/2) * h) for i in range(Np)]
-    >>> sum(w * v for (w, v) in zip(weights, vals))/h
-    11.79999999999998
-    This value is close to the analytical solution:
-    f'(x) = 4x, so f'(3) = 12
     """
 
     if steps.using_datetime():
@@ -166,21 +136,6 @@ def read_dict(cls, data,use_datetime = False, convert_delta = True):
     read_array
     read_dataframe
 
-    Examples
-    ==============
-    We can calculate a derivative value of a function.
-    >>> from scipy.misc import central_diff_weights
-    >>> def f(x):
-    ...     return 2 * x**2 + 3
-    >>> x = 3.0 # derivative point
-    >>> h = 0.1 # differential step
-    >>> Np = 3 # point number for central derivative
-    >>> weights = central_diff_weights(Np) # weights for first derivative
-    >>> vals = [f(x + (i - Np/2) * h) for i in range(Np)]
-    >>> sum(w * v for (w, v) in zip(weights, vals))/h
-    11.79999999999998
-    This value is close to the analytical solution:
-    f'(x) = 4x, so f'(3) = 12
     """
 
     if hasattr(data,'keys') and callable(data,'keys') :
@@ -224,21 +179,6 @@ def read_dataframe(cls, data,start=None,end=None,weight=None,use_datetime = Fals
     read_array
     read_dict
 
-    Examples
-    ==============
-    We can calculate a derivative value of a function.
-    >>> from scipy.misc import central_diff_weights
-    >>> def f(x):
-    ...     return 2 * x**2 + 3
-    >>> x = 3.0 # derivative point
-    >>> h = 0.1 # differential step
-    >>> Np = 3 # point number for central derivative
-    >>> weights = central_diff_weights(Np) # weights for first derivative
-    >>> vals = [f(x + (i - Np/2) * h) for i in range(Np)]
-    >>> sum(w * v for (w, v) in zip(weights, vals))/h
-    11.79999999999998
-    This value is close to the analytical solution:
-    f'(x) = 4x, so f'(3) = 12
     """
 
     if isinstance(data,pd.DataFrame):
@@ -288,21 +228,6 @@ def read_array(cls, start=None,end=None,weight=None,use_datetime = False, conver
     read_dataframe
     read_dict
 
-    Examples
-    ==============
-    We can calculate a derivative value of a function.
-    >>> from scipy.misc import central_diff_weights
-    >>> def f(x):
-    ...     return 2 * x**2 + 3
-    >>> x = 3.0 # derivative point
-    >>> h = 0.1 # differential step
-    >>> Np = 3 # point number for central derivative
-    >>> weights = central_diff_weights(Np) # weights for first derivative
-    >>> vals = [f(x + (i - Np/2) * h) for i in range(Np)]
-    >>> sum(w * v for (w, v) in zip(weights, vals))/h
-    11.79999999999998
-    This value is close to the analytical solution:
-    f'(x) = 4x, so f'(3) = 12
     """
 
     if hasattr(start,'__iter__') or hasattr(end,'__iter__'): #needs to be an array like object

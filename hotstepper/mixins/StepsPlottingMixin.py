@@ -297,7 +297,7 @@ class StepsPlottingMixin(ABC):
 
         References
         ==========
-        .. [1] https://en.wikipedia.org/wiki/autocorrelation_function
+        .. https://en.wikipedia.org/wiki/autocorrelation_function
 
         """
 
@@ -362,7 +362,7 @@ class StepsPlottingMixin(ABC):
 
         References
         ==========
-        .. [1] https://en.wikipedia.org/wiki/Partial_autocorrelation_function
+        .. https://en.wikipedia.org/wiki/Partial_autocorrelation_function
 
         """
 
@@ -421,7 +421,7 @@ class StepsPlottingMixin(ABC):
 
         References
         ==========
-        .. [1] https://en.wikipedia.org/wiki/Empirical_distribution_function
+        .. https://en.wikipedia.org/wiki/Empirical_distribution_function
 
         """
 
