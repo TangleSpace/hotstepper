@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name='hotstepper',
-    version='1.0.0',    
+    version='1.0.2',    
     description='Numpy based step function library.',
     url='https://github.com/tanglespace/hotstepper',
     author='Jackson Storm',

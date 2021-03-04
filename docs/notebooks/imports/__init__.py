@@ -1,2 +1,2 @@
-import sys
-sys.path.insert(0, r"..//..//")
+# import sys
+# sys.path.insert(0, r"..//..//")
