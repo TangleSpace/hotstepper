@@ -47,17 +47,14 @@
   
   
     <title>Forex Analysis &#8212; HotStepper</title>
-    <link rel="stylesheet" href="../_static/material.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Uber Trips" href="uber%20trips.html" />
@@ -500,7 +497,7 @@ div.rendered_html tbody tr:hover {
 
 <h1 id="examples-currency--page-root">Forex Analysis<a class="headerlink" href="#examples-currency--page-root" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>3
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -511,8 +508,8 @@ div.rendered_html tbody tr:hover {
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="kn">from</span> <span class="nn">hotstepper.basis</span> <span class="kn">import</span> <span class="n">Bases</span>
-<span class="kn">from</span> <span class="nn">hotstepper.basis</span> <span class="kn">import</span> <span class="n">Basis</span>
+<span class="kn">from</span> <span class="nn">hotstepper</span> <span class="kn">import</span> <span class="n">Bases</span>
+<span class="kn">from</span> <span class="nn">hotstepper</span> <span class="kn">import</span> <span class="n">Basis</span>
 <span class="kn">from</span> <span class="nn">hotstepper</span> <span class="kn">import</span> <span class="n">Steps</span><span class="p">,</span> <span class="n">Step</span>
 <span class="kn">from</span> <span class="nn">hotstepper.utilities</span> <span class="kn">import</span> <span class="n">rolling_window</span><span class="p">,</span> <span class="n">prepare_datetime</span><span class="p">,</span><span class="n">get_epoch_start</span><span class="p">,</span><span class="n">get_epoch_end</span><span class="p">,</span><span class="n">float_to_date</span>
 
@@ -524,7 +521,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>Load the data from a csv into a dataframe, as this provides the easiest way to process the raw data in readiness to use within HotStepper.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>4
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -535,7 +532,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>4
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -619,7 +616,7 @@ div.rendered_html tbody tr:hover {
 <p>It should also be noted, we parsed the datetime field when loaded the dataframe, in this case the “Time” field, since this is already parsed and typed as datetime, HotStepper will detect this and automatically set the using_datetime = True parameter during the loading process.</p>
 <p>In the event of an error or some confusion in the data loaded, setting this paramter explicitly will ensure the key values are typed as datetime.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>5
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -632,7 +629,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>5
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -648,7 +645,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>We got a nice visual of the data and a quick smooth plot, this is handy to get a feel for the data, if we want to understand the data more than just a quick visual, but hey, we’re busy people, so we want understanding, quickly, HotStepper has this covered, we can use the summary() method on the steps, this will create a very nice summary of our dataset in one line of code.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>6
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -664,7 +661,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>We can look more closely at how this pair moved differently between 2017 and 2018, we first create new steps for these date ranges and have a look at what we have. A simple way to understand how these two years are related is to compare if, only aggregate, the price was higher, lower or the same.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>7
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -676,7 +673,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>7
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -687,7 +684,7 @@ div.rendered_html tbody tr:hover {
 <p>So taking the ratio of the area under the curve across the two years, we see that 2018 was approximately 3.7% higher than 2017, how easy was that!</p>
 <p>Now we can also compare the effect different smoothing bases have and finally compare that with a centred rolling average, this can be done very quickly on the same chart for the same dataset by using the ability to pass in a Basis for each specific smooth plot.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>8
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>6
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -706,12 +703,12 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>8
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>6
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x243bb694190&gt;
+&lt;matplotlib.legend.Legend at 0x2b03ddc38b0&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -723,7 +720,7 @@ div.rendered_html tbody tr:hover {
 <p>From the plot of the logit, arctan, sigmoid and centred rolling mean of the data, we can see the logit basis plot is very similar to the centred rolling mean, with the advantage of not needing the warm-up at the start and tends to be less sensitive to extreme changes, leading to a smoother curve.</p>
 <p>Now we have a better view of the data and the effect of different basis functions on the smoothing, lets look more closely at 2017. We can simply clip that year out of the original data and investigate this portion with some smoothing.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>9
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -737,12 +734,12 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>9
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x243bfde0400&gt;
+&lt;matplotlib.legend.Legend at 0x2b040a369a0&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -754,7 +751,7 @@ div.rendered_html tbody tr:hover {
 <p>An interesting analysis in forex is to understand when and by how much the price moves away and towards a centre line value, much like mean reversion. With HotStepper, we can generate a new steps object directly representing the difference by creating a smooth basis copy of the data, in this case the 2017 GBPUSD open steps with a logit basis, we can directly subtract this smoothed version of the data from the original noisy 2017 data to get the difference. With this in hand, we have all the
 power of the HotStepper tools.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>10
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -771,7 +768,7 @@ power of the HotStepper tools.</p>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>10
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -787,7 +784,7 @@ power of the HotStepper tools.</p>
 </div>
 <p>Get some quick statistics on the 2017 detla data with the describe() method.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>11
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>9
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -796,7 +793,7 @@ power of the HotStepper tools.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>11
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>9
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -894,7 +891,7 @@ power of the HotStepper tools.</p>
 </div>
 <p>We can generate all the summary, histogram etc. plots directly on the delta data, since this is another steps object.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>12
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>10
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -903,7 +900,7 @@ power of the HotStepper tools.</p>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>12
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>10
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -918,7 +915,7 @@ power of the HotStepper tools.</p>
 <img alt="../_images/examples_currency_20_1.svg" src="../_images/examples_currency_20_1.svg"/></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>13
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>11
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -927,7 +924,7 @@ power of the HotStepper tools.</p>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>13
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>11
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -942,7 +939,7 @@ power of the HotStepper tools.</p>
 <img alt="../_images/examples_currency_21_1.svg" src="../_images/examples_currency_21_1.svg"/></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>14
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>12
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -957,7 +954,7 @@ power of the HotStepper tools.</p>
 <img alt="../_images/examples_currency_22_0.svg" src="../_images/examples_currency_22_0.svg"/></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>15
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>13
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -966,7 +963,7 @@ power of the HotStepper tools.</p>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>15
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>13
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -982,7 +979,7 @@ power of the HotStepper tools.</p>
 </div>
 <p>We can quickly look at how the prices are related with a partial auto correlation plot. We know that the directly previous price is well correlated, as the open is the same as the previous close. We can exclude these and look back something simple like 24 steps, this is the last day of hourly open prices.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>16
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>14
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -991,7 +988,7 @@ power of the HotStepper tools.</p>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>16
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>14
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1063,7 +1060,7 @@ power of the HotStepper tools.</p>
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.5.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

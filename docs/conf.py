@@ -88,10 +88,6 @@ from hotstepper import Step, Steps
 import matplotlib.pyplot as plt
 """
 
-# autodoc_default_options = {
-#     'members': True,
-#     #'show-inheritance': True,
-# }
 ## Generate autodoc stubs with summaries from code
 autosummary_generate = True
 autoclass_content = 'class'
@@ -124,8 +120,6 @@ html_logo = 'images/HotstepperLogo.png'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-# def setup(app):
-#     app.add_css_file('custom.css')
 
 html_sidebars = {
     "**": ["logo-text.html", "globaltoc.html", "localtoc.html", "searchbox.html"]

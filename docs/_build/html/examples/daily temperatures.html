@@ -47,17 +47,14 @@
   
   
     <title>Daily Temperatures &#8212; HotStepper</title>
-    <link rel="stylesheet" href="../_static/material.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Sales Order Example" href="store_orders.html" />
@@ -500,14 +497,11 @@ div.rendered_html tbody tr:hover {
 
 <h1 id="examples-daily-temperatures--page-root">Daily Temperatures<a class="headerlink" href="#examples-daily-temperatures--page-root" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>2
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"..//..//"</span><span class="p">)</span>
-
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
@@ -520,7 +514,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>3
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -530,7 +524,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>3
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -587,7 +581,7 @@ div.rendered_html tbody tr:hover {
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>4
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -605,7 +599,7 @@ div.rendered_html tbody tr:hover {
 <img alt="../_images/examples_daily_temperatures_3_0.svg" src="../_images/examples_daily_temperatures_3_0.svg"/></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>5
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -621,7 +615,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>From the summary view of the data, we can clearly see that there is a cycle in the data, so the next question is, how long is this? Some quick ways to see the nature of time series is to use auto correlation and partial auto correlation. Luckily, out of the box, Hotstepper implements both. We can expect a large correlation between the 1st and 2nd lag,s therefore we can exclude them from the chart to get a better look at the remaining lags.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>6
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -631,7 +625,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>6
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -646,7 +640,7 @@ div.rendered_html tbody tr:hover {
 <img alt="../_images/examples_daily_temperatures_6_1.svg" src="../_images/examples_daily_temperatures_6_1.svg"/></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>7
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>6
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -673,7 +667,7 @@ div.rendered_html tbody tr:hover {
 <p>How often was it over 20 degrees? This is a good lesson to understand that step functions aren’t the same as regular functions.</p>
 <p>If we naively filter the data and take the ratio to the total of the days having a temperature greater than 20 degrees, we would have an incorrect result.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>8
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -692,14 +686,14 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Percentage days greater than 20 degrees, via steps 0.019999999999999993
+Percentage days greater than 20 degrees, via steps 0.02
 Percentage days greater than 20 degrees, via pandas 0.020273972602739727
 </pre></div></div>
 </div>
 <p>So what has happened?, the simple answer is that we are are only evaluating the step function on and after each step key, therefore, if the first day is over 20, whilst it is in the steps function, when we include it in the integral, it has no weight, as it exists only at a single instant of the step function.</p>
 <p>So, we have to include the full day of the first step, instead of only the value at the edge between the first and second day. The easy way to do this and ensure we don’t include anything else is to clamp the values beyond the range of the first full day and the last.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>9
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -718,13 +712,13 @@ Percentage days greater than 20 degrees, via pandas 0.020273972602739727
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Percentage days greater than 20 degrees, via steps 0.020273972602739724
+Percentage days greater than 20 degrees, via steps 0.02027397260273973
 Percentage days greater than 20 degrees, via pandas 0.020273972602739727
 </pre></div></div>
 </div>
 <p>For some reason, we might want to return the steps data as a Pandas Series object, I don’t blame you, they are nice and handy, so, through the magic of HotStepper and method chaining, we can create a Series object and call the Pandas.Series.plot method on it.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>11
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>9
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -735,7 +729,7 @@ Percentage days greater than 20 degrees, via pandas 0.020273972602739727
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>11
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>9
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -807,7 +801,7 @@ Percentage days greater than 20 degrees, via pandas 0.020273972602739727
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.5.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

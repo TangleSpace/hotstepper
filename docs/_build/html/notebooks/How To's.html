@@ -47,17 +47,14 @@
   
   
     <title>How-To Recipes &#8212; HotStepper</title>
-    <link rel="stylesheet" href="../_static/material.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="More How-To Recipes" href="More%20How%20To%27s.html" />
@@ -504,25 +501,11 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">staircase</span> <span class="k">as</span> <span class="nn">sc</span>
-<span class="kn">import</span> <span class="nn">operator</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-
-<span class="kn">from</span> <span class="nn">imports</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
 <span class="kn">import</span> <span class="nn">hotstepper</span> <span class="k">as</span> <span class="nn">hs</span>
-<span class="c1">#from hotstepper import Steps, Step</span>
-<span class="kn">from</span> <span class="nn">hotstepper.utilities</span> <span class="kn">import</span> <span class="n">get_epoch_start</span><span class="p">,</span><span class="n">get_datetime</span><span class="p">,</span><span class="n">prepare_datetime</span>
-<span class="kn">from</span> <span class="nn">hotstepper</span> <span class="kn">import</span> <span class="n">Bases</span><span class="p">,</span> <span class="n">Basis</span>
-
 <span class="kn">import</span> <span class="nn">hotstepper.samples</span> <span class="k">as</span> <span class="nn">samples</span>
-
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
-
 </pre></div>
 </div>
 </div>
@@ -578,11 +561,11 @@ div.rendered_html tbody tr:hover {
 
  0.0
  23.0
- 7.721851302262406
+ 7.7218513022624045
  6.0
  7.0
- 23.431962388696512
- 4.840657226936908
+ 23.431962388696526
+ 4.8406572269369095
 
 </pre></div></div>
 </div>
@@ -608,7 +591,7 @@ div.rendered_html tbody tr:hover {
 
  2020-01-01 04:40:00
  2020-12-30 18:11:00
- 67562.46666666663
+ 67562.4666666666
  5.0
 </pre></div></div>
 </div>
@@ -723,14 +706,14 @@ div.rendered_html tbody tr:hover {
 <p>NOTE: All values are raw in the sense that they are all float values as stored internally. For example, if we use a helper function to convert the first and last values from this method into a format they are supposed to be.</p>
 <p>The weights seem abstract, but they represent how much of the total span (think duration from the start to the end of the steps) the steps stay at that value before changing to the next value. For example, if you filter for the maximum value in the weights array, this represents the maximum time that was spent at a single step value.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>9
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">s</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">span</span><span class="p">,</span><span class="n">weights</span> <span class="o">=</span> <span class="n">vessel_queue</span><span class="o">.</span><span class="n">span_and_weights</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">first timestamp'</span><span class="p">,</span><span class="n">get_datetime</span><span class="p">(</span><span class="n">s</span><span class="p">),</span>
-        <span class="s1">'</span><span class="se">\n</span><span class="s1">last timestamp'</span><span class="p">,</span><span class="n">get_datetime</span><span class="p">(</span><span class="n">e</span><span class="p">),</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">first timestamp'</span><span class="p">,</span><span class="n">hs</span><span class="o">.</span><span class="n">utilities</span><span class="o">.</span><span class="n">get_datetime</span><span class="p">(</span><span class="n">s</span><span class="p">),</span>
+        <span class="s1">'</span><span class="se">\n</span><span class="s1">last timestamp'</span><span class="p">,</span><span class="n">hs</span><span class="o">.</span><span class="n">utilities</span><span class="o">.</span><span class="n">get_datetime</span><span class="p">(</span><span class="n">e</span><span class="p">),</span>
         <span class="s1">'</span><span class="se">\n</span><span class="s1">Total duration'</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">span</span><span class="o">/</span><span class="p">(</span><span class="mi">24</span><span class="o">*</span><span class="mi">3600</span><span class="p">)),</span><span class="s1">'days'</span><span class="p">,</span>
         <span class="s1">'</span><span class="se">\n</span><span class="s1">step value duration percentages:</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span><span class="n">weights</span><span class="p">,</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
     <span class="p">)</span>
@@ -738,8 +721,8 @@ div.rendered_html tbody tr:hover {
 <span class="nb">print</span><span class="p">(</span><span class="s1">'percentage of total time of longest duration single step value'</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">weights</span><span class="p">),</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">'longest single value duration is'</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">*</span><span class="n">span</span><span class="o">/</span><span class="mi">3600</span><span class="p">,</span><span class="s1">'hours</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
-<span class="n">start_longest_dt</span> <span class="o">=</span> <span class="n">get_datetime</span><span class="p">(</span><span class="n">vessel_queue</span><span class="o">.</span><span class="n">iloc</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">weights</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">end_longest_dt</span> <span class="o">=</span> <span class="n">get_datetime</span><span class="p">(</span><span class="n">vessel_queue</span><span class="o">.</span><span class="n">iloc</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">weights</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">start_longest_dt</span> <span class="o">=</span> <span class="n">hs</span><span class="o">.</span><span class="n">utilities</span><span class="o">.</span><span class="n">get_datetime</span><span class="p">(</span><span class="n">vessel_queue</span><span class="o">.</span><span class="n">iloc</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">weights</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">end_longest_dt</span> <span class="o">=</span> <span class="n">hs</span><span class="o">.</span><span class="n">utilities</span><span class="o">.</span><span class="n">get_datetime</span><span class="p">(</span><span class="n">vessel_queue</span><span class="o">.</span><span class="n">iloc</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">weights</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">'Longest single value is between'</span><span class="p">,</span><span class="n">start_longest_dt</span><span class="p">,</span><span class="s1">' - '</span><span class="p">,</span><span class="n">end_longest_dt</span><span class="p">,</span><span class="s1">'</span><span class="se">\n</span><span class="s1">and a value of'</span><span class="p">,</span><span class="n">vessel_queue</span><span class="p">(</span><span class="n">start_longest_dt</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
@@ -769,7 +752,7 @@ and a value of 0.0
 </div>
 <p>We can even have a look at what this looks like by clipping a section out of the data set</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>10
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -779,7 +762,7 @@ and a value of 0.0
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>10
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -795,7 +778,7 @@ and a value of 0.0
 </div>
 <p>What about other statistical measures, like covariance, or correlation? Sure,</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>14
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>9
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -816,18 +799,18 @@ and a value of 0.0
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-vessel queue parent call: correlation = 10.16541411597326
+vessel queue parent call: correlation = 10.165414115973254
 
-vessel queue parent call: covariance = 23.03790427822036
+vessel queue parent call: covariance = 23.037904278220356
 
-vessel queue clip call: correlation = 10.16541411597326
+vessel queue clip call: correlation = 10.165414115973254
 
-vessel queue clip call: covariance = 23.03790427822036
+vessel queue clip call: covariance = 23.037904278220356
 </pre></div></div>
 </div>
 <p>But wait there’s more!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>16
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>10
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -839,7 +822,7 @@ vessel queue clip call: covariance = 23.03790427822036
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>16
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>10
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -873,7 +856,7 @@ vessel queue clip call: covariance = 23.03790427822036
 </div>
 <p>ok, but we don’t like some of the formatting and i already know that at lag = 0 it is 100% correlated, so can i throw that away?</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>17
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>11
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -883,7 +866,7 @@ vessel queue clip call: covariance = 23.03790427822036
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>17
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>11
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -898,7 +881,7 @@ vessel queue clip call: covariance = 23.03790427822036
 <img alt="../_images/notebooks_How_To's_19_1.svg" src="../_images/notebooks_How_To's_19_1.svg"/></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>18
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>12
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -908,7 +891,7 @@ vessel queue clip call: covariance = 23.03790427822036
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>18
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>12
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -923,7 +906,7 @@ vessel queue clip call: covariance = 23.03790427822036
 <img alt="../_images/notebooks_How_To's_20_1.svg" src="../_images/notebooks_How_To's_20_1.svg"/></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>19
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>13
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -932,7 +915,7 @@ vessel queue clip call: covariance = 23.03790427822036
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>19
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>13
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -948,7 +931,7 @@ vessel queue clip call: covariance = 23.03790427822036
 </div>
 <p>As with all plots in HotStepper, they are Matplotlib based, therefore all the fun and power available from Matplotlib is present in the HotStepper charts.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>50
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>15
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -969,12 +952,12 @@ vessel queue clip call: covariance = 23.03790427822036
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>50
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>15
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x15bd3bf4a90&gt;
+&lt;matplotlib.legend.Legend at 0x2343505da60&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1041,7 +1024,7 @@ vessel queue clip call: covariance = 23.03790427822036
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.5.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

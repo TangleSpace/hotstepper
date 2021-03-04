@@ -47,17 +47,14 @@
   
   
     <title>hotstepper.Steps.clip &#8212; HotStepper</title>
-    <link rel="stylesheet" href="../_static/material.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="hotstepper.Steps.clamp" href="hotstepper.Steps.clamp.html" />
@@ -253,7 +250,7 @@
 <h1 id="api-hotstepper-steps-clip--page-root">hotstepper.Steps.clip<a class="headerlink" href="#api-hotstepper-steps-clip--page-root" title="Permalink to this headline">¶</a></h1>
 <dl class="py method">
 <dt id="hotstepper.Steps.clip">
-<code class="sig-prename descclassname">Steps.</code><code class="sig-name descname">clip</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lbound</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ubound</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.Steps.clip" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">Steps.</span></code><code class="sig-name descname"><span class="pre">clip</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lbound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ubound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hotstepper.Steps.clip" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clip the steps between lower and upper limits, this function is equivalent to taking a slice of the steps and returning a new steps object only containing data between the clip boundries. The boundry values provided may or may not be returned, as the closest step key value within the specificied range will form the new boundry.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -270,7 +267,7 @@ This function will preserve the step values at the clip boundries, if you wish t
 </dl>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="hotstepper.Steps.clamp.html#hotstepper.Steps.clamp" title="hotstepper.Steps.clamp"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Steps.clamp()</span></code></a></p>
+<p><a class="reference internal" href="hotstepper.Steps.clamp.html#hotstepper.Steps.clamp" title="hotstepper.Steps.clamp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Steps.clamp</span></code></a></p>
 </div>
 </dd></dl>
 
@@ -322,7 +319,7 @@ This function will preserve the step values at the clip boundries, if you wish t
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 3.5.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
