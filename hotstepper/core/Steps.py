@@ -235,7 +235,11 @@ class Steps(
 
         """
 
-        return self.add_steps(np.concatenate([s.steps() for s in steps]))
+        raw_steps = np.concatenate([s.steps() for s in steps])
+        raw_steps[:,DataModel.WEIGHT.value] = raw_steps[:,DataModel.DIRECTION.value]
+        raw_steps[:,DataModel.DIRECTION.value] = 1
+
+        return self.add_steps(raw_steps)
 
 
     def _recalculate(self):
