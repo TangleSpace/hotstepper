@@ -2,27 +2,45 @@ import os
 import pandas as pd
 from hotstepper import Steps
 from hotstepper import Step
+import urllib.parse as parse
+from urllib.request import urlopen, urlretrieve
 
 import warnings
 warnings.filterwarnings("ignore")
 
+
+def download_samples_if_missing(DATA_DIR):
+    remote_path = ("https://raw.githubusercontent.com/tanglespace/hotstepper-data/master/{}")
+
+    name = 'sources'
+    full_path = remote_path.format(name)
+
+    file_list = urlopen(full_path).read().decode('utf-8').split('\n')
+
+    for file in file_list:
+        if '/' in file:
+            dmk, fname = file.split('/')
+            folder_path = os.path.join(DATA_DIR,dmk)
+
+            if not os.path.exists(folder_path):
+                os.mkdir(folder_path)
+            cache_path = os.path.join(DATA_DIR,dmk,fname)
+        else:
+            cache_path = os.path.join(DATA_DIR,file)
+
+        remote_file = remote_path.format('data/' + parse.quote(file))
+        if not os.path.exists(cache_path):
+            urlretrieve(remote_file,cache_path)
+
+
 DATA_DIR = os.path.join(os.path.dirname(__file__),'data')
 
-# def _download_datasets_if_missing():
-#     #Handy code from the Seaborn package to manage the datasets through git and a local cache.
-
-#     path = ("https://raw.githubusercontent.com/"
-#                 "mwaskom/seaborn-data/master/{}.csv")
-#         full_path = path.format(name)
-
-#         if cache:
-#             cache_path = os.path.join(get_data_home(data_home),
-#                                     os.path.basename(full_path))
-#             if not os.path.exists(cache_path):
-#                 if name not in get_dataset_names():
-#                     raise ValueError(f"'{name}' is not one of the example datasets.")
-#                 urlretrieve(full_path, cache_path)
-#             full_path = cache_path
+if not os.path.exists(DATA_DIR):
+    print('Downloading HotStepper sample data, please wait.....')
+    os.mkdir(DATA_DIR)
+    download_samples_if_missing(DATA_DIR)
+    print('HotStepper samples data download.....complete, enjoy.')
+        
 
 def page_view_sample():
     df = pd.read_csv(os.path.join(DATA_DIR,'page_views.csv'))

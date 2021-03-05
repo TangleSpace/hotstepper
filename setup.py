@@ -7,7 +7,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setuptools.setup(
     name='hotstepper',
-    version='1.0.3',    
+    version='1.0.4',    
     description='Numpy based step function library.',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -15,6 +15,12 @@ setuptools.setup(
     author='Jackson Storm',
     author_email='c6lculus8ntr0py@gmail.com',
     license='MIT',
+    project_urls={
+        'Documentation': 'https://hotstepper.readthedocs.io/',
+        'Source': 'https://github.com/tanglespace/hotstepper',
+        'Tracker': 'https://github.com/tanglespace/hotstepper/issues',
+    },
+
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
