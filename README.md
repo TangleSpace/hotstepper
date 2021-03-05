@@ -20,7 +20,7 @@ Conda install coming soon!
 
 
 ## Documentation
-Everything (mostly) you want to know about HotStepper and making use in your workflow is here [Read the Docs](https://hotstepper.readthedocs.io/en/latest/index.html)
+Everything (mostly) you want to know about HotStepper and making use in your workflow is here [Read the Docs](https://hotstepper.readthedocs.io/)
 
 
 ## Step Functions ah?
