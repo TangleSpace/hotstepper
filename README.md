@@ -13,17 +13,14 @@ HotStepper can be installed from PyPI:
 pip install hotstepper
 ```
 
-.. note::
-    Conda install coming soon!
+Conda install coming soon!
 
-    ```bash
-    conda install -c conda-forge hotstepper
-    ```
 
 ## Documentation
 Everything (mostly) you want to know about HotStepper and making use in your workflow is here [Read the Docs](https://tanglespace.readthedocs.io/en/latest/index.html)
 
 
+## Step Functions ah?
 <p align="center"><img src="https://github.com/TangleSpace/hotstepper/blob/master/docs/images/temperature.gif" title="Daily Temperature" alt="Daily Temperature", width="50%" height="50%"><img src="https://github.com/TangleSpace/hotstepper/blob/master/docs/images/store.gif" title="Store" alt="Store", width="50%" height="50%"></p>
 
 What the f*&^ is a step function you may ask?, Have you ever seen some stairs?, this is an equal oppotunity package, so you may be in a wheel chair and unable to use stairs in the typical way, so just having seen some stairs will suffix.
