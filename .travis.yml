@@ -1,11 +1,25 @@
+# Config file for automatic testing at travis-ci.com
+
 language: python
 python:
   - "3.6"
+  - "3.7"
+  - "3.8"
+  - "3.9"  
 
-install: "pip install -r requirements.txt"
-
+before_install:
+  - pip install poetry codecov
+    
+install:
+  - cd ..
+  - poetry new temp
+  - cd temp
+  - poetry add ../hotstepper
+  - poetry add pytest-cov
+  - poetry add codecov
+  
 script:
-  - pytest
+  - poetry run pytest -v --color=yes --cov-report=xml --cov=hotstepper ../hotstepper/tests
   
 after_success:
   - codecov
