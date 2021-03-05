@@ -1,4 +1,4 @@
-<p align="left"><img src="https://github.com/TangleSpace/HotStepper/blob/master/docs/images/HotstepperLogo.png?raw=true" title="Hot Stepper" alt="Hot Stepper"></p>
+<p align="left"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/HotstepperLogo.png" title="Hot Stepper" alt="Hot Stepper"></p>
 
 The Hot Stepper library is for exploring datasets via step function expansions.
 
@@ -24,7 +24,7 @@ Everything (mostly) you want to know about HotStepper and making use in your wor
 
 
 ## Step Functions ah?
-<p align="center"><img src="https://github.com/TangleSpace/hotstepper/blob/master/docs/images/temperature.gif" title="Daily Temperature" alt="Daily Temperature", width="50%" height="50%"><img src="https://github.com/TangleSpace/hotstepper/blob/master/docs/images/store.gif" title="Store" alt="Store", width="50%" height="50%"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/temperature.gif" title="Daily Temperature" alt="Daily Temperature", width="50%" height="50%"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/store.gif" title="Store" alt="Store", width="50%" height="50%"></p>
 
 What the f*&^ is a step function you may ask?, Have you ever seen some stairs?, this is an equal oppotunity package, so you may be in a wheel chair and unable to use stairs in the typical way, so just having seen some stairs will suffix.
 
@@ -51,7 +51,7 @@ Alright, if we just plot y(n) with straight lines connecting the points, we'd ge
     fig,ax = plt.subplots()
     ax.plot(x,y)
 ```
-<p align="left"><img src="https://github.com/TangleSpace/HotStepper/blob/master/docs/images/fibo_steps.png?raw=true" title="Fibonacci Step Plot" alt="Fibonacci Step Plot"></p>
+<p align="left"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/fibo_steps.png" title="Fibonacci Step Plot" alt="Fibonacci Step Plot"></p>
 
 Now what if we only start with the rules of the fibonacci sequence, we can generate a step sequence directly.
 
@@ -77,4 +77,4 @@ Now what if we only start with the rules of the fibonacci sequence, we can gener
         s.smooth_plot(ax=ax,linestyle='-.',color='g')
 ```
 
-<p align="left"><img src="https://github.com/TangleSpace/HotStepper/blob/master/docs/images/fibo_steps_sequence.png?raw=true" title="Fibonacci Step Plot" alt="Fibonacci Step Plot"></p>
+<p align="left"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/fibo_steps_sequence.png" title="Fibonacci Step Plot" alt="Fibonacci Step Plot"></p>
