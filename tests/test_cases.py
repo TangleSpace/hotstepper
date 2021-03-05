@@ -61,36 +61,37 @@ temperature_hist10x = np.array(
         2.10400000e+01,  2.36700000e+01,  2.63000000e+01])
 
 
-def test_temperature_study():
-    df_temps = pd.read_csv(r'..//data//daily-min-temperatures.csv',parse_dates=['Date'])
-    temps_steps = Steps.read_dataframe(df_temps,start='Date',weight='Temp',convert_delta=True)
+# def test_temperature_study():
+# #     df_temps = pd.read_csv(r'..//data//daily-min-temperatures.csv',parse_dates=['Date'])
+# #     temps_steps = Steps.read_dataframe(df_temps,start='Date',weight='Temp',convert_delta=True)
 
-    gt20_df = df_temps[df_temps.Temp > 20]['Temp'].count()/df_temps['Temp'].count()
+# temp_steps = samples.daily_temperature_sample()
+#     gt20_df = df_temps[df_temps.Temp > 20]['Temp'].count()/df_temps['Temp'].count()
 
-    temps_step20 = temps_steps > 20
+#     temps_step20 = temps_steps > 20
 
-    gt20 =(
-        temps_step20.clamp(lbound=temps_step20.first()-pd.Timedelta(days=1))
-        .normalise()
-        .integrate()/temps_steps.normalise().integrate()
-    )
+#     gt20 =(
+#         temps_step20.clamp(lbound=temps_step20.first()-pd.Timedelta(days=1))
+#         .normalise()
+#         .integrate()/temps_steps.normalise().integrate()
+#     )
 
-    np.testing.assert_almost_equal(gt20,gt20_df)
+#     np.testing.assert_almost_equal(gt20,gt20_df)
 
-    #pacf
-    x,y = temps_steps.pacf(50)
-    np.testing.assert_almost_equal(y,temperature_pacf50)
-    np.testing.assert_almost_equal(x,list(range(51)))
+#     #pacf
+#     x,y = temps_steps.pacf(50)
+#     np.testing.assert_almost_equal(y,temperature_pacf50)
+#     np.testing.assert_almost_equal(x,list(range(51)))
 
-    #acf
-    x,y = temps_steps.acf(50)
-    np.testing.assert_almost_equal(y,temperature_acf50)
-    np.testing.assert_almost_equal(x,list(range(51)))
+#     #acf
+#     x,y = temps_steps.acf(50)
+#     np.testing.assert_almost_equal(y,temperature_acf50)
+#     np.testing.assert_almost_equal(x,list(range(51)))
 
-    #histogram, 10 bins
-    x,y = temps_steps.histogram(bins=10)
-    np.testing.assert_almost_equal(y,temperature_hist10y)
-    np.testing.assert_almost_equal(x,temperature_hist10x)
+#     #histogram, 10 bins
+#     x,y = temps_steps.histogram(bins=10)
+#     np.testing.assert_almost_equal(y,temperature_hist10y)
+#     np.testing.assert_almost_equal(x,temperature_hist10x)
 
 
 def test_vessel_queue_study():
