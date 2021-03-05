@@ -1,6 +1,6 @@
-==============
+=================
 Basis and Bases
-==============
+=================
 
 Basis
 =========
@@ -9,28 +9,25 @@ Basis
     The mathemtical base functions are contained in the Bases static abstract class and are directly referenced from the Basis class.
     All Basis assignments will only reference a Base function to improve performance and Numba compatibility.
     
-    Parameters
-    ==============
+    **Parameters**
     bfunc : numpy.ufunc, Optional
-        This is the function as selected from the static method in the Bases class.
+    This is the function as selected from the static method in the Bases class.
 
-        .. note::
-            You can define your own basis function by creating a numpy ufunc and passing that in, however it must follow the parameter specifications perscribed by the Bases function interfaces.
+    .. note::
+        You can define your own basis function by creating a numpy ufunc and passing that in, however it must follow the parameter specifications perscribed by the Bases function interfaces.
 
     param : float, Optional
-        This will control the strength of the applied smoothing base function as per the one parameter specification.
+    This will control the strength of the applied smoothing base function as per the one parameter specification.
 
-        .. note::
-            This parameter doesn't do anything for the Heaviside basis, as this is not a smoothing basis.
+    .. note::
+        This parameter doesn't do anything for the Heaviside basis, as this is not a smoothing basis.
 
     name : str, Optional
-        A name to reference the assigned base function with, this is used internally to check is using function from the Bases class or a custom and the nature of the function, smoothing or not.
+    A name to reference the assigned base function with, this is used internally to check is using function from the Bases class or a custom and the nature of the function, smoothing or not.
 
 
-    Methods
-    ==========
-    base : 
-        Returns a reference to the assigned base function that is directly callable for evaluation.
+    **Methods**
+    base : Returns a reference to the assigned base function that is directly callable for evaluation.
 
 
 Bases

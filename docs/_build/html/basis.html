@@ -283,26 +283,23 @@
 <div><p>This class represents a wrapper for the function to be used as the representation basis of the steps functions.
 The mathemtical base functions are contained in the Bases static abstract class and are directly referenced from the Basis class.
 All Basis assignments will only reference a Base function to improve performance and Numba compatibility.</p>
-<dl>
-<dt>bfunc<span class="classifier">numpy.ufunc, Optional</span></dt><dd><p>This is the function as selected from the static method in the Bases class.</p>
+<p><strong>Parameters</strong>
+bfunc : numpy.ufunc, Optional
+This is the function as selected from the static method in the Bases class.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can define your own basis function by creating a numpy ufunc and passing that in, however it must follow the parameter specifications perscribed by the Bases function interfaces.</p>
 </div>
-</dd>
-<dt>param<span class="classifier">float, Optional</span></dt><dd><p>This will control the strength of the applied smoothing base function as per the one parameter specification.</p>
+<p>param : float, Optional
+This will control the strength of the applied smoothing base function as per the one parameter specification.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This parameter doesn’t do anything for the Heaviside basis, as this is not a smoothing basis.</p>
 </div>
-</dd>
-<dt>name<span class="classifier">str, Optional</span></dt><dd><p>A name to reference the assigned base function with, this is used internally to check is using function from the Bases class or a custom and the nature of the function, smoothing or not.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>base :</dt><dd><p>Returns a reference to the assigned base function that is directly callable for evaluation.</p>
-</dd>
-</dl>
+<p>name : str, Optional
+A name to reference the assigned base function with, this is used internally to check is using function from the Bases class or a custom and the nature of the function, smoothing or not.</p>
+<p><strong>Methods</strong>
+base : Returns a reference to the assigned base function that is directly callable for evaluation.</p>
 </div></blockquote>
 
 

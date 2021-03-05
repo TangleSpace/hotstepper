@@ -554,10 +554,10 @@ class StepsPlottingMixin(ABC):
         plot_params : dictionary_like, Optional
             A dictionary to control the look of the plots.
             {
-            'steps_plot': {parameter_name:value, } -> the same as **kargs,
-            'smooth_steps_plot': {parameter_name:value, } -> the same as **kargs,
-            'ecdf_plot': {parameter_name:value, } -> the same as **kargs,
-            'histogram_plot': {parameter_name:value, } -> the same as **kargs
+            'steps_plot': {parameter_name:value, } -> the same as kargs,
+            'smooth_steps_plot': {parameter_name:value, } -> the same as kargs,
+            'ecdf_plot': {parameter_name:value, } -> the same as kargs,
+            'histogram_plot': {parameter_name:value, } -> the same as kargs
             }
 
             example, plot_params =

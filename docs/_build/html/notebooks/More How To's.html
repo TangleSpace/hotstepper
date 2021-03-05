@@ -541,20 +541,124 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <img alt="../_images/notebooks_More_How_To's_3_1.svg" src="../_images/notebooks_More_How_To's_3_1.svg"/></div>
 </div>
-<p>Let’s have some func with the chart first and put a few more exploratory items on it</p>
+<p>Let’s have some fun with the chart first and put a few more exploratory items on it</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>4
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">page_views</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">page_views</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">page_views</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'Noisy Data'</span><span class="p">)</span>
+<span class="n">page_views</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Logit Smoothing'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x1cc21c9d0d0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_More_How_To's_5_1.svg" src="../_images/notebooks_More_How_To's_5_1.svg"/></div>
+</div>
+<p>Let’s add some different basis and see what happens, with HotStepper, we can use a basis in a number of ways, we can apply the basis temporarily to just get a smooth plot, or we can permantly change the basis, here are a few explains or what that means.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>11
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#let's make a copy so we can preserve the original dataset</span>
+
+<span class="c1">#define some new basis to use</span>
+<span class="n">sigmoid</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="n">Bases</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">,</span><span class="n">param</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">atan</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="n">Bases</span><span class="o">.</span><span class="n">arctan</span><span class="p">)</span>
+<span class="n">logit</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="n">Bases</span><span class="o">.</span><span class="n">logit</span><span class="p">,</span><span class="n">param</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1">#we'll do smooth plotting first</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">page_views</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">smooth_basis</span><span class="o">=</span><span class="n">sigmoid</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Sigmoid Basis'</span><span class="p">)</span>
+<span class="n">page_views</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">smooth_basis</span><span class="o">=</span><span class="n">atan</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'ArcTan Basis'</span><span class="p">)</span>
+<span class="n">page_views</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">smooth_basis</span><span class="o">=</span><span class="n">logit</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Logit Basis'</span><span class="p">)</span>
+<span class="c1">#we plot the original data last to show that we haven't permenantly changed the basis, only the smoothing plotting basis</span>
+
+<span class="n">page_views</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Original Data'</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>11
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x1cc292082b0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_More_How_To's_7_1.svg" src="../_images/notebooks_More_How_To's_7_1.svg"/></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>19
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">page_views_copy</span> <span class="o">=</span> <span class="n">page_views</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">page_views_copy</span><span class="o">.</span><span class="n">rebase</span><span class="p">(</span><span class="n">sigmoid</span><span class="p">)</span>
+
+<span class="c1">#if we just use plot, we still get the original data, as plot preserves the step basis, we need to specifically ask for the smooth plot, we can always ask two ways</span>
+<span class="n">page_views_copy</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'smooth'</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">page_views_copy</span><span class="o">.</span><span class="n">smooth_plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>19
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;AxesSubplot:&gt;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_More_How_To's_8_1.svg" src="../_images/notebooks_More_How_To's_8_1.svg"/></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_More_How_To's_8_2.svg" src="../_images/notebooks_More_How_To's_8_2.svg"/></div>
+</div>
+<p>ok great, plots, more plots, what else, well, let’s substract the smooth data from the original noisy data, so we get the variation around the smooth “trend” as a new steps objects.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#this is why we created a copy</span>
+<span class="n">page_views_delta</span> <span class="o">=</span> <span class="n">page_views</span> <span class="o">-</span> <span class="n">page_views_copy</span>
+<span class="n">page_views_delta</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>4
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>20
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -566,7 +670,239 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_More_How_To's_5_1.svg" src="../_images/notebooks_More_How_To's_5_1.svg"/></div>
+<img alt="../_images/notebooks_More_How_To's_10_1.svg" src="../_images/notebooks_More_How_To's_10_1.svg"/></div>
+</div>
+<p>interesting, as expected, we get a zero centered steps function with alot of noise, we can get a quick understanding of this using the standard process or calling either summary or describe, let’s go with the swiss army knife summary.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>23
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">page_views_delta</span><span class="o">.</span><span class="n">summary</span><span class="p">();</span>
+
+<span class="c1">#comapre with stats from the original data</span>
+<span class="n">page_views</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>23
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>Count</td>
+<td>1897.00</td>
+</tr>
+<tr>
+<th>1</th>
+<td>Mean</td>
+<td>7.44</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Median</td>
+<td>8.00</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Mode</td>
+<td>7.00</td>
+</tr>
+<tr>
+<th>4</th>
+<td>Std</td>
+<td>2.55</td>
+</tr>
+<tr>
+<th>5</th>
+<td>Var</td>
+<td>6.49</td>
+</tr>
+<tr>
+<th>6</th>
+<td>Min</td>
+<td>1.00</td>
+</tr>
+<tr>
+<th>7</th>
+<td>25%</td>
+<td>6.00</td>
+</tr>
+<tr>
+<th>8</th>
+<td>75%</td>
+<td>10.00</td>
+</tr>
+<tr>
+<th>9</th>
+<td>Max</td>
+<td>17.00</td>
+</tr>
+<tr>
+<th>10</th>
+<td>Area</td>
+<td>10589.77</td>
+</tr>
+<tr>
+<th>11</th>
+<td>Start</td>
+<td>-10.27</td>
+</tr>
+<tr>
+<th>12</th>
+<td>End</td>
+<td>1413.50</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_More_How_To's_12_1.svg" src="../_images/notebooks_More_How_To's_12_1.svg"/></div>
+</div>
+<p>What if we did the same thing with a different basis?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>25
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">page_views_copy</span><span class="o">.</span><span class="n">rebase</span><span class="p">(</span><span class="n">atan</span><span class="p">)</span>
+<span class="n">page_views_delta</span> <span class="o">=</span> <span class="n">page_views</span> <span class="o">-</span> <span class="n">page_views_copy</span>
+<span class="n">page_views_delta</span><span class="o">.</span><span class="n">summary</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_More_How_To's_14_0.svg" src="../_images/notebooks_More_How_To's_14_0.svg"/></div>
+</div>
+<p>interesting, we can see from the Area value that there is more variation around this smooth trend line using the ArcTan basis than with the Signmoid basis. Lastly, we’ll look at the Logit basis, I mean why not at this point, it’s 3 lines of code that does all the heavy lifting.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>26
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">page_views_copy</span><span class="o">.</span><span class="n">rebase</span><span class="p">(</span><span class="n">logit</span><span class="p">)</span>
+<span class="n">page_views_delta</span> <span class="o">=</span> <span class="n">page_views</span> <span class="o">-</span> <span class="n">page_views_copy</span>
+<span class="n">page_views_delta</span><span class="o">.</span><span class="n">summary</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_More_How_To's_16_0.svg" src="../_images/notebooks_More_How_To's_16_0.svg"/></div>
+</div>
+<p>Let’s leave the smoothing parameter at defaut and see what happens, as the original logit basis we specified, we provided a value for the smoothing parameter, maybe HotStepper can do better?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>27
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">logit_default</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="n">Bases</span><span class="o">.</span><span class="n">logit</span><span class="p">)</span>
+<span class="n">page_views_copy</span><span class="o">.</span><span class="n">rebase</span><span class="p">(</span><span class="n">logit_default</span><span class="p">)</span>
+<span class="n">page_views_delta</span> <span class="o">=</span> <span class="n">page_views</span> <span class="o">-</span> <span class="n">page_views_copy</span>
+<span class="n">page_views_delta</span><span class="o">.</span><span class="n">summary</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_More_How_To's_18_0.svg" src="../_images/notebooks_More_How_To's_18_0.svg"/></div>
+</div>
+<p>What? you expected something else, ofcourse the default works better, the mean is clsoer to zero and the area is even less than the other tests, utltimately, this is because internally, HotStepper performs a few calculations to determine a nice smoothing factor for each dataset, therefore the default parameter for each basis is “usually” the best balance between smoothing and feature capture.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>28
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">sigmoid_default</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="n">Bases</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">)</span>
+<span class="n">page_views_copy</span><span class="o">.</span><span class="n">rebase</span><span class="p">(</span><span class="n">sigmoid_default</span><span class="p">)</span>
+<span class="n">page_views_delta</span> <span class="o">=</span> <span class="n">page_views</span> <span class="o">-</span> <span class="n">page_views_copy</span>
+<span class="n">page_views_delta</span><span class="o">.</span><span class="n">summary</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_More_How_To's_20_0.svg" src="../_images/notebooks_More_How_To's_20_0.svg"/></div>
+</div>
+<p>Based on this last analysis, looks like we need to review the differences together, so let’s just plot them all together.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>30
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">logit_default</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="n">Bases</span><span class="o">.</span><span class="n">logit</span><span class="p">)</span>
+<span class="n">page_views_copy</span><span class="o">.</span><span class="n">rebase</span><span class="p">(</span><span class="n">logit_default</span><span class="p">)</span>
+<span class="n">page_views_delta</span> <span class="o">=</span> <span class="n">page_views</span> <span class="o">-</span> <span class="n">page_views_copy</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">page_views_delta</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'smooth'</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Logit'</span><span class="p">)</span>
+
+<span class="n">sigmoid_default</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="n">Bases</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">)</span>
+<span class="n">page_views_copy</span><span class="o">.</span><span class="n">rebase</span><span class="p">(</span><span class="n">sigmoid_default</span><span class="p">)</span>
+<span class="n">page_views_delta</span> <span class="o">=</span> <span class="n">page_views</span> <span class="o">-</span> <span class="n">page_views_copy</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">page_views_delta</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">'smooth'</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'Sigmoid'</span><span class="p">)</span>
+
+<span class="n">atan_default</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="n">Bases</span><span class="o">.</span><span class="n">arctan</span><span class="p">)</span>
+<span class="n">page_views_copy</span><span class="o">.</span><span class="n">rebase</span><span class="p">(</span><span class="n">atan_default</span><span class="p">)</span>
+<span class="n">page_views_delta</span> <span class="o">=</span> <span class="n">page_views</span> <span class="o">-</span> <span class="n">page_views_copy</span>
+
+<span class="n">page_views_delta</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">'smooth'</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'ArcTan'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>30
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x1cc290fe850&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_More_How_To's_22_1.svg" src="../_images/notebooks_More_How_To's_22_1.svg"/></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span> 
