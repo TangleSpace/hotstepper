@@ -1,5 +1,6 @@
 .travis.yml
 LICENSE
+MANIFEST.in
 README.md
 TODO
 setup.py
@@ -647,11 +648,6 @@ hotstepper/samples/data/vessel movements.csv
 hotstepper/samples/data/vessel movements_grouped.csv
 hotstepper/samples/data/vessel movements_total.csv
 hotstepper/samples/data/vessel_queue.csv
-hotstepper/samples/data/analysis/hotel_stays_values.csv
-hotstepper/samples/data/analysis/page_view_values.csv
-hotstepper/samples/data/analysis/page_view_values.xlsx
-hotstepper/samples/data/analysis/sc_vessel_queue.csv
-hotstepper/samples/data/analysis/vessel_queue_values.csv
 hotstepper/samples/data/forex/AUDUSD_H1.csv
 hotstepper/samples/data/forex/EURGBP_H1.csv
 hotstepper/samples/data/forex/EURUSD_H1.csv
