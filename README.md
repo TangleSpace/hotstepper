@@ -2,8 +2,26 @@
 
 The Hot Stepper library is for exploring datasets via step function expansions.
 
-
 It's all about tools that just work and no need for extensive knowledge of Pandas or Numpy or whatever, just HotStepper!. Albeit, knowledge of Pandas and Numpy is useful.
+
+
+## Installation
+
+HotStepper can be installed from PyPI:
+
+```bash
+pip install hotstepper
+```
+
+.. note::
+    Conda install coming soon!
+
+    ```bash
+    conda install -c conda-forge hotstepper
+    ```
+
+## Documentation
+Everything (mostly) you want to know about HotStepper and making use in your workflow is here [Read the Docs](https://tanglespace.readthedocs.io/en/latest/index.html)
 
 
 <p align="center"><img src="https://github.com/TangleSpace/hotstepper/blob/master/docs/images/temperature.gif" title="Daily Temperature" alt="Daily Temperature", width="50%" height="50%"><img src="https://github.com/TangleSpace/hotstepper/blob/master/docs/images/store.gif" title="Store" alt="Store", width="50%" height="50%"></p>
