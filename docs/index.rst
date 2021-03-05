@@ -24,9 +24,12 @@ What do you want to know?
 .. toctree::
    :maxdepth: 1
 
+   howto recipes.rst
    steps_class.rst
    steps_methods.rst
    basis.rst
+   examples.rst
+   
    
 Indices and tables
 ==================
