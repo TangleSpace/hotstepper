@@ -12,7 +12,6 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('..//'))
 sys.path.insert(0, os.path.abspath('..'))
 import hotstepper as hs
 
@@ -77,10 +76,6 @@ plot_html_show_formats = False
 plot_html_show_source_link = False
 
 plot_pre_code = """
-import os
-import sys
-sys.path.insert(0, os.path.abspath('..//'))
-sys.path.insert(0, os.path.abspath('..'))
 import numpy as np
 import pandas as pd
 import hotstepper as hs
@@ -114,11 +109,6 @@ html_theme_options = {
 }
 
 html_logo = 'images/HotstepperLogo.png'
-
-# Add any paths that contain custom static files (such as style sheets) here,
-# relative to this directory. They are copied after the builtin static files,
-# so a file named "default.css" will overwrite the builtin "default.css".
-#html_static_path = ['_static']
 
 
 html_sidebars = {
