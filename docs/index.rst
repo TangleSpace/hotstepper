@@ -1,4 +1,4 @@
-.. image:: images/Hotstepperlogo.png
+.. image:: images/HotstepperLogo.png
    :width: 80%
    :alt: hotstepper logo
    :align: center
@@ -24,12 +24,9 @@ What do you want to know?
 .. toctree::
    :maxdepth: 1
 
-   howto recipes.rst
    steps_class.rst
    steps_methods.rst
    basis.rst
-   examples.rst
-   helpers.rst
    
 Indices and tables
 ==================
