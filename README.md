@@ -34,7 +34,7 @@ Conda install coming soon!
 Everything (mostly) you want to know about HotStepper and making use in your workflow is here [Read the Docs](https://hotstepper.readthedocs.io/)
 
 
-## Step Functions ah?
+## Step Functions, ah?
 <p align="center"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/temperature.gif" title="Daily Temperature" alt="Daily Temperature", width="50%" height="50%"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/store.gif" title="Store" alt="Store", width="50%" height="50%"></p>
 
 What the f*&^ is a step function you may ask?, Have you ever seen some stairs?, this is an equal oppotunity package, so you may be in a wheel chair and unable to use stairs in the typical way, so just having seen some stairs will suffix.
@@ -47,6 +47,8 @@ What is a function? ok, how about just some data we could plot? let's go home sc
 Alright, if we just plot y(n) with straight lines connecting the points, we'd get something like,
 
 ```python
+    import matplotlib.pyplot as plt
+    
     def fibo_sequence(n):
         f0 = 0
         fn = 1
@@ -62,11 +64,14 @@ Alright, if we just plot y(n) with straight lines connecting the points, we'd ge
     fig,ax = plt.subplots()
     ax.plot(x,y)
 ```
-<p align="left"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/fibo_steps.png" title="Fibonacci Step Plot" alt="Fibonacci Step Plot"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/fibo_steps.png" title="Fibonacci Step Plot" alt="Fibonacci Step Plot"></p>
 
 Now what if we only start with the rules of the fibonacci sequence, we can generate a step sequence directly.
 
 ```python
+    import matplotlib.pyplot as plt
+    from hotstepper import Step, Steps
+
     def fibo_step_sequence(n):
         f0 = 0
         fn = 1
@@ -88,7 +93,7 @@ Now what if we only start with the rules of the fibonacci sequence, we can gener
         s.smooth_plot(ax=ax,linestyle='-.',color='g')
 ```
 
-<p align="left"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/fibo_steps_sequence.png" title="Fibonacci Step Plot" alt="Fibonacci Step Plot"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/fibo_steps_sequence.png" title="Fibonacci Step Plot" alt="Fibonacci Step Plot"></p>
 
 A very quick taste of the power that can be tapped with HotStepper. Let's say you have a data set as check-in and check-out times for a hotel. If we need to understand how many people are present in the hotel at any point in time and, as a sample of how HotStepper can help speed your analysis, we can get a quick summary of the dataset with a single line of code.
 
@@ -103,4 +108,4 @@ A very quick taste of the power that can be tapped with HotStepper. Let's say yo
 
 ```
 
-<p align="left"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/hotel_summary.png" title="Fibonacci Step Plot" alt="Fibonacci Step Plot"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/hotel_summary.png" title="Fibonacci Step Plot" alt="Fibonacci Step Plot"></p>
