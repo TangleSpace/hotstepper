@@ -4,9 +4,20 @@ The Hot Stepper library is for exploring datasets via step function expansions.
 
 It's all about tools that just work and no need for extensive knowledge of Pandas or Numpy or whatever, just HotStepper!. Albeit, knowledge of Pandas and Numpy is useful.
 
-<a href='https://hotstepper.readthedocs.io/?badge=latest'>
-    <img src='https://readthedocs.org/projects/hotstepper/badge/?version=latest' alt='Documentation Status' />
-</a>
+
+<p align="center">
+	<a href="https://pepy.tech/project/hotstepper/" alt="PyPI downloads">
+        <img src="https://pepy.tech/badge/hotstepper" /></a>
+    <a href="https://www.python.org/" alt="Python version">
+        <img src="https://img.shields.io/pypi/pyversions/hotstepper" /></a>
+    <a href="https://pypi.org/project/hotstepper/" alt="PyPI version">
+        <img src="https://img.shields.io/pypi/v/hotstepper" /></a>
+    <a href="https://hotstepper.mit-license.org/" alt="License">
+        <img src="http://img.shields.io/:license-mit-blue.svg?style=flat-square"></a>
+    <a href='https://hotstepper.readthedocs.io/?badge=latest'>
+        <img src='https://readthedocs.org/projects/hotstepper/badge/?version=latest' alt='Documentation Status' />
+    </a>
+</p>
 
 ## Installation
 
