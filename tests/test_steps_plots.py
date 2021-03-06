@@ -105,24 +105,24 @@ def test_vessel_multiplots():
     perform_plot_comparison('vessel_multiplots', fig)
 
 
-# def test_summary_plots():
-#     # vsteps = samples.vessel_queue_sample()
-#     # ax = vsteps.summary()
-#     # fig = ax[0].get_figure()
+def test_summary_plots():
+    vsteps = samples.vessel_queue_sample()
+    ax = vsteps.summary()
+    fig = ax[0].get_figure()
 
-#     # perform_plot_comparison('vessel_summary', fig)
+    perform_plot_comparison('vessel_summary', fig)
 
-#     psteps = samples.page_view_sample()
-#     ax = psteps.summary()
-#     fig = ax[0].get_figure()
+    psteps = samples.page_view_sample()
+    ax = psteps.summary()
+    fig = ax[0].get_figure()
 
-#     perform_plot_comparison('pages_summary', fig)
+    perform_plot_comparison('pages_summary', fig)
 
-#     hsteps = samples.hotel_stays_sample()
-#     ax = hsteps.summary()
-#     fig = ax[0].get_figure()
+    hsteps = samples.hotel_stays_sample()
+    ax = hsteps.summary()
+    fig = ax[0].get_figure()
 
-#     perform_plot_comparison('hotel_summary', fig)
+    perform_plot_comparison('hotel_summary', fig)
 
 
 
