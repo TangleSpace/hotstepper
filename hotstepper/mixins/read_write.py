@@ -116,9 +116,10 @@ def read_dict(cls, data,use_datetime = False, convert_delta = True):
     Parameters
     ==============
     data : dictionary_like 
-        A dictionary representing the data to convert to steps. Assumed format is,
-        key   -> step start
-        value -> step weight
+        A dictionary representing the data to convert to steps. Assumed format is:
+
+         - key -> step start
+         - value -> step weight
 
     use_datetime : bool, Optional
         Assume start and end fields are of datetime format (Numpy.datetime64,datetime or Pandas.Timestamp).
@@ -138,8 +139,8 @@ def read_dict(cls, data,use_datetime = False, convert_delta = True):
 
     """
 
-    if hasattr(data,'keys') and callable(data,'keys') :
-        return cls.read_array(data.keys(),None,data.values(),use_datetime,convert_delta)
+    if hasattr(data,'keys') and callable(data.keys) :
+        return cls.read_array(list(data.keys()),None,list(data.values()),use_datetime,convert_delta)
     else:
         raise TypeError("input data must be dictionary like")
 

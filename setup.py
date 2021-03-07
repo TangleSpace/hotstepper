@@ -7,7 +7,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setuptools.setup(
     name='hotstepper',
-    version='1.0.5',    
+    version='1.0.6',    
     description='Numpy based step function library.',
     long_description=long_description,
     long_description_content_type='text/markdown',
