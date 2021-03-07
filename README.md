@@ -7,7 +7,7 @@ It's all about tools that just work and no need for extensive knowledge of Panda
 
 <p align="center">
 	<a href="https://pepy.tech/project/hotstepper/" alt="PyPI downloads">
-        <img src="https://pepy.tech/badge/hotstepper" /></a>
+        <img src="https://static.pepy.tech/personalized-badge/hotstepper?period=month&units=international_system&left_color=black&right_color=brightgreen&left_text=Downloads" /></a>
     <a href="https://www.python.org/" alt="Python version">
         <img src="https://img.shields.io/pypi/pyversions/hotstepper" /></a>
     <a href="https://pypi.org/project/hotstepper/" alt="PyPI version">
@@ -33,6 +33,9 @@ Conda install coming soon!
 ## Documentation
 Everything (mostly) you want to know about HotStepper and making use in your workflow is here [Read the Docs](https://hotstepper.readthedocs.io/)
 
+## Sample Data Repository
+Sample data is located here: <a href="https://github.com/TangleSpace/hotstepper-data">hotstepper-data</a>.
+I'd like to thank the Staircase package owner for currating some of these datasets, thanks Riley!
 
 ## Step Functions, ah?
 <p align="center"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/temperature.gif" title="Daily Temperature" alt="Daily Temperature", width="50%" height="50%"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/store.gif" title="Store" alt="Store", width="50%" height="50%"></p>
