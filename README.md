@@ -33,8 +33,8 @@ Conda install coming soon!
 ## Quick Test Drive
 
 <p align="center">
-.. image:: https://mybinder.org/badge_logo.svg
- :target: https://mybinder.org/v2/gh/TangleSpace/hotstepper/master?filepath=docs%2Fexamples
+	<a href="https://mybinder.org/v2/gh/TangleSpace/hotstepper/master?filepath=docs%2Fexamples" alt="Binder">
+        <img src="https://mybinder.org/badge_logo.svg" /></a>
 </p>
 
 ## Documentation
