@@ -30,6 +30,13 @@ pip install hotstepper
 Conda install coming soon!
 
 
+## Quick Test Drive
+
+<p align="center">
+.. image:: https://mybinder.org/badge_logo.svg
+ :target: https://mybinder.org/v2/gh/TangleSpace/hotstepper/master?filepath=docs%2Fexamples
+</p>
+
 ## Documentation
 Everything (mostly) you want to know about HotStepper and making use in your workflow is here [Read the Docs](https://hotstepper.readthedocs.io/)
 
@@ -115,4 +122,4 @@ A very quick taste of the power that can be tapped with HotStepper. Let's say yo
 
 
 ## Acknowledgments
-This project is was inspired by the [Staircase Package](https://github.com/venaturum/staircase), whilst the use cases are similar, HotStepper and Staircase represent different appraoches and each provides pros and cons over the other.
+This project is was inspired by the [Staircase Package](https://github.com/venaturum/staircase), whilst the use cases are similar, HotStepper and Staircase represent different approaches and each provides pros and cons over the other.
