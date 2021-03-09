@@ -7,7 +7,7 @@ It's all about tools that just work and no need for extensive knowledge of Panda
 
 <p align="center">
 	<a href="https://pepy.tech/project/hotstepper/" alt="PyPI downloads">
-        <img src="https://static.pepy.tech/personalized-badge/hotstepper?period=month&units=international_system&left_color=black&right_color=brightgreen&left_text=Downloads" /></a>
+        <img src="https://static.pepy.tech/personalized-badge/hotstepper?period=total&units=international_system&left_color=black&right_color=brightgreen&left_text=Downloads" /></a>
     <a href="https://www.python.org/" alt="Python version">
         <img src="https://img.shields.io/pypi/pyversions/hotstepper" /></a>
     <a href="https://pypi.org/project/hotstepper/" alt="PyPI version">
@@ -40,7 +40,7 @@ I'd like to thank the Staircase package owner for currating some of these datase
 ## Step Functions, ah?
 <p align="center"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/temperature.gif" title="Daily Temperature" alt="Daily Temperature", width="50%" height="50%"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/store.gif" title="Store" alt="Store", width="50%" height="50%"></p>
 
-What the f*&^ is a step function you may ask?, Have you ever seen some stairs?, this is an equal oppotunity package, so you may be in a wheel chair and unable to use stairs in the typical way, so just having seen some stairs will suffix.
+What the f*&^ is a step function you may ask? Have you ever seen some stairs?, this is an equal oppotunity package, so you may be in a wheel chair and unable to use stairs in the typical way, so just having seen some stairs will suffix.
 
 Instead of providing a strict mathematical definition that we can all wank off about, how bout just some simple comparisons to warm us up? If you still need to have a wank, feel free to step out (pun intended) anytime.
 
