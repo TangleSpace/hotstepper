@@ -19,6 +19,7 @@ Basic methods
    Steps.using_datetime
    Steps.step_keys
    Steps.step_values
+   Steps.step_data
    Steps.steps
 
 

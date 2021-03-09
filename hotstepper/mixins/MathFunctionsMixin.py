@@ -9,7 +9,7 @@ class MathFunctionsMixin(ABC):
         return apply_math_function(self,other,np.floor_divide)
 
     def __rtruediv__(self,other):
-        return (self*-1)*other
+        return (self**-1)*other
 
     def __mod__(self,other):
         """

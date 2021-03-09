@@ -99,42 +99,42 @@ def timedelta_to_float(dt_delta):
         raise TypeError('Only datetime.timedelta, numpy.timedelta64, Pandas.Timedelta and derived datetime interval types are valid.')
 
 
-def _prettyplot(step_dict,plot_start=0,plot_start_value=0,ax=None,start_index=1,end_index=None,include_end=True,**kargs):
+# def _prettyplot(step,plot_start=0,plot_start_value=0,ax=None,start_index=1,end_index=None,include_end=True,**kargs):
 
-    step0_k = plot_start
-    step0_v = plot_start_value
+#     step0_k = plot_start
+#     step0_v = plot_start_value
 
-    if ax is None:
-        plot_size = kargs.pop('figsize',None)
-        if plot_size is None:
-            plot_size = get_default_plot_size()
+#     if ax is None:
+#         plot_size = kargs.pop('figsize',None)
+#         if plot_size is None:
+#             plot_size = get_default_plot_size()
             
-        _, ax = plt.subplots(figsize=plot_size)
+#         _, ax = plt.subplots(figsize=plot_size)
 
-    if kargs.get('color') is None:
-        kargs['color']=get_default_plot_color()
+#     if kargs.get('color') is None:
+#         kargs['color']=get_default_plot_color()
 
-    if end_index is None:
-        end_index = len(step_dict)-1
+#     if end_index is None:
+#         end_index = len(step_dict)-1
 
-    if start_index == 0:
-        start_index = 1
+#     if start_index == 0:
+#         start_index = 1
     
-    for i, (k,v) in enumerate(step_dict.items()):
-        ax.hlines(y = step0_v, xmin = step0_k, xmax = k,**kargs)
-        ax.vlines(x = k, ymin = step0_v, ymax = v,linestyles=':',**kargs)
+#     for i, (k,v) in enumerate(step_dict.items()):
+#         ax.hlines(y = step0_v, xmin = step0_k, xmax = k,**kargs)
+#         ax.vlines(x = k, ymin = step0_v, ymax = v,linestyles=':',**kargs)
 
-        if i > start_index - 1 and i < end_index:
-            if i == start_index:
-                ax.plot(k,v,marker='o',fillstyle='none',**kargs)
-            else:
-                ax.plot(k,step0_v,marker='o',fillstyle='none',**kargs)
-                ax.plot(k,v,marker='o',fillstyle='none',**kargs)
-        elif i == end_index and include_end:
-            ax.plot(k,step0_v,marker='o',fillstyle='none',**kargs)
+#         if i > start_index - 1 and i < end_index:
+#             if i == start_index:
+#                 ax.plot(k,v,marker='o',fillstyle='none',**kargs)
+#             else:
+#                 ax.plot(k,step0_v,marker='o',fillstyle='none',**kargs)
+#                 ax.plot(k,v,marker='o',fillstyle='none',**kargs)
+#         elif i == end_index and include_end:
+#             ax.plot(k,step0_v,marker='o',fillstyle='none',**kargs)
 
-        step0_k = k
-        step0_v = v
+#         step0_k = k
+#         step0_v = v
 
 
 def get_plot_range(start,end, delta = None, use_datetime = False):

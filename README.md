@@ -86,13 +86,13 @@ Now what if we only start with the rules of the fibonacci sequence, we can gener
     sequence_length = 8
     st = Steps().add([f for f in fibo_step_sequence(sequence_length)])
 
-    ax = st.plot()
+    ax = st.plot(method='pretty')
     st.smooth_plot(color='g',ax=ax,smooth_factor=0.3)
     plt.setp(ax, title='Fibo Steps and Components',xlabel='Index', ylabel='Steps Value')
 
     #Our steps object contains individual step functions, we can iterate over these directly, nice!
     for s in st:
-        s.plot(ax=ax,linestyle='-.')
+        s.plot(ax=ax)
         s.smooth_plot(ax=ax,linestyle='-.',color='g')
 ```
 
@@ -112,3 +112,7 @@ A very quick taste of the power that can be tapped with HotStepper. Let's say yo
 ```
 
 <p align="center"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/hotel_summary.png" title="Fibonacci Step Plot" alt="Fibonacci Step Plot"></p>
+
+
+## Acknowledgments
+This project is was inspired by the [Staircase Package](https://github.com/venaturum/staircase), whilst the use cases are similar, HotStepper and Staircase represent different appraoches and each provides pros and cons over the other.

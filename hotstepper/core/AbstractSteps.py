@@ -76,7 +76,7 @@ class AbstractSteps(ABC):
             return (st_this_values==other).all()
 
 
-    def steps_data(self,deltas=False):
+    def step_data(self,delta_values=False,convert_keys=False):
         """
         A clean multi-dimensional numpy array of the step keys and either the cummulative values or the step change values all in floats and ready to use in further analysis.
         
@@ -86,8 +86,12 @@ class AbstractSteps(ABC):
 
         Parameters
         ===========
-        deltas : bool, Optional
+        delta_values : bool, Optional
             Return the step delta changes instead of the cummulative total at each step key.
+
+        convert_keys : bool Optional
+            If the keys are datetime, they will be converted, else they will remain floats.
+
 
         Returns
         ========
@@ -96,16 +100,19 @@ class AbstractSteps(ABC):
 
         """
 
-        if deltas:
-            nice_data = np.copy(self._step_data[:,[DataModel.START.value,DataModel.DIRECTION.value]])
+        if delta_values:
+            nice_data = np.copy(self._all_data[:,[DataModel.START.value,DataModel.DIRECTION.value]])
         else:
-            nice_data = np.copy(self._step_data[:,[DataModel.START.value,DataModel.WEIGHT.value]])
+            nice_data = np.copy(self._all_data[:,[DataModel.START.value,DataModel.WEIGHT.value]])
 
         if nice_data[0,DataModel.START.value] == get_epoch_start(False):
             nice_data = nice_data[1:]
 
         if nice_data[-1,DataModel.START.value] == get_epoch_end(False):
             nice_data = nice_data[:-1]
+
+        if convert_keys and self._using_dt:
+            nice_data[:,DataModel.START.value] = prepare_datetime(nice_data[:,DataModel.START.value])
 
         return nice_data
 
@@ -126,7 +133,7 @@ class AbstractSteps(ABC):
 
         """
 
-        nice_data = np.copy(self._step_data[idx,[DataModel.START.value,DataModel.DIRECTION.value,DataModel.WEIGHT.value]])
+        nice_data = np.copy(self._all_data[idx,[DataModel.START.value,DataModel.DIRECTION.value,DataModel.WEIGHT.value]])
 
         return nice_data
 
@@ -142,7 +149,7 @@ class AbstractSteps(ABC):
 
         """
 
-        return self._step_data[:,DataModel.DIRECTION.value]
+        return self._all_data[:,DataModel.DIRECTION.value]
 
 
     def first(self):

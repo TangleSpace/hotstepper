@@ -1,4 +1,5 @@
 import hotstepper.analysis.statistics as s
+import hotstepper.analysis.Sequency as Sequency
 
 to_add = [
     s.pacf,

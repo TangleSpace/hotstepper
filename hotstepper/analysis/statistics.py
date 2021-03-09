@@ -122,7 +122,7 @@ def ecdf(steps):
     return x,y
 
 
-def histogram(steps, bins=None,axis=0,ts_grain = None):
+def histogram(steps, bins=None,axis=0):
     
     """
     Calculates a histogram for the corresponding step function values

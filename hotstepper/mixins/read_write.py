@@ -140,7 +140,7 @@ def read_dict(cls, data,use_datetime = False, convert_delta = True):
     """
 
     if hasattr(data,'keys') and callable(data.keys) :
-        return cls.read_array(list(data.keys()),None,list(data.values()),use_datetime,convert_delta)
+        return cls.read_array(list(data.keys()),None,list(data.values()),use_datetime=use_datetime,convert_delta=convert_delta)
     else:
         raise TypeError("input data must be dictionary like")
 

@@ -277,6 +277,7 @@ class Steps(
             all_data[:,DataModel.WEIGHT.value] = np.cumsum(np.asarray(all_values),axis=0)
 
             self._all_data = all_data
+            
         except ValueError:
             print('Empty steps objects can not perform operations, please load some data and try again')
         except TypeError:

@@ -33,7 +33,7 @@ class StepsPlottingMixin(ABC):
 
     """
 
-    def smooth_plot(self,smooth_factor = None,smooth_basis=None, ts_grain = None,ax=None,where='post',**kargs):
+    def smooth_plot(self,smooth_factor = None,smooth_basis=None, interval = 0.01,ax=None,where='post',**kargs):
         """
         Plot a smoothed steps function using different parameters and methods.
 
@@ -45,7 +45,7 @@ class StepsPlottingMixin(ABC):
         smooth_basis : Basis, Optional
             The `:class: Basis` to use when calculating the smooth steps function.
 
-        ts_grain : int, float, Pandas.Timedetla, Optional
+        interval : int, float, Pandas.Timedetla, Optional
             If using method = 'function' or 'smooth', specify the increment size between step key locations used to calculate the steps function.
 
         ax : Matplotlib.Axes, Optional
@@ -71,20 +71,20 @@ class StepsPlottingMixin(ABC):
         #     :context: close-figs
 
         #     st = Step(5,10,3) + Step(6,weight=2)
-        #     ax = st.smooth_plot(smooth_factor=2,ts_grain=0.01)
+        #     ax = st.smooth_plot(smooth_factor=2,offset=0.01)
         #     st.plot(ax=ax,color='g')
         #     ax.set_title('Smooth Steps Plot')
 
-        return self.plot(method='smooth',smooth_factor = smooth_factor,smooth_basis=smooth_basis,ts_grain = ts_grain,ax=ax,where=where,**kargs)
+        return self.plot(method='smooth',smooth_factor = smooth_factor,smooth_basis=smooth_basis,interval = interval,ax=ax,where=where,**kargs)
 
 
-    def plot(self,method=None,smooth_factor=None,smooth_basis=None,ts_grain = None,ax=None,where='post',**kargs):
+    def plot(self,method=None,smooth_factor=None,smooth_basis=None,interval = 0.01,ax=None,where='post',**kargs):
         """
         Plot the steps function using different parameters and methods.
 
         Parameters
         ===========
-        method : {'function','smooth','pretty', Optional}
+        method : {'function','smooth','pretty','smooth_function', Optional}
             Specify how the steps should be calculated to generate the plot and the type of plot style.
 
         smooth_factor : int, float, Optional
@@ -93,7 +93,7 @@ class StepsPlottingMixin(ABC):
         smooth_basis : Basis, Optional
             The `:class: Basis` to use when calculating the smooth steps function.
 
-        ts_grain : int, float, Pandas.Timedetla, Optional
+        interval : int, float, Pandas.Timedetla, Optional
             If using method = 'function' or 'smooth', specify the increment size between step key locations used to calculate the steps function.
 
         ax : Matplotlib.Axes, Optional
@@ -135,8 +135,6 @@ class StepsPlottingMixin(ABC):
                 
             _, ax = plt.subplots(figsize=plot_size)
 
-        #if kargs.get('color') is None:
-        #    kargs['color']=get_default_plot_color()
 
         np_keys = self.step_keys()
         np_values = self.step_values()
@@ -149,49 +147,89 @@ class StepsPlottingMixin(ABC):
                 return ax
             else:
                 reverse_step = np_keys[0]==get_epoch_start(False)
-                np_keys = get_plot_range(self.first(),self.last(),ts_grain,use_datetime=self.using_datetime())
+                np_keys = get_plot_range(self.first(),self.last(),interval,use_datetime=self.using_datetime())
                 np_values = self.step(np_keys)
 
         if method == 'pretty':
-            if len(np_keys) == 0:
-                ax.axhline(self(0)[0], **kargs)
-            #else:
-                #_prettyplot(np_values,plot_start=self.first(),plot_start_value=0,ax=ax,**kargs)
+            end_index = len(np_keys)
+            start_index = 1
+
+            if self.using_datetime():
+                offset = pd.Timedelta(minutes=1)
+                offset = prepare_datetime(np_keys)
+            else:
+                offset = 0.0000000001
+
+            if np_keys[0] == get_epoch_start(self.using_datetime()):
+                np_keys[0] = np_keys[1] - offset
+
+                np_keys = np.insert(np_keys,0,np_keys[0] - offset)
+                np_values = np.insert(np_values,0,0)
+                np_keys[0] = np_keys[0] - offset
+
+            step0_k = np_keys[0]
+            step0_v = np_values[0]
+
+            for i in range(len(np_keys)):
+
+                k = np_keys[i]
+                v = np_values[i]
+
+                ax.hlines(y = step0_v, xmin = step0_k, xmax = k,**kargs)
+                ax.vlines(x = k, ymin = step0_v, ymax = v,linestyles=':',**kargs)
+
+                if i > start_index - 1 and i < end_index:
+                    if i == start_index:
+                        ax.plot(k,v,marker='o',fillstyle='full',**kargs)
+                    else:
+                        ax.plot(k,step0_v,marker='o',fillstyle='none',**kargs)
+                        ax.plot(k,v,marker='o',fillstyle='full',**kargs)
+                elif i == end_index:
+                    ax.plot(k,step0_v,marker='o',fillstyle='none',**kargs)
+
+                step0_k = k
+                step0_v = v
 
         elif method == 'function':
-                tsx = get_plot_range(self.first(),self.last(),ts_grain,use_datetime=self.using_datetime())
+                tsx = get_plot_range(self.first(),self.last(),interval,use_datetime=self.using_datetime())
                 ax.step(tsx,self.step(tsx), where=where, **kargs)
-                
-        elif method == 'smooth':      
-            # small offset to ensure we plot the initial step transition
-            if self.using_datetime():
-                ts_grain = pd.Timedelta(minutes=1)
-                np_keys = prepare_datetime(np_keys)
+        elif method == 'smooth_function':
+                tsx = get_plot_range(self.first(),self.last(),interval,use_datetime=self.using_datetime())
+                ax.plot(tsx,self.smooth_step(tsx,smooth_factor = smooth_factor, smooth_basis=smooth_basis), **kargs)
+        elif method == 'smooth':
+            if np_keys.shape[0] < 20:
+                tsx = get_plot_range(self.first(),self.last(),interval,use_datetime=self.using_datetime())
+                ax.plot(tsx,self.smooth_step(tsx,smooth_factor = smooth_factor, smooth_basis=smooth_basis), **kargs)
             else:
-                ts_grain = 0.000000000001
-                
-            if np_keys[0] == get_epoch_start(self.using_datetime()):
-                np_keys[0] = np_keys[1] - ts_grain
-            elif not reverse_step:
-                np_keys = np.insert(np_keys,0,np_keys[0] - ts_grain)
-                np_values = np.insert(np_values,0,0)
-                np_keys[0] = np_keys[0] - ts_grain
+                # small offset to ensure we plot the initial step transition
+                if self.using_datetime():
+                    offset = pd.Timedelta(minutes=1)
+                    np_keys = prepare_datetime(np_keys)
+                else:
+                    offset = 0.000000000001
+                    
+                if np_keys[0] == get_epoch_start(self.using_datetime()):
+                    np_keys[0] = np_keys[1] - offset
+                elif not reverse_step:
+                    np_keys = np.insert(np_keys,0,np_keys[0] - offset)
+                    np_values = np.insert(np_values,0,0)
+                    np_keys[0] = np_keys[0] - offset
 
-            ax.plot(np_keys,self.smooth_step(np_keys,smooth_factor = smooth_factor, smooth_basis=smooth_basis), **kargs)
+                ax.plot(np_keys,self.smooth_step(np_keys,smooth_factor = smooth_factor, smooth_basis=smooth_basis), **kargs)
         else:
             # small offset to ensure we plot the initial step transition
             if self.using_datetime():
-                ts_grain = pd.Timedelta(minutes=1)
+                offset = pd.Timedelta(minutes=1)
                 np_keys = prepare_datetime(np_keys)
             else:
-                ts_grain = 0.0000000001
+                offset = 0.0000000001
             
             if np_keys[0] == get_epoch_start(self.using_datetime()):
-                np_keys[0] = np_keys[1] - ts_grain
+                np_keys[0] = np_keys[1] - offset
             elif not reverse_step:
-                np_keys = np.insert(np_keys,0,np_keys[0] - ts_grain)
+                np_keys = np.insert(np_keys,0,np_keys[0] - offset)
                 np_values = np.insert(np_values,0,0)
-                np_keys[0] = np_keys[0] - ts_grain
+                np_keys[0] = np_keys[0] - offset
 
 
             ax.step(np_keys,np_values, where=where, **kargs)
@@ -199,7 +237,7 @@ class StepsPlottingMixin(ABC):
         return ax
 
 
-    def plot_rolling_step(self,rolling_function=None, window=5, pre_mid_post='mid',ts_grain=None,ax=None,**kargs):
+    def plot_rolling_step(self,rolling_function=None, window=5, pre_mid_post='mid',ax=None,**kargs):
         """
         Plot the result of applying a reduction function to a rolling window across the step values.
 
@@ -216,9 +254,6 @@ class StepsPlottingMixin(ABC):
 
         ax : Matplotlib.Axes
             The plot axis to create the plot on if being created externally.
-
-        ts_grain : Timedelta, Optional
-            The delta time precision to use when binning the data if using axis = 1 and the data type is datetime like.
 
         **kargs : 
             Matplotlib key-value paramters to pass to the plot.
@@ -250,15 +285,15 @@ class StepsPlottingMixin(ABC):
         
         # small offset to ensure we plot the initial step transition
         if self.using_datetime():
-            ts_grain = pd.Timedelta(minutes=1)
+            offset = pd.Timedelta(minutes=1)
             np_keys = prepare_datetime(np_keys)
         else:
-            ts_grain = 0.0000001
+            offset = 0.0000001
 
         if np_keys[0] == get_epoch_start(self.using_datetime()):
-            np_keys[0] = np_keys[1] - ts_grain
+            np_keys[0] = np_keys[1] - offset
         else:
-            np_keys[0] = np_keys[0] - ts_grain
+            np_keys[0] = np_keys[0] - offset
 
         x,y = self.rolling_function_step(np_keys,rolling_function=rolling_function,window=window,pre_mid_post=pre_mid_post)
         ax.plot(x,y,**kargs)
@@ -455,7 +490,7 @@ class StepsPlottingMixin(ABC):
         return ax
 
 
-    def histogram_plot(self, bins=20,axis=0,precision=2,ts_grain = None,ax=None,label_style='bins',**kargs):
+    def histogram_plot(self, bins=20,axis=0,precision=2,offset = None,ax=None,label_style='bins',**kargs):
         """
         Plot a histogram of the cummulative step values.
 
@@ -475,7 +510,7 @@ class StepsPlottingMixin(ABC):
         ax : Matplotlib.Axes
             The plot axis to create the plot on if being created externally.
 
-        ts_grain : Timedelta, Optional
+        offset : Timedelta, Optional
             The delta time precision to use when binning the data if using axis = 1 and the data type is datetime like.
 
         label_style : str, Optional
@@ -498,7 +533,7 @@ class StepsPlottingMixin(ABC):
         
         """
 
-        x,y = histogram(self, bins=bins,axis=axis,ts_grain = ts_grain)
+        x,y = histogram(self, bins=bins,axis=axis)
 
         if ax is None:
             plot_size = kargs.pop('figsize',None)
