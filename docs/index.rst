@@ -19,7 +19,14 @@ HotStepper is a Numpy based step function analysis and exploration library that 
 
 Some use cases for the HotStepper package are the analysis of count and discontinuous data (queues, forex, trips etc.). It's all about tools that just work and no need for extensive knowledge of Pandas or Numpy or whatever, just HotStepper. Analysis and exploration should take less code!
 
+Introducing Sequency Analysis!
+======================================
 
+.. toctree::
+   :maxdepth: 1
+
+   sequency_methods.rst
+   sequency.rst
 
 What do you want to know?
 ======================================

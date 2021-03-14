@@ -117,7 +117,7 @@ def ecdf(steps):
 
     _, steps_raw = get_clean_step_data(steps)
     x = np.sort(steps_raw)
-    y = np.arange(0, len(x),dtype=np.float) / len(x)
+    y = np.arange(0, len(x),dtype=float) / len(x)
 
     return x,y
 

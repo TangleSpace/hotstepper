@@ -112,7 +112,12 @@ class AbstractSteps(ABC):
             nice_data = nice_data[:-1]
 
         if convert_keys and self._using_dt:
-            nice_data[:,DataModel.START.value] = prepare_datetime(nice_data[:,DataModel.START.value])
+            nice_data = np.array(list(zip(prepare_datetime(nice_data[:,DataModel.START.value]),nice_data[:,DataModel.DIRECTION.value])))
+
+            if nice_data[0,DataModel.START.value] == get_epoch_start():
+                nice_data[0,DataModel.START.value] = nice_data[1,DataModel.START.value]
+        else:
+            return self._all_data[:,DataModel.START.value]
 
         return nice_data
 
@@ -141,6 +146,7 @@ class AbstractSteps(ABC):
     def step_changes(self):
         """
         The individual step changes at each key value, these are the delta values that add and subtract across the series to realise the entire step function.
+
 
         Returns
         ========
@@ -200,9 +206,14 @@ class AbstractSteps(ABC):
         return self._all_data[:,DataModel.WEIGHT.value]
 
 
-    def step_keys(self):
+    def step_keys(self,convert_keys=False):
         """
-        The step key values within this object.
+        The step key values within this object, can be returned either in raw float format or converted if using datetime.
+
+        Parameters
+        ===========
+        convert_keys : bool Optional
+            If the keys are datetime, they will be converted, else they will remain floats.
 
 
         Returns
@@ -212,7 +223,14 @@ class AbstractSteps(ABC):
 
         """
 
-        return self._all_data[:,DataModel.START.value]
+        if convert_keys and self._using_dt:
+            keys = prepare_datetime(self._all_data[:,DataModel.START.value],self._using_dt)
+            if keys[0] == get_epoch_start():
+                keys[0] = keys[1]
+            
+            return keys
+        else:
+            return self._all_data[:,DataModel.START.value]
 
 
     def __getitem__(self,x):

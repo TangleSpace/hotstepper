@@ -163,19 +163,19 @@ class Steps(
         return self
 
 
-    def add_direct(self,pd_data_start=None,pd_data_end=None,pd_data_weight=None):
+    def add_direct(self,data_start=None,data_end=None,data_weight=None):
         """
         Add an array of individual step objects to this collection of steps.
 
         Parameters
         ==============
-        pd_data_start : array_like, Optional
+        data_start : array_like, Optional
             Array of values that represent the step start key locations.
 
-        pd_data_end : array_like, Optional
+        data_end : array_like, Optional
             Array of values that represent the step end key locations.
 
-        pd_data_weight : array_like, Optional
+        data_weight : array_like, Optional
             Array of values that represent the step values.
 
         .. note:: Note
@@ -187,22 +187,22 @@ class Steps(
 
         """
 
-        if pd_data_start is not None:
-            pd_data_start = np.array(pd_data_start)
-            self._using_dt = self._using_dt or is_date_time(pd_data_start[0])
+        if data_start is not None:
+            data_start = np.array(data_start)
+            self._using_dt = self._using_dt or is_date_time(data_start[0])
         
-        if pd_data_end is not None:
-            pd_data_end = np.array(pd_data_end)
-            self._using_dt = self._using_dt or is_date_time(pd_data_end[0])
+        if data_end is not None:
+            data_end = np.array(data_end)
+            self._using_dt = self._using_dt or is_date_time(data_end[0])
 
-        if pd_data_weight is not None:
-            pd_data_weight = np.array(pd_data_weight)
+        if data_weight is not None:
+            data_weight = np.array(data_weight)
 
 
         if self._step_data is None:
-            self._step_data = np.array(list(self._process_data(pd_data_start,pd_data_end,pd_data_weight,use_datetime=self._using_dt)))
+            self._step_data = np.array(list(self._process_data(data_start,data_end,data_weight,use_datetime=self._using_dt)))
         else:
-            self._step_data = np.concatenate([self._step_data,np.array(list(self._process_data(pd_data_start,pd_data_end,pd_data_weight,use_datetime=self._using_dt)))],axis=0)
+            self._step_data = np.concatenate([self._step_data,np.array(list(self._process_data(data_start,data_end,data_weight,use_datetime=self._using_dt)))],axis=0)
 
         self._recalculate()
         

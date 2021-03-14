@@ -7,7 +7,8 @@ It's all about tools that just work and no need for extensive knowledge of Panda
 
 <p align="center">
 	<a href="https://pepy.tech/project/hotstepper/" alt="PyPI downloads">
-        <img src="https://static.pepy.tech/personalized-badge/hotstepper?period=total&units=international_system&left_color=black&right_color=brightgreen&left_text=Downloads" /></a>
+	<img src="https://pepy.tech/badge/hotstepper" />
+	</a>
     <a href="https://www.python.org/" alt="Python version">
         <img src="https://img.shields.io/pypi/pyversions/hotstepper" /></a>
     <a href="https://pypi.org/project/hotstepper/" alt="PyPI version">
@@ -36,6 +37,7 @@ Conda install coming soon!
 	<a href="https://mybinder.org/v2/gh/TangleSpace/hotstepper/master?filepath=docs%2Fexamples" alt="Binder">
         <img src="https://mybinder.org/badge_logo.svg" /></a>
 </p>
+
 
 ## Documentation
 Everything (mostly) you want to know about HotStepper and making use in your workflow is here [Read the Docs](https://hotstepper.readthedocs.io/)
