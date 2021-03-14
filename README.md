@@ -39,6 +39,10 @@ Conda install coming soon!
 </p>
 
 
+## Introducing Sequency Analysis!
+A very exciting (atleast to me) new addition to HotStepper, the ability to perform Fourier like transforms and analysis, using dedicated basis functions that are directly suited to step functions and step data, (<a href="https://en.wikipedia.org/wiki/Walsh_function">Walsh functions!</a>). Have a look at the <a href="https://hotstepper.readthedocs.io/notebooks/sequency_quickstart.html">Sequency Analysis Quickstart</a>, for a taste of more analysis power to come.
+
+
 ## Documentation
 Everything (mostly) you want to know about HotStepper and making use in your workflow is here [Read the Docs](https://hotstepper.readthedocs.io/)
 
