@@ -370,7 +370,7 @@ class AbstractSteps(ABC):
                 smooth_factor = self._get_auto_smooth_factor()
 
             if smooth_basis is None:
-                self.rebase(new_basis=Basis(Bases.logit,param=smooth_factor))
+                self.rebase(new_basis=Basis(Bases.logistic,param=smooth_factor))
             else:
                 self.rebase(new_basis=smooth_basis)
 

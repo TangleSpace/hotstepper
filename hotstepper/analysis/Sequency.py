@@ -113,7 +113,7 @@ class Sequency():
         scale : int, Optional
             The scale (length) of the Walsh functions to use when performing the inverse Walsh transform.
 
-            ..note::
+            .. note::
                 This value must be a multiple of 2 or an exception will be raised.
 
 
@@ -144,9 +144,57 @@ class Sequency():
             return iwt[:return_length]
 
 
-    def denoise(self,input_values,basis_span='post',pad_mode='constant',denoise_strength=0.5):
+    def denoise(self,input_values,method='walsh', basis_span='post',pad_mode='constant', denoise_mode='value',denoise_strength=0.5):
         """
-        Perform a Fast Discrete Walsh Transform on the input data, selectively remove high sequency components by setting their amplitudes to zero, then reconstruct the original dataset by performing an inverse Walsh transform on the remaining amplitudes.
+        Perform a denoise operation on the input_values using either Walsh or Fourier method.
+
+        Parameters
+        ============
+        input_values : array_like
+            The data to be denoised via Walsh transform.
+
+        method : {'walsh', 'fourier}, Optional
+            The denoise method to apply to the data.
+             - **walsh**, use a Walsh decomposition to produce the components to modify for denoising.
+             - **fourier**, use a Fourier decomposition to produce the components to modify for denoising.
+
+        basis_span : {'post','pre'}, Optional
+            How long the Walsh basis functions should be relative to the input data.
+             - **post** will extend the Walsh basis to the next length beyond the input data length that is a power of 2.
+             - **pre** will truncate the Walsh basis to the next length less than the input data length that is a power of 2.
+
+        pad_mode : {None, 'edge','constant'}, Optional
+            This is how the input data is to be padded to match the requirement of each Walsh basis being a length which is a power of 2.
+
+            .. note::
+                The allowable parameters are the same as those for the Numpy.pad function and therefore any valid mode string or function
+                can be used here and it will be passed to the Numpy.pad function.
+        
+        denoise_mode : {'range', 'value'}, Optional
+            The type of filtering to use.
+             - **range** will remove a proportion of the higher sequency/frequency components based on the denoise_strength value.
+             - **value** will remove the sequency/frequency components that are below the value based on the denoise_strength.
+
+
+        denoise_strength : float, Optional
+            The strength of the denoising, this parameter controls how the components are altered in order to denoise the input_data.
+
+        Returns
+        =============
+        array
+            denoised data
+
+        """
+
+        if method == 'walsh':
+            return self._walsh_denoise(input_values=input_values,basis_span=basis_span,pad_mode=pad_mode, denoise_mode=denoise_mode,denoise_strength=denoise_strength)
+        else:
+            return self._fourier_denoise(input_values=input_values,denoise_mode=denoise_mode,denoise_strength=denoise_strength)
+
+
+    def _walsh_denoise(self,input_values,basis_span='post',pad_mode='constant', denoise_mode='value',denoise_strength=0.5):
+        """
+        Perform a Fast Discrete Walsh Transform on the input data, selectively removing sequency components by setting their amplitudes to zero, then reconstruct the original dataset by performing an inverse Walsh transform on the remaining amplitudes.
         
 
         Parameters
@@ -165,15 +213,20 @@ class Sequency():
             .. note::
                 The allowable parameters are the same as those for the Numpy.pad function and therefore any valid mode string or function
                 can be used here and it will be passed to the Numpy.pad function.
-                
-        denoise_strength : float, Optional
-            The strength of the denoising, this parameter controls how many of the high sequency Walsh functions are removed. As the value approaches 1, more Walsh functions will be removed. A value of 0 will not remove any components.
+        
+        denoise_mode : {'range', 'value'}, Optional
+            The type of filtering to use.
+             - **range** will remove a proportion of the higher sequency components based on the denoise_strength value.
+             - **value** will remove the sequency components that are below the value based on the denoise_strength.
 
+
+        denoise_strength : float, Optional
+            The strength of the denoising, this parameter controls how the components are altered in order to denoise the input_data.
 
         Returns
         =============
         array
-            reconstructed dataset with high sequencies removed
+            denoised data
 
         """
 
@@ -182,10 +235,57 @@ class Sequency():
         _,wt,sc = self.fwt(input_values=input_values,basis_span=basis_span,pad_mode=pad_mode)
 
         if denoise_strength >= 0 and denoise_strength < 1:
-            filter_idx = int(denoise_strength*sc)
-            wt[-filter_idx:] = 0
+            if denoise_mode == 'range':
+                filter_idx = int(denoise_strength*sc)
+                wt[-filter_idx:] = 0
+            else:
+                denoise_threshold = np.amax(np.absolute(wt))*denoise_strength
+                wt = np.where(np.absolute(wt)>denoise_threshold, wt, 0)
 
         return self.ifwt(wt,scale=sc,return_length=l)
+
+
+    def _fourier_denoise(self,input_values, denoise_mode='value',denoise_strength=0.5):
+        """
+        Perform a Fast Discrete Fourier Transform on the input data, selectively removing frequency components by setting their amplitudes to zero, then reconstruct the original dataset by performing an inverse Fourier transform on the remaining amplitudes.
+        
+
+        Parameters
+        ============
+        input_values : array_like
+            The data to be denoised via Walsh transform.
+
+
+        denoise_mode : {'range', 'value'}, Optional
+            The type of filtering to use.
+             - **range** will remove a proportion of the higher frequency components based on the denoise_strength value.
+             - **value** will remove the frequency components that are below the value based on the denoise_strength.
+
+
+        denoise_strength : float, Optional
+            The strength of the denoising, this parameter controls how the components are altered in order to denoise the input_data.
+
+
+        Returns
+        =============
+        array
+            denoised data
+
+        """
+
+        l = len(input_values)
+
+        _,ft = self.fft(input_values)
+
+        if denoise_strength >= 0 and denoise_strength < 1:
+            if denoise_mode == 'range':
+                    filter_idx = int(denoise_strength*len(ft))
+                    ft[-filter_idx:] = 0
+            else:
+                denoise_threshold = np.amax(np.absolute(ft))*denoise_strength
+                ft = np.where(np.absolute(ft)>denoise_threshold, ft, 0)
+
+        return self.ifft(ft)
 
 
     def sequency_spectrum(self, input_values,pad_mode='constant',**kargs):
@@ -219,6 +319,44 @@ class Sequency():
         return sf, np.power(wm,2)/(np.sum(np.power(wm,2))),sc
 
 
+    def frequency_spectrum(self,data,sampling_frequency=1):
+        """
+        A basic implementation of the Fast Fourier Transform power spectrum as implemented in Numpy.fft.fft.
+
+        Parameters
+        =============
+        data : array_like
+            The data that the frequency spectrum is generated from.
+
+        sampling_frequency : int, Optional
+            The sampling frequency used to scale the frequency spectrum, specifically this will need to be tuned based on your data as different scalings will be required to suit the type and density of data points.
+
+        Returns
+        ===========
+        tuple(array, array)
+            frequencies, spectrum_amplitudes
+
+        See Also
+        ===========
+        Sequency.sequency_spectrum
+
+        References
+        =================
+        .. https://numpy.org/doc/stable/reference/routines.fft.html
+
+        """
+
+        fourierTransform = np.fft.fft(data)/len(data)
+        fourierTransform = fourierTransform[range(int(len(data)/2))]
+
+        tpCount=len(data)
+        values=np.arange(int(tpCount/2))
+        timePeriod=tpCount/sampling_frequency
+        frequencies=values/timePeriod
+
+        return frequencies, np.absolute(fourierTransform)/(np.sum(np.absolute(fourierTransform)))
+
+
     def fft(self,data,sampling_frequency=1):
         """
         A basic implementation of the Fast Fourier Transform as implemented in Numpy.fft.fft.
@@ -238,7 +376,7 @@ class Sequency():
 
         See Also
         ===========
-        Sequency.fwt
+        Sequency.sequency_spectrum
 
         References
         =================
@@ -246,12 +384,41 @@ class Sequency():
 
         """
 
-        fourierTransform = np.fft.fft(data)/len(data)
-        fourierTransform = fourierTransform[range(int(len(data)/2))]
+        fourierTransform = np.fft.fft(data)
+        #fourierTransform = fourierTransform[range(int(len(data)/2))]
 
         tpCount=len(data)
         values=np.arange(int(tpCount/2))
         timePeriod=tpCount/sampling_frequency
         frequencies=values/timePeriod
 
-        return frequencies, abs(fourierTransform)    
+        return frequencies, fourierTransform
+
+
+    def ifft(self,data):
+        """
+        A basic implementation of the inverse Fast Fourier Transform as implemented in Numpy.fft.ifft.
+
+        Parameters
+        =============
+        data : array_like
+            The Fourier transform data that is to be inverted back into the time domain.
+
+        Returns
+        ===========
+        array
+            data
+
+        See Also
+        ===========
+        Sequency.ifwt
+
+        References
+        =================
+        .. https://numpy.org/doc/stable/reference/routines.ifft.html
+
+        """
+
+        ifourierTransform = np.fft.ifft(data)
+
+        return ifourierTransform

@@ -37,7 +37,7 @@ class Bases(ABC):
 
     @staticmethod
     @njit(parallel=True,nogil=True)
-    def logit(x,steps,param):
+    def logistic(x,steps,param):
         result = np.zeros(x.shape[0])
 
         for i in nb.prange(steps.shape[0]):

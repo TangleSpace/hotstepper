@@ -25,7 +25,7 @@ class Steps(
     AbstractSteps):
 
 
-    """
+    r"""
     Class representing a complex step function made of individual step objects. The Steps object can be treated as a 
     mathemtical function in Numpy and as a Python object.
 
@@ -68,20 +68,19 @@ class Steps(
 
     basis: Basis, Optional
         The is the basis function that will be used for all steps associated with this step function. The default basis -> Basis() is the Heaviside function
-
+    
     .. math::
         :nowrap:
-
-        \\begin{eqnarray}
-            y    & = & ax^2 + bx + c \\\\
-            f(x) & = & x^2 + 2xy + y^2
-        \\end{eqnarray}
-
-        \\theta = \\{
-            \\begin{eqnarray}
-                0 & \\quad t < 0 \\\\
-                1 & \\quad t \\geq 0
-            \\end{eqnarray}
+    
+        \begin{equation*}
+        \theta(t) = \left\{
+                \begin{array}{ll}
+                    0 & \quad t < 0 \\
+                    1 & \quad t \geq 0
+                \end{array}
+        \right\}
+        \;\;\;\;\; where \;t \in \mathbb{R}
+        \end{equation*}
 
     """
 

@@ -44,16 +44,17 @@ weight : int, float, Optional
     A quick convenience parameter if this Steps object consists of 1 or 2 steps, the weight is the step value.
 
 basis: Basis, Optional
-    The is the basis function that will be used for all steps associated with this step function. The default basis -> Basis() is the Heaviside function
+    The basis function that will be used for all step data associated with this steps object. The default basis -> Basis() is the Heaviside function
 
 .. math::
-    \begin{eqnarray}
-        y    & = & ax^2 + bx + c \\
-        f(x) & = & x^2 + 2xy + y^2
-    \end{eqnarray}
-
-    \theta = \{
-        \\begin{eqnarray}
-            0 & \quad t < 0 \\
-            1 & \quad t \geq 0
-    \end{eqnarray}
+   :nowrap:
+   
+    \begin{equation*}
+    \theta(t) = \left\{
+            \begin{array}{ll}
+                0 & \quad t < 0 \\
+                1 & \quad t \geq 0
+            \end{array}
+    \right\}
+    \;\;\;\;\; where \;t \in \mathbb{R}
+    \end{equation*}

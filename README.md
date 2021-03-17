@@ -50,7 +50,10 @@ Everything (mostly) you want to know about HotStepper and making use in your wor
 Sample data is located here: <a href="https://github.com/TangleSpace/hotstepper-data">hotstepper-data</a>.
 I'd like to thank the Staircase package owner for currating some of these datasets, thanks Riley!
 
-## Step Functions, ah?
+## Step Functions
+Behold! the power of the [Heaviside step function](https://en.wikipedia.org/wiki/Heaviside_step_function)
+
+### Ok, don't packup just yet.
 <p align="center"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/temperature.gif" title="Daily Temperature" alt="Daily Temperature", width="50%" height="50%"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/store.gif" title="Store" alt="Store", width="50%" height="50%"></p>
 
 What the f*&^ is a step function you may ask? Have you ever seen some stairs?, this is an equal oppotunity package, so you may be in a wheel chair and unable to use stairs in the typical way, so just having seen some stairs will suffix.

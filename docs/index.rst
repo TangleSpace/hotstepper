@@ -5,6 +5,22 @@
 
 .. rst-class:: center
 
+Behold! the power of the `Heaviside step function <https://en.wikipedia.org/wiki/Heaviside_step_function>`__ 
+
+.. math::
+   :nowrap:
+   
+    \begin{equation*}
+    \theta(t) = \left\{
+            \begin{array}{ll}
+                0 & \quad t < 0 \\
+                1 & \quad t \geq 0
+            \end{array}
+    \right\}
+    \;\;\;\;\; where \;t \in \mathbb{R}
+    \end{equation*}
+
+
 **Date**: |today| **Version**: |release|
 
 .. rst-class:: center
@@ -19,7 +35,7 @@ HotStepper is a Numpy based step function analysis and exploration library that 
 
 Some use cases for the HotStepper package are the analysis of count and discontinuous data (queues, forex, trips etc.). It's all about tools that just work and no need for extensive knowledge of Pandas or Numpy or whatever, just HotStepper. Analysis and exploration should take less code!
 
-Introducing Sequency Analysis!
+Sequency Analysis
 ======================================
 
 .. toctree::
