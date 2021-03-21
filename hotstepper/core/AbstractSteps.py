@@ -366,12 +366,18 @@ class AbstractSteps(ABC):
         using_default = self._basis.name == 'Heaviside'
         #check we don't already have a new basis assigned
         if using_default:
-            if smooth_factor is None:
-                smooth_factor = self._get_auto_smooth_factor()
+            
 
             if smooth_basis is None:
+                if smooth_factor is None:
+                    smooth_factor = self._get_auto_smooth_factor()
                 self.rebase(new_basis=Basis(Bases.logistic,param=smooth_factor))
             else:
+                # Override basis param is we got smooth_factor
+                if smooth_factor is not None:
+                    smooth_basis.param = smooth_factor
+                    #smooth_factor = self._get_auto_smooth_factor()
+
                 self.rebase(new_basis=smooth_basis)
 
         if self._step_data.shape[0] > 0:
@@ -408,14 +414,19 @@ class AbstractSteps(ABC):
 
 
     def __iter__(self):
-        self._index = 0
-        return iter([type(self)(self._using_dt).add_steps([s]) for s in self._step_data])
+        
+        if self._step_data[0,DataModel.START.value] == get_epoch_start(False):
+            self._index = 1
+            return iter([type(self)(self._using_dt).add_steps([s]) for s in self._step_data[1:]])
+        else:
+            self._index = 0
+            return iter([type(self)(self._using_dt).add_steps([s]) for s in self._step_data])
 
 
     def __next__(self):
         if self._index < self._step_data.shape[0]:
             self._index += 1
-            return type(self)(self._using_dt).add_steps(self._step_data[self._index-1])
+            return type(self)(self._using_dt).add_steps([self._step_data[self._index-1]])
         else:
             self._index = 0
             raise StopIteration

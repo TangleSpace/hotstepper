@@ -63,17 +63,18 @@ class StepsPlottingMixin(ABC):
         Matplotlib.Axes
             A reference to the plot axes object to allow further plotting on the same axes.
 
+        Examples
+        ==========
+
+        .. plot::
+            :context: close-figs
+
+            st = Step(5,10,3) + Step(6,weight=2)
+            ax = st.smooth_plot(smooth_factor=2)
+            st.plot(ax=ax,color='g')
+            ax.set_title('Smooth Steps Plot')
+
         """
-        # Examples
-        # ==========
-
-        # .. plot::
-        #     :context: close-figs
-
-        #     st = Step(5,10,3) + Step(6,weight=2)
-        #     ax = st.smooth_plot(smooth_factor=2,offset=0.01)
-        #     st.plot(ax=ax,color='g')
-        #     ax.set_title('Smooth Steps Plot')
 
         return self.plot(method='smooth',smooth_factor = smooth_factor,smooth_basis=smooth_basis,interval = interval,ax=ax,where=where,**kargs)
 
@@ -111,22 +112,24 @@ class StepsPlottingMixin(ABC):
         Matplotlib.Axes
             A reference to the plot axes object to allow further plotting on the same axes.
 
+        Examples
+        ==========
+
+        .. plot::
+            :context: close-figs
+
+            s1 = Step(5,10,3)
+            s2 = Step(6,weight=2)
+            st = s1 + s2
+            ax = s1.plot(color='r',figsize=(8,4))
+            s2.plot(ax=ax,method='function')
+            s2.plot(ax=ax,method='smooth')
+            st.plot(ax=ax)
+            st.smooth_plot(ax=ax)
+
+            ax.set_title('Steps Plot')
+            
         """
-
-        # Examples
-        # ==========
-
-        # .. plot::
-        #     :context: close-figs
-
-        #     s1 = Step(5,10,3)
-        #     s2 = Step(6,weight=2)
-        #     st = s1 + s2
-        #     ax = s1.plot(color='r')
-        #     s2.plot(ax=ax,color='g',method='function')
-        #     st.plot(ax=ax)
-
-        #     ax.set_title('Steps Plot')
 
         if ax is None:
             plot_size = kargs.pop('figsize',None)

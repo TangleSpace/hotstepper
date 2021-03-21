@@ -32,21 +32,25 @@ Behold! the power of the `Heaviside step function <https://en.wikipedia.org/wiki
 .. rst-class:: center
 
 HotStepper is a Numpy based step function analysis and exploration library that trys (not always) to follow general patterns established by Numpy in order to implement step and smoothing functions by way of a linear algebra approach.
-
 Some use cases for the HotStepper package are the analysis of count and discontinuous data (queues, forex, trips etc.). It's all about tools that just work and no need for extensive knowledge of Pandas or Numpy or whatever, just HotStepper. Analysis and exploration should take less code!
 
-Sequency Analysis
+**Step Functions**
 ======================================
+.. toctree::
+   :maxdepth: 1
 
+   step_functions.rst
+
+**Sequency Analysis**
+======================================
 .. toctree::
    :maxdepth: 1
 
    sequency_methods.rst
    sequency.rst
 
-What do you want to know?
+**What do you want to know?**
 ======================================
-
 .. toctree::
    :maxdepth: 1
 

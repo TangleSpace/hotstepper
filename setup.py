@@ -8,7 +8,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setuptools.setup(
     name='hotstepper',
-    version='1.0.9',
+    version='1.0.10',
     description='Numpy based step function library.',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -24,12 +24,10 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     classifiers=[
         'Operating System :: OS Independent',
-        'Intended Audience :: Science/Research/Analysis',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
-        'Topic :: Scientific/Engineering/Analysis',
     ],
     install_requires=[
         'numpy',

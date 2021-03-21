@@ -108,14 +108,24 @@ Bases
             :nowrap:
 
             \begin{equation*}
-            \gamma(t,\alpha) =1-exp\left(-\frac{t}{\alpha} \right)
+            \gamma(t,\alpha) =exp\left(-exp\left(-\frac{t}{\alpha} \right)\right)
             \;\;\;\;\; where \;t,\; \alpha \in \mathbb{R}
             \end{equation*}
+
+     - Normal
+        .. math::
+            :nowrap:
+
+            \begin{equation*}
+            \gamma(t,\alpha) =exp\left(-\frac{t^2}{\alpha} \right)
+            \;\;\;\;\; where \;t,\; \alpha \in \mathbb{R}
+            \end{equation*}
+
      - Sinc
         .. math::
             :nowrap:
 
             \begin{equation*}
-            \gamma(t,\alpha) =\frac{sin\left(\frac{t}{\alpha} \right)}{\left(\frac{t}{\alpha} \right)}
+            \gamma(t,\alpha) =\frac{sin\left(\frac{t}{\alpha} \right)}{\left(t \right)}
             \;\;\;\;\; where \;t,\; \alpha \in \mathbb{R}
             \end{equation*}

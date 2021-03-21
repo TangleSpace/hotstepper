@@ -16,10 +16,11 @@ class Bases(ABC):
     The mathematical bases defined within this class are;
 
     Heaviside
-    Logit
+    Logistic
     Sigmoid
     Arctan
     Exponential
+    Normal
     Sinc
     
     """
@@ -70,11 +71,21 @@ class Bases(ABC):
 
     @staticmethod
     @njit(parallel=True,nogil=True)
-    def expon(x,steps,param):
+    def exponential(x,steps,param):
         result = np.zeros(len(x))
 
         for i in nb.prange(steps.shape[0]):
-            result += steps[i,2]*(1.0 - np.exp(-1*steps[i,1]*(x-steps[i,0])/param))
+            result += steps[i,2]*(np.exp(-1*np.exp(-1*steps[i,1]*(x-steps[i,0])/param)))
+
+        return result
+
+    @staticmethod
+    @njit(parallel=True,nogil=True)
+    def normal(x,steps,param):
+        result = np.zeros(len(x))
+
+        for i in nb.prange(steps.shape[0]):
+            result += steps[i,2]*(np.exp((-1/param)*(steps[i,1]*(x-steps[i,0]))**2))
 
         return result
 
@@ -85,7 +96,7 @@ class Bases(ABC):
         result = np.zeros(len(x))
             
         for i in nb.prange(steps.shape[0]):
-            result += steps[i,2]*np.sinc(steps[i,1]*(x-steps[i,0])/param)
+            result += steps[i,2]*(np.sinc(steps[i,1]*(x-steps[i,0])/param))/param
 
         return result
 

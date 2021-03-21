@@ -25,7 +25,7 @@ Basic methods
 
 .. _api.plot_functions:
 
-Plotting functions
+Plotting methods
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. autosummary::
    :toctree: api/
@@ -42,7 +42,7 @@ Plotting functions
 
 .. _api.class_loader_functions:
 
-Class Loader functions
+Class Loader methods
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 .. autosummary::
@@ -54,7 +54,7 @@ Class Loader functions
 
 .. _api.instant_loader_functions:
 
-Instance Loader functions
+Instance Loader methods
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. autosummary::
@@ -66,7 +66,7 @@ Instance Loader functions
 
 .. _api.step_functions:
  
-Step Functions
+Step methods
 ~~~~~~~~~~~~~~~~~~~~
 
 .. autosummary::
@@ -145,7 +145,7 @@ Summary statistics
    Steps.histogram
    
    
-Miscellaneous functions
+Miscellaneous methods
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. autosummary::
