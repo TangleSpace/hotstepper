@@ -50,7 +50,7 @@ I'd like to thank the Staircase package owner for currating some of these datase
 
 ## Step Functions
 Behold! the power of the [Heaviside step function](https://en.wikipedia.org/wiki/Heaviside_step_function)
-Checkout a detailed, somewhat, probably <a href="https://hotstepper.readthedocs.io/notebooks/step_functions.html">very exciting, non-stop adventure ride</a> of through some of the, umm, math.....behind HotStepper and step functions. With any luck, someone will have a deadline tomorrow and HotStepper and step functions will save the day! Or atleast, I like to keep thinking that.
+Checkout a detailed, somewhat, probably <a href="https://hotstepper.readthedocs.io/notebooks/step_functions.html">very exciting, non-stop adventure ride</a> through some of the, umm, math.....behind HotStepper and step functions. With any luck, someone will have a deadline tomorrow and HotStepper and step functions will save the day! Or atleast, I like to keep thinking that.
 
 ### Ok, don't packup just yet.
 <p align="center"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/temperature.gif" title="Daily Temperature" alt="Daily Temperature", width="50%" height="50%"><img src="https://raw.githubusercontent.com/tanglespace/hotstepper/master/docs/images/store.gif" title="Store" alt="Store", width="50%" height="50%"></p>
